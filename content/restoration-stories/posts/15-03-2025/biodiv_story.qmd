@@ -1,0 +1,22 @@
+---
+title: "Biodiversity & FMNR: An Interactive Story"
+subtitle: "Learn about how FMNR practices shape dryland tree species diversity across the GGW" 
+author: SPACIAL | CIFOR-ICRAF
+date: "2025-03-15"
+image: "assets/thumbnail.png"
+categories: [restoration, biodiversity]
+format:
+  html:
+    toc: false
+    title-block: false
+    title-block-banner: false
+    page-layout: full
+resources:
+  - index.html  
+  - config.js 
+  - assets/** 
+---
+<iframe src="index.html"
+        style="position:absolute;top:0;left:0;width:100%;height:100%;border:none;">
+</iframe>
+

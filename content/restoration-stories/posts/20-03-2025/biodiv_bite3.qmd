@@ -1,0 +1,207 @@
+---
+title: ""
+description: "Scroll through to learn about biodiversity in FMNR sites from the Regreening Africa program"
+author: SPACIAL | CIFOR-ICRAF
+date: "2024/08/26"
+image: assets/thumbnail.png
+execute: 
+  eval: true
+  echo: false
+  warning: false
+freeze: auto
+format:
+  closeread-html:
+    css: biodiv_bite3.css
+    cr-style:
+      narrative-background-color-sidebar: "#2F4F4F"
+      narrative-text-color-sidebar: "#FFFFFF"
+      section-background-color: "#FFFFFF"
+      narrative-font-size: 14pt
+      narrative-font-family: Lato
+    remove-header-space: true
+    debug-mode: false
+    embed-resources: true
+---
+
+:::{.cr-section}
+
+:::{focus-on="cr-splash"}
+# Biodiversity in the Hands of Communities
+
+By SPACIAL | CIFOR-ICRAF
+
+:::
+
+<br>
+Biodiversity is central to effective landscape restoration, underpinning a wide range of ecosystem services - from soil health and water regulation to pollination and carbon storage. It also enhances resilience to climate shocks and informs conservation priorities.
+
+<br>
+In multifunctional landscapes, where restoration must support both ecological integrity and human livelihoods, biodiversity is critical for long-term sustainability, ensuring restoration efforts rebuild functioning, resilient ecosystems.
+
+:::{#cr-splash .scale-to-fill}
+![](assets/bd_landscape1.jpg)
+:::
+
+:::{focus-on="cr-map-shannon"}
+## A note on the data and analysis approach:
+Data from the citizen science [Regreening Africa App](https://regreeningafrica.org/in-the-news/the-regreening-africa-app/#:~:text=The%20Regreening%20Africa%20App%20is%20a%20mobile-based%20android,practices%20that%20allows%20for%20robust%20landscape%20level%20monitoring.) is used to analyse species diversity in FMNR restoration sites across six countries in sub-Saharan Africa. Farmers record species under management in their plots, allowing us to explore [**how many**]{style="color:#85FF00;"}, and [**which**]{style="color:#85FF00;"} species are being actively regenerated across landscapes.
+
+:::
+
+<br>
+In this article we explore species diversity from 13 administrative regions across six countries: [**Ethiopia, Kenya, Niger, Mali, Senegal**]{style="color:#85FF00;"} and [**Ghana**]{style="color:#85FF00;"}. Aggregating plot-level species records up to regional level lets us assess biodiversity using standard metrics, like the Shannon diversity index (H′). 
+
+<br>
+The Shannon Index (H') is statistical approach used in ecology to measure species diversity in a given site. Data is rarefied before computing both richness (number of species) and evenness (how equally individuals are distributed among species), providing a clear picture of species assemblages across landscapes. A low number indicates low diversity, while a high number reflects high diversity. 
+
+:::{#cr-map-shannon .scale-to-fill}
+![](assets/shannon_map2.png) <!-- violin plot of sp per plot -->
+:::
+
+:::{focus-on="cr-sp-plot"}
+While some regions - when aggregating records from all plots - have diverse plant communities, at the plot level species richness is much lower.
+<br><br>
+On average, farmers manage [**~4.2 trees per plot**]{style="color:#85FF00;"}, but these typically represent [**just ~1.3 distinct species**]{style="color:#85FF00;"}.
+<br><br>
+This indicates that while plots are vegetated, the diversity of species that farmers choose to manage within each site is low, and regeneration tends to centre on a few dominant or favoured species.
+
+:::
+
+<br>
+Regional variation in plot-level species counts reflect both ecological legacies, such as what species persist in the landscape, as well as management choices, where farmers prioritise certain species for their known benefits (e.g., soil fertility, fodder, fuelwood). 
+
+In drier or more degraded areas, species options may be limited by what naturally regenerates, while in more diverse regions, farmers may be managing a wider variety of regrowth.
+
+<br>
+This shows how regional-scale diversity emerges not from highly diverse individual plots, but from species turnover across many low-diversity sites. [**FMNR outcomes, therefore, are co-shaped by what landscapes offer but also what farmers choose to manage - underscoring the importance of social and ecological contexts in restoration.**]{style="color:#85FF00;"}
+
+:::{#cr-sp-plot .scale-to-fill}
+![](assets/violin_plot_count.png) 
+:::
+
+:::{focus-on="cr-bd-importance"}
+## Why monitor biodiversity?
+
+Dryland regions are often viewed as species-poor, yet our findings tell a very different story. Over 1,000 woody species were detected across our dataset. These local snapshots of biodiversity offer critical insight into the multifunctional potential of landscapes under restoration.
+:::
+
+<br>
+In ecosystems facing pressures from degradation and climate variability, diverse plant communities can strengthen resilience, supporting a range of ecological roles: stabilising soils, water retention, improving nutrient cycling, and supporting recovery after disturbance.
+
+<br>
+Monitoring biodiversity at local levels allows us to [**detect degradation early, prioritise areas for targeted intervention, and measure how well restoration is working**]{style="color:#85FF00;"} - not just by how green it looks, but by what species are coming back. 
+
+Sites with low diversity and high exotic or invasive presence may indicate ecological stress, while diverse, balanced assemblages may suggest healthier, recovering systems.
+
+:::{#cr-bd-importance .scale-to-fill}
+![](assets/shannon_bar.png)
+:::
+
+:::{focus-on="cr-bd-importance1"}
+## Where is biodiversity highest?
+
+The chart to the right shows Shannon diversity scores (H′) by region. Some regions in our dataset showed consistently higher species diversity than others, like Segou in Mali, Tillabery in Niger, Amhara in Ethiopia and Migori in Kenya. Others, like Thies in Senegal and Togdheer in Somalia have very low diversity scores.
+
+<br>
+These results could be due to strong selective preference of farmers - i.e., regions that have low diversity scores may not reflect low diversity in the landscape but rather strong preference for management of certain species, ignoring others - or, it could indeed reflect low species variation in the landscape.
+
+:::
+
+:::{#cr-bd-importance1 .scale-to-fill}
+![](assets/shannon_bar_top3.png)
+:::
+
+:::{focus-on="cr-migori"}
+## Migori, Kenya
+
+While species counts were more moderate in Migori (~ 44 unique species), this southwestern region of Kenya showed high native species dominance, with the most abundant species found in this region being *Afrocarpus gracilior* (n = 663), or African Fern Pine^, a tree favoured for its timber and shade. Other prominent species are *Balanites aegyptica* and *Ficus natalensis* both prized for medicinal purposes as well as for shade and windbreaks. 
+<br><br>
+Here, FMNR species selection reflects community values, favoring multifunctional trees that provide food, fodder, medicine, and shade, contributing to both biodiversity and livelihoods.
+<br><br>
+*^Noting that Acacia spp. is unable to be identified at species level.*
+
+:::
+
+:::{#cr-migori .scale-to-fill}
+![](assets/mig_sp_map_legend.png)
+:::
+
+:::{focus-on="cr-segou"}
+
+## Segou, Mali
+On the fringe of the Inner Niger Delta, Segou had ~90 distinct species and the highest Shannon diversity (H′ = 28). This relatively even distribution reflects high potential for ecosystem recovery, supported by a high variety of regenerating species. 
+<br><br>
+FMNR here supports key species like *Piliostigma reticulatum* - a native legume that improves soil fertility and stabilises exposed soils. Yet, the region faces intensifying threats from overharvesting and land conversion, making this diversity all the more important to safeguard.
+
+:::
+
+:::{#cr-segou .scale-to-fill}
+![](assets/seg_sp_map_legend.png)
+:::
+
+:::{focus-on="cr-tillabery"}
+## Tillabery, Niger
+
+Tillabery had the highest species richness (~150 species) and a Shannon score of H′ = 24. Located within a semi-arid savanna–shrubland mosaic, this region is home to *Ozoroa homblei*, a drought-tolerant native species found in large numbers (n = 19,114). Its ecological role includes stabilising soils and providing shade - crucial services in an increasingly fragile landscape. Other prominent species are *Sesbania sesban* and *Guiera senegalensis*, both prized for their potent medicinal properties.
+
+:::
+
+:::{#cr-tillabery .scale-to-fill}
+![](assets/til_sp_map_legend.png)
+:::
+
+:::{focus-on="cr-tree-img"}
+
+## Tree height of species under FMNR 
+
+An important aspect of monitoring biodiversity is understanding not only the diversity of species in the landscape but the diversity of functional traits. This can include things like leaf size and shape, leaf biochemistry, root depth, crown architecture and plant height. Understanding the diversity of these traits helps us identify the roles that different species play in ecosystems, and the different kinds of ecosystem services that they provide. 
+:::
+
+:::{#cr-tree-img .scale-to-fill}
+![](assets/a.indica_img.png)
+:::
+
+:::{focus-on="cr-tree-height"}
+Tree height, for example, gives insight into the stage of regeneration and how farmers are managing trees. In some places, like Ghana, Niger, Mali and Senegal, most trees under management are less than 1.5 metres tall, suggesting recent regrowth or heavy pruning. In others, trees exceed 3 metres, indicating more established, mature vegetation.
+:::
+
+:::{#cr-tree-height .scale-to-fill}
+![](assets/tree_height_bar.png)
+:::
+
+:::{focus-on="cr-tree-height"}
+This has implications for restoration monitoring:
+<br><br>
+➝ Shorter trees are often under more active management - pruning to encourage growth or protection from browsing. This can increase soil organic carbon (SOC) as plant residues are incorporated back into the soil, but may offer less erosion protection, since smaller canopies intercept less wind and rain.
+<br><br>
+➝ Taller trees provide greater structural cover, stabilising soils and creating microclimates that support biodiversity however may signal less intensive management.
+
+<br>
+In drylands and other systems under FMNR practices, many species invest early growth into deep roots rather than height, meaning short or juvenile trees may still play a significant ecological role belowground. Tree height can therefore also be a key indicator of management intensity, stage of ecosystem recovery, and ecological function, all key to monitoring and interpreting FMNR outcomes.
+
+:::
+
+:::{focus-on="cr-conclusion"}
+## Biodiversity in multifunctional landscapes
+
+Biodiversity patterns across FMNR landscapes are shaped by both ecological and cultural factors - what regenerates is shaped by what farmers choose to protect, based on use value, tradition, and ecological knowledge, and what existing tree stocks there are in the landscape. 
+
+<br><br>
+Participatory platforms and tools developed by CIFOR-ICRAF, like the [**Africa TreeFinder App**]{style="color:#85FF00;"} and the [**AgroforesTree Database**]{style="color:#85FF00;"} help communities share what works, where, enhancing biodiversity while meeting livelihood needs.
+
+:::
+
+<br>
+Embedding biodiversity metrics into monitoring frameworks can help guide restoration that delivers both ecological and livelihood value - grounded in both science and the everyday practices of those who manage the land. Understanding these dynamics is critical for designing FMNR programs that intentionally foster diversity - not just in species, but in function, resilience, and use.
+
+:::{#cr-conclusion .scale-to-fill}
+![](assets/femmes_terroir.jpg)
+:::
+
+**Read more:** [Economics of Land Degradation (ELD) Regreening Africa Feature](https://www.eld-initiative.org/en/projects-activities/valuing-ecosystem-services/regreening-africa-1), [UN World Restoration Flagship - Regreening Africa Program](https://www.cifor-icraf.org/news/corporate-news/un-recognizes-regreening-africa-as-world-restoration-flagship/) and [Biodiversity in FMNR landscapes](https://www.nature.com/articles/s41598-020-70746-z)
+
+<br>
+
+
+:::
+

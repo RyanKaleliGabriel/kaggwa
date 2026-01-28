@@ -1,0 +1,41 @@
+---
+title: "Tutorial 0: What is spatial data?"
+sidebar: tutorials
+body-classes: tutorials-book
+format:
+  html:
+    toc: true
+    toc-location: right
+---
+
+*A gentle introduction to maps, rasters, and vectors in the context of land restoration.*
+
+## 0.1 Why “where” matters
+
+- Restoration decisions are always tied to **location** (which farm, which watershed, which district).
+- Spatial data simply means data that has a location attached (coordinates, boundaries, or pixels).
+- Spatial data helps us see **patterns** that are invisible in other data structures: hotspots, gradients, clusters.
+
+## 0.2 The two main types: vector and raster
+
+- **Vector data**: points, lines, polygons (e.g., villages, roads, administrative boundaries).
+- **Raster data**: grids of pixels (e.g., rainfall, SOC, tree cover, EVI, land surface temperature).
+- When you see a heatmap or continuous surface on our dashboards, you are looking at raster data.
+
+## 0.3 Spatial datasets you will see on K4GGWA
+
+- Climate: rainfall, temperature, drought indicators, fire frequency.
+- Land health: soil organic carbon (SOC), erosion risk, vegetation indices, land cover classes.
+- Socio-ecological context: administrative boundaries, population, infrastructure where relevant.
+
+## 0.4 Common formats and jargon
+
+- **GeoTIFF / COG**: image-like files that store rasters (e.g., SOC, EVI) with geographic information.
+- **Shapefile / GeoPackage / GeoJSON**: common formats for vector data such as boundaries or sample plots.
+- **CRS (Coordinate Reference System)**: the “language” maps use to describe locations on Earth.
+
+## 0.5 How we manage spatial data for the GGW
+
+- We combine field measurements, satellite data, and existing public datasets.
+- Data is cleaned, harmonised, and stored in structured catalogues so that indicators can be mapped consistently.
+- This foundation allows us to build the maps you see on the dashboards and in the State of the Land reports.

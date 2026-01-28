@@ -1,0 +1,25 @@
+---
+title: Flood Susceptibility in the Great Green Wall Region
+author: SPACIAL
+date: "2025-04-01"
+image: "Assets/GGW_flood.png"
+categories: ["Climate change", "floods"]
+format: html
+
+---
+
+Floods are natural disasters that occur when water overflows onto normally dry land.
+They can result from heavy rainfall, river overflow, coastal storms, or the rapid melting of ice and snow...
+
+<!-- Include External HTML -->
+<iframe src="index.html" style="position: absolute; top:0;left:0; width:100%; height: 100%; border:none;"></iframe>
+
+<!-- Include External CSS -->
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="map.css">
+
+<!-- Include External JavaScript -->
+<script src="index.js"></script>
+<script src="map.js"></script>
+<script src="config.js"></script>
+

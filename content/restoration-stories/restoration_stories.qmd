@@ -1,0 +1,59 @@
+---
+format:
+  html:
+    toc: false
+    title-block-style: none
+body-classes: subpage
+
+listing:
+  - id: listing-stories
+    contents:
+      - posts
+    type: default
+    sort: "date desc"
+    sort-ui: true
+    filter-ui: true
+    page-size: 9
+---
+
+```{=html}
+<div class="sub-hero sub-hero-about">
+  <div class="sub-hero-inner">
+    <div class="sub-hero-eyebrow">K4GGWA</div>
+    <h1 class="sub-hero-title">Stories of Restoration</h1>
+    <p class="sub-hero-subtitle">
+      Exploring local realities and data together
+    </p>
+  </div>
+</div>
+
+<div class="sub-layout">
+  <aside class="sub-meta">
+    <div class="sub-meta-inner">
+
+      <div class="sub-meta-label">Section</div>
+
+      <div class="sub-meta-badges">
+        <span class="meta-badge">Local realities</span>
+        <span class="meta-badge">Stories of Restoration</span>
+        <span class="meta-badge">Participatory monitoring</span>
+      </div>
+
+      <p class="sub-meta-text">
+        Connect large-scale high-resolution landscape analytics to lived realities. Understand how land health changes affect communities on the ground and how communities validate our understanding of local ecological changes, and what that means for livelihoods.
+      </p>
+
+    </div>
+  </aside>
+
+  <main class="sub-main">
+```
+
+:::  {#listing-stories}
+
+:::
+
+```{=html}
+  </main>
+</div>
+```

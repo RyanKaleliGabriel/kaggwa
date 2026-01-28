@@ -1,0 +1,62 @@
+---
+format:
+  html:
+    toc: false
+    title-block-style: none
+body-classes: subpage
+
+listing:
+  - id: listing-sol
+    contents:
+      - ../../../content/state_of_land/reports/*/*.qmd
+    type: default
+    sort: "date desc"
+    sort-ui: true
+    filter-ui: true
+    page-size: 9
+---
+
+```{=html}
+<div class="sub-hero sub-hero-about">
+  <div class="sub-hero-inner">
+    <div class="sub-hero-eyebrow">K4GGWA</div>
+    <h1 class="sub-hero-title">État des terres</h1>
+    <p class="sub-hero-subtitle">
+      Une évaluation interactive et détaillée de la santé des terres, du risque climatique,
+      de la dynamique de la végétation et des opportunités de restauration
+      à travers la région de la Grande Muraille Verte
+    </p>
+  </div>
+</div>
+
+<div class="sub-layout">
+  <aside class="sub-meta">
+    <div class="sub-meta-inner">
+
+      <div class="sub-meta-label">Section</div>
+
+      <div class="sub-meta-badges">
+        <span class="meta-badge">Dégradation</span>
+        <span class="meta-badge">Restauration</span>
+        <span class="meta-badge">Suivi</span>
+      </div>
+
+      <p class="sub-meta-text">
+        Découvrez les derniers produits de connaissance développés pour K4GGWA, incluant
+        des évaluations de la santé des terres à l’échelle de la GMV et des analyses détaillées
+        régionales couvrant un large éventail d’indicateurs.
+      </p>
+
+    </div>
+  </aside>
+
+  <main class="sub-main">
+```
+:::  {#listing-sol}
+
+:::
+
+```{=html}
+  </main>
+</div>
+```

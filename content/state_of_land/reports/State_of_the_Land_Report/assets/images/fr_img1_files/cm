@@ -1,0 +1,9 @@
+<html>
+<head><title>Pixels</title></head>
+<body>
+<script>if("browsingTopics"in document&&document.featurePolicy.allowsFeature("browsing-topics"))document.browsingTopics()</script>
+
+<img src="https://visitor.europe-west9.gcp.omnitagjs.com/visitor/sync?gdpr=0&gdpr_consent=&name=OW_OPENX&ttl=720&uid=fbb8afe8eeaca30016588a1cebad4210&visitor=d22e61f6-90f9-40de-9fe1-81ad235eee88"><img src="https://cm.g.doubleclick.net/pixel?google_nid=openx&google_cm&google_sc"><img src="https://cm.g.doubleclick.net/pixel?google_nid=openx&google_hm=MTJhYWJlNWUtYzkxMy0yODM1LWY2YzktYzQ2MDNiZWY1M2M0"><img src="https://match.adsrvr.org/track/cmf/openx?oxid=3ec56d94-0064-7691-e329-9ed9f10d9da4&gdpr=0"><img src="https://cms.quantserve.com/pixel/p-25CIknq_eSg16.gif?idmatch=0&gdpr=0"><img src="https://c1.adform.net/serving/cookie/match?party=22"><img src="https://creativecdn.com/cm-notify?pi=openx&gdpr=0">
+
+</body>
+</html>

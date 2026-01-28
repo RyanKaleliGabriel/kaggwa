@@ -1,0 +1,24 @@
+---
+title: "About the LDSF"
+author: "Tor Vagen"
+date: "2024-10-26"
+format: 
+  revealjs:
+    theme: ../own.scss
+    #parallax-background-image: ./figs/drone_kalama.jpg
+    parallax-background-size: "2500px 1900px"
+    parallax-background-horizontal: 10
+    parallax-background-vertical: 5
+    embed-resources: false
+    margin: 0
+    width: 1600
+    height: 900
+    background-size: cover
+    auto-stretch: false
+---
+
+## Outline
+
+![](figs/drone_kalama.jpg)
+
+## Next page

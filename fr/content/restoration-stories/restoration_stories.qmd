@@ -1,0 +1,62 @@
+---
+format:
+  html:
+    toc: false
+    title-block-style: none
+body-classes: subpage
+
+listing:
+  - id: listing-stories
+    contents:
+      - ../../../content/restoration-stories/posts/*/*.qmd
+    type: default
+    sort: "date desc"
+    sort-ui: true
+    filter-ui: true
+    page-size: 9
+---
+
+```{=html}
+<div class="sub-hero sub-hero-about">
+  <div class="sub-hero-inner">
+    <div class="sub-hero-eyebrow">K4GGWA</div>
+    <h1 class="sub-hero-title">Récits de restauration</h1>
+    <p class="sub-hero-subtitle">
+      Explorer ensemble les réalités locales et les données
+    </p>
+  </div>
+</div>
+
+<div class="sub-layout">
+  <aside class="sub-meta">
+    <div class="sub-meta-inner">
+
+      <div class="sub-meta-label">Section</div>
+
+      <div class="sub-meta-badges">
+        <span class="meta-badge">Réalités locales</span>
+        <span class="meta-badge">Récits de restauration</span>
+        <span class="meta-badge">Suivi participatif</span>
+      </div>
+
+      <p class="sub-meta-text">
+        Reliez les analyses paysagères à grande échelle et haute résolution aux réalités vécues. 
+        Comprenez comment les changements de santé des terres affectent les communautés sur le terrain 
+        et comment ces communautés valident notre compréhension des dynamiques écologiques locales, 
+        ainsi que les implications pour leurs moyens de subsistance.
+      </p>
+
+    </div>
+  </aside>
+
+  <main class="sub-main">
+```
+
+:::  {#listing-stories}
+
+:::
+
+```{=html}
+  </main>
+</div>
+```

@@ -1,0 +1,131 @@
+/* css styles */
+html {
+    width: 100%;
+    height: 100vh;
+    display: contents;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    background-image: linear-gradient(90deg, #ffffff 0%, #ffffff 100%, #9fa87b 50%);
+    animation: AnimateBG 20s ease infinite;
+}
+
+.quarto-dashboard .bslib-sidebar-layout>div.main {
+    padding: .7em;
+    background-color: unset;
+}
+
+.quarto-dashboard aside.sidebar {
+    padding-left: 1em;
+    padding-right: 1em;
+    background-color: unset;
+    color: #212529;
+}
+
+body {
+    margin-right: 0;
+    padding: 0;
+    overflow-x: hidden;
+    min-width: 320px;
+    background: #F1E9E3;
+    font-family: Lato, 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    line-height: 1.4285em;
+    color: rgb(0, 0, 0);
+    background-size: 30px 30px;
+    background-blend-mode: multiply;
+}
+
+.quarto-title-banner {
+    padding-top: 2.5em;
+    padding-bottom: 2.5em;
+    background-color: #F1E9E3;
+    background-image: url(assets/images/ldsf_banner.jpg);
+    background-size: cover;
+}
+
+.navbar-collapse {
+    display: flex !important;
+    display: -webkit-flex !important;
+    flex-basis: auto;
+    -webkit-flex-basis: auto;
+    background-image: linear-gradient(to right, #F1E9E3, hsla(0, 0%, 75%, 0.1));
+    background-size: cover;
+}
+
+.navbar-dark {
+    background-color: hwb(60 18% 81% / 0);
+}
+
+.navbar {
+    background-color: #F1E9E3;
+}
+
+.navbar-title {
+    font-family: Lato, 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    -webkit-text-fill-color: #333;
+}
+
+.nav-link {
+    -webkit-text-fill-color: #333;
+}
+
+#quarto-sidebar {
+    display: flex;
+    flex-direction: column;
+    background-color: hsla(0, 0%, 0%, 0.7);
+    font-family: Lato, 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    font-size: xxlarge;
+    -webkit-text-fill-color: #333;
+    -webkit-text-size-adjust: auto;
+}
+
+.aa-DetachedSearchButton {
+    background: none;
+    stroke: black;
+}
+
+.nav-link {
+    display: block;
+    padding: var(--bs-nav-link-padding-y) var(--bs-nav-link-padding-x);
+    font-size: 0.9em;
+    font-weight: var(--bs-nav-link-font-weight);
+    color: var(--bs-nav-link-color);
+    text-decoration: none;
+    -webkit-text-decoration: none;
+    -moz-text-decoration: none;
+    -ms-text-decoration: none;
+    -o-text-decoration: none;
+    background: none;
+    border: 0;
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out;
+}
+
+.value-box-area {
+    color: #000000;
+    background: #f8efea;
+    font-size: 1em;
+    border-radius: 12pt;
+    stroke: black;
+}
+
+.quarto-dashboard .bslib-value-box .value-box-value {
+    font-size: clamp(.1em, 15cqw, 2em);
+    font-weight: 900;
+    text-align: center;
+}
+
+.quarto-dashboard .bslib-value-box .value-box-title {
+    font-size: clamp(.1em, 15cqw, 1em);
+    font-weight: 300;
+    text-align: center;
+}
+
+.quarto-dashboard .card .card-body {
+    z-index: 4;
+    background-color: #f8efea;
+}
+
+.quarto-dashboard #quarto-dashboard-header .navbar .navbar-nav .active {
+    background-color: #dac3b7;
+}

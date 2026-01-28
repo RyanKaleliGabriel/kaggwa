@@ -1,0 +1,23 @@
+---
+title: A Week on the Great Green Wall 2024
+subtitle: Senegal
+date: "2024-10-25"
+---
+
+![](images/senegal_2024.jpg)
+
+A [week on the Great Green Wall](https://panegmv.org/index.php/en/node/1773#:~:text=Every%20year%2C%20the%20Panafrican%20Agency,plan%20for%20the%20year%20ahead.) was a week-long event that brings together stakeholders from across the Great Green Wall to discuss progress, share knowledge, and plan for the future. The event was held in Senegal in 2024.
+
+![](https://panegmv.org/sites/default/files/%20Annonce/images/image006_0.jpg){height="300px"}
+
+
+```{r}
+#| echo: false
+#| output: false
+
+library(leaflet)
+
+leaflet() |>
+    addTiles() |>
+    setView(lng = -16.5, lat = 14.5, zoom = 6)
+```

@@ -1,0 +1,123 @@
+---
+title: "Building Capacity for Restoration Monitoring"
+subtitle: "LDSF and Regreening App Training — Linguère, Senegal (Aug 2025)"
+date: "2025-09-22"
+image: images/thumbnail_sngl.png
+categories: ["capacity building", "data collection", "citizen-science", "land health"]
+description: "Training in LDSF field methods and the Regreening App to strengthen evidence-based restoration monitoring across the Great Green Wall."
+format: html
+toc: false
+---
+
+::: {.figure style="text-align:center;"}
+![](../../../content/events-workshops/workshops/senegal-wkshp-aug25/images/ra_training.png){style="display:block; margin:2rem auto; width:100%; border-radius:18px;"}
+
+*Regreening App practical demonstration of the new Rangeland module (2025).*
+:::
+
+
+At CIFOR-ICRAF, an **integrated toolkit for land health monitoring** has been developed to combine systematic data collection, predictive modelling, and participatory citizen science. This toolkit is grounded in two complementary approaches:  
+
+1. **The Land Degradation Surveillance Framework (LDSF):** a standardised methodology for biophysical data collection that feeds into machine learning models to generate high-resolution predictive maps of soil and land health indicators. These maps are integrated into **decision-support tools** such as dashboards, posters, and reports that help stakeholders target interventions, monitor progress, and report against commitments.  
+
+2. **The Regreening App:** a participatory citizen science tool that allows local actors to capture restoration data (including the location of restoration sites and metadata such as who, when, and what interventions took place). Overlaid on LDSF predictive maps, the Regreening App data provides a powerful complement to evidence based monitoring, enhancing decision-making and ensuring community contributions are captured in evidence systems.  
+
+In August 2025, these approaches were brought together in **Linguère, Senegal**, during a five-day combined theory-practical capacity building workshop under the **Knowledge for Great Green Wall Action (K4GGWA)** initiative. The training provided participants with both theoretical training and practical experience in LDSF survey work, and participatory monitoring through the Regreening App.
+
+In total, **20 participants** took part in the training workshops including staff from:  
+
+- *Agence Sénégalaise de la Réforestation et de la Grande Muraille Verte (ASERGMV)*, Senegal  
+- *Agence de la Grande Muraille Verte (APGMV)*, Mauritania  
+- *Direction des Eaux et Forêts*, Senegal  
+- *Agronomes et Vétérinaires Sans Frontières (AVSF)*, Senegal  
+- *Entente des Groupements Associés pour le Développement à la Base (EGAB)*  
+- *Association pour le Développement Intégré et Durable (ADID)*  
+- *CIFOR-ICRAF* Mali  
+
+**Training activities therefore equipped key personnel from more than 7 different organisations with actionable knowledge** on the tools and approaches available for restoration works. These activities were run in parallel to a series of community site visits, designed to integrate local perspectives into restoration evidence.  
+
+::: {.figure style="text-align:center;"}
+![](../../../content/events-workshops/workshops/senegal-wkshp-aug25/images/ldsf_trainign.png){style="display:block; margin:2rem auto; width:100%; border-radius:18px;"}
+*LDSF Theory Training - Linguere, August 2025*
+:::
+
+The first component of the workshop focused on the **Land Degradation Surveillance Framework (LDSF)**. Participants were trained on using the LDSF framework for collecting in-field data on land and soil health at the landscape level. Core elements included:  
+
+- Soil sampling and characterisation (texture, organic carbon, infiltration, erosion prevalence).  
+- Vegetation assessments, including tree and shrub density, species diversity, and herbaceous cover.  
+- Landscape stratification and the use of GPS and Open Data Kit (ODK) for digital data collection on land use, and other qualitative information.
+
+Participants were trained on the theory aspect of the LDSF framework, before undertaking in-field practical training. Practical training included doing mock sampling work in sites close to the Linguere workshop venue, to get an applied understanding of how indicators are collected.
+
+::: {.figure style="text-align:center;"}
+![](../../../content/events-workshops/workshops/senegal-wkshp-aug25/images/ldsf_trainign1.png){style="display:block; margin:2rem auto; width:100%; border-radius:18px;"}
+*LDSF Field Manual - Indicators*
+:::
+
+To complement the theoretical component to the LDSF training, physical land health maps of the Ferlo region were presented and circulated amongst participants to show how LDSF data is used to produce predictive maps. As a capacity building exercise, participants were prompted to interpret maps according to their local understanding of the terrain, and to think about how such maps could bve used in different restoration decision-making contexts.
+
+::: {.figure style="text-align:center;"}
+![](../../../content/events-workshops/workshops/senegal-wkshp-aug25/images/ld_map.png){style="display:block; margin:2rem auto; width:100%; border-radius:18px;"}
+![](../../../content/events-workshops/workshops/senegal-wkshp-aug25/images/map_img.jpg){style="display:block; margin:2rem auto; width:100%; border-radius:18px;"}
+*Capacity building exercise interrogating land health maps for the Ferlo Region, Senegal*
+:::
+
+```{=html}
+<div class="story-divider"></div>
+```
+
+The second component of the workshop introduced the [Regreening App](https://youtu.be/H2_VumhsiaY?feature=shared), a mobile-based citizen science tool developed under the Regreening Africa programme. The training session emphasised how the app complements LDSF survey data by:  
+
+- Capturing **community-level restoration data** such as tree planting, Farmer-Managed Natural Regeneration (FMNR), and soil and water conservation measures.  
+- Recording **spatially explicit information** through GPS, enabling interventions to be mapped precisely.  
+- Ensuring inclusivity with gender-disaggregated participation data and offline functionality for rural contexts.  
+
+By linking citizen-generated data to predictive spatial maps derived from LDSF survey data, the Regreening App demonstrates the value of **participatory monitoring systems**. This integration strengthens transparency and accountability while ensuring community voices are a key part of restoration planning and reporting.
+
+::: {.figure style="text-align:center;"}
+![](../../../content/events-workshops/workshops/senegal-wkshp-aug25/images/ra_polyogn.png){style="display:block; margin:2rem auto; width:100%; border-radius:18px;"}
+![](../../../content/events-workshops/workshops/senegal-wkshp-aug25/images/ra_ldsf.png){style="display:block; margin:2rem auto; width:100%; border-radius:18px;"}
+*Linking the Regreening App with the LDSF Framework - how geolocational information logged in the app is overlaid on land health mapps for monitoring*
+:::
+
+In particular, the training focused on an introduction and demonstration of the newly released **Rangeland Module** - a module designed to capture interventions specific to rangeland contexts. The Rangeland Module is designed to capture data specific to rangeland restoration and pastoral management. It is divided into two different subcomponents: 
+
+- Water points 
+- Active restoration 
+
+<div style="
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin: 1.5rem 0;
+">
+  <img src="../../../content/events-workshops/workshops/senegal-wkshp-aug25/images/ra_screenshot.png" style="height: 380px;">
+  <img src="../../../content/events-workshops/workshops/senegal-wkshp-aug25/images/ra_screenshot1.jpg" style="height: 380px;">
+  <img src="../../../content/events-workshops/workshops/senegal-wkshp-aug25/images/ra_rangeland.jpg" style="height: 380px;">
+</div>
+
+<p style="text-align:center;">
+  <em>Screenshots of the Regreening App Rangeland Module</em>
+</p>
+
+
+
+Under each, there are a series of options for logging locational, quantitative and qualitative information on restoration techniques like building gabions, half-moons, mobile bomas and controlled grazing - as well as the location, type and quality of water points. 
+
+Stakeholders were trained on how to use the app for recording restoration practices as part of a project and, as with the other modules in the Regreening App (e.g., tree-planting, FMNR, nurseries etc), how to access their data via the Regreening App's Data Reporting System (DRS) platform, linking back to using intervention geometry data with land health maps, for monitoring. 
+
+::: {.figure style="text-align:center;"}
+![](../../../content/events-workshops/workshops/senegal-wkshp-aug25/images/drs.png){style="display:block; margin:2rem auto; width:100%; border-radius:18px;"}
+*LDSF Field Manual - Indicators*
+:::
+
+At the end of the 5 days, participants had received intensive training on CIFOR-ICRAF's state-of-the-art monitoring tools, equipped to apply them in their respective project contexts and geographies. 
+
+**To learn more about the LDSF, [please visit the website here](https://ldsf.thegrit.earth/)**. 
+
+**To learn more about how to implement the Regreening App in your own projects, [check out the website here](https://regreeningafrica.org/in-the-news/the-regreening-africa-app/)**
+
+For further inquiries, contact us:
+T.VAGEN@cifor-icraf.org
+or
+m.ahmad@cifor-icraf.org

@@ -1,0 +1,58 @@
+---
+format:
+  html:
+    toc: false
+    title-block-style: none
+body-classes: subpage
+listing:
+  - id: listing-workshops-events
+    contents:
+      - workshops
+    type: default
+    sort: "date desc"
+    sort-ui: true
+    filter-ui: true
+    page-size: 9
+---
+
+```{=html}
+<div class="sub-hero sub-hero-about">
+  <div class="sub-hero-inner">
+    <div class="sub-hero-eyebrow">K4GGWA</div>
+    <h1 class="sub-hero-title">Events and Workshops</h1>
+    <p class="sub-hero-subtitle">
+      Strengthening coordination, evidence and learning across the Great Green Wall
+    </p>
+  </div>
+</div>
+
+<div class="sub-layout">
+  <aside class="sub-meta">
+    <div class="sub-meta-inner">
+
+      <div class="sub-meta-label">Section</div>
+
+      <div class="sub-meta-badges">
+        <span class="meta-badge">Events</span>
+        <span class="meta-badge">Workshops</span>
+        <span class="meta-badge">Great Green Wall</span>
+      </div>
+
+      <p class="sub-meta-text">
+        Explore recent capacity building and data collection activities for K4GGWA.
+      </p>
+
+    </div>
+  </aside>
+
+  <main class="sub-main">
+```
+
+:::  {#listing-workshops-events}
+
+:::
+
+```{=html}
+  </main>
+</div>
+```

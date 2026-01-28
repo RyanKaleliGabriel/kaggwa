@@ -1,0 +1,503 @@
+---
+title: ""
+pagetitle: "CAGMV"
+page-layout: full
+title-block: false
+toc: false
+body-classes: home-page
+
+listing:
+  - id: latest-content
+    contents:
+      - ../content/restoration-stories/posts/*/*.qmd
+    sort: "date desc"
+    type: grid
+    fields: [image, date, title, subtitle, author, reading-time]
+    sort-ui: true
+    filter-ui: false
+    feed: false
+    page-size: 6
+
+  - id: workshops-events
+    contents:
+      - ../content/events-workshops/workshops/*/*.qmd
+    sort: "date desc"
+    type: default
+    fields: [image, categories, title, subtitle, description, date]
+    sort-ui: false
+    filter-ui: false
+    max-items: 3
+    feed: false
+    page-size: 3
+---
+
+
+<!-- Hero and metric cards-->
+```{=html}
+<div class="hero-video">
+  <video class="hero-video-bg" autoplay muted playsinline>
+    <source src="/assets/sahel_imagery2.mp4" type="video/mp4">
+  </video>
+
+  <div class="hero-inner">
+    <div class="hero-text">
+      <h2 class="hero-heading">Bienvenue sur<br>la plateforme K4GGWA!</h2>
+      <p class="hero-subtitle">
+        Histoires, données et outils pour soutenir la prise de décision dans le cadre de la Grande Muraille Verte – 
+        des analyses de santé des paysages aux sciences citoyennes et aux récits de restauration 
+        à travers le Sahel et la Corne de l’Afrique.
+      </p>
+      <div class="hero-actions">
+        <a href="#intro" class="btn-pill btn-secondary hero-scroll">En savoir plus</a>
+      </div>
+    </div>
+  </div>
+
+<!-- We can change these over time - these are just some high level placeholder metrics for now. 
+ Or as Muhammad suggested we make them dynamic so they change to different metrics each time page loads-->
+  <div class="hero-metrics">
+    <div class="hero-metrics-inner">
+
+   <div class="metric-card">
+    <div class="metric-image">
+      <img src="/assets/sat_metric.png" alt="NPP">
+    </div>
+    <div class="metric-body">
+      <div class="metric-number">
+        <span class="metric-value" data-target="100">0</span>
+        <span class="metric-suffix">million ha</span>
+      </div>
+      <div class="metric-label">ciblés pour la restauration</div>
+    </div>
+  </div>
+
+  <div class="metric-card">
+    <div class="metric-image">
+      <img src="/assets/erosion_metric.png" alt="Severe erosion">
+    </div>
+    <div class="metric-body">
+      <div class="metric-number">
+        <span class="metric-value" data-target="58">0</span>
+        <span class="metric-suffix">%</span>
+      </div>
+      <div class="metric-label">surface totale fortement érodée dans la GMV</div>
+    </div>
+  </div>
+
+  <div class="metric-card">
+    <div class="metric-image">
+      <img src="/assets/flood_metric.png" alt="Flood">
+    </div>
+    <div class="metric-body">
+      <div class="metric-number">
+        <span class="metric-value" data-target="928,861">0</span>
+        <span class="metric-suffix">milliers ha </span>
+      </div>
+      <div class="metric-label">zones exposées à un risque élevé d’inondation</div>
+    </div>
+  </div>
+
+  <div class="metric-card">
+    <div class="metric-image">
+      <img src="/assets/eco_metric.png" alt="ecoregions">
+    </div>
+    <div class="metric-body">
+      <div class="metric-number">
+        <span class="metric-value" data-target="36">0</span>
+      </div>
+      <div class="metric-label">écorégions distinctes</div>
+    </div>
+  </div>
+</div>
+  </div>
+</div>
+
+```
+
+<!-- About section --> 
+```{=html}
+<div id="intro" class="column-screen page-columns page-full section-light">
+  <div class="column-screen-inset">
+
+    <section class="about-section">
+      <div class="about-eyebrow">À PROPOS DE LA PLATEFORME</div>
+
+      <div class="about-layout">
+        <div class="about-heading">
+          <h2 class="about-title">
+          À propos de la plateforme CAGMV
+          </h2>
+        </div>
+
+        <div class="about-body">
+          <p>
+          Connaissance pour l’Action – Grande Muraille Verte (CAGMV) est une initiative conjointe du
+          <strong>CIFOR-ICRAF</strong> et de
+          <strong>l’Organisation des Nations Unies pour l’alimentation et l’agriculture (FAO)</strong>,
+          financée par l’<strong>Union européenne</strong>. La plateforme rassemble
+          des récits, des données et des outils pour soutenir la prise de décision dans la région de la Grande Muraille Verte.
+        </p>
+
+          <p>
+          Vous pouvez explorer ici les données et récits de restauration à travers le Sahel et la Corne de l’Afrique,
+          accéder aux analyses et rapports sur l’état des terres, et suivre les principaux ateliers et événements.
+          Les <strong>tableaux de bord CAGMV</strong> propose des cartes et visualisations interactives
+          pour aider les partenaires à suivre l’évolution des paysages, évaluer les risques et opportunités,
+          et suivre les progrès vers les objectifs de la Grande Muraille Verte.
+        </p>
+
+          <div class="about-logos">
+            <img src="/assets/logo_header.png" alt="K4GGWA Partners">
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+</div>
+```
+
+<!-- Why maps? pull down section-->
+```{=html}
+<div id="why-maps-teaser" class="why-maps-teaser">
+  <button class="why-maps-toggle" type="button">
+    <span class="why-maps-label">Pourquoi des cartes ?</span>
+    <span class="why-maps-arrow" aria-hidden="true"></span>
+  </button>
+</div>
+```
+
+```{=html}
+<section id="why-maps" class="why-maps-section is-collapsed">
+
+<div class="why-maps-backgrounds-wrapper">
+  <div class="why-maps-background is-active" data-step="0">
+    <img src="/assets/why1.png" alt="">
+  </div>
+  <div class="why-maps-background" data-step="1">
+    <img src="/assets/why5.jpg" alt="">
+  </div>
+  <div class="why-maps-background" data-step="2">
+    <img src="/assets/why3.png" alt="">
+  </div>
+  <div class="why-maps-background" data-step="3">
+    <img src="/assets/why6.png" alt="">
+  </div>
+</div>
+
+  <div class="why-maps-inner">
+
+<div class="why-maps-block why-maps-step step-0 is-active" data-step="0">
+  <div class="img"></div>
+  <div class="container">
+    <div class="step-content">
+      <div class="inner-box">
+        <span class="label">Évaluations du paysage</span>
+        <h2>Établir une compréhension claire et fondée sur des preuves des conditions du paysage</h2>
+        <p>
+          Utilisez des indicateurs haute résolution concernant la dynamique de la végétation, l’état des sols et le climat
+          pour comprendre les tendances et motifs à l’échelle du paysage et établir une base de référence fiable.
+          Les données spatiales permettent d’identifier les opportunités, les risques et les lacunes
+          pour soutenir une planification réaliste et rentable.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="why-maps-block why-maps-step step-1" data-step="1">
+  <div class="img"></div>
+  <div class="container">
+    <div class="step-content">
+      <div class="inner-box">
+        <span class="label">Ciblage et priorisation</span>
+        <h2>Concentrer les ressources là où la restauration a le plus de chances de produire un impact</h2>
+        <p>
+          Combinez plusieurs indicateurs pour identifier et prioriser les zones présentant un fort potentiel écologique
+          et des conditions favorables à la mise en œuvre. Cela soutient une utilisation stratégique des budgets limités,
+          réduit les risques des projets et crée une base commune, fondée sur des preuves, pour coordonner les partenaires.
+        </p>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="why-maps-block why-maps-step step-2" data-step="2">
+  <div class="img"></div>
+  <div class="container">
+    <div class="step-content">
+      <div class="inner-box">
+        <span class="label">Conception des interventions</span>
+        <h2>Ajuster les pratiques de restauration aux conditions locales pour de meilleures performances</h2>
+        <p>
+          Les données spatiales fournissent des informations essentielles sur les contraintes locales liées à la fertilité des sols,
+          la disponibilité en eau, l’exposition climatique et l’utilisation des terres, aidant les équipes à concevoir des
+          interventions techniquement viables et abordables. Optimisez la conception des projets, identifiez les compromis
+          et minimisez les surprises lors de la mise en œuvre.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="why-maps-block why-maps-step step-3" data-step="3">
+  <div class="img"></div>
+  <div class="container">
+    <div class="step-content">
+      <div class="inner-box">
+        <span class="label">Suivi, évaluation et apprentissage</span>
+        <h2>Quantifier les progrès, adapter les stratégies et démontrer les résultats</h2>
+        <p>
+          Suivez l’évolution des paysages avec des indicateurs spatiaux cohérents et réguliers pour comprendre
+          où les interventions sont efficaces et où des ajustements sont nécessaires. Des preuves quantifiées renforcent
+          la redevabilité, soutiennent la gestion adaptative et améliorent la confiance des bailleurs, partenaires
+          et communautés locales.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+
+
+  <span class="why-line line-colored">
+    <span class="why-line-filler"></span>
+  </span>
+
+  <span class="why-line line-track">
+    <div class="why-next-step">
+      <span class="why-icon-chevron"></span>
+    </div>
+  </span>
+
+</section>
+```
+
+
+<!-- Guidance and resources section --> 
+```{=html}
+<div class="column-screen page-columns page-full section-cream">
+  <div class="column-screen-inset">
+    <h2 id="guidance-key-resources">Guides &amp; ressources clés</h2>
+
+<div class="resource-carousel resources-carousel" id="guides-carousel">
+  <button class="carousel-arrow left" aria-label="Previous">&#10094;</button>
+
+  <div class="carousel-window">
+    <div class="carousel-track">
+      <a class="resource-card-rotating" href="https://ldsf.thegrit.earth" target="_blank">
+        <img src="/assets/ldsf_manual.png" alt="LDSF Manual"
+             class="resource-cover-rotating">
+        <div class="resource-meta">
+          <p class="resource-title">The LDSF Field Manual</p>
+          <p class="resource-desc">Méthodologie d’évaluation de la santé des sols et des terres.</p>
+        </div>
+      </a>
+
+      <a class="resource-card-rotating" href="https://www.cifor-icraf.org/publications/pdf/guide/CRS_CIFOR-ICRAF_Restoration-Monitoring-Guide.pdf" target="_blank">
+        <img src="/assets/restoration_guide.png" alt="Restoration Monitoring Guide"
+             class="resource-cover-rotating">
+        <div class="resource-meta">
+          <p class="resource-title">Restoration Monitoring Guide</p>
+          <p class="resource-desc">Guide technique pour le suivi de la restauration</p>
+        </div>
+      </a>
+
+      <a class="resource-card-rotating" href="https://www.cifor-icraf.org/publications/pdf/project-briefs/UNDecade-Evidence-Brief.pdf" target="_blank">
+        <img src="/assets/evidence_guide.png" alt="Evidence Guide"
+             class="resource-cover-rotating">
+        <div class="resource-meta">
+          <p class="resource-title">Evidence in Ecosystem Restoration</p>
+          <p class="resource-desc">Perspectives, preuves, recommandations</p>
+        </div>
+      </a>
+
+      <a class="resource-card-rotating" href="https://radrs.icraf.org/uploaded/media/docs/Regreening-App-user-guide.pdf" target="_blank">
+        <img src="/assets/RA_guide.png" alt="Regreening App User Guide"
+             class="resource-cover-rotating">
+        <div class="resource-meta">
+          <p class="resource-title">Regreening App Guide</p>
+          <p class="resource-desc">
+          Guide d’utilisation de l’application de sciences citoyennes Regreening App
+          pour le suivi participatif de la restauration
+        </p>
+        </div>
+      </a>
+
+      <a class="resource-card-rotating" href="https://dashboards.cifor-icraf.org/" target="_blank">
+        <img src="/assets/dashboards.png" alt="K4GGWA dashboards"
+             class="resource-cover-rotating">
+        <div class="resource-meta">
+          <p class="resource-title">K4GGWA Dashboards</p>
+          <p class="resource-desc">Analyses interactives des paysages de la GMV</p>
+        </div>
+      </a>
+
+      <a class="resource-card-rotating" href="https://landscapeportal.thegrit.earth/#/" target="_blank">
+        <img src="/assets/landscape_portal.png" alt="Landscape Portal"
+             class="resource-cover-rotating">
+        <div class="resource-meta">
+          <p class="resource-title">Landscape Portal</p>
+          <p class="resource-desc">Explorer les jeux de données régionaux en ligne</p>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <button class="carousel-arrow right" aria-label="Next">&#10095;</button>
+</div>
+
+<div class="carousel-dots" id="guides-dots"></div>
+  </div>
+</div>
+```
+
+<!-- SoL section -->
+```{=html}
+<div class="column-screen page-columns page-full sol-section">
+  <div class="column-screen-inset sol-hero-inner">
+
+  <div class="sol-hero-text">
+    <p class="eyebrow">ÉTAT DES TERRES</p>
+    <h2>Rapport sur l’état des terres 2025</h2>
+    <p>
+      Une évaluation interactive et détaillée de la santé des terres, du risque climatique,
+      de la dynamique de la végétation et des opportunités de restauration à travers 
+      la région de la Grande Muraille Verte. Explorez des cartes, graphiques et récits 
+      reliant les tendances régionales aux réalités locales.
+    </p>
+    <p class="sol-hero-meta">
+      40 min • SPACIAL • Mis à jour le 25 sept. 2025
+    </p>
+
+    <span class="sol-hero-cta">
+      Lire le rapport
+    </span>
+  </div>
+
+  <a
+    class="sol-hero-card"
+    href="/content/state_of_land/reports/State_of_the_Land_Report/State_of_the_Land_Report.html"
+  >
+    <div class="sol-hero-thumb">
+      <img src="/assets/sol_rep1.png"
+          alt="State of the Land map preview">
+    </div>
+
+    <div class="sol-hero-card-body">
+      <span class="sol-hero-cta">
+        Read the report
+        <i class="bi bi-arrow-right"></i>
+      </span>
+    </div>
+  </a>
+  </div>
+</div>
+```
+
+<!-- Stories section -->
+```{=html}
+<div class="column-screen page-columns page-full section-light">
+  <div class="column-screen-inset">
+
+    <h2 class="stories-heading">Récits de restauration</h2>
+
+    <div id="latest-content"></div>
+
+    <div class="resource-carousel stories-carousel">
+      <button class="carousel-arrow left" aria-label="Previous stories">&#10094;</button>
+      <div class="carousel-window">
+        <div class="carousel-track" id="stories-track"></div>
+      </div>
+      <button class="carousel-arrow right" aria-label="Next stories">&#10095;</button>
+    </div>
+
+    <div class="carousel-dots stories-dots"></div>
+
+  </div>
+</div>
+```
+
+<!-- Dashboards section -->
+```{=html}
+<div class="column-screen section-cream dashboards-panel">
+  <div class="column-screen-inset dashboards-layout">
+
+<div class="dashboards-text">
+  <div class="dashboards-eyebrow">TABLEAUX DE BORD</div>
+  <h2 class="dashboards-title">
+    Explorer les tableaux de bord sur la santé des paysages de la Grande Muraille Verte
+  </h2>
+
+  <p>
+    Les tableaux de bord interactifs rassemblent données satellitaires, enquêtes de terrain
+    et informations sur les projets pour aider les partenaires à comprendre la santé des terres,
+    les risques climatiques et les opportunités de restauration dans la région de la GMV.
+  </p>
+
+  <p>
+    Filtrez par pays et unité administrative, explorez des indicateurs tels que
+    le carbone organique du sol, l’érosion et la couverture arborée, 
+    et téléchargez des statistiques pour soutenir la planification et le reporting.
+  </p>
+
+  <div class="dashboards-actions">
+    <a href="https://dashboards.cifor-icraf.org/"
+       class="btn-pill btn-secondary" target="_blank" rel="noopener">
+      Ouvrir les tableaux de bord CAGMV
+    </a>
+
+    <a href="https://landscapeportal.thegrit.earth/#/"
+       class="btn-pill btn-secondary" target="_blank" rel="noopener">
+      Explorer le Landscape Portal
+    </a>
+  </div>
+</div>
+
+<div class="dashboards-card">
+  <div class="dashboards-thumb">
+    <video class="dashboards-video"
+           autoplay
+           muted
+           loop
+           playsinline
+           controls>
+      <source src="/assets/demo_dash.mp4" type="video/mp4">
+    </video>
+  </div>
+  <p class="dashboards-caption">
+    Demo des tableaux de bord montrant les indicateurs de santé de terres à travers la GMV. 
+  </p>
+</div>
+  </div>
+</div>
+```
+
+<!-- Workshops section -->
+```{=html}
+<div class="column-screen page-columns page-full section-light events-panel">
+  <div class="column-screen-inset events-section">
+<div class="events-header">
+  <h2>Ateliers et Événements</h2>
+  <a class="events-view-all">
+    Voir tous les événements <span>&rarr;</span>
+  </a>
+</div>
+
+<div class="resource-carousel events-carousel">
+  <button class="carousel-arrow left events-arrow" aria-label="Previous event">&#10094;</button>
+
+  <div class="carousel-window">
+    <div id="workshops-events"></div>
+  </div>
+
+  <button class="carousel-arrow right events-arrow" aria-label="Next event">&#10095;</button>
+</div>
+
+<div class="carousel-dots events-dots"></div>
+
+  </div>
+</div>
+```

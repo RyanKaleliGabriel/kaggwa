@@ -1,0 +1,63 @@
+---
+format:
+  html:
+    toc: false
+    title-block-style: none
+body-classes: subpage
+
+listing:
+  - id: listing-sol
+    contents:
+      - reports
+    type: default
+    sort: "date desc"
+    sort-ui: true
+    filter-ui: true
+    page-size: 9
+---
+
+
+
+```{=html}
+<div class="sub-hero sub-hero-about">
+  <div class="sub-hero-inner">
+    <div class="sub-hero-eyebrow">K4GGWA</div>
+    <h1 class="sub-hero-title">State of the Land</h1>
+    <p class="sub-hero-subtitle">
+      An interactive, long-form assessment of land health, climate risk,
+      vegetation dynamics and restoration opportunities across the Great
+      Green Wall region
+    </p>
+  </div>
+</div>
+
+<div class="sub-layout">
+  <aside class="sub-meta">
+    <div class="sub-meta-inner">
+
+      <div class="sub-meta-label">Section</div>
+
+      <div class="sub-meta-badges">
+        <span class="meta-badge">Degradation</span>
+        <span class="meta-badge">Restoration</span>
+        <span class="meta-badge">Monitoring</span>
+      </div>
+
+      <p class="sub-meta-text">
+        Explore the latest learning products for K4GGWA including GGW-wide land health assessments and regional deep-dives across a range of different indicators.
+      </p>
+
+    </div>
+  </aside>
+
+  <main class="sub-main">
+```
+
+:::  {#listing-sol}
+
+:::
+
+```{=html}
+  </main>
+</div>
+```

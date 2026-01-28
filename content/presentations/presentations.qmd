@@ -1,0 +1,19 @@
+---
+page-layout       : full
+title-block-banner: assets/banner_vc_ggw.png
+toc: false
+
+listing:
+  - id: latest-content
+    contents: 
+    - slides/
+    sort: "date desc"
+    type: grid
+    categories: true
+    sort-ui: true
+    filter-ui: false
+    # max-items: 4
+    feed: true
+---
+
+## Presentations

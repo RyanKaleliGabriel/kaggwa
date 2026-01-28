@@ -1,0 +1,192 @@
+---
+format:
+  html:
+    toc: false
+    title-block-style: none
+body-classes: subpage
+---
+
+
+```{=html}
+<div class="sub-hero sub-hero-about">
+  <div class="sub-hero-inner">
+    <div class="sub-hero-eyebrow">About</div>
+    <h1 class="sub-hero-title">About Knowledge for Great Green Wall Action (K4GGWA)</h1>
+    <p class="sub-hero-subtitle">
+      Strengthening coordination, evidence and learning across the Great Green Wall.
+    </p>
+  </div>
+</div>
+
+<div class="sub-layout">
+  <aside class="sub-meta">
+    <div class="sub-meta-inner">
+
+      <div class="sub-meta-label">Section</div>
+
+      <div class="sub-meta-badges">
+        <span class="meta-badge">About</span>
+        <span class="meta-badge">K4GGWA</span>
+        <span class="meta-badge">Great Green Wall</span>
+      </div>
+
+      <p class="sub-meta-text">
+        Learn how K4GGWA supports the Great Green Wall through knowledge brokering,
+        land health monitoring, and governance support.
+      </p>
+
+    </div>
+  </aside>
+
+  <main class="sub-main">
+
+```
+
+```{r}
+#| include: false
+
+library(sf)
+library(leaflet)
+
+ggw_adm0   <- st_read("data/ggw_adm0.geojson")
+ggw_trace  <- st_read("data/GGW_trace.geojson")
+
+ggw_adm0  <- st_transform(ggw_adm0, 4326)
+ggw_trace <- st_transform(ggw_trace, 4326)
+
+ggw_bbox <- st_bbox(ggw_adm0)
+```
+
+The Great Green Wall (GGW) is a lighthouse African-led initiative to re-green the Sahel and the Horn of Africa from Senegal to Djibouti. The GGW has transformed into a comprehensive rural development and sustainable land management initiative, aiming to transform the lives of populations within its area by supporting a mosaic of green and productive landscapes. It leverages a diversity of projects, with the potential to contribute to several EU and African objectives: food security, sustainable agri-food systems, water, addressing desertification, climate change, biodiversity loss, sustainable energy, decent job creation, and, more broadly, resilience, stability and sustainable and inclusive development. 
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+#| label: fig-ggw-map
+#| fig-cap: "The Great Green Wall region (member countries) and GGW boundaries."
+
+leaflet(
+  data = ggw_adm0,
+  options = leafletOptions(
+    minZoom = 4,
+    maxZoom = 12
+  )
+) |>
+  setView(lng = 13, lat = 13, zoom = 4) |>
+  addProviderTiles(providers$CartoDB.Positron, group = "Basemap") |>
+
+  addPolygons(
+    data  = ggw_adm0,
+    group = "GGW countries",
+    fillColor = "transparent",
+    color     = "#444",
+    weight    = 1,
+    opacity   = 0.8,
+    label     = ~admin,
+    labelOptions = labelOptions(
+      direction = "auto",
+      sticky    = TRUE,
+      style = list(
+        "background-color" = "white",
+        "border"           = "1px solid #ccc",
+        "padding"          = "2px 4px"
+      )
+    ),
+    highlightOptions = highlightOptions(
+      weight = 2,
+      color  = "#000",
+      bringToFront = TRUE
+    )
+  ) |>
+  
+  addPolygons(
+    data        = ggw_trace,
+    group       = "GGW corridor",
+    fillColor   = "#008000",
+    fillOpacity = 0.25,
+    color       = "#006400",
+    weight      = 2,
+    opacity     = 0.9
+  ) |>
+  
+  addLayersControl(
+    position = "topright",
+    overlayGroups = c("GGW countries", "GGW corridor"),
+    options = layersControlOptions(collapsed = FALSE)
+  )
+```
+
+The EU has pledged more than EUR 700M/year to support the GGW, primarily through its country programmes. These are to be complemented and supported by a soft regional Action, described hereunder. The EU’s support to the Great Green Wall holds the status of a ‘Flagship’ under the AU-EU Global Gateway Investment Package. 
+
+::: {.card background="white" border="false" style="padding: 20px;background-color: #C1B1A9;"}
+## The Great Green Wall (UNCCD)
+![](https://www.unccd.int/sites/default/files/styles/hero_gradient_924x450/public/2021-09/great%20green%20wall.jpg.webp?itok=gj-2vd1U)
+
+The Great Green Wall Initiative is an UNCCD flagship initiative. [To learn more, visit the UNCCD website.](https://www.unccd.int/our-work/ggwi)
+:::
+
+<br>
+
+::: {.card background="white" border="false" style="padding: 20px;background-color:rgb(189, 193, 169);"}
+
+## The Pan-African Agency of the GGW (PAGGW)
+![](images/paggw.jpg)
+
+While the African Union oversees the political aspects of the GGW Initiative, the Pan-African Agency for the Great Green Wall (PAGGW)—established in 2010—coordinates and monitors implementation across member states. PAGGW works through nine Regional Structural Programmes structured around the five Strategic Axes of the GGW and supports countries to restore degraded land, strengthen resilience to climate change, and drive sustainable livelihoods.
+:::
+
+```{=html}
+<hr class="section-divider">
+```
+
+### Knowledge for Great Green Wall Action (K4GGWA)
+
+K4GGWA - Knowledge for Great Green Wall Action - is a knowledge-brokering initiative led by CIFOR-ICRAF and FAO, designed to strengthen the GGW implementation ecosystem.
+
+Born out of a need to improve coordination, knowledge exchange, and strategic alignment across the GGW network, K4GGWA supports the GGW Accelerator and national coalitions by working across three major axes:
+
+1. **Uptake of Sustainable Land Management & Restoration**
+
+    Strengthening the capacity of regional, national, and local actors to share lessons learned, co-develop learning products, and engage in practice-based learning.
+
+2. **Improved Land Health Monitoring & Targeting**
+
+    Developing and applying frameworks and tools to monitor changes in land health, vegetation condition, and restoration outcomes.
+
+3. **Governance, Policy & Institutional Strengthening**
+
+    Enhancing institutional capacities, governance structures, stakeholder coordination, and knowledge accessibility to support sustainable livelihoods.
+
+    Grounded in the SHARED framework, K4GGWA promotes inclusive, vertically-integrated decision-making, ensuring evidence and learning flow across local, national, regional, and continental levels.
+
+```{=html}
+<hr class="section-divider">
+```
+
+Recent assessments, particularly the [2020 Great Green Wall Implementation Status Report](https://www.unccd.int/sites/default/files/2024-08/1551_GGW_Report_ENG_Final_040920.pdf), identified several critical bottlenecks to effective GGW implementation:
+
+- Fragmented governance and weak coordination
+
+- Limited monitoring and evaluation capacity
+
+- Difficulties accessing and utilising pledged funds
+
+- Technical challenges such as low survival rates of planted trees
+
+Responding to these challenges, the GGW Accelerator launched in 2021 to reinvigorate implementation and strengthen monitoring, reporting, and stakeholder alignment. K4GGWA operates as a technical backstopping mechanism for the Accelerator, helping ensure:
+
+- Evidence-based planning
+
+- Harmonised monitoring
+
+- Stronger institutional networks
+
+- More inclusive engagement across all levels
+
+K4GGWA brings together national coalitions, PAGGW focal points, NGOs, CSOs, technical agencies, researchers, and local communities to co-create knowledge and strengthen resilience across the Sahel and Horn of Africa.
+
+```{=html}
+  </main>
+</div>
+```

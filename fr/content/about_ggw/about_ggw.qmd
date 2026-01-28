@@ -1,0 +1,187 @@
+---
+format:
+  html:
+    toc: false
+    title-block-style: none
+body-classes: subpage
+---
+
+
+```{=html}
+<div class="sub-hero sub-hero-about">
+  <div class="sub-hero-inner">
+    <div class="sub-hero-eyebrow">À propos</div>
+    <h1 class="sub-hero-title">À propos de Connaissance pour l’Action – Grande Muraille Verte (CAGMV)</h1>
+    <p class="sub-hero-subtitle">
+      Renforcer la coordination, les preuves et l’apprentissage à travers la Grande Muraille Verte.
+    </p>
+  </div>
+</div>
+
+<div class="sub-layout">
+  <aside class="sub-meta">
+    <div class="sub-meta-inner">
+
+      <div class="sub-meta-label">Section</div>
+
+      <div class="sub-meta-badges">
+        <span class="meta-badge">À propos</span>
+        <span class="meta-badge">CAGMV</span>
+        <span class="meta-badge">Grande Muraille Verte</span>
+      </div>
+
+      <p class="sub-meta-text">
+        Découvrez comment CAGMV soutient la Grande Muraille Verte grâce à la médiation des connaissances,
+        au suivi de la santé des terres et au renforcement de la gouvernance.
+      </p>
+
+    </div>
+  </aside>
+
+  <main class="sub-main">
+
+```
+
+```{r}
+#| include: false
+
+library(sf)
+library(leaflet)
+
+ggw_adm0   <- st_read("../../../content/about_ggw/data/ggw_adm0.geojson")
+ggw_trace  <- st_read("../../../content/about_ggw/data/GGW_trace.geojson")
+
+
+ggw_adm0  <- st_transform(ggw_adm0, 4326)
+ggw_trace <- st_transform(ggw_trace, 4326)
+
+ggw_bbox <- st_bbox(ggw_adm0)
+```
+
+La Grande Muraille Verte (GMV) est une initiative phare menée par l’Afrique pour reverdir le Sahel et la Corne de l’Afrique, du Sénégal à Djibouti. La GMV s’est transformée en un vaste programme de développement rural et de gestion durable des terres, visant à améliorer les conditions de vie des populations dans la région grâce à une mosaïque de paysages verts et productifs.
+
+Elle mobilise une diversité de projets susceptibles de contribuer à plusieurs objectifs africains et européens : sécurité alimentaire, systèmes agroalimentaires durables, gestion de l’eau, lutte contre la désertification, changement climatique, perte de biodiversité, énergie durable, création d’emplois décents, et plus largement, résilience, stabilité et développement durable et inclusif.
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+#| label: fig-ggw-map
+#| fig-cap: "The Great Green Wall region (member countries) and GGW boundaries."
+
+leaflet(
+  data = ggw_adm0,
+  options = leafletOptions(
+    minZoom = 4,
+    maxZoom = 12
+  )
+) |>
+  setView(lng = 13, lat = 13, zoom = 4) |>
+  addProviderTiles(providers$CartoDB.Positron, group = "Basemap") |>
+
+  addPolygons(
+    data  = ggw_adm0,
+    group = "GGW countries",
+    fillColor = "transparent",
+    color     = "#444",
+    weight    = 1,
+    opacity   = 0.8,
+    label     = ~admin,
+    labelOptions = labelOptions(
+      direction = "auto",
+      sticky    = TRUE,
+      style = list(
+        "background-color" = "white",
+        "border"           = "1px solid #ccc",
+        "padding"          = "2px 4px"
+      )
+    ),
+    highlightOptions = highlightOptions(
+      weight = 2,
+      color  = "#000",
+      bringToFront = TRUE
+    )
+  ) |>
+  
+  addPolygons(
+    data        = ggw_trace,
+    group       = "GGW corridor",
+    fillColor   = "#008000",
+    fillOpacity = 0.25,
+    color       = "#006400",
+    weight      = 2,
+    opacity     = 0.9
+  ) |>
+  
+  addLayersControl(
+    position = "topright",
+    overlayGroups = c("GGW countries", "GGW corridor"),
+    options = layersControlOptions(collapsed = FALSE)
+  )
+```
+
+L’Union européenne consacre plus de 700 millions d’euros par an au soutien de la GMV, principalement via ses programmes nationaux. Ces financements sont complétés par une Action régionale d’accompagnement. Le soutien de l’UE à la GMV constitue un « Projet phare » dans le cadre du Global Gateway AU–UE.
+
+::: {.card background="white" border="false" style="padding: 20px;background-color: #C1B1A9;"}
+## La Grande Muraille Verte (UNCCD)
+![](https://www.unccd.int/sites/default/files/styles/hero_gradient_924x450/public/2021-09/great%20green%20wall.jpg.webp?itok=gj-2vd1U)
+
+L’Initiative de la Grande Muraille Verte est une initiative phare de la CNULCD. [Pour en savoir plus, consultez le site de la CNULCD.](https://www.unccd.int/our-work/ggwi)
+:::
+
+<br>
+
+::: {.card background="white" border="false" style="padding: 20px;background-color:rgb(189, 193, 169);"}
+
+## L’Agence Panafricaine de la GMV (APGMV)
+![](../../../content/about_ggw/images/paggw.jpg)
+
+Tandis que l’Union africaine encadre les aspects politiques de l’Initiative GMV, l’Agence Panafricaine de la Grande Muraille Verte (APGMV),  créée en 2010, coordonne et suit la mise en œuvre à travers les États membres.
+
+L’APGMV pilote neuf Programmes Structurels Régionaux alignés sur les cinq Axes Stratégiques de la GMV, et accompagne les pays dans la restauration des terres dégradées, le renforcement de la résilience climatique et le développement de moyens de subsistance durables.
+:::
+
+```{=html}
+<hr class="section-divider">
+```
+
+### Knowledge for Great Green Wall Action (K4GGWA)
+
+K4GGWA – Knowledge for Great Green Wall Action – est une initiative de médiation des connaissances menée par CIFOR-ICRAF et la FAO, conçue pour renforcer l’écosystème de mise en œuvre de la GMV.
+
+Née de la nécessité d’améliorer la coordination, l’échange de connaissances et l’alignement stratégique au sein du réseau GMV, K4GGWA soutient l’Accélérateur de la GMV et les coalitions nationales à travers trois axes majeurs :
+
+1. **Adoption des pratiques de Gestion Durable des Terres & Restauration**
+    Renforcer les capacités des acteurs régionaux, nationaux et locaux à partager les leçons apprises, co-concevoir des produits d’apprentissage et s’engager dans des processus d’apprentissage par la pratique.
+
+2. **Amélioration du Suivi de la Santé des Terres & du Ciblage**
+    Développer et appliquer des cadres et outils pour suivre l’évolution de la santé des terres, de l’état de la végétation et des résultats de restauration.
+
+3. **Gouvernance, Politiques & Renforcement Institutionnel**
+    Améliorer les capacités institutionnelles, les structures de gouvernance, la coordination des parties prenantes et l’accessibilité des connaissances pour soutenir des moyens de subsistance durables.
+
+Ancré dans le cadre SHARED, K4GGWA promeut une prise de décision inclusive et intégrée verticalement, garantissant une circulation fluide des connaissances et des preuves du niveau local au niveau continental.
+
+```{=html}
+<hr class="section-divider">
+```
+Les évaluations récentes, notamment le Rapport 2020 sur l’état d’avancement de la Grande Muraille Verte, ont mis en évidence plusieurs obstacles critiques à une mise en œuvre efficace:
+
+- Gouvernance fragmentée et coordination limitée
+- Capacités insuffisantes de suivi et d’évaluation
+- Difficulté d’accès aux financements promis
+- Défis techniques tels que de faibles taux de survie des plantations
+
+En réponse, l’Accélérateur de la GMV a été lancé en 2021 pour revitaliser la mise en œuvre et renforcer le suivi, le reporting et l’alignement des parties prenantes. K4GGWA agit comme mécanisme d’appui technique à l’Accélérateur, contribuant à:
+
+- Une planification fondée sur des preuves
+- Un suivi harmonisé
+- Des réseaux institutionnels renforcés
+- Une participation plus inclusive à tous les niveaux
+
+K4GGWA réunit les coalitions nationales, les points focaux de l’APGMV, les ONG, OSC, agences techniques, chercheurs et communautés locales pour co-créer des connaissances et renforcer la résilience dans le Sahel et la Corne de l’Afrique.
+
+```{=html}
+  </main>
+</div>
+```

@@ -1,0 +1,225 @@
+---
+title:  "Mapping Land Health in the Ferlo Region"
+subtitle: "LDSF and Regreening App Training — Linguère, Senegal (Aug 2025)"
+date: "2025-09-22"
+image: images/ldsfsurv.jpg
+categories: [senegal, ldsf, data collection, land health]
+description: "Field deployment of the Land Degradation Surveillance Framework (LDSF) in the Ferlo region to strengthen high-resolution land health mapping and train the new Rangeland Module."
+format: html
+toc: false
+---
+
+::: {.figure style="text-align:center;"}
+![](images/ldsf_img.jpg){style="display:block; margin:2rem auto; width:100%; border-radius:18px;"}
+
+*Field visits to controlled grazing zones "parcelles" in Younofere (2025).*
+:::
+
+Following the August 2025 training workshop in Linguère, field teams from CIFOR-ICRAF, AVSF, and local partners initiated a new phase of Land Degradation Surveillance Framework (LDSF) surveys in the Ferlo region in **Younofere** and **Mboula**.
+
+This work advances the Great Green Wall’s commitment to building robust, scalable, and actionable monitoring systems that track how restoration efforts are improving land, vegetation, and soil conditions over time. The approach directly reflects the principles outlined in the Restoration Monitoring Guide, which emphasises the use of systematic indicators, structured data collection, and clear data-to-output workflows for credible restoration evidence.
+
+By combining LDSF field observations with remote-sensing data (e.g., EVI, NDVI) and participatory reporting tools such as the Regreening App, the Ferlo surveys contribute to a monitoring system capable of tracking baseline conditions and detecting ecological change across pastoral landscapes.
+
+## What is the LDSF?
+
+The [Land Degradation Surveillance Framework](https://ldsf.thegrit.earth/) is a multi-scale, systematic sampling design used to assess land and soil health across diverse landscapes. It combines hierarchical sampling, structured field protocols, and geospatial modelling to generate a detailed picture of ecosystem condition.
+
+The LDSF's nested sampling design ensures spatial variability is captured at various scales:
+
+- A 10 × 10 km sampling frame (called a "site") with 16 1km x 1km clusters;
+- Each 1km x 1km cluster contains 10 randomly generated 1000m2 plots;
+- Each 1000m2 plot is then split into four subplots of approximately 12m diameter. 
+
+::: {.figure style="text-align:center;"}
+![](images/img3.png){style="display:block; margin:2rem auto; width:100%; border-radius:18px;"}
+:::
+
+This design ensures that measurements are representative of the full range of land conditions, repeatable for long-term monitoring, and provide a robust dataset for model training.
+
+<div style="
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin: 1.5rem 0;
+">
+  <img src="images/img4.png" style="height: 460px; border-radius: 12px;">
+  <img src="images/tools_ldsf.png" style="height: 460px; border-radius: 12px;">
+</div>
+
+<p style="text-align:center;">
+  <em>LDSF indicators and tools required</em>
+</p>
+
+At each plot, field teams collect observations on:
+
+- Soil properties and visible soil degradation;
+- Vegetation structure and cover;
+- Erosion types and severity;
+- Ground cover composition;
+- Land use and management indicators.
+
+Combined, these provide a robust baseline of land health that can be used as model inputs to generate predictive surfaces of many different land health indicators. 
+
+## From field plots to predictive maps
+Data collected through the LDSF provide a robust input for hgih-accuracy predictive modeling. Each measured variable can be used to train machine-learning algorithms, typically random forests or boosted regression trees using geospatial covariates such as Sentinel-2 spectral indices, elevation, rainfall, and temperature. 
+
+::: {.figure style="text-align:center;"}
+![](images/predmod.png){style="display:block; margin:2rem auto; width:85%; border-radius:18px;"}
+*From raw data to decision-making, a schematic workflow*
+:::
+
+This process transforms thousands of point observations into continuous maps of soil and vegetation health, enabling:
+
+- Targeting of restoration investments;
+- Tracking of restoration outcomes over time;
+- Reporting on SDG 15.3 (“land degradation neutrality”) and other global indicators.
+
+<div style="
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  margin: 1.5rem 0;
+">
+  <img src="images/grass_map.png" style="height: 260px; border-radius: 12px;">
+  <img src="images/cc_map.png" style="height: 260px; border-radius: 12px;">
+</div>
+
+<p style="text-align:center;">
+  <em>Example LDSF derived predictive maps. LHS: Grassland cover (0–100%); RHS: Cropland cover (0–100%).</em>
+</p>
+
+
+The resulting high-resolution maps are integrated into decision-support tools such as the K4GGWA Platform and shared with national agencies through the Great Green Wall Observatory, where they can inform policy, restoration planning, and community engagement.
+
+## Piloting the LDSF Rangeland Module
+A key innovation in the 2025 Matam & Louga campaign is the LDSF Rangeland Module, a new LDSF module with specific indicators for understanding the condition and function of pastoral systems.
+
+```{r}
+#| label: setup
+#| include: false
+
+library(sf)
+library(leaflet)
+
+Mboula    <- st_read("images/mboula.geojson", quiet = TRUE)    |> st_transform(4326)
+Younofere <- st_read("images/younofere.geojson", quiet = TRUE) |> st_transform(4326)
+sen       <- st_read("images/senegal_adm0.geojson", quiet = TRUE) |> st_transform(4326)
+regions <- st_read("images/senegal_adm2.geojson", quiet = TRUE) |> st_transform(4326)
+
+regions$popup_label <- "Administrative Regions Louga & Matam"
+Mboula$popup_label    <- "LDSF Site 1 (Mboula cluster)"
+Younofere$popup_label <- "LDSF Site 2 (Younofere cluster)"
+
+sen_bbox <- st_bbox(sen)
+```
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+
+leaflet() |>
+  addProviderTiles(providers$Esri.WorldImagery) |>
+  addPolygons(
+    data   = sen,
+    fill   = FALSE,
+    color  = "#ffffff",
+    weight = 2.5,
+    opacity = 0.9
+  ) |>
+  addPolygons(
+    data        = regions,
+    fill        = FALSE,
+    color       = "#7e22ce",
+    weight      = 1.2,
+    opacity     = 0.8,
+    highlightOptions = highlightOptions(
+      weight = 2,
+      color  = "#f97316",
+      bringToFront = TRUE
+    ),
+    label = ~NAME_1,
+    labelOptions = labelOptions(
+      direction = "auto",
+      textsize  = "12px",
+      opacity   = 0.9,
+      style = list(
+        "background-color" = "white",
+        "padding"          = "2px 4px",
+        "border-radius"    = "4px",
+        "border"           = "1px solid #ddd"
+      )
+    )
+  ) |>
+  addCircleMarkers(
+    data        = Mboula,
+    radius      = 7,
+    fillColor   = "darkgreen",
+    fillOpacity = 0.9,
+    color       = "white",
+    weight      = 2,
+    popup       = ~popup_label
+  ) |>
+  addCircleMarkers(
+    data        = Younofere,
+    radius      = 7,
+    fillColor   = "yellow",
+    fillOpacity = 0.9,
+    color       = "white",
+    weight      = 2,
+    popup       = ~popup_label
+  ) |>
+
+  setView(lng = -14.5, lat = 14.5, zoom = 7)
+```
+
+<br> 
+
+New measurements include:
+
+- Ground cover composition (perennial grasses, annual herbs, litter, bare soil);
+- Herbaceous biomass and forage quality;
+- Woody–herbaceous balance;
+- Livestock-use indicators such as trampling, dung density, browse lines, and bare-patch formation.
+
+These variables provide a clearer picture of forage availability, grazing impacts, and ecosystem function - issues central to communities across Senegal's Ferlo region and pastoral systems across the GGW.
+
+The expanded indicators allow LDSF clusters to represent not only vegetation structure and soil condition, but the functionality of rangeland systems including how they accumulate biomass, recover after grazing, and respond to rainfall variability.
+
+## Collaborative science in action
+The 2025 field campaign was implemented jointly by local technicians and institutions, combining scientific rigour with on-the-ground capacity building. 
+
+Teams received practical coaching on:
+
+- Soil sampling and laboratory preparation;
+- Vegetation assessment and rangeland condition scoring;
+- GPS navigation and Open Data Kit (ODK) workflows;
+- Data quality assurance and basic exploratory analysis.
+
+This dual approach ensures that data collection skills remain within national systems, strengthening long-term monitoring capacities across the Sahel.
+
+::: {.figure style="text-align:center;"}
+![](images/img2.jpg){style="display:block; margin:2rem auto; width:100%; border-radius:18px;"}
+:::
+
+Beyond its technical output, the campaign demonstrates that building credible restoration evidence requires collaboration between scientists, governments, and communities. The LDSF’s structured design provides a scientific backbone and local knowledge and participation ensure datasets and monitoring frameworks are inclusive.
+
+
+# What next?
+Data collected during the recent Ferlo region LDSF surveys are being cleaned and processed, readying them for analysis and modeling. They will contribute to the first rangeland-specific predictive models for the Great Green Wall. These products will enable countries to visualise trends in forage quality, erosion risk, and soil carbon at scales relevant for planning.
+
+The next phase will expand the network of LDSF sites across the GGW region, deepening the evidence base needed for adaptive management of drylands and providing a stronger foundation for restoration commitments under the Great Green Wall and related initiatives.
+
+**For further inquiries, contact us:**
+<br>
+
+T.VAGEN@cifor-icraf.org
+
+<br>
+or
+<br>
+
+m.ahmad@cifor-icraf.org

@@ -1,0 +1,22 @@
+---
+pagetitle: "Predictive Modelling in Restoration"
+date: "2024-10-25"
+author: "CIFOR-ICRAF"
+subtitle: "What is predictive modelling for landscape restoration?"
+description: "There is increasing awareness of the need for enhanced use of evidence in the assessment of land degradation status and the factors or drivers that lead to degradation. What has been less focused on is generation for rigorous data and evidence to enable more rigorous predictive modeling to inform land restoration interventions."
+page-layout: full
+toc: true
+image: figs/LDSF_flow.jpg
+categories: ["restoration", "machine-learning", "monitoring"]
+format: html
+bibliography: pred_modeling.bib
+---
+
+## Predictive Modeling in Restoration
+Research suggests that when ecosystems are degraded, it can be challenging to restore them as their degraded state can be highly resilient to change (@suding2004). It is therefore critical to understand the factors that led to degradation in the first place, the current state of land degradation, and to design restoration interventions that address these underlying factors. Recent advances in earth observation, data science, and machine learning have made it possible to generate high-resolution predictive maps of land degradation status and its drivers across large landscapes. When these advances are combined with systematic field data collection, they provide a powerful toolset to inform restoration planning, targeting, and monitoring. By leveraging these technologies, restoration practitioners can make more informed decisions and improve the effectiveness of their interventions. 
+
+Despite the recognition of the need for stronger evidence to guide land restoration, large gaps remain in terms of data and evidence. This is partly due to the complexity of the processes leading to land degradation and recovery, including interactions between biophysical and socio-economic factors. Additionally, land degradation and restoration processes often occur over long time scales and large spatial extents, making it difficult to capture and monitor changes effectively.
+
+This does not mean that it is impossible to assess and monitor land degradation and recovery over time. In fact, large strides have been made towards more rigorous and scalable solutions for such assessments. The [Land Degradation Surveillance Framework (LDSF)](https://ldsf.thegrit.earth), for example, has been implemented across more than 40 countries in the tropics to fill these gaps, and to develop systems and tools to bring evidence to decision-makers. It is also well published and has a proven track record having been applied across a diverse portfolio of projects (@vagen2013a; @vagen2013b; @winowiecki2016; @massawe2017; @bargues-tobella2024).
+
+![The LDSF process. From data collection in the field (left), data analytics (middle), to outputs that help inform and monitor both land degradation status and restoration progress.](figs/LDSF_flow.jpg)

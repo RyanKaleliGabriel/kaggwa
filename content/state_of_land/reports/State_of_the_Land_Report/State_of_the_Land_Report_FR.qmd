@@ -1,0 +1,919 @@
+---
+title: "État des Terres: Rapport 2025"
+author: SPACIAL
+date: "2025-09-25"
+image: assets/images/thumbnail.png
+categories: ["climate change", "monitoring"]
+execute:
+  freeze: auto 
+resources:
+  - assets/**
+format:
+  closeread-html:
+    mainfont: Quicksand
+    css: State_of_the_Land_Report.css
+    theme: solar
+    fontsize: 1.4rem
+    cr-style:
+      narrative-background-color-overlay: "rgb(0,43,54,0.75)"
+      narrative-font-size: 1.4rem
+      narrative-overlay-max-width: "1000px"
+    self-contained: false
+    embed-resources: false
+    remove-header-space: true
+---
+
+:::{.non-cr-block}
+# État des terres : la Grande Muraille Verte
+<p style="text-align:center;">
+  <img src="assets/images/Logo_header.png" alt="Logo 1" width="800" style="margin: 0 10px; vertical-align: middle;" />
+</p>
+
+:::
+
+::: {.non-cr-block}
+## Explorer le rapport {#toc-start}
+<div class="toc-container">
+  <ul>
+    <li><a href="#toc-where">1. Qu’est-ce que la Grande Muraille Verte ?</a></li>
+    <li><a href="#toc-history">2. Mise en perspective historique et lacunes de données</a></li>
+    <li><a href="#toc-lh">3. Au‑delà du verdissement : qu’est‑ce que la santé des terres ?</a></li>
+    <li><a href="#toc-climate">3a. Climat</a></li>
+    <li><a href="#toc-landcover">3b. Couverture des terres</a></li>
+    <li><a href="#toc-soil">3c. Santé des sols</a></li>
+    <li><a href="#toc-ld">3d. Dégradation des terres</a></li>
+    <li><a href="#toc-conclusion">4. Conclusion</a></li>
+  </ul>
+</div>
+
+:::
+
+::: {.non-cr-block .white-bg}
+## **APERÇU**
+L’état de la santé des terres à travers la région de la Grande Muraille Verte reflète un système étroitement interconnecté entre climat, végétation, sols et dynamiques de dégradation. Le climat demeure le principal facteur limitant dans ces écosystèmes arides, régissant les régimes spatio‑temporels de pluie et de température qui sous‑tendent la croissance de la végétation et les processus pédologiques. L’analyse d’indicateurs climatiques de long terme montre une variabilité persistante des précipitations et une hausse des températures, certaines zones connaissant une intensification de la récurrence des sécheresses et des risques d’inondation localisés — des signaux d’un régime hydro‑climatique de plus en plus volatil.
+
+<img src="assets/images/ggw_trace_invert.png" alt="tc_landscape" width="100%" style="margin-top:1rem;"/>
+
+Les motifs de couverture des terres répondent directement à ces contraintes climatiques. Les observations satellitaires révèlent des évolutions dynamiques du couvert arboré et des cultures à travers le Sahel, reflétant à la fois les pressions climatiques et les interventions de gestion des terres. Si certaines régions montrent des gains réguliers en couvert ligneux et agricole, souvent associés à des efforts ciblés de restauration et de régénération, d’autres présentent une stagnation ou un déclin liés aux sécheresses récurrentes, aux conversions d’usage et aux perturbations par le feu. La survenue d’incendies reste un moteur majeur du renouvellement de la végétation, notamment dans les zones de transition savane‑forêt où les conditions de pluie et de combustible interagissent fortement.
+
+La santé des sols, évaluée via le carbone organique du sol et l’humidité des sols, reflète ces dynamiques de couverture. Les zones où la végétation s’améliore tendent à montrer une meilleure rétention d’eau et une reprise progressive des stocks de carbone, tandis que les zones dégradées ou intensivement cultivées présentent un appauvrissement. Comme la santé des sols régit l’infiltration, le cycle des nutriments et la capacité des paysages à amortir les extrêmes climatiques, sa détérioration amplifie la vulnérabilité générale face à la sécheresse et à l’érosion.
+
+Cumulativement, ces facteurs façonnent des tendances observables de dégradation des terres dans l’ensemble de la région GMV. La productivité de la végétation (EVI) et les indicateurs d’érosion mettent en évidence une mosaïque de conditions, des poches de reverdissement et de reprise juxtaposées à des zones de dégradation persistante ou en expansion. Ensemble, les preuves soulignent qu’aucun moteur n’agit isolément: le climat fixe l’opportunité, la couverture des terres module la réponse, les sols ancrent la résilience, et la dégradation exprime le résultat net de leur interaction. Renforcer les rétroactions positives via la reprise de la végétation, la restauration des sols et une gestion intégrée des terres, demeure essentiel pour bâtir la résilience climatique et réaliser la vision d’un paysage productif et durable à travers le Sahel.
+:::
+
+```{r}
+#| label: setup
+#| include: false
+
+source("helper.r")
+source("dataloader.r") 
+init_ggw("assets/maps/data/ggw_adm0.geojson")
+init_ecoregions("assets/maps/data/ecoregions_ggw.geojson")
+```
+
+::::{.cr-section layout="overlay-center"}
+:::{.progress-block}
+Longtemps imaginée comme un mur d’arbres pour « arrêter le désert », la Grande Muraille Verte (GMV) est née d’un récit présentant le Sahel comme une frontière homogène en voie de désertification. @cr-myimage
+
+Si l’ambition était grande, cette conception reposait sur une compréhension simpliste des réalités écologiques et sociales de la région. Influencé par des visions dépassées du Sahel comme un désert stérile et par la rareté des données à l’époque, le récit initial de la GMV a négligé la complexité des paysages qu’il cherchait à transformer.
+:::
+
+:::{#cr-myimage}
+![](assets/images/sahel_drone.jpg)
+:::
+
+::::
+
+::: {.non-cr-block}
+## Qu’est‑ce que la Grande Muraille Verte ? {#toc-where}
+
+En réalité, la **GMV couvre une mosaïque vaste et complexe d’écosystèmes** — des savanes et fourrés aux zones humides saisonnières et systèmes agro‑pastoraux, façonnée par des dynamiques écologiques diverses et des millénaires d’intendance humaine des terres. @cr-ecoregion-map
+
+::: {#ecoregion-map .cr-sticky}
+
+```{r}
+#| label: ecoreg
+#| echo: false
+#| message: false
+#| warning: false
+eco <- st_transform(eco_data(), 4326)
+
+eco_levels <- sort(unique(eco$ECO_NAME))
+pal <- colorFactor(
+  colorRampPalette(brewer.pal(12, "Set3"))(length(eco_levels)),
+  domain = eco_levels,
+  na.color = "transparent"
+)
+
+eco_top10 <- eco |>
+  st_transform(6933) |>
+  mutate(area_km2 = as.numeric(st_area(geometry)) / 1e6) |>
+  st_drop_geometry() |>
+  group_by(ECO_NAME) |>
+  summarise(area_km2 = sum(area_km2, na.rm = TRUE), .groups = "drop") |>
+  slice_max(area_km2, n = 10) |>
+  pull(ECO_NAME)
+
+leaflet(
+  options = leafletOptions(preferCanvas = TRUE, scrollWheelZoom = FALSE)
+) |>
+  addProviderTiles("CartoDB.PositronNoLabels") |>
+  setView(lng = 20, lat = 10, zoom = 4) |>
+  addPolygons(
+    data  = ggw_data(),
+    fillColor = "transparent",
+    color = "black",
+    weight = 1.2,
+    group = "GGW Countries"
+  ) |>
+  addPolygons(
+    data        = eco,
+    fillColor   = ~pal(ECO_NAME),
+    fillOpacity = 0.6,
+    color       = "white",
+    weight      = 1,
+    label       = ~ECO_NAME,
+    group       = "Ecoregions",
+    highlightOptions = highlightOptions(weight = 2, color = "#666",
+                                        fillOpacity = 0.7, bringToFront = TRUE),
+    options = pathOptions(interactive = TRUE, bubblingMouseEvents = TRUE)
+  ) |>
+  addLegend(
+    pal      = pal,
+    values   = eco_top10,
+    title    = "Top 10 Ecoregions (by area)",
+    opacity  = 1,
+    position = "topright"
+  ) |>
+  addLayersControl(
+    overlayGroups = c("Ecoregions", "GGW Countries"),
+    options = layersControlOptions(collapsed = FALSE)
+  )
+```
+
+:::
+<br>
+S’étendant sur 18 pays noyaux et plus de 36 [écorégions](https://www.resolve.ngo/projects/ecoregions-world) distinctes, la Grande Muraille Verte forme une mosaïque colorée d’écosystèmes et de communautés aux besoins variés et aux réalités de terrain contrastées. La restauration ne peut s’y faire par une solution unique. Ce qui fonctionne dans les plaines parsemées d’acacias du Sénégal peut ne pas fonctionner dans les plaines inondables saisonnières du Tchad ou les hautes terres sèches d’Éthiopie.
+
+::: {.callout-note appearance="simple" icon='false'}
+## **L’Union Africaine**
+L’Initiative GMV est coordonnée par l’Agence Panafricaine de la Grande Muraille Verte (APGMV), sous l’égide de l’Union africaine. À la suite du lancement de l’Observatoire de la GMV, l’UA a publié une stratégie décennale (2024–2034) qui met l’accent sur les données et les preuves comme fondements de la planification, de la mise en œuvre, du suivi et du reporting. Pour en savoir plus: ['Stratégie de l’Initiative GMV de l’Union Africaine et cadre de mise en œuvre décennal: renforcer la restauration des écosystèmes et la résilience des moyens de subsistance (2024‑2034)'](https://au.int/en/documents/20240530/african-union-great-green-wall-initiative-strategy-and-ten-year-implementation)
+:::
+
+::: {.callout-note appearance="simple" icon='false'}
+
+## **L’Accélérateur de la Grande Muraille Verte**
+En 2021, l’[Accélérateur GMV](https://thegreatgreenwall.org/great-green-wall-accelerator) a été lancé pour renforcer la coordination, le financement et les capacités techniques. Initiative conjointe de la UNCCD et de l’APGMV, il vise à améliorer l’accès aux données, aux outils et à l’appui institutionnel pour une mise en œuvre et un suivi efficaces des projets.
+:::
+
+Pendant une grande partie de son histoire, la GMV a été limitée par des ressources techniques insuffisantes, des systèmes de données fragmentés et des métriques imposées de l’extérieur. @cr-myimage1
+:::
+
+::::{.cr-section layout="overlay-center"}
+:::{.progress-block}
+L’adoption croissante de l’observation de la Terre et de la télédétection a transformé la compréhension des paysages sahéliens. **Aujourd’hui, nous pouvons suivre à grande échelle des dynamiques comme l’érosion des sols, le couvert arboré, les risques de sécheresse et d’inondation, ainsi que la fréquence des feux, avec une précision inédite.** @cr-myimage1
+
+Combinées aux progrès des infrastructures de données africaines, <a href="https://www.stimson.org/2023/who-woke-the-sleeping-giant-africas-emerging-space-programs-take-off/">telles que les agences nationales spatiales et de recherche</a>, aux hubs continentaux de données pédologiques (<a href="https://ldsf.thegrit.earth/">comme le Land Degradation Surveillance Framework (LDSF))</a>, et à des réseaux renforcés de savoirs écologiques traditionnels, ces avancées offrent une nouvelle clarté sur les mécanismes du changement des paysages et sur la meilleure manière de concevoir et de suivre les interventions.
+:::
+
+:::{#cr-myimage1}
+![](assets/images/sahel_drone.jpg)
+:::
+::::
+
+::: {.non-cr-block}
+## Repenser la restauration de la GMV
+Ce saut de capacités révèle aussi les limites d’indicateurs traditionnels de suivi comme les indices de verdissement (p. ex., NDVI), qui simplifient souvent des processus complexes. Une apparente augmentation du couvert végétal peut, par exemple, découler d’une hausse des précipitations, d’un CO₂ atmosphérique accru, ou de la propagation d’espèces invasives autant de facteurs qui ne correspondent pas nécessairement à une restauration significative.
+
+La « verdure » ne renseigne ni sur le fonctionnement des écosystèmes, ni sur la reprise des sols, les gains de biodiversité ou la durabilité des usages. Dans certains cas, elle peut même masquer la dégradation plutôt que l’identifier.
+
+<img src="assets/images/img3.jpg" alt="Restauration menée par les communautés" width="100%" style="margin-top:1rem;"/>
+
+Ce qu’il faut, c’est un cadre pour comprendre la santé des terres dans ses multiples dimensions, intégrant plusieurs indicateurs et mesurant non seulement l’augmentation du couvert, mais aussi la reprise de la santé des sols, la biodiversité, la résilience climatique et le bien‑être des communautés qui vivent sur la terre et l’intendent.
+
+Tout aussi important est la manière dont ces dimensions sont suivies et qui participe. À travers le Sahel, de plus en plus d’initiatives articulent systèmes de connaissances locales et technologies numériques. Des applications de science citoyenne comme <a href="https://play.google.com/store/apps/details?id=com.icraf.gsl.regreeningafrica&hl=en&gl=US&pli=1">Regreening Africa</a> et des approches de recherche‑action participative permettent aux communautés de suivre les pratiques de restauration, de valider les jeux de données spatiales et d’aligner le suivi sur les réalités vécues.
+
+<img src="assets/images/RA_app.jpg" alt="Science citoyenne" width="100%" style="margin-top:1rem;"/>
+
+En ce sens, la GMV peut être plus qu’une initiative de restauration et d'autodétermination africaine. En fondant les cadres de suivi sur des données, des institutions et des priorités communautaires africaines, la GMV renforce la boucle de rétroaction entre populations, science et politiques, garantissant une restauration à la fois fondée sur les preuves et socialement/politiquement habilitante.
+
+## Au‑delà du verdissement : qu’est‑ce que la santé des terres ? {#toc-lh}
+:::
+
+::::{.cr-section layout="overlay-center"}
+:::{.progress-block}
+Une compréhension plus profonde et ancrée de la restauration exige de meilleurs outils pour mesurer le changement et l’interpréter selon les réalités du terrain. Cela implique d’aller au‑delà de métriques uniques comme le NDVI et d’adopter un ensemble d’indicateurs de santé des terres capturant les conditions des sols, la dynamique de la végétation, les risques climatiques et d’autres dimensions du fonctionnement des écosystèmes. @cr-iucn-data
+
+**La santé des terres renvoie à la capacité des sols, de la végétation et des systèmes hydriques à maintenir les processus écologiques, à soutenir les moyens de subsistance et à résister aux chocs climatiques.** Dans la GMV, cela signifie des sols capables d’absorber et de stocker la pluie, une végétation qui se régénère après les stress, et des paysages fournissant des services comme le fourrage, le bois‑énergie, l’habitat pour la biodiversité et la régulation de l’eau. Une terre « saine » n’est donc pas simplement « verte », mais productive, résiliente et socialement signifiante.
+
+Avec la teledetection et l'observation des terres fournissant désormais des données cohérentes et extensibles à l’échelle de la région, la santé des terres peut être évaluée par un ensemble d’indicateurs complémentaires: carbone organique et érosion des sols pour la fonction pédologique, couvert arboré et cultivé pour la dynamique de la végétation, feux, sécheresse et inondations pour les perturbations et risques climatiques, et des indices intégrateurs comme les tendances EVI pour capter le changement à long terme.
+
+Les sections suivantes présentent cet éventail d’indicateurs, montrant comment les analyses temporelles et les outils de suivi spatial mettent au jour tendances, défis et opportunités du changement paysager.
+:::
+
+:::{#cr-iucn-data}
+![](assets/images/sahel_drone1.jpg)
+:::
+::::
+
+<!-- Section Climat -->
+
+:::{.non-cr-block}
+# CLIMAT {#toc-climate}
+
+**Phénomènes et moteurs climatiques** 
+<br> 
+<a href= "https://youtu.be/6XAxIK-HebE?si=U-ysEJtvO8oCbi0L">Le climat naturel du Sahel est complexe et hautement variable. À l’ouest (Sénégal, Mali, Mauritanie), la mousson ouest‑africaine domine, gouvernée par la remontée saisonnière de la Zone de convergence intertropicale (ZCIT).</a> Des vents de sud‑ouest humides en provenance de l’Atlantique progressent à l’intérieur des terres de juin à septembre, apportant l’essentiel des pluies annuelles. 
+<br> <br>
+Dans la partie centrale du Sahel (Niger, Tchad, nord du Nigeria), l’influence de la mousson s’atténue avec l’éloignement de l’océan, mais les pluies restent liées aux mouvements de la ZCIT. Plus à l’est (Soudan, Érythrée, Éthiopie), la mousson d’Afrique de l’Est et les influences de l’océan Indien jouent un rôle plus fort, interagissant avec l’orographie des hautes terres pour produire des régimes pluviométriques plus complexes. 
+<br> <br>
+À l’échelle du Sahel, la circulation de Hadley détermine largement l’aridité en apportant de l’air sec subsident, et en saison sèche, l’harmattan descend du Sahara, charriant poussières et intensifiant l’évapotranspiration. Les variations des températures de surface de la mer dans l’Atlantique, l’océan Indien et le Pacifique modulent ces systèmes, conduisant à une forte imprévisibilité des pluies d’une année à l’autre.
+
+<img src="assets/images/sahel_clim_phenom.png" alt="Community-led restoration" width="100%" style="margin-top:1rem;"/>
+
+## **Variabilité du climat dans l’espace et le temps**
+<br>
+Les précipitations sahéliennes sont marquées par une forte variabilité spatiale et temporelle. Une caractéristique clé est le gradient pluviométrique nord‑sud, souvent cartographié via des isohyètes (lignes d’égale pluie). Ces isohyètes s’étirent grossièrement d’est en ouest et se déplacent d’environ 200 mm annuels à la frange désertique jusqu’à 600–800 mm près de la limite sud de la zone sahélienne. Même de faibles décalages nord/sud peuvent agrandir ou rétrécir considérablement les terres cultivables.
+<br> <br>
+Sur le plan temporel, la variabilité interannuelle est très élevée. Les sécheresses dévastatrices des années 1970–1980 illustrent comment des déficits pluri‑décennaux transforment paysages et sociétés. Plus récemment, une reprise partielle des pluies est observée depuis les années 1990, mais leur répartition devient plus erratique avec des débuts retardés et des fins précoces de saison, ainsi que des averses plus intenses entrecoupées de périodes sèches prolongées. Ces modifications de la chronologie et de l’intensité importent souvent davantage pour l’agriculture et l’élevage que les changements de totaux annuels.
+
+<img src="assets/images/sahel_clim_phenom.png" alt="Phénomènes climatiques sahéliens" width="100%" style="margin-top:1rem;"/>
+
+## **Dynamiques climat‑végétation**
+<br>
+La végétation sahélienne est étroitement couplée à ces dynamiques pluviométriques. De courtes saisons des pluies intenses déclenchent des bouffées de croissance rapides des graminées, arbustes et cultures, les plantes stockant des ressources pour traverser les longs mois secs. <a href= "https://pub.epsilon.slu.se/13553/1/bargues_tobella_a_160808.pdf">Lorsque le couvert végétal est suffisant, une rétroaction positive se met en place : ombrage du sol, réduction de l’évaporation et amélioration de l’infiltration, ce qui soutient à son tour la croissance.</a>
+<br> <br>
+À l’inverse, si la pluie manque ou si le couvert décline, les sols se dégradent, l’érosion s’accélère et la capacité de capture/stockage de l’eau diminue. Le système devient alors très sensible aux petits changements climatiques, avec des seuils écologiques susceptibles de faire basculer les paysages vers la dégradation ou la régénération.
+
+<img src="assets/images/sahel_clim_var.png" alt="Variabilité climatique sahélienne" width="100%" style="margin-top:1rem;"/>
+
+## **Agro‑écosystèmes contraints par le climat et opportunités**
+<br>
+La plupart des agro‑écosystèmes sahéliens sont pluviaux et donc contraints par une saison humide courte et variable. Les rendements, la productivité pastorale et la santé du cheptel dépendent du calendrier et des quantités de pluie. Parce que les moyens de subsistance dépendent fortement du climat, comprendre tendances et moteurs est essentiel non seulement pour anticiper les risques mais aussi pour concevoir des interventions adaptées aux dynamiques naturelles. Les solutions fondées sur la nature et la gestion des terres qui captent et stockent la pluie peuvent amortir cette variabilité.
+<br> <br>
+<a href="https://www.unepdhi.org/wp-content/uploads/sites/2/2020/05/WEB_UNEP-DHI_NBS-PRIMER-2018-2.pdf">Des pratiques telles que la conservation des sols et de l’eau, les cordons pierreux/banquettes, les demi‑lunes, la gestion de bassin versant et l’agroforesterie</a> permettent aux paysages d’utiliser au mieux des pluies limitées. En alignant les interventions sur les régimes climatiques et en suivant tendances de pluie et de végétation, gestionnaires et décideurs peuvent concevoir des restaurations qui s’appuient sur le système climatique sahélien plutôt que d’aller à son encontre.
+<br> <br>
+
+::: {.my-button-container} 
+<a href="https://dashboards.cifor-icraf.org/app/k4ggwa" target="_blank" class="my-button">
+Explorer le tableau de bord « Climat » de la GMV </a>
+
+:::
+:::
+
+::::{.cr-section .white-bg}
+:::{.progress-block}
+**Pluviométrie** <br>
+La carte à droite montre la moyenne annuelle de long terme (2001–2024) des précipitations (mm/an). Activez/désactivez des couches et zoomez pour examiner la variabilité spatiale fine. @cr-precip
+
+Les précipitations sont très variables à l’échelle de la GMV, avec un fort gradient latitudinal. Aux marges du Sahara, **elles peuvent être aussi faibles que 200 mm/an, tandis qu’au sud elles atteignent jusqu’à 1400 mm/an**.
+
+On observe bien sûr une variabilité intra‑pays : le centre du Nigeria dépasse souvent 1000 mm/an, tandis que l’Éthiopie présente des pluies élevées sur les hautes terres de l’ouest et très faibles à l’extrême est.
+
+Étant donné que la pluie est un facteur limitant majeur de la productivité végétale, comprendre sa distribution spatiale aide à déterminer les usages des terres et les interventions de restauration viables.
+
+Dans les systèmes à faible pluviométrie, par exemple, le **planting d’arbres** peut être irréaliste car les jeunes plants ne reçoivent pas assez d’eau. Améliorer la **rétention hydrique des sols** est alors plus pragmatique, via des techniques CES/DRS et <a href = "https://www.cifor-icraf.org/publications/pdf_files/articles/AKassa2001.pdf">d’autres approches de restauration des terres arides</a>.
+:::
+
+:::{#cr-precip .cr-map-block}
+```{r}
+#| label: precip
+#| echo: false
+#| warning: false
+ggw_map("precip")
+```
+:::
+::::
+
+::::{.cr-section .white-bg}
+:::{.progress-block}
+**Tendances des précipitations** <br>
+Il est important de comprendre non seulement les moyennes, mais aussi les tendances. La carte à droite montre les tendances de pluie sur 2001–2024. @cr-precip1
+
+Les zones en <span style="color: red;">rouge</span> montrent une tendance à l’assèchement, celles en <span style="color: blue;">bleu</span> des tendances à l’humidification. On observe des tendances positives dans le sud‑ouest du Mali et au Sénégal, tandis que d’autres régions comme le Ghana central, le Nigeria et les hautes terres éthiopiennes présentent un déclin des pluies annuelles. Des bandes septentrionales au Mali et en Mauritanie montrent un léger assèchement.
+
+Ces tendances n’indiquent toutefois que **la direction et l’ampleur du changement annuel** ; elles n’expliquent pas **comment** ces hausses/baises surviennent. @cr-precip2
+
+On peut désagréger les tendances pour examiner la **concentration** des pluies (les hausses sont‑elles *réparties régulièrement* ou *plus concentrées* sur l’année ?) ainsi que la **seasonnalité** (les pluies commencent‑elles plus tard ? cessent‑elles plus tôt ?).
+:::
+
+:::{#cr-precip1 .cr-map-block}
+```{r}
+#| label: precip1
+#| echo: false
+#| warning: false
+ggw_map("precip_trend")
+```
+:::
+::::
+
+::::{.cr-section .white-bg}
+:::{.progress-block}
+**Concentration et saisonnalité des pluies** <br>
+Le graphique à droite montre une série temporelle de l’indice de **concentration des précipitations (PCI)** pour chaque pays de 2001 à 2024. Un PCI élevé indique des pluies plus concentrées — c’est‑à‑dire concentrées sur une fenêtre plus étroite de l’année — tandis qu’un PCI faible indique des pluies plus uniformément réparties. @cr-precip3
+
+Le PCI fluctue d’une année à l’autre, reflétant des saisons plus courtes ou prolongées, ou <a href= "https://www.nature.com/articles/s43017-025-00705-7">l’effet d’événements majeurs comme El Niño/La Niña</a>. Cela apparaît dans les pics et creux de la série.
+
+En 2007, par exemple, on observe un pic marqué sur l’ouest du Sahel, reflétant <a href= "https://d-nb.info/1122436033/34">une saison de mousson anormale</a> où la majeure partie des pluies est tombée sur une période courte. En 2014, à l’inverse, on voit un creux, traduisant des pluies plus régulières à l’échelle régionale. Il faut être prudent avec des tendances moyennées sur de grandes superficies, surtout pour des pays couvrant plusieurs régimes pluviométriques, car une grande part de la variabilité spatiale est perdue.
+
+La manière dont la pluie tombe, concentration, début et fin de saison, occurrence diurne/nocturne — est déterminante pour la sécurité alimentaire et économique, affectant tout : prix du bétail, succès des cultures et calendrier des récoltes, accès aux écoles et marchés, décisions migratoires.
+
+Comprendre ces motifs est essentiel pour expliquer l’évolution de la végétation à travers la GMV, guider l’adaptation des systèmes agricoles et pastoraux, et anticiper inondations et sécheresses.
+
+En tant que moteur principal de la dynamique végétale, <a href= "https://dashboards.cifor-icraf.org/app/restoration_app">la pluie aide à distinguer les changements climato‑dépendants de ceux liés à la gestion</a>, tout en informant des stratégies qui améliorent la capture et le stockage de l’eau et soutiennent une gestion adaptative.
+:::
+
+::: {#cr-precip3}
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+#| fig-width: 14
+#| fig-height: 5
+#| out-width: "100%"
+#| cache: false
+
+df <- read_csv("assets/maps/data/ggw_pci_by_country_2001_2024.csv",
+               show_col_types = FALSE)
+
+pal <- c("#1f77b4","#ff7f0e","#2ca02c","#d62728","#9467bd",
+         "#8c564b","#e377c2","#7f7f7f","#bcbd22","#17becf","#1a9850")
+
+fig <- plot_ly(
+  df,
+  x = ~year,
+  y = ~pci,
+  color = ~country,
+  type = "scatter",
+  mode = "lines",
+  colors = pal[seq_len(length(unique(df$country)))],
+  height = 420
+) %>%
+  layout(
+    autosize = TRUE,
+    title = list(
+      text = "Precipitation Concentration Index (PCI) — GGW Countries",
+      y = 1.10, x = 0.5, xanchor = "center", yanchor = "top"
+    ),
+    legend = list(orientation = "h", y = 1.02, x = 0, yanchor = "bottom"),
+    xaxis  = list(title = "Year", showgrid = TRUE),
+    yaxis  = list(title = "PCI", showgrid = TRUE),
+    margin = list(l = 60, r = 30, t = 110, b = 50)
+  ) %>%
+  config(responsive = TRUE) %>%
+  onRender("
+    function(el){
+      function resize(){
+        const w = el.parentElement.getBoundingClientRect().width;
+        Plotly.relayout(el, {width: w});
+      }
+      resize();
+      window.addEventListener('resize', resize);
+    }")
+
+fig
+
+```
+
+:::
+::::
+
+::: {#flood-js-section .flood-section}
+<div class="flood-narrative">
+
+  <div class="flood-block" markdown="1">
+
+  **Risque d’inondation** <br>
+  Les épisodes de pluie extrême, ou inondations, surviennent lorsque l’eau ne peut s’infiltrer ni être drainée, entraînant une accumulation en surface. Dans les cas modérés, les crues érodent les sols, déposent des sédiments dans les cours d’eau et endommagent les cultures. Dans les cas sévères, elles détruisent des infrastructures et menacent des vies. **Les inondations sont donc à la fois un aléa et un moteur de dégradation des terres.** @cr-floodmap
+  </div>
+
+  <div class="flood-block" markdown="1">
+  Le lien entre précipitations et inondations est particulièrement fort au Sahel, où la pluie est très variable (voir section précédente). Les périodes sèches prolongées laissent des sols exposés, compactés et à faible capacité d’absorption. Lors de fortes averses, l’eau ruisselle au lieu de s’infiltrer, augmentant le risque d’inondation.
+  </div>
+
+  <div class="flood-block" markdown="1">
+  <a href="https://k4ggwa.thegrit.earth/content/state_of_land/reports/Flood_Story/flood_story.html">Le risque d’inondation est le plus prononcé le long des systèmes fluviaux, plaines inondables et zones de basse altitude de la GMV.</a> Le Sénégal, avec son littoral et de grands bassins fluviaux, possède la plus grande surface classée en risque moyen à élevé. Les inondations de 2024 illustrent comment variabilité climatique et surfaces dégradées se combinent pour produire des événements destructeurs.
+  </div>
+
+  <div class="flood-block" markdown="1">
+  <a href="https://www.unepdhi.org/wp-content/uploads/sites/2/2020/05/WEB_UNEP-DHI_NBS-PRIMER-2018-2.pdf">La restauration peut atténuer les inondations en améliorant la capture, le stockage et la restitution de l’eau par les paysages.</a> Le couvert végétal amortit l’impact des gouttes, stabilise les pentes et améliore l’infiltration via les systèmes racinaires. Les apports de matière organique augmentent le carbone du sol et la capacité de rétention d’eau. À plus grande échelle, les mesures CES/DRS, le micro‑modelage (banquettes, etc.) ralentissent le ruissellement; des interventions comme les bandes riveraines, la restauration de mangroves et les seuils/mares réduisent les pics de crue et les impacts à l’aval.
+
+  Ensemble, ces stratégies montrent comment la gestion des terres et les solutions fondées sur la nature transforment la variabilité des pluies d’un aléa en opportunité de résilience. **En intégrant la gestion des sols, de la végétation et de l’eau, on réduit les risques d’inondation tout en restaurant simultanément des terres dégradées dans la GMV.**
+  </div>
+
+  <div id="flood-sentinel" class="flood-block" aria-hidden="true" style="height:120vh"></div>
+</div>
+
+<div class="flood-map-wrap">
+
+```{r}
+#| echo: false
+#| warning: false
+#| cache: false
+
+library(sf)
+library(dplyr)
+
+# Load your flood points
+pts <- st_read("assets/maps/data/flood_points.geojson", quiet = TRUE) |>
+  st_transform(4326)
+
+# Convert to marker dataframe expected by ggw_map()
+markers_df <- pts |>
+  mutate(
+    lon = st_coordinates(geometry)[, 1],
+    lat = st_coordinates(geometry)[, 2],
+    title   = title,     # already good
+    caption = caption,   # already HTML
+    img     = img        # already relative path
+  ) |>
+  st_drop_geometry() |>
+  select(lon, lat, title, caption, img)
+
+# Render the flood map
+ggw_map(
+  "flood",
+  markers_df = markers_df,
+  mode       = "story",
+  mapId      = "floodmap"
+)
+```
+</div>
+
+:::
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const section   = document.getElementById('flood-js-section');
+  if (!section) return;
+  const narrative = section.querySelector('.flood-narrative');
+  const sentinel  = section.querySelector('#flood-sentinel');
+  const mapWrap   = section.querySelector('.flood-map-wrap');
+  if (narrative && sentinel) {
+    const flipNarrative = (on) => {
+      narrative.style.opacity       = on ? '0' : '1';
+      narrative.style.pointerEvents = on ? 'none' : 'auto';
+    };
+    const sentinelObserver = new IntersectionObserver((entries) => {
+      entries.forEach(e => flipNarrative(e.isIntersecting));
+    }, {
+      root: null,
+      threshold: 0,
+      rootMargin: '-10% 0px -80% 0px'
+    });
+    sentinelObserver.observe(sentinel);
+  }
+  if (mapWrap) {
+    const sectionObserver = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        const on = e.isIntersecting;
+        mapWrap.style.visibility    = on ? 'visible' : 'hidden';
+        mapWrap.style.pointerEvents = on ? 'auto'    : 'none';
+      });
+    }, {
+      root: null,
+      threshold: 0
+    });
+    sectionObserver.observe(section);
+  }
+});
+</script>
+
+::::{.cr-section .white-bg}
+:::{.progress-block}
+@cr-drought
+**Sécheresse** <br> 
+<a href="https://k4ggwa.thegrit.earth/content/state_of_land/reports/drought_story_cr/drought_story_cr.html">À l’échelle de la GMV, la sécheresse demeure l’un des aléas climatiques les plus persistants.</a> Les sécheresses pluri‑décennales des années 1970–1980 ont profondément transformé paysages et sociétés. Les dernières décennies montrent une reprise partielle des pluies mais avec une variabilité élevée. Des épisodes secs plus courts et plus intenses surviennent désormais au sein même des saisons humides, accentuant le stress sur cultures, pâturages et disponibilité en eau.
+
+Définie comme une période prolongée sans pluie par rapport aux conditions normales, la sécheresse entraîne perte d’humidité des sols, réduction de la croissance végétale et pénuries d’eau. C’est un indicateur crucial au Sahel, où les moyens de subsistance dépendent des cultures pluviales et du pastoralisme.
+
+La carte ci-contre illustre les tendances du déficit pluviométrique (SPI-3) de 2001 à 2024. <a href="https://www.sciencedirect.com/science/article/pii/S2212094717301779">Dans les plaines orientales de l'Éthiopie, la sécheresse récurrente a réduit le potentiel de pâturage et accéléré la dégradation des sols, engendrant insécurité alimentaire et migrations.</a> <a href="https://www.sciencedirect.com/science/article/abs/pii/S0140196320301956">La sécheresse persistante dans le centre-est de la Somalie a provoqué une crise humanitaire d'insécurité alimentaire qui perdure.</a>
+
+Des sols dégradés et un couvert végétal minimal intensifient les impacts, les paysages perdant leur capacité à stocker la pluie et à maintenir la productivité. La reprise dépend à la fois du retour de pluies favorables et de la présence de sols et de végétation sains capables de capter et d’utiliser efficacement l’eau.
+
+La sécheresse est à la fois un phénomène climatique et un indicateur de la résilience des écosystèmes. Le suivi de sa fréquence, de sa durée et de son intensité, parallèlement aux indicateurs de végétation, de sol et de précipitations, est essentiel pour identifier les zones vulnérables et orienter les stratégies de restauration visant à renforcer la résilience à long terme face à la sécheresse.
+:::
+
+:::{#cr-drought .cr-map-block}
+```{r}
+#| label: drought
+#| echo: false
+#| warning: false
+ggw_map("drought")
+```
+
+:::
+::::
+
+::::{.cr-section .white-bg}
+:::{.progress-block}
+@cr-temp
+**Température** <br> 
+La température est une dimension clé du stress climatique au Sahel et un déterminant critique de la manière dont la variabilité des pluies se traduit en productivité des terres. Si les précipitations dictent où et quand les écosystèmes prospèrent, la température définit combien de temps ils peuvent maintenir la croissance avant la perte d’humidité.
+
+À l’échelle de la GMV, <a href= "https://www.nature.com/articles/s41598-019-54703-z">les températures de surface (jour et nuit) ont augmenté régulièrement depuis le début des années 2000</a>, le réchauffement étant plus marqué dans l’ouest du Sahel et la zone soudanienne centrale. Cette hausse, combinée à des extrêmes thermiques persistants, reconfigure le bilan hydrique et la dynamique de la végétation dans tous les grands systèmes d’usage des terres.
+
+Même lorsque les totaux pluviométriques restent stables, des températures plus élevées accentuent l’évapotranspiration, réduisant l’humidité du sol et raccourcissant les périodes de croissance. Les conditions plus chaudes augmentent aussi le stress thermique sur cultures et pâturages, accroissent le risque d’incendie et accélèrent la perte de carbone organique des sols.
+
+Ainsi, la température agit comme un **amplificateur** : elle transforme des déficits pluviométriques modérés en stress écologiques sévères et érode la résilience des paysages restaurés ou cultivés.
+
+La carte à droite illustre une forte variabilité spatiale des tendances thermiques. Les zones plus chaudes correspondent souvent à des zones de faible couverture végétale et de déclin de l’humidité des sols, montrant comment le stress thermique se cumule avec d’autres risques climatiques. Comprendre ces relations spatiales est central pour cibler des efforts de restauration qui atténuent le stress thermique associé aux tendances au réchauffement.
+:::
+
+:::{#cr-temp .cr-map-block}
+```{r}
+#| label: temperature
+#| echo: false
+#| warning: false
+ggw_map("temp_trend")
+```
+:::
+
+::::
+
+<!-- Section Couverture des terres -->
+
+:::{.non-cr-block}
+# COUVERTURE DES TERRES {#toc-landcover}
+<br>
+La couverture des terres à travers le Sahel a fortement changé au cours des trois dernières décennies. Les paysages, autrefois dominés par des prairies ouvertes et des savanes arbustives avec des terres cultivées éparses, subissent désormais les pressions d’une variabilité climatique accrue. La croissance démographique et urbaine, les mutations des moyens d’existence et des pratiques de gestion ont remodelé la surface et modifié les processus écologiques.
+
+Depuis les années 1990, les terres agricoles se sont étendues avec la demande de denrées et de cultures de rente. Les jachères traditionnelles ont diminué, et la culture s’étend vers des zones plus marginales et sujettes à l’érosion. L’expansion urbaine/périurbaine a réduit la végétation naturelle ; les infrastructures et le surpâturage ont fragmenté parcours et systèmes boisés. Dans certaines zones, la fertilité et la productivité ont baissé sous usage continu et restauration limitée, même si des gains de rendement via de meilleurs intrants/gestions ont compensé ailleurs.
+
+Parallèlement, les stress climatiques — surtout sécheresse et pluies erratiques — ont entraîné à la fois dégradation et reprise. Des pertes de végétation ont eu lieu là où sols et eau sont sous pression, mais des **augmentations de couvert ligneux** sont également observées, notamment là où la régénération naturelle gérée par les agriculteurs (FMNR) ou des restaurations communautaires sont présentes. Il en résulte un tableau mêlant intensification agricole, reverdissement localisé et dégradation persistante dans des zones vulnérables.
+
+<img src="assets/images/tc_img.jpg" alt="Paysage de couvert arboré" width="100%" style="margin-top:1rem;"/>
+
+<br>
+Ce rapport se concentre sur trois indicateurs complémentaires :
+<br> <br>
+
+- **Couvert forestier** : mesure essentielle de la biomasse ligneuse, du stockage de carbone et du potentiel agroforestier.
+<br>
+
+- **Couvert cultivé** : reflète les surfaces en culture.
+<br>
+
+- **Survenue des feux** : indique des régimes de perturbation qui façonnent la dynamique herbes/arbres. 
+<br> <br>
+Des baisses du couvert arboré ou cultivé signalent souvent une dégradation liée à l’érosion, au surpâturage ou au stress climatique. À l’inverse, des tendances positives peuvent indiquer une régénération naturelle ou des interventions réussies. 
+<br> <br>
+Un suivi cohérent des tendances de couverture permet d’identifier des zones prioritaires pour la restauration, d’évaluer l’efficacité des projets et d’anticiper les risques. Cette base probante soutient des solutions fondées sur la nature : FMNR, gestion pastorale, contrôle du feu, et oriente les investissements vers les zones à plus fort potentiel de reverdissement.
+
+::: {.my-button-container} 
+<a href="https://dashboards.cifor-icraf.org/app/k4ggwa" target="_blank" class="my-button">
+Explorer le tableau de bord « Couverture des terres » de la GMV </a>
+
+:::
+:::
+
+::::{.cr-section .white-bg}
+:::{.progress-block}
+
+**Couvert forestier** <br>
+Le couvert forestier est un indicateur clé de la biomasse ligneuse, du stockage de carbone, de l’habitat de biodiversité et de services écosystémiques tels que l’ombrage, le bois‑énergie et les produits non ligneux. Au Sahel, la végétation ligneuse joue un rôle critique pour **amortir la dégradation** : stabilisation des sols, réduction de l’érosion éolienne, amélioration de l’infiltration.  @cr-tc
+
+Les pertes sont principalement dues à l’expansion agricole, à la surexploitation du bois, à la pression pastorale et aux feux récurrents. La variabilité climatique et les sécheresses prolongées limitent la régénération. La reprise est toutefois possible via des mesures de protection (bois communautaires), la régénération naturelle, l’agroforesterie et la protection des forêts ripicoles et galeries, ce qui restaure fonctions écologiques et moyens de subsistance.
+
+Dans la GMV, le couvert forestier est très hétérogène : plus dense dans les zones plus humides du sud et le long des cours d’eau, clairsemé au nord. Le suivi de long terme montre des déclins dans plusieurs régions soumises à la culture et à la demande en bois‑énergie, mais aussi des gains localisés là où la FMNR et d’autres projets de restauration ont eu lieu.
+
+Au sud du Niger, la FMNR a permis la régénération naturelle de millions d’arbres sur terres agricoles, améliorant la fertilité des sols et les micro‑climats. <!-- qualifier --> Dans le Ferlo (Sénégal), la pression du pâturage et du bois‑énergie a entraîné des déclins réguliers de densité d’arbres, exposant davantage les sols à l’érosion. Ces exemples montrent à la fois la vulnérabilité des ressources ligneuses et leur potentiel de reprise sous gestion adaptée.
+
+Les tendances de couvert forestier sont un puissant indicateur de l’état des terres et du potentiel de restauration au Sahel. Maintenir et restaurer la végétation ligneuse est central non seulement pour le carbone et la biodiversité, mais aussi pour des agro‑écosystèmes et des moyens de subsistance résilients.
+:::
+
+:::{#cr-tc .cr-map-block}
+```{r}
+#| label: tc
+#| echo: false
+#| warning: false
+ggw_map("tc")
+```
+
+:::
+
+:::{#cr-tc}
+![](assets/images/placeholder_img.png){width=75% height=75% fig-align="right"}
+:::
+::::
+
+::::{.cr-section .white-bg}
+:::{.progress-block}
+
+**Couvert cultivé** <br>
+La couverture agricole à travers la région de la Grande Muraille Verte est façonnée à la fois par les contraintes climatiques et par les pressions d’usage des terres à long terme. L’agriculture y est principalement pluviale et se concentre dans les zones sud-sahéliennes et soudaniennes, où la pluviométrie est plus régulière. @cr-crop
+
+La carte ci-contre  montre une forte concentration des terres cultivées dans le bassin arachidier du Sénégal, le couloir du fleuve Niger, le nord du Nigéria, ainsi que dans les zones périphériques du lac Tchad et du Soudan — des régions qui constituent les pôles majeurs de production vivrière et de subsistance rurales.
+
+Au cours des deux dernières décennies, les données satellitaires révèlent une évolution contrastée : une expansion des surfaces cultivées dans certaines parties de l’ouest du Sahel, stimulée par la croissance démographique et l’accès aux marchés, s’oppose à une stagnation, voire un déclin, dans les zones centrales et orientales où la pluviométrie est devenue moins fiable et les sols plus dégradés. Dans certains secteurs, l’empiètement ligneux associé au reverdissement a également modifié la mosaïque agricole.
+
+Ces changements ont des conséquences directes sur la santé des sols. L'expansion des cultures sur des terres marginales accentue l'érosion et la perte de carbone dans les sols, tandis que des terres cultivées bien gérées, notamment dans le cadre de systèmes agroforestiers ou de gestion durable des terres agricoles (GDT), peuvent contribuer à préserver la structure et l'humidité des sols. 
+
+Le suivi de la couverture végétale, parallèlement aux indicateurs de précipitations et de végétation, permet de mieux comprendre comment l'utilisation des terres s'adapte à la variabilité climatique et d'identifier les zones où les transitions agricoles peuvent renforcer ou fragiliser la résilience dans le contexte du réchauffement climatique global.
+:::
+
+:::{#cr-crop .cr-map-block}
+```{r}
+#| label: crop
+#| echo: false
+#| warning: false
+ggw_map("crop")
+```
+
+:::
+
+:::{#cr-crop}
+![](assets/images/Annual_Percentage_Area_Burned_GGW.png){width=75% height=75% fig-align="right"}
+:::
+::::
+
+::::{.cr-section .white-bg}
+:::{.progress-block}
+
+**Survenue des feux** <br>
+Les cartes des feux indiquent où et à quelle fréquence les paysages brûlent. Au Sahel, le feu est un moteur de changement complexe et n’est ni bon ni mauvais en soi ; son impact dépend du calendrier, des conditions climatiques et de la quantité de combustible. Lors d’années humides, lorsque la biomasse herbacée/arbustive est abondante, le risque et l’intensité des feux augmentent. @cr-fire
+
+Des brûlis trop fréquents ou mal synchronisés peuvent appauvrir le couvert, inhiber la régénération des arbres et accélérer la dégradation. En parallèle, le feu remplit des fonctions écologiques : maintien des savanes ouvertes, recyclage des nutriments, réduction de certaines pressions biotiques.
+
+Les zones à forte fréquence d'incendies dans la zone de convergence intertropicale (ZCIT) montrent une intensification des feux dans la région de Tambacounda, à l'est du Sénégal, dans les régions du nord et du nord-est du Ghana, ainsi que dans les régions de Zamfara et de Borno au Nigéria. À l'inverse, certaines zones, comme le sud-est du bassin du Tchad, ont connu une tendance à la baisse.
+
+Utilisé avec précaution, le feu peut devenir un outil de restauration, pour maîtriser l’embroussaillement, stimuler les herbacées, créer des pare‑feu protégeant les zones vulnérables, et même contribuer à l’atténuation. L’équilibre consiste non pas à supprimer le feu, mais à l’aligner sur les dynamiques écosystémiques et les objectifs de gestion.
+:::
+
+:::{#cr-fire .cr-map-block}
+
+```{r}
+#| label: fire
+#| echo: false
+#| warning: false
+ggw_map("fire")
+```
+
+:::
+
+:::{#cr-fire}
+![](assets/images/Annual_Percentage_Area_Burned_GGW.png){width=75% height=75% fig-align="right"}
+:::
+::::
+
+<!-- Section Santé des sols -->
+
+:::{.non-cr-block}
+
+# SANTÉ DES SOLS {#toc-soilhealth}
+## **Types de sols dans la région de la Grande Muraille Verte**
+
+<br>
+
+<a href="https://www.fao.org/soils-portal/data-hub/soil-maps-and-databases/en/" target="_blank">Les sols de la région de la Grande Muraille Verte sont influencés, entre autres, par les gradients climatiques, la topographie et la géologie sous-jacente.</a> À l'ouest (Sénégal, Mauritanie, Mali), les *Arénosols* et les *Régosols* sableux prédominent. Ce sont généralement des sols à texture légère, formés à partir de sables éoliens, qui drainent rapidement mais sont peu fertiles et pauvres en matière organique. En se déplaçant vers l'est, à travers le Niger et le Tchad, ils laissent place aux *Luvisols* et aux *Leptosols* sur les hauts plateaux et les zones montagneuses peu profondes, avec des poches de *Vertisols* et de *Fluvisols* dans les vallées et les plaines inondables, notamment le long des fleuves Niger et Chari. Plus à l'est, au Soudan et en Éthiopie, les *Vertisols* et les *Nitisols* riches en argile deviennent plus courants, reflétant des précipitations de mousson plus fortes et des matériaux parentaux basaltiques.
+
+<img src="assets/images/soil_vect.png" alt="Schéma sols" width="100%" style="margin-top:1rem;"/>
+<br>
+Dans toute la région, la profondeur et la texture du sol varient considérablement, même sur de courtes distances, influençant la circulation de l'eau et l'implantation de la végétation. La présence fréquente de croûtes, de compaction et d'érosion dans les zones dégradées limite l'infiltration et le cycle des nutriments, réduisant ainsi la résilience des sols et de la végétation.
+
+## **Rétroactions climat-végétation-sol**
+
+Les processus pédologiques sont étroitement liés aux dynamiques climatiques et écologiques décrites dans les sections précédentes. Les régimes pluviométriques influencent la formation, le lessivage et l'érosion des sols, tandis que les propriétés du sol déterminent l'infiltration, le stockage et le ruissellement des eaux de pluie.
+
+Les racines de la végétation fixent et stabilisent les sols, tandis que son couvert réduit l'évaporation et atténue l'érosion. En cas de disparition du couvert végétal ou de précipitations irrégulières, les sols peuvent être exposés à une érosion et une dessiccation intenses, ce qui diminue leur capacité à stocker l'eau et les nutriments. Cela déclenche une boucle de rétroaction selon laquelle les sols dégradés supportent moins de végétation, ce qui aggrave le ruissellement et réduit l'infiltration des eaux de pluie, minimisant encore davantage la capacité du sol à supporter la végétation.
+
+<img src="assets/images/soil_eros.png" alt="tc_landscape" width="100%" style="margin-top:1rem;"/>
+
+Les paysages bénéficiant d'une couverture végétale durable, comme les savanes naturelles, les prairies ou les systèmes agroforestiers gérés, peuvent quant à eux maintenir des réseaux racinaires continus et des apports organiques qui enrichissent le sol en carbone organique et en eau. Des pratiques telles que la régénération naturelle gérée par les agriculteurs (RNGA) ou les techniques de conservation des sols et de l'eau restaurent ce cycle positif, améliorant l'infiltration, le cycle des nutriments et la résilience face aux aléas climatiques.
+
+Des sols sains, riches en matière organique et en eau, sont ainsi essentiels à l'ensemble du système terre-climat, assurant les échanges d'énergie, d'eau et de nutriments dans les paysages sahéliens et déterminant leur capacité à se régénérer et à prospérer face à une variabilité climatique croissante.
+
+## **Indicateurs de santé des sols : COS et humidité**
+<br> 
+Ce rapport porte sur deux indicateurs de santé des sols essentiels à la compréhension des tendances de dégradation :
+
+- **Carbone organique du sol (COS)** - déterminant clé de la fertilité, de l’agrégation et de l’activité biologique des sols. Le COS reflète l’équilibre entre les apports de biomasse et sa décomposition. Il sert à la fois de mesure de la productivité des terres et de puits de carbone, reliant ainsi la restauration aux objectifs climatiques mondiaux.
+<br><br>
+
+- **Humidité du sol** - indicateur de la capacité du sol à absorber et à retenir l’eau. Elle intervient dans presque tous les échanges entre la terre et l’atmosphère au Sahel, influençant l’évapotranspiration, la croissance de la végétation, ainsi que l’apparition et la persistance des sécheresses.
+<br><br>
+
+Ensemble, ces indicateurs montrent comment l'utilisation des terres, la végétation et le climat interagissent pour façonner le fonctionnement du paysage. Le suivi de leur dynamique spatiale et temporelle permet aux planificateurs et aux décideurs politiques en matière de restauration d'identifier les zones critiques de dégradation ou de résilience, de cibler les interventions et de suivre les trajectoires de rétablissement le long de la Grande Muraille Verte.
+
+::: {.my-button-container} 
+<a href="https://dashboards.cifor-icraf.org/app/k4ggwa" target="_blank" class="my-button">
+Explorer le tableau de bord « Santé des sols » de la GMV </a>
+
+:::
+:::
+
+::::{.cr-section .white-bg}
+:::{.progress-block}
+**Carbone organique du sol (COS)** <br>
+Un gradient positif global vers le sud apparaît, avec des COS plus élevés dans les zones plus humides, mais aussi des poches locales relativement élevées en zones sèches, où types de sols, végétation ou pratiques favorisent l’accumulation. @cr-soc
+
+Le COS diminue lorsque le couvert végétal régresse et que les sols, exposés à l’érosion et aux hautes températures, se minéralisent. Le surpâturage, la culture intensive et les brûlis répétés accélèrent ces pertes, tandis que la reprise est favorisée par des pratiques augmentant les apports de biomasse et réduisant les perturbations : agroforesterie, FMNR, paillage, CES/DRS.
+
+Les tendances à l’échelle de la GMV suggèrent que, bien que le COS soit généralement plus élevé sur les marges méridionales, de vastes zones montrent une déplétion, en particulier là où l’érosion et la pression agricole sont fortes. Des zones de valeurs élevées apparaissent là où la reprise de la végétation s’additionne à des interventions de gestion, soulignant la possibilité de rebond du COS lorsque les sols sont stabilisés et la matière organique restituée.
+
+Par exemple, dans [INSÉRER UNE ÉTUDE DE CAS], la FMNR a accru le couvert ligneux et la biomasse racinaire, soutenant une reprise graduelle du COS. Dans certaines parties du Sénégal, les baisses de COS coïncident avec des zones d’inondations répétées et d’érosion, montrant comment les processus de dégradation exportent les horizons supérieurs et la matière organique. Ces contrastes illustrent la fragilité du COS dans les systèmes dégradés et son potentiel de reprise sous gestion durable.
+
+Le COS est un indicateur puissant pour évaluer dégradation et restauration. Contrairement aux indices de végétation qui captent surtout la « verdure » de surface, le COS reflète des processus plus profonds. Suivre ses changements aide à identifier les sols les plus fertiles (réservoirs de carbone/eau) et les lieux où les interventions sont prioritaires.
+:::
+
+:::{#cr-soc .cr-map-block}
+```{r}
+#| label: soc
+#| echo: false
+#| warning: false
+ggw_map("soc")
+```
+:::
+
+:::{#cr-soc}
+![](assets/images/placeholder_img.png){width=75% height=75% fig-align="right"}
+:::
+::::
+
+<!-- ::::{.cr-section .white-bg}
+:::{.progress-block}
+**Humidité des sols** <br>
+L’humidité du sol est un indicateur clé de la santé des terres et de la résilience climatique à travers la région de la Grande Muraille Verte. Elle traduit l’équilibre entre les apports pluviométriques, l’évapotranspiration et les propriétés du sol qui régulent la rétention et l’infiltration de l’eau. 
+
+La carte ci-contre présente les conditions moyennes d’humidité du sol et leurs tendances récentes issues des données de télédétection, mettant en évidence un gradient net entre les zones arides du nord et les zones plus humides du Sahel méridional et de la ceinture soudanienne. Les zones de faible humidité persistante correspondent étroitement aux régions marquées par une forte variabilité pluviométrique, une couverture végétale clairsemée et des sols dégradés. @cr-smap
+
+Au cours des deux dernières décennies, les tendances de l’humidité du sol ont été influencées à la fois par la variabilité climatique et par la gestion des terres. Les régions soumises à des sécheresses récurrentes notamment en Mauritanie, au Niger et au Tchad montrent une baisse de l’humidité du sol et une récupération plus lente après la saison des pluies. 
+
+À l’inverse, les zones connaissant un reverdissement ou une amélioration de la couverture végétale, comme certaines parties du centre du Sénégal, du sud du Niger et de l’ouest de l’Éthiopie, présentent des signes de meilleure rétention de l’eau dans les sols. Ces contrastes illustrent l’importance de la végétation et de la structure du sol dans la capacité des paysages à capter et stocker les précipitations.
+
+Le maintien d’une humidité suffisante des sols est essentiel pour amortir les effets des sécheresses, soutenir la régénération de la végétation et garantir la productivité agricole. L’assèchement des sols accélère l’érosion, réduit le recyclage des nutriments et compromet l’efficacité des efforts de restauration. 
+
+Le renforcement de la rétention d’eau, par la restauration de la matière organique, la mise en place d’aménagements antiérosifs et le développement de systèmes agroforestiers, joue ainsi un rôle déterminant dans la stabilisation de la santé des terres. Comme l’examine la section suivante, l’humidité du sol agit de concert avec le carbone organique du sol pour déterminer la capacité intrinsèque des paysages à absorber les chocs, se régénérer et maintenir leur productivité à travers la Grande Muraille Verte.
+::: -->
+
+<!-- :::{#cr-smap .cr-map-block}
+```{r}
+#| label: smap
+#| echo: false
+#| warning: false
+ggw_map("eros")
+```
+:::
+:::: -->
+
+:::{.non-cr-block}
+# DÉGRADATION DES TERRES {#toc-ld}
+<br>
+La dégradation des terres désigne le déclin des fonctions écosystémiques et de la base de ressources naturelles qui soutiennent la vie et les moyens de subsistance. À travers le Sahel, elle réduit la capacité des terres à fournir des services tels que l’alimentation, le fourrage, la régulation de l’eau et le stockage du carbone. Elle se produit lorsque les sols perdent fertilité et structure, que le couvert se réduit et que les paysages deviennent moins résilients à la variabilité et aux chocs climatiques.
+
+<a href="https://www.unccd.int/sites/default/files/documents/2022-04/UNCCD_GLO2_low-res.pdf" target="_blank">Le rapport « Perspectives mondiales sur les terres (2022) »</a> de la CNULCD identifie le Sahel comme l’une des zones les plus étendues au monde où la dégradation des terres est en cours. Les pressions humaines et les facteurs de stress climatiques y convergent pour créer un cercle vicieux de dégradation, de pauvreté et de vulnérabilité. Pourtant, cette région demeure aussi l’un des paysages les plus dynamiques en matière de reverdissement et de restauration, où des initiatives locales ont permis d’inverser la dégradation à grande échelle.
+
+Ce rapport met en lumière deux grands indicateurs de dégradation : l’EVI et l’érosion. Les tendances de l’EVI rendent compte de la dynamique de la végétation à long terme, distinguant les zones qui reverdissent de celles qui brunissent ou sont en déclin. L’érosion révèle la perte physique de la couche arable, la plus fertile et la plus importante pour la structure du sol, ce qui compromet la productivité et accélère les cycles de dégradation.
+
+Ensemble, ces indicateurs permettent de diagnostiquer la gravité et l'étendue de la dégradation des terres dans la zone de la Grande Muraille Verte. Ils indiquent où les fonctions écosystémiques déclinent et où des interventions sont le plus nécessaires.
+
+<img src="assets/images/sahel_drone2.jpg" alt="Paysage sahélien" width="100%" style="margin-top:1rem;"/>
+
+Nous nous concentrons ici sur trois indicateurs : <br> <br>
+
+- **EVI** (Enhanced Vegetation Index) : tendances de la végétation à long terme, pour distinguer reverdissement et brunissement.
+<br>
+
+- **Érosion** : sévérité de la perte de top‑soil, l’horizon le plus fertile et structurant.
+
+::: {.my-button-container} 
+<a href="https://k4ggwa.thegrit.earth/" target="_blank" class="my-button">
+Explorer le tableau de bord « Dégradation des terres » </a>
+
+:::
+:::
+
+::::{.cr-section .white-bg}
+:::{.progress-block}
+**EVI** <br>
+L'indice de végétation amélioré (EVI) offre une mesure à long terme des tendances de la verdure de la végétation au Sahel et dans la région environnante. Contrairement à une simple photographie annuelle, cette carte met en évidence les augmentations ou les diminutions persistantes de la productivité végétale sur deux décennies, en filtrant les fluctuations pluviométriques à court terme pour souligner les changements sous-jacents. @cr-evi
+
+L'EVI, en réduisant le bruit de fond lié au sol et à l'atmosphère, est particulièrement adapté aux paysages sahéliens où les sols clairs et la poussière peuvent fausser des indices plus simples comme le NDVI. Dans cette analyse des tendances, <span style="color: green;">les zones vertes</span> indiquent les endroits où l'EVI a augmenté au fil du temps, tandis que <span style="color: red;">les zones rouges</span>  indiquent des baisses constantes.
+
+Des tendances à la hausse de l'EVI sont visibles dans une grande partie du Sahel méridional et des zones de savane. Ces gains sont en partie liés aux variations des précipitations, les années 2000 et 2010 ayant été plus humides que les années 1980 et 1990, marquées par la sécheresse.
+
+Ces zones peuvent également correspondre à des sites de régénération naturelle gérée par les agriculteurs (RNGA), à des ouvrages de conservation des sols et de l'eau, ou encore à des zones où des programmes de restauration actifs ont été mis en œuvre. Dans certaines zones de pâturage, l'augmentation du couvert ligneux et la prolifération des arbustes peuvent également entraîner une hausse de l'indice EVI, reflétant des changements dans la composition de la végétation ainsi que dans sa verdure globale.
+
+Le déclin de l'indice EVI est manifeste dans les zones à forte densité de population et à forte urbanisation. C'est particulièrement visible dans le centre du Nigéria, avec un déclin concentré de la végétation autour d'Abuja, la capitale nationale, ainsi que dans des villes commerciales en expansion rapide comme Lagos et Port Harcourt. Des tendances similaires sont observées autour d'Accra au Ghana, d'Addis-Abeba en Éthiopie et de Mogadiscio en Somalie.
+
+Dans d'autres régions, comme autour du lac Tchad et dans le nord du Bénin, l'agriculture intensive, le surpâturage, la récolte de bois de chauffage, les brûlis répétés et l'érosion des sols empêchent la végétation de se régénérer, même lors d'années de fortes précipitations. De plus, des facteurs climatiques locaux, tels qu'un début tardif ou une fin précoce de la saison des pluies, peuvent aggraver la dégradation, rendant les paysages plus vulnérables à un déclin persistant.
+
+L'indice EVI montre, notamment dans les zones arides, que les réponses de la végétation ne sont pas uniformes et qu'elles reflètent des processus interdépendants liés au climat, à l'utilisation des terres et à la gestion. 
+
+En interprétant l'EVI conjointement à des indicateurs complémentaires tels que le couvert arboré, l'étendue des terres cultivées et la fréquence des incendies, il est possible de distinguer les fluctuations climatiques de la dégradation ou de la restauration induites par l'activité humaine, et d'appréhender plus finement la mosaïque de changements qui se déploient dans le cadre du réchauffement climatique global.
+:::
+
+:::{#cr-evi .cr-map-block}
+
+```{r}
+#| label: evi
+#| echo: false
+#| warning: false
+ggw_map("evi")
+```
+:::
+::::
+
+::::{.cr-section .white-bg}
+:::{.progress-block}
+**Érosion** <br>
+L’érosion des sols est l’un des indicateurs les plus clairs de dégradation au Sahel, reflétant la perte physique de top‑soil par le vent et l’eau. Les motifs sont très variables, mais s’intensifient généralement vers le nord, dans les zones plus sèches à couvert épars et vents forts. Les pentes, plaines inondables et parcours surpâturés sont aussi des points chauds où ruissellement ou vent arrachent facilement des sols non protégés. @cr-eros
+
+L’érosion est provoquée par le retrait du couvert végétal, une gestion inadéquate et des épisodes de pluie extrême. De longues périodes sèches laissent les sols nus et croûtés, tandis que des averses intenses créent des ruissellements concentrés qui exportent l’horizon fertile. L’érosion éolienne est sévère sur sols sableux exposés, surtout lorsque le surpâturage réduit le couvert herbacé. La reprise exige de restaurer la végétation, d’améliorer la structure des sols et de mettre en place des mesures réduisant la vitesse du ruissellement et l’exposition au vent.
+
+Dans la GMV, le risque d’érosion reste étendu, en particulier là où la variabilité des pluies et la pression d’usage augmentent. Les régions avec déclin du couvert ou culture intensive présentent des signatures d’érosion fortes, tandis que des zones de restauration dotées d’ouvrages CES/DRS montrent des réductions mesurables au fil du temps.
+
+Dans certaines régions, comme le nord du Burkina Faso, les zaï et banquettes ont réduit l’érosion en captant le ruissellement et en stabilisant les sols, permettant à la végétation de se réinstaller. À l’inverse, l’est du Tchad montre une érosion étendue liée aux parcours surpâturés et aux changements de régime pluviométrique, la perte de top‑soil abaissant productivité et résilience. Ces exemples soulignent la sévérité de l’érosion et les bénéfices tangibles d’interventions ciblées.
+
+En conclusion, l’érosion est à la fois symptôme et moteur de la dégradation, enclenchant un cycle de perte de sol et de productivité. La suivre aux côtés du COS et des indicateurs de végétation offre une vision plus complète de l’état des terres et du potentiel de restauration.
+:::
+
+:::{#cr-eros .cr-map-block}
+```{r}
+#| label: erosion
+#| echo: false
+#| warning: false
+ggw_map("eros")
+```
+:::
+::::
+
+:::{.non-cr-block}
+# ET MAINTENANT ?
+
+L’initiative GMV n’est plus définie par sa vision initiale d’un « mur d’arbres » continu, mais de plus en plus comprise comme une mosaïque d’écosystèmes, de moyens de subsistance et d’usages divers à travers le Sahel. Ces paysages fournissent de multiples services — stockage de carbone, fertilité des sols, ressources pastorales, régulation de l’eau, habitat de biodiversité - qui ne peuvent être mesurés par de simples signaux de verdure.
+
+<img src="assets/images/ggw_trace.png" alt="Tracé GMV" width="100%" style="margin-top:1rem;"/>
+
+<a href="https://www.cifor-icraf.org/publications/pdf/guide/CRS_CIFOR-ICRAF_Restoration-Monitoring-Guide.pdf">L’observation de la Terre et la télédétection sont désormais centrales dans cette vision en évolution et offrent des moyens extensibles, cohérents et rentables de suivre la complexité régionale — pas seulement le couvert végétal, mais aussi le carbone organique du sol, l’érosion, le feu, la sécheresse et les risques climatiques.</a> Ensemble, ces indicateurs composent une image plus fidèle de l’état et de l’évolution des terres, guidant où restaurer, où cela fonctionne et comment mieux concevoir les interventions.
+
+Les indicateurs explorés ici révèlent des tendances complexes de dégradation et de reprise. Certaines zones montrent des signes de reprise (regain de végétation, amélioration des fonctions pédologiques), tandis que d’autres présentent des cycles de dégradation ou une vulnérabilité accrue aux extrêmes climatiques. Aucun indicateur ne suffit seul : **c’est en intégrant plusieurs sources de preuve** que l’on commence à saisir la dynamique réelle de la santé des terres.
+
+Pour la suite, l’enjeu est de **traduire ces preuves en action**. La restauration dans la GMV doit être guidée par des données reflétant les réalités des paysages sahéliens, afin de mieux cibler les interventions, de gérer de façon adaptative et d’assurer un suivi de long terme. En intégrant des indicateurs multiples de santé des terres, la GMV peut offrir une restauration à la fois écologiquement pertinente et socialement transformatrice.
+
+<img src="assets/images/soil_vect.png" alt="Schéma sols" width="100%" style="margin-top:1rem;"/>
+
+::: {.my-button-container} 
+<a href="#toc-start" target="_blank" class="my-button">
+Haut de page </a>
+
+:::
+
+<p style="text-align:center;">
+  <img src="assets/images/Logo_header.png" alt="Logo 1" width="800" style="margin: 0 10px; vertical-align: middle;" />
+</p>
+
+:::
+
+<!-- Floating TOC Sidebar -->
+<div id="floating-toc">
+  <h3>Contents</h3>
+  <ul>
+    <li><a href="#toc-where">1. What is the GGW?</a></li>
+    <li><a href="#toc-lh">2. Land Health</a></li>
+    <li><a href="#toc-climate">3. Climate</a></li>
+    <li><a href="#toc-landcover">4. Land Cover</a></li>
+    <li><a href="#toc-soilhealth">5. Soil Health</a></li>
+    <li><a href="#toc-ld">6. Land Degradation</a></li>
+  </ul>
+</div>
+
+<script>
+// Show/hide floating TOC based on scroll
+window.addEventListener('scroll', function() {
+  const tocStart = document.getElementById('toc-start');
+  const floatingToc = document.getElementById('floating-toc');
+  
+  if (tocStart && floatingToc) {
+    const tocStartBottom = tocStart.getBoundingClientRect().bottom;
+    
+    if (tocStartBottom < 0) {
+      floatingToc.classList.add('visible');
+    } else {
+      floatingToc.classList.remove('visible');
+    }
+  }
+  
+  // Highlight active section
+  const sections = [
+    'toc-where', 'toc-lh', 'toc-climate', 
+    'toc-landcover', 'toc-soilhealth', 'toc-ld'
+  ];
+  
+  sections.forEach(function(id) {
+    const section = document.getElementById(id);
+    const link = document.querySelector(`#floating-toc a[href="#${id}"]`);
+    
+    if (section && link) {
+      const rect = section.getBoundingClientRect();
+      if (rect.top <= 200 && rect.bottom >= 0) {
+        link.classList.add('active');
+      } else {
+        link.classList.remove('active');
+      }
+    }
+  });
+});
+</script>
+
+

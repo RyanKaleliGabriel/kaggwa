@@ -1,0 +1,278 @@
+---
+title: Welcome to the K4GGWA Dashboard!
+pagetitle: K4GGWA - Dashboard
+format: dashboard
+toc: false
+css: styles.css
+
+echo: false
+warning: false
+#engine: julia
+---
+
+```{ojs}
+//| include: false
+Plot = import("https://esm.run/@observablehq/plot")
+```
+
+```{ojs}
+//| include: false
+
+land = FileAttachment("./data/ggw_gadm_NAME_0.geojson").json();
+//h3_lh = FileAttachment("dataloaders/load_h3.csv").csv();
+lh_admin = FileAttachment("./data/lh_countries.geojson").json();
+countries_gpm = FileAttachment("./data/gpm_countries.geojson").json();
+
+countries_gpm_long = FileAttachment("./data/gpm_countries_long.csv").csv();
+
+select_year = ["2001", "2002", "2003", "2004", "2005", "2006", "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023"];
+```
+
+# {.sidebar}
+
+::: {.card}
+K4GGWA supports the Great Green Wall Initiative, which stretches from Somalia in the East to Senegal in the west, with monitoring of climate and land health at local, national, and regional scales.
+<br>
+[Read more](../about_k4ggwa.qmd).
+:::
+
+# Rainfall
+
+## Row {height=8vh}
+
+```{python}
+#| content: valuebox
+#| title: "Length (km)"
+#| height: 8vh
+dict(
+    color = "#F1E9E3",
+    value = f'{7775:,}'
+)
+```
+
+```{python}
+#| content: valuebox
+#| title: "Countries"
+#| height: 8vh
+dict(
+    color = "#F1E9E3",
+    value = 11
+)
+```
+
+```{python}
+#| content: valuebox
+#| title: "Area (km2)"
+#| height: 8vh
+dict(
+    color = "#F1E9E3",
+    value = f'{9258231:,}'
+)
+```
+
+```{python}
+#| content: valuebox
+#| title: "Pledge (billion Euros)"
+#| height: 8vh
+dict(
+    color = "#F1E9E3",
+    value = 14
+)
+```
+
+## Row {height=3vh}
+
+```{python}
+import sketch
+import pandas as pd
+df = pd.read_csv("data/gpm_countries_long.csv")
+df = df.rename(columns={'NAME_0': 'country'})
+df = df.groupby('country').agg({'rainfall': 'mean'})
+df.rainfall = df['rainfall'].round(0).astype(int)
+df.sketch.ask("Which country has the highest rainfall and what is the rainfall? And the lowest?")
+```
+
+## Row {height=7vh}
+
+```{ojs}
+viewof gpm_view = Inputs.select(select_year, {value: "2023", label: "Select year:"});
+```
+
+Use the dropdown on the left to explore rainfall data for each year between 2001 and 2023. _The rainfall data shown here is based on the Global Precipitation Measurement (GPM) dataset, which is an international satellite mission to provide rainfall data globally. We have aggregated these data on an annual basis, showing median rainfall at administrative level 3 for each country._
+
+## Row
+
+```{ojs}
+//| label: gpm_map
+
+{
+yield html`loading map…`;
+const data = await fetch(countries_gpm);
+yield Plot.plot({
+      width,
+      height: 450,
+  projection: {
+    type: "equirectangular",
+    domain: {type: "MultiPoint", coordinates: [[-10, 4], [51.5, 3], [-10, 12], [-18, 20]]}
+  },
+  color: {
+    type: "linear",
+    n: 20,
+    domain: [100, 2500],
+    scheme: "BuPu",
+    label: "Rainfall (mm)",
+    legend: "ramp",
+    width: 800,
+    className: "large-font"
+  },
+  marks: [
+    //Plot.graticule(),
+    //Plot.sphere(),
+    Plot.geo(countries_gpm, {fill: gpm_view, stroke: gpm_view, tip: d => d.properties.name}),
+    Plot.geo(land, {stroke: "#111"}),
+  ]
+});
+}
+```
+
+## Row
+
+```{ojs}
+//| label: gpm_country_year
+Plot.plot({
+      marginTop: 40,
+      marginLeft: 80,
+      marginRight: 40,
+      width: width,
+      height: 450,
+      fx: {
+        label: "Year",
+        domain: ["2001", "2002", "2003", "2004", "2005", "2006", "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023"]
+      },
+      y: {
+        label: "Country",
+        labelOffset: 80
+      },
+      x: {
+        label: "Rainfall (mm)",
+        domain: [100, 2500]
+      },
+      color: {
+        type: "linear",
+        scheme: "BuPu",
+        domain: [100, 2500]
+      },
+      marks: [
+        Plot.barX(countries_gpm_long, {fx: "year", fill: "rainfall", y: "NAME_0", x: "rainfall"}),
+        Plot.tip(countries_gpm_long, Plot.pointer({
+          x: "rainfall",
+          y: "NAME_0",
+          fx: "year"
+    })),
+        Plot.ruleX([0])
+      ]
+    })
+```
+
+# Land cover and land use
+
+## Row {height=25vh}
+
+```{ojs}
+Plot.plot({
+      width,
+      height: 500,
+  projection: {
+    type: "equirectangular",
+    domain: {type: "MultiPoint", coordinates: [[-10, 4], [48, 3], [-10, 12], [-18, 20]]}
+  },
+  color: {
+    type: "diverging",
+    n: 10,
+    domain: [1, 100],
+    pivot: 50,
+    scheme: "BrBG",
+    label: "Fractional cover (%)",
+    legend: "ramp",
+    width: 600
+  },
+  marks: [
+    Plot.graticule(),
+    Plot.sphere(),
+    Plot.geo(lh_admin, {fill: "median_fracveg", tip: d => d.properties, text: {fontSize: 22}}),
+    Plot.geo(land, {stroke: "#111"})
+  ]
+})
+```
+
+```{ojs}
+Plot.plot({
+      width,
+    height: 500,
+  projection: {
+    type: "equirectangular",
+    domain: {type: "MultiPoint", coordinates: [[-10, 4], [48, 3], [-10, 12], [-18, 20]]}
+  },
+  color: {
+    type: "quantize",
+    n: 10,
+    domain: [10, 100],
+    scheme: "YlGn",
+    label: "Tree cover (%)",
+    legend: "ramp",
+    width: 600
+  },
+  marks: [
+    Plot.graticule(),
+    Plot.sphere(),
+    Plot.geo(lh_admin, {fill: "median_treecover", tip: d => d.properties.name}),
+    Plot.geo(land, {stroke: "#111"}),
+  ]
+})
+```
+
+## Row {height=45vh}
+
+```{ojs}
+Plot.plot({
+      width,
+    height: 500,
+  projection: {
+    type: "equirectangular",
+    domain: {type: "MultiPoint", coordinates:  [[-10, 4], [48, 3], [-10, 12], [-18, 20]]}
+  },
+  color: {
+    type: "quantize",
+    n: 10,
+    domain: [10, 100],
+    scheme: "Cividis",
+    label: "Cropland (%)",
+    legend: "ramp",
+    width: 600
+  },
+  marks: [
+    Plot.graticule(),
+    Plot.sphere(),
+    Plot.geo(lh_admin, {fill: "median_cropland", tip: d => d.properties.name}),
+    Plot.geo(land, {stroke: "#111"}),
+  ]
+})
+```
+
+# Explore by country
+
+Coming soon!
+
+# Indicator deep-dive
+
+### Why are indicators important?
+
+**Indicators are metrics** or properties of a system that we can measure or quantify. They are used to assess the state of a system and to monitor changes over time. Indicators are important because they provide a way to measure and track progress towards a goal, or change over time.
+
+It is important to consider the relevance of the indicators to the system being monitored, their sensitivity to change, and their ease of measurement. Also, it is important to consider the cost of measuring the indicators, and the frequency with which they can or should be measured.
+
+We use ecological indicators to assess the health of ecosystems and the services they provide. These indicators can be used to assess soil health, water or hydrologic function, vegetation dynamics, and land use or management. They allow us to monitor changes in ecosystems over time, including the impacts of human activities. Hence, they provide critically important data and evidence to guide management decisions.
+
+It is also important to consider how numerous environmental indicators can be combined to provide a synoptic view of the state of (eco)systems. This is important because no single indicator can provide a complete picture of the state of a system.
+
+The LDSF indicator framework is designed to be easy to operationalize in the field using simple tools while at the same time providing data on a comprehensive set of indicators that are critical for assessment and monitoring of soil and land health across landscapes.

@@ -1,0 +1,79 @@
+---
+title: "Tutorial 1: How predictive maps are made"
+sidebar: tutorials
+body-classes: tutorials-book
+format:
+  html:
+    toc: true
+    toc-location: right
+---
+<!-- Under consctruction - will build these out with more info on the LDSF etc-->
+
+*From field measurements and satellite data to continuous maps of land health indicators.*
+
+## 1.1 What is a predictive map?
+
+- A **predictive map** estimates a variable (e.g., SOC, erosion risk, vegetation condition) at locations where we have *no direct measurement*.
+- It is built by learning relationships between:
+  - What we **observe** in the field (soil samples, vegetation surveys), and  
+  - Other **spatial layers** (rainfall, topography, land cover, etc.) that cover the whole region.
+- The result is a **continuous surface** where every pixel has a predicted value based on those relationships.
+- Predictive maps are always **estimates**, not a perfect representation of reality.
+
+## 1.2 Inputs: field data, satellites, and covariates
+
+- **Field data (observations)**:
+  - Measurements at specific locations (e.g., SOC from LDSF plots, tree counts, erosion assessments).
+  - These points are our “ground truth” used to train and check the model.
+- **Satellite and other spatial data (covariates)**:
+  - Climate: rainfall, temperature, drought indices.
+  - Land: elevation, slope, landform, soils, land cover.
+  - Vegetation: EVI, NDVI, tree cover, fire history.
+- In a predictive model:
+  - Field measurements are the **target** (what we want to predict).
+  - Satellite and other layers are **predictors** (variables that explain how the target varies in space).
+
+## 1.3 Building the model
+
+- Step 1: **Align data**
+  - Extract predictor values (e.g., rainfall, EVI, elevation) at each field measurement location.
+  - Build a table where each row is a field sample and each column is a predictor.
+- Step 2: **Fit a model**
+  - Use statistical or machine-learning methods (e.g., regression, random forests, gradient boosting) to learn:
+    - How changes in predictors (rainfall, slope, vegetation) are associated with changes in the target (SOC, erosion risk, etc.).
+- Step 3: **Predict across the landscape**
+  - Apply the trained model to every pixel in the region using the predictor layers.
+  - For each pixel, the model estimates the likely value of the target indicator.
+  - The output is a **raster** where each pixel holds the predicted value.
+
+## 1.4 Validation and quality checks
+
+- Good predictive maps must be **tested**, not just produced.
+- Common checks include:
+  - Holding back some field data as a **test set** that is not used for model training.
+  - Comparing model predictions against these held-out observations.
+  - Calculating summary statistics such as:
+    - How close predictions are, on average, to observed values.
+    - Whether the model underestimates or overestimates in certain environments.
+- Additional checks:
+  - Looking at **maps of residuals** (differences between predicted and observed values).
+  - Evaluating performance across different subregions or land types.
+- These tests help identify:
+  - Where the model is **strong**, and  
+  - Where we should be more cautious in interpreting the map.
+
+## 1.5 From model output to decision-ready maps
+
+- Raw model outputs often go through additional steps before reaching decision-makers:
+  - **Masking** areas outside the data domain (e.g., water bodies, urban areas, non-target ecosystems).
+  - **Smoothing or aggregation** to reduce noise and match the scale of decision-making (e.g., administrative units or watersheds).
+  - **Reclassification** into categories (e.g., low/medium/high SOC, low/high erosion risk) to make interpretation easier.
+
+- For K4GGWA, these processed maps are then:
+  - Integrated into **dashboards** and **reports**.
+  - Linked with **contextual information** (climate, land use, communities).
+  - Used alongside uncertainty information (explained in Tutorial 3) to support responsible decisions.
+
+- The key message:
+  - Predictive maps are **data-driven approximations** built from field and satellite information.
+  - Their value depends on both the **quality of inputs** and the **rigour** taken in modelling and validation.

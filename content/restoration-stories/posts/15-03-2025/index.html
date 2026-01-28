@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8' />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <title>Mapbox Storytelling</title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <link rel="icon" type="image/x-icon"
+        href="https://raw.githubusercontent.com/mapbox/assembly/publisher-staging/src/svgs/mapbox.svg">
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.css' rel='stylesheet' />
+    <script src="https://cdn.jsdelivr.net/npm/mapbox-gl-globe-minimap@1.2.0/dist/bundle.js"></script>
+    <script src="https://unpkg.com/scrollama"></script>
+    <style>
+        body, h1, h2, h3, p, div, .step, #story, #features {
+            pointer-events: none;
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 400; 
+            font-size: 22px;
+        }
+
+        #map,
+        .mapboxgl-canvas {
+            pointer-events: auto;
+        }
+
+        #story .step * {
+            pointer-events: auto;
+        }
+        h1 {
+            font-size: 2.5em;
+            font-weight: 700;
+        }
+
+        h2 {
+            font-size: 1.8em;
+            font-weight: 400;
+        }
+
+        h3 {
+            font-size: 1.5em;
+            font-weight: 400;
+        }
+        a,
+        a:hover,
+        a:visited {
+            color: #0071bc;
+        }
+
+        #map {
+            top: 0;
+            height: 100vh;
+            width: 100vw;
+            position: fixed;
+            z-index: 0;
+        }
+        #splash {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-image: url('assets/topo_img1.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+        }
+
+        #splash-content h1 {
+            font-size: 4em;
+            margin-bottom: 0.5em;
+            text-align: center;
+            font-family: Lato, sans-serif;
+            font-weight: 700;
+        }
+
+        #splash-content p {
+            font-size: 1.5em;
+            text-align: center;
+        }
+        
+
+        #story {
+            position: relative;
+            z-index: 10;
+            opacity: 1;
+            transition: opacity 0.8s ease-in-out;
+        }
+        #header {
+            margin: auto;
+            width: 100%;
+            position: relative;
+            z-index: 5;
+        }
+
+        #header h1,
+        #header h2,
+        #header p {
+            margin: 0;
+            padding: 2vh 2vw;
+            text-align: center;
+        }
+
+        #footer {
+            width: 100%;
+            min-height: 5vh;
+            padding: 2vh 2vw;
+            font-size: 13px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: white;
+            color: #443a2c;
+        }
+        #hero-species-selection.hero-section {
+            height: auto !important;
+            overflow: visible !important;
+            padding-bottom: 10vh; 
+        }
+        #features {
+            padding-top: 10vh;
+            padding-bottom: 10vh;
+        }
+
+        .hidden {
+            visibility: hidden;
+        }
+
+        .centered {
+            width: 50vw;
+            margin: 0 auto;
+        }
+
+        .lefty {
+            width: 33vw;
+            margin-left: 5vw;
+        }
+
+        .righty {
+            width: 33vw;
+            margin-left: 62vw;
+        }
+
+        .fully {
+            width: 100%;
+            margin: auto;
+        }
+
+        .light {
+            color: #443a2c;
+            background-color: #fafafa;
+        }
+
+        .dark {
+            color: #fafafa;
+            background-color: #443a2c;
+        }
+
+        .step,
+        .hero-section {
+            padding-bottom: 50vh;
+            opacity: 1;
+            transition: opacity 0.5s ease-in-out;
+            padding-left: 2vw;
+            padding-right: 2vw;
+            margin-top: 25px;
+            pointer-events: none; 
+        }
+
+        .step * {
+            pointer-events: auto; 
+        }
+
+        .step.splash {
+            padding: 0;
+            opacity: 1 !important;
+        }
+
+        .step.active {
+            opacity: 1;
+        }
+
+        .step:not(.splash):not(.hero-section) div {
+            background-color: #ffffff;
+            padding: 20px 30px;
+            line-height: 1.6;
+            font-size: 18px;
+            text-align: justify; 
+        }
+
+        .step p {
+            margin-bottom: 1.2em; 
+        }
+
+        .step h3 {
+            text-align: center;
+            font-size: 26px; 
+            margin-bottom: 0.5em;
+            font-weight: 600; 
+        }
+        .step img {
+            width: 90%;
+            margin: 1em auto 1em auto; 
+            display: block; 
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .step .image img {
+            margin-bottom: 0px; 
+        }
+
+        .step div img {
+            margin-bottom: 20px;
+        }
+        .hero-section,
+        .hero-section.active{
+            opacity: 1 !important;
+            transition: none !important;
+            height: 90vh;
+            width: 100vw;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+            text-align: center;
+            margin-bottom: 60px;
+            color: white;
+        }
+
+        .hero-section .hero-overlay-text {
+            background-color: rgba(0, 0, 0, 0.3);
+            padding: 2em;
+            border-radius: 12px;
+        }
+        .hero-section + .hero-section {
+            margin-top: -60px;
+        }
+
+        .hero-text-overlay {
+            position: absolute;
+            top: 55%;  
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            width: 90vw;
+        }
+        .hero-title {
+            font-size: 5em;
+            font-weight: 700;
+            line-height: 1.2;
+            margin: 0 auto;
+            color: white;
+            max-width: 90vw;
+        }
+        .override-hero-height {
+            height: auto !important;
+            overflow: visible !important;
+        }
+        .hero-flex {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: start;
+            gap: 1.8em;
+        }
+
+
+        .custom-marker {
+            width: 80px;
+            height: 80px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            cursor: pointer;
+            border: none;
+            box-shadow: none;
+            background-color: transparent;
+        }
+        .custom-marker-transparent {
+            pointer-events: none;     
+        }
+
+        .custom-marker.expanded {
+            transform: scale(1.4); 
+            z-index: 10;
+        }
+
+        .step .custom-image-box {
+            position: relative;
+            margin-top: -20px;
+            padding: 0 !important;
+            background-color: transparent !important;
+        }
+
+        .step .image-annotation {
+            position: absolute;
+            top: 5%;
+            right: 2%;
+            background: rgba(255,255,255,0.85);
+            padding: 6px 10px;
+            border-radius: 4px;
+            font-size: 14px;
+            max-width: 300px;
+            z-index: 10;
+        }
+
+        .step li {
+            font-size: 22px;
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.5;
+            margin-bottom: 0.3em; 
+        }
+        
+        .tooltip {
+            position: relative;
+            cursor: help;
+            border-bottom: 1px dotted #555;
+            display: inline-block;
+        }
+
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            opacity: 0;
+            position: absolute;
+            bottom: 125%;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 999;
+
+            background-color: #333;
+            color: #fff;
+            padding: 10px 14px;
+            border-radius: 4px;
+            text-align: left;
+            font-size: 0.85em;
+            line-height: 1.4;
+
+            max-width: 500px;
+            min-width: 180px;
+            width: max-content;
+
+            white-space: normal !important;
+            word-break: break-word;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+            transition: opacity 0.3s ease;
+        }
+
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
+        }
+        .step .custom-image-wrapper img {
+            width: 100% !important;
+            max-width: 1200px !important;
+            height: auto !important;
+            display: block;
+            margin: 0 auto 20px auto !important;
+        }
+
+        .hero-height-big {
+            margin-top: 300px;
+            margin-bottom: 10;
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.8em;
+            }
+        }
+
+        @media (max-width: 750px) {
+
+            .centered,
+            .lefty,
+            .righty,
+            .fully {
+                width: 90vw;
+                margin: 0 auto;
+            }
+        }
+
+        .mapboxgl-canvas-container.mapboxgl-touch-zoom-rotate.mapboxgl-touch-drag-pan,
+        .mapboxgl-canvas-container.mapboxgl-touch-zoom-rotate.mapboxgl-touch-drag-pan .mapboxgl-canvas {
+            touch-action: unset;
+        }
+
+        .mapboxgl-popup {
+            pointer-events: auto !important;
+            z-index: 9999 !important;
+        }
+
+        img.no-shadow {
+            box-shadow: none !important;
+        }
+
+        #map-tooltip {
+            position: fixed; 
+            top: 0;
+            left: 0;
+            display: none;
+            background: rgba(50,50,50,0.9);
+            color: white;
+            padding: 6px 10px;
+            border-radius: 4px;
+            font-size: 13px;
+            pointer-events: none;
+            z-index: 9999; /* move back to 1000 if not working*/
+            max-width: 300px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div id="map"></div>
+
+    <div id="map-tooltip" style="
+        display: none;
+        position: fixed;
+        background: rgba(50,50,50,0.9);
+        color: white;
+        padding: 12px 16px;
+        border-radius: 8px;
+        font-size: 15px;
+        pointer-events: none;
+        z-index: 9999;
+        max-width: 300px;
+    "></div>
+
+
+    <div id="story">
+        <section class="step splash" id="splash">
+            <div id="splash-content">
+                <h1>Biodiversity and Ecosystem Function in FMNR Practice</h1>
+                <p>Scroll to explore the role of biodiversity in dryland restoration</p>
+            </div>
+        </section>
+    </div>
+
+    <script src="config.js"></script>
+
+    <script>
+        var initLoad = true;
+        const adm1Markers = {
+            's5.1': new mapboxgl.Marker(
+                (() => {
+                    const el = document.createElement('div');
+                    el.className = 'custom-marker';
+                    el.style.backgroundImage = 'url("assets/p.retic_img3_sansbg.png")';
+                    el.style.width = '120px';
+                    el.style.height = '120px';
+                    el.style.backgroundSize = 'cover';
+                    el.style.backgroundRepeat = 'no-repeat';
+                    el.style.backgroundPosition = 'center';
+                    el.style.cursor = 'pointer';
+
+                    el.addEventListener('click', () => {
+                        el.style.transform = 'scale(1.5)'; 
+                        setTimeout(() => {
+                            el.style.transform = 'scale(1)';
+                        }, 1000);
+                    });
+                    return el;
+                })()
+            )
+            .setLngLat([-6.483058333, 13.26481167])
+            .setPopup(
+                new mapboxgl.Popup({
+                    offset: 40,
+                    maxWidth: "500px",
+                    closeButton: true,
+                    closeOnClick: true,
+                    anchor: "bottom"
+                })
+                .setHTML(`
+                    <div style="max-width: 500px; padding: 15px; font-family: 'Poppins', sans-serif; font-size: 16px;">
+                    <h3 style="margin: 0; font-size: 22px; color: #2c3e50;">Piliostigma reticulatum</h3>
+                    <img src="/biodiv_story/assets/p.retic_img3_sansbg.png" style="width: 100%; border-radius: 12px; margin-top: 10px;">
+                    <p style="margin: 10px 0 0; line-height: 1.6; color: #444;">
+                        P. reticulatum is a leguminous evergreen tree native to West Africa, often used in FMNR due to its resilience...
+                    </p>
+                    </div>
+                `)
+            ),
+
+            's5.1.1': new mapboxgl.Marker(
+                (() => {
+                    const el = document.createElement('div');
+                    el.className = 'custom-marker';
+                    el.style.backgroundImage = 'url("assets/p.retic_img3_sansbg.png")';
+                    el.style.width = '140px';
+                    el.style.height = '140px';
+                    el.style.backgroundSize = 'cover';
+                    el.style.backgroundRepeat = 'no-repeat';
+                    el.style.backgroundPosition = 'center';
+                    el.style.cursor = 'pointer';
+
+                    el.addEventListener('click', () => {
+                        el.style.transform = 'scale(1.5)';  
+                        setTimeout(() => {
+                            el.style.transform = 'scale(1)';
+                        }, 1000);
+                    });
+                    return el;
+                })()
+            )
+            .setLngLat([-6.483058333, 13.26481167])
+            .setPopup(
+                new mapboxgl.Popup({
+                    offset: 40,
+                    maxWidth: "500px",
+                    closeButton: true,
+                    closeOnClick: true,
+                    anchor: "bottom"
+                })
+                .setHTML(`
+                    <div style="max-width: 500px; padding: 15px; font-family: 'Poppins', sans-serif; font-size: 16px;">
+                    <h3 style="margin: 0; font-size: 22px; color: #2c3e50;">Piliostigma reticulatum</h3>
+                    <img src="assets/p.retic_img3_sansbg.png" style="width: 100%; border-radius: 12px; margin-top: 10px;">
+                    <p style="margin: 10px 0 0; line-height: 1.6; color: #444;">
+                        P. reticulatum is a leguminous evergreen tree native to West Africa, often used in FMNR due to its resilience...
+                    </p>
+                    </div>
+                `)
+            ),
+
+            's5.2': new mapboxgl.Marker(
+                (() => {
+                    const el = document.createElement('div');
+                    el.className = 'custom-marker';
+                    el.style.backgroundImage = 'url("assets/o.homblei_img.png")';
+                    el.style.width = '140px';
+                    el.style.height = '140px';
+                    el.style.backgroundSize = 'cover';
+                    el.style.backgroundRepeat = 'no-repeat';
+                    el.style.backgroundPosition = 'center';
+                    el.style.cursor = 'pointer';
+
+                    el.addEventListener('click', () => {
+                        el.style.transform = 'scale(1.5)'; 
+                        setTimeout(() => {
+                            el.style.transform = 'scale(1)';
+                        }, 1000);
+                    });
+                    return el;
+                })()
+            )
+            .setLngLat([1.236058333, 14.129205])
+            .setPopup(
+                new mapboxgl.Popup({
+                    offset: 40,
+                    maxWidth: "500px",
+                    closeButton: true,
+                    closeOnClick: true,
+                    anchor: "bottom"
+                })
+                .setHTML(`
+                    <div style="max-width: 500px; padding: 15px; font-family: 'Poppins', sans-serif; font-size: 12.5px;">
+                    <h3 style="margin: 0; font-size: 22px; color: #2c3e50;">Ozoroa homblei</h3>
+                    <img src="assets/p.retic_img3_sansbg.png" style="width: 100%; border-radius: 12px; margin-top: 10px;">
+                    <p style="margin: 10px 0 0; line-height: 1.6; font-size: 14px; color: #444;">
+                        Native to the Sahel region, O. homblei is a small tree or shrub that typically occurs in savanna woodlands or rocky outcrops, often thriving on poor, shallow soils where few other woody plants establish successfully. 
+                        It is both drought and disturbance tolerant, making it an important pioneer species in FMNR practice.
+                    </p>
+                    </div>
+                `)
+            ),
+
+            's5.3.1': new mapboxgl.Marker(
+                (() => {
+                    const el = document.createElement('div');
+                    el.className = 'custom-marker';
+                    el.style.backgroundImage = 'url("assets/a.grac_img.png")';
+                    el.style.width = '140px';
+                    el.style.height = '140px';
+                    el.style.backgroundSize = 'cover';
+                    el.style.backgroundRepeat = 'no-repeat';
+                    el.style.backgroundPosition = 'center';
+                    el.style.cursor = 'pointer';
+
+                    el.addEventListener('click', () => {
+                        el.style.transform = 'scale(1.5)'; 
+                        setTimeout(() => {
+                            el.style.transform = 'scale(1)';
+                        }, 1000);
+                    });
+                    return el;
+                })()
+            )
+            .setLngLat([34.23127, -0.833198333])
+            .setPopup(
+                new mapboxgl.Popup({
+                    offset: 40,
+                    maxWidth: "500px",
+                    closeButton: true,
+                    closeOnClick: true,
+                    autoPan: true,
+                    anchor: "bottom"
+                })
+                .setHTML(`
+                    <div style="max-width: 500px; padding: 15px; font-family: 'Poppins', sans-serif; font-size: 12.5px;">
+                    <h3 style="margin: 0; font-size: 22px; color: #2c3e50;">Afrocarpus gracilior</h3>
+                    <img src="assets/p.retic_img3_sansbg.png" style="width: 100%; border-radius: 12px; margin-top: 10px;">
+                    <p style="margin: 10px 0 0; font-size: 14px; line-height: 1.6; color: #444;">
+                        <p> A. gracilior, is a large evergreen tree native to East Africa often found in montane forests and grasslands. Known for its straight trunk, dense foliage, and ability to thrive in various soil types, making it a valuable species for reforestation and agroforestry.
+                        <p> The species may be considered a keystone species, usually coexisting in mixed stands and contributing significantly to forest structure, carbon storage, and providing habitat and food for birds and small mammals.
+                    </p>
+                    </div>
+                `)
+            ),
+            };
+
+        var layerTypes = {
+            'fill': ['fill-opacity'],
+            'line': ['line-opacity'],
+            'circle': ['circle-opacity', 'circle-stroke-opacity'],
+            'symbol': ['icon-opacity', 'text-opacity'],
+            'raster': ['raster-opacity'],
+            'fill-extrusion': ['fill-extrusion-opacity'],
+            'heatmap': ['heatmap-opacity']
+        }
+
+        var alignments = {
+            'left': 'lefty',
+            'center': 'centered',
+            'right': 'righty',
+            'full': 'fully'
+        }
+
+        function getLayerPaintType(layer) {
+            var layerType = map.getLayer(layer).type;
+            return layerTypes[layerType];
+        }
+
+        function setLayerOpacity(layer) {
+            var paintProps = getLayerPaintType(layer.layer);
+            paintProps.forEach(function (prop) {
+                var options = {};
+                if (layer.duration) {
+                    var transitionProp = prop + "-transition";
+                    options = { "duration": layer.duration };
+                    map.setPaintProperty(layer.layer, transitionProp, options);
+                }
+                map.setPaintProperty(layer.layer, prop, layer.opacity, options);
+            });
+        }
+
+        var story = document.getElementById('story');
+        var features = document.createElement('div');
+        features.setAttribute('id', 'features');
+
+        config.chapters.forEach((record, idx) => {
+            if (record.staticBackground) {
+                const hero = document.createElement('section');
+                hero.classList.add('step', 'hero-section'); 
+                hero.setAttribute('id', record.id);
+
+                
+                if (record.backgroundColor) {
+                    hero.style.backgroundColor = record.backgroundColor;
+                } else if (record.image) {
+                    hero.style.backgroundImage = `url('${record.image}')`;
+                    hero.style.backgroundSize = 'cover';
+                    hero.style.backgroundPosition = 'center';
+                }
+
+                if (record.description) {
+                    hero.innerHTML = record.description; 
+                }
+
+                features.appendChild(hero);
+                return; // Skip rest of loop for this chapter
+            }
+
+            // Scrolling chapter logic
+            var container = document.createElement('div');
+            var chapter = document.createElement('div');
+
+            if (record.title) {
+                var title = document.createElement('h3');
+                title.innerText = record.title;
+                chapter.appendChild(title);
+            }
+
+            if (record.image) {
+                var image = new Image();
+                image.src = record.image;
+                chapter.appendChild(image);
+            }
+
+            if (record.description) {
+                var story = document.createElement('div');
+                story.innerHTML = record.description;
+                chapter.appendChild(story);
+            }
+
+            container.setAttribute('id', record.id);
+            container.classList.add('step');
+            chapter.classList.add(config.theme);
+            container.appendChild(chapter);
+            container.classList.add(alignments[record.alignment] || 'centered');
+            if (record.hidden) {
+                container.classList.add('hidden');
+            }
+
+            features.appendChild(container);
+        });
+
+        story.appendChild(features);
+
+        var footer = document.createElement('div');
+
+        if (config.footer) {
+            var footerText = document.createElement('p');
+            footerText.innerHTML = config.footer;
+            footer.appendChild(footerText);
+        }
+
+        if (footer.innerText.length > 0) {
+            footer.classList.add(config.theme);
+            footer.setAttribute('id', 'footer');
+            story.appendChild(footer);
+        }
+
+        mapboxgl.accessToken = config.accessToken;
+
+        const firstMapChapter = config.chapters.find(chap => chap.location);
+        
+        var map = new mapboxgl.Map({
+            container: 'map',
+            style: config.style,
+            center: firstMapChapter.location.center,
+            zoom: firstMapChapter.location.zoom,
+            bearing: firstMapChapter.location.bearing,
+            pitch: firstMapChapter.location.pitch,
+            interactive: false,
+        });
+
+
+        // Create a inset map if enabled in config.js
+        // if (config.inset) {
+        //     map.addControl(
+        //         new GlobeMinimap({ ...config.insetOptions }),
+        //         config.insetPosition
+        //     );
+        // }
+
+        if (config.showMarkers) {
+            var marker = new mapboxgl.Marker({ color: config.markerColor });
+            marker.setLngLat(config.chapters[0].location.center).addTo(map);
+        }
+
+        // instantiate  scrollama
+        var scroller = scrollama();
+
+        map.on("load", function () {
+            map.addLayer({
+                'id': 'sky',
+                'type': 'sky',
+                'paint': {
+                    'sky-type': 'atmosphere',
+                    'sky-atmosphere-sun': [0.0, 0.0],
+                    'sky-atmosphere-sun-intensity': 15
+                }
+            });
+            
+            const tooltip = document.getElementById('map-tooltip');
+
+            const layerConfigs = {
+                'hex-density-adm1': {
+                    title: 'Density',
+                    getContent: props => `<strong>Sp. count density:</strong> ${props.density || 'N/A'}`
+                },
+                'ssa-cepf-pa': {
+                    title: 'Protected Area',
+                    getContent: props => `
+                        <strong>Protected Area:</strong> ${props.DESIG_ENG || 'N/A'}<br>
+                        <strong>Original name:</strong> ${props.ORIG_NAME || 'N/A'}
+                    `
+                },
+                'adm2-iucn-clean': {
+                    title: 'IUCN proportion',
+                    getContent: props => `
+                        <strong>Proportion of sp count under threat:</strong> ${props.threat_prop || 'N/A'}`
+                }
+            };
+
+            Object.entries(layerConfigs).forEach(([layerId, config]) => {
+                if (!map.getLayer(layerId)) {
+                    console.warn(`Layer "${layerId}" not found.`);
+                    return;
+                }
+
+                map.on('click', layerId, function (e) {
+                    if (!e.features.length) return;
+
+                    const props = e.features[0].properties;
+                    map.getCanvas().style.cursor = 'pointer';
+
+                    tooltip.style.display = 'block';
+                    tooltip.style.left = e.originalEvent.clientX + 15 + 'px';
+                    tooltip.style.top = e.originalEvent.clientY + 15 + 'px';
+                    tooltip.innerHTML = config.getContent(props);
+
+                    setTimeout(() => {
+                        tooltip.style.display = 'none';
+                    }, 3000);
+                });
+
+                map.on('mouseleave', layerId, function () {
+                    map.getCanvas().style.cursor = '';
+                    tooltip.style.display = 'none';
+                });
+            });
+        });
+
+            scroller
+                .setup({
+                    step: '.step',
+                    offset: 0.5,
+                    progress: true
+                })
+
+                .onStepEnter(response => {
+                    var current_chapter = config.chapters.findIndex(chap => chap.id === response.element.id);
+                    var chapter = config.chapters[current_chapter];
+
+                    response.element.classList.add('active');
+
+                    // Only flyTo map if a location is defined and not static
+                    if (chapter.location && map && !chapter.staticBackground) {
+                        map[chapter.mapAnimation || 'flyTo'](chapter.location);
+                    }
+
+                    if (chapter.onChapterEnter.length > 0) {
+                        chapter.onChapterEnter.forEach(action => {
+                            if (action.action === 'filter') {
+                                map.setFilter(action.layer, action.filter);
+                            } else if (action.action === 'visibility') {
+                                map.setLayoutProperty(action.layer, 'visibility', action.visibility);
+                            } else {
+                                setLayerOpacity(action);
+                            }
+                        });
+                    }
+
+                    if (adm1Markers[chapter.id]) {
+                        adm1Markers[chapter.id].addTo(map);
+                    }
+
+                    if (chapter.callback) {
+                        window[chapter.callback]();
+                    }
+                })
+
+                .onStepExit(response => {
+                    var chapter = config.chapters.find(chap => chap.id === response.element.id);
+                    response.element.classList.remove('active');
+                    if (chapter.onChapterExit.length > 0) {
+                        chapter.onChapterExit.forEach(setLayerOpacity);
+                    }
+                    if (adm1Markers[chapter.id]) {
+                        adm1Markers[chapter.id].remove();
+                    }
+
+                });
+    </script>
+</body>
+
+</html>

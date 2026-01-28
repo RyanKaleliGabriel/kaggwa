@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<!-- saved from url=(0041)https://cdn.deepintent.com/syncpixel.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    
+    <title>Cookie Sync</title>
+</head>
+<body marginwidth="0" marginheight="0">
+    <script type="text/javascript">
+        "use strict";
+        ! function () {
+            try {
+                var urls = [
+                        "https://match.deepintent.com/usersync/106",
+                        "https://match.deepintent.com/usersync/108",
+                        "https://match.deepintent.com/usersync/112",
+                        "https://match.deepintent.com/usersync/150",
+                        "https://match.deepintent.com/usersync/121",
+                        "https://match.deepintent.com/usersync/126",
+                        "https://match.deepintent.com/usersync/129",
+                        "https://match.deepintent.com/usersync/147",
+                        "https://match.deepintent.com/usersync/161",
+                    ],
+                    configs = {
+                        "a": ["https://match.deepintent.com/usersync/160"]
+                    },
+                    first = urls[0],
+                    remaining = urls.slice(1).concat(configs[new URLSearchParams(window.location.search).get('_di_cfg')] || []),
+                    p = new Image();
+                    p.onload = function () {
+                        remaining.forEach(function (t) {
+                            (new Image).src = t
+                        });
+                        return true;
+                    };
+                    if (p.complete) {
+                        p.onload();
+                    }
+                    p.src = first;
+            } catch (t) { }
+        }();
+    </script>
+</body></html>

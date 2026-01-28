@@ -1,0 +1,117 @@
+project:
+  type: website
+  render:
+    - index.qmd
+    - content/**/*.qmd
+    - fr/**/*.qmd
+    - fr/content/**/*.qmd 
+    - "!dashboards/k4ggwa_dashboard_main.qmd"
+    - "content/state_of_land/reports/State_of_the_Land_Report/*.qmd"
+
+profile:
+  default: en
+  group: [fr, en]
+
+website:
+  # title: "Knowledge for Great Green Wall Action"
+  site-url: "https://k4ggwa.thegrit.earth"
+  google-analytics: G-SM02PF52PN
+
+  back-to-top-navigation: true
+  page-navigation: true
+  reader-mode: false
+
+  navbar:
+    logo: "assets/logo_k4ggwa.png"
+    collapse-below: lg
+    left:
+      - text: "Stories of Restoration"
+        href: content/restoration-stories/restoration_stories.qmd
+        icon: person-video
+
+      - text: "State of the Land"
+        icon: map
+        menu:
+          - text: "Reports"
+            href: content/state_of_land/state_of_land.qmd
+          - text: "Tutorials"
+            href: content/state_of_land/tutorials/intro.qmd
+
+      - text: "Events and Workshops"
+        href: content/events-workshops/events_workshops.qmd
+        icon: calendar
+
+      - text: "Dashboard"
+        href: "https://dashboards.cifor-icraf.org/app/k4ggwa"
+        icon: tv
+
+    right:
+      - href: content/about_ggw/about_ggw.qmd
+        text: "About K4GGWA"
+        icon: globe
+        
+      - text: "EN"
+        href: /index.html  
+      - text: "FR"
+        href: /fr/index.html 
+
+  sidebar:
+    - id: tutorials
+      title: "Tutorials"
+      style: floating
+      search: true
+      contents:
+        - href: content/state_of_land/tutorials/intro.qmd
+          text: Welcome
+
+        - section: "Foundations"
+          contents:
+            - href: content/state_of_land/tutorials/t1-spatdata.qmd
+              text: "Tutorial 0: What is spatial data?"
+            - href: content/state_of_land/tutorials/t2-predmaps.qmd
+              text: "Tutorial 1: How predictive maps are made"
+            - href: content/state_of_land/tutorials/t3-dashboards.qmd
+              text: "Tutorial 2: How to interpret land health dashboards"
+            - href: content/state_of_land/tutorials/t4-uncertainty.qmd
+              text: "Tutorial 3: Map uncertainty 101"
+
+        - section: "Practical (coming soon)"
+          contents:
+            - text: "Working with R + terra"
+            - text: "Working with GEE Python"
+            - text: "Accessing the SPACIAL STAC "
+            - text: "Building a small map in Leaflet"
+            - text: "How to analyse trends"
+
+        - section: "Applied (coming soon)"
+          contents:
+            - text: "Using maps for restoration planning"
+            - text: "Combining layers for targeting"
+            - text: "Interpreting SOC maps"
+            - text: "Interpreting erosion probabilities"
+            - text: "Early warning and temporal analysis"
+
+
+format:
+  html:
+    css: 
+      - styles/base.css
+      - styles/homepage.css
+      - styles/subpages.css
+      - styles/tutorials.css
+    toc: true
+    title-block-banner: false
+    include-in-header:
+      - text: |
+          <link rel="stylesheet"
+                href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+      - build/toggle.js
+    include-after-body:
+      - includes/footer.html
+      - text: |
+          <script src="/build/carousels.js"></script>
+          <script src="/build/metrics.js"></script>
+          <script src="/build/whymap.js"></script>
+          <script src="/build/sidebar.js"></script>
+          <script src="/build/navbar-fr.js"></script>
+

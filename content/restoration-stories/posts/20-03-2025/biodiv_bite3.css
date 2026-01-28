@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap');
+
+body,
+#quarto-content main#quarto-document-content,
+h1, h2, h3, h4, h5, h6,
+.cr-section,
+.cr-section .narrative-col,
+.cr-section .sticky-col {
+  font-family: 'Lato', sans-serif !important;
+  font-size: 26px;
+  line-height: 1.7;
+}
+
+h1 {
+  font-size: 2.8em;
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 2.2em;
+  font-weight: 600;
+}
+
+h3 {
+  font-size: 1.8em;
+  font-weight: 500;
+}
+
+a {
+  color: #508080;
+}
+
+.cr-section .narrative-col {
+  min-width: 400px;
+}
+
+.cr-section .sticky-col {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+#leaflet-map-container {
+  height: 100vh;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+

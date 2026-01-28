@@ -1,0 +1,58 @@
+---
+format:
+  html:
+    toc: false
+    title-block-style: none
+body-classes: subpage
+listing:
+  - id: listing-workshops-events
+    contents:
+      - ../../../content/events-workshops/workshops/*/*.qmd
+    type: default
+    sort: "date desc"
+    sort-ui: true
+    filter-ui: true
+    page-size: 9
+---
+
+```{=html}
+<div class="sub-hero sub-hero-about">
+  <div class="sub-hero-inner">
+    <div class="sub-hero-eyebrow">CAGMV</div>
+    <h1 class="sub-hero-title">Ateliers et Événements</h1>
+    <p class="sub-hero-subtitle">
+      Renforcer la coordination, les preuves et l’apprentissage à travers la Grande Muraille Verte
+    </p>
+  </div>
+</div>
+
+<div class="sub-layout">
+  <aside class="sub-meta">
+    <div class="sub-meta-inner">
+
+      <div class="sub-meta-label">Section</div>
+
+      <div class="sub-meta-badges">
+        <span class="meta-badge">Événements</span>
+        <span class="meta-badge">Ateliers</span>
+        <span class="meta-badge">Grande Muraille Verte</span>
+      </div>
+
+      <p class="sub-meta-text">
+        Découvrez les récentes activités de renforcement des capacités et de collecte de données pour CAGMV.
+      </p>
+
+    </div>
+  </aside>
+
+  <main class="sub-main">
+```
+
+:::  {#listing-workshops-events}
+
+:::
+
+```{=html}
+  </main>
+</div>
+```

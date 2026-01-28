@@ -1,0 +1,174 @@
+---
+title: "Community Perspectives on Restoration in the Louga Region, Senegal 2025"
+subtitle: "Local Knowledge and Grassland Recovery, Younofere & Tiafaly Villages"
+date: "2025-09-28"
+image: images/img2.png
+categories: [monitoring, rangelands, Senegal]
+description: "Insights from focus groups and site visits in Younofere and Tiafaly reveal community-led restoration, governance structures, and emerging challenges in rangeland management."
+toc: false
+
+format:
+  closeread-html:
+    mainfont: Quicksand
+    css: styles.css
+    theme: solar
+    fontsize: 1.2rem
+    cr-style:
+      narrative-background-color-overlay: "rgb(0,43,54,0.75)"
+      narrative-font-size: 1.2rem
+      narrative-overlay-max-width: "1000px"
+    self-contained: false
+    remove-header-space: true
+    embed-resources: false
+---
+
+:::{.non-cr-block .story-header}
+# {{< meta title >}}
+
+<div class="story-subtitle">
+  {{< meta subtitle >}}
+</div>
+
+<div class="story-divider"></div>
+
+<div class="story-logos">
+  <img src="../../../../../assets/logo_spacial.png" class="story-logo">
+  <img src="../../../../../assets/logo_icraf.png" class="story-logo">
+</div>
+
+<div class="story-meta">
+  {{< meta date >}}
+</div>
+
+:::
+
+
+::: {.non-cr-block .white-bg}
+
+```{=html}
+<div class="two-images">
+  <div class="img-box">
+    <img src="images/img3.png" alt="Image 1">
+    <p class="img-caption">Younofere community discussion</p>
+  </div>
+
+  <div class="img-box">
+    <img src="images/img2.png" alt="Image 2">
+    <p class="img-caption">Tiafaly women’s sylvopastoral group</p>
+  </div>
+</div>
+```
+
+---
+
+As part of the August 2025 capacity building activities, CIFOR-ICRAF and partners conducted **community engagement sessions** across two pastoral units across Senegal’s **Louga region** in **Younofere** and **Tiafaly**. The sessions aimed to document local knowledge, restoration practices, and community priorities to satellite data-driven understandings of the landscape.
+
+Across both sites, community members described how **sylvopastoral exclosures (“parcelles”)** have transformed degraded rangelands, allowing native trees and grasses to recover, improving fodder availability, and supporting women-led value addition from tree products. Community members highlighted the return of culturally important grass species, persistent challenges such as overgrazing, water scarcity, termites, flooding, and bushfires, and the importance of local governance structures for managing shared resources.
+
+By documenting these perspectives alongside LDSF surveys and remote sensing data, the project ensures that **local knowledge informs decision-making** and that restoration across the Great Green Wall reflects both **science and community priorities**.
+:::
+
+::::{.cr-section layout="overlay-center"}
+:::{.progress-block}
+@cr-intro-image
+In August 2025, CIFOR-ICRAF and partners visited the pastoral units of Younofere and Tiafaly in Senegal’s Louga region. Through focus group discussions and site visits, **community members shared their experiences of land degradation, restoration, and rangeland management**.
+
+These engagement sessions were designed to understand local and lived realities of climate trends, vegetation dynamics and other interstitial observations and experiences that give sense to high-level data observations. 
+:::
+
+:::{#cr-intro-image}
+![](images/img1.png)
+:::
+
+::::
+
+::: {.non-cr-block}
+
+**Recovering landscapes through exclosures**
+---
+At both sites, community members described how sylvopastoral exclosures (“parcelles”) have transformed previously degraded areas into productive rangelands. Each parcelle, typically 50–160 ha, is divided into reforested, direct-seeded, and natural regeneration sections. Over time, native tree and grass species have regenerated, improving fodder availability and soil condition.
+
+Tree species planted include baobab (bouye), desert date (soumpe), moringa (nebedaye), and gum arabic (tatuki), valued for food, fodder, and traditional uses. Women’s associations are now processing fruits and leaves into local products, diversifying livelihoods and strengthening the link between restoration and household income.
+:::
+
+::::{.cr-section layout="overlay-center"}
+:::{.progress-block}
+@cr-grass-image
+Within the parcelles, community members highlighted the recovery of native grass species and the visible improvement in pasture quality compared to surrounding open rangeland. Research plots managed jointly by AVSF and ISRA operate within some exclosures, where grass samples are collected and analysed, linking community observations with formal experimentation. 
+:::
+
+:::{#cr-grass-image}
+![](images/img4.png)
+:::
+::::
+
+::: {.non-cr-block}
+## Native grass regeneration
+
+Villagers noted the reappearance of native grass species such as Mbambta, Gurdugal, and Dengko, all highly palatable and culturally important fodder species that had disappeared for more than a decade from heavily grazed areas.
+
+The return of these grasses is seen locally as a key sign of rangeland recovery, signalling better soil moisture conditions, reduced grazing pressure inside parcelles, and improved management of access and timing of grazing. In some parcelles, AVSF–ISRA research plots support grass biomass and quality assessments, helping to quantify changes that pastoralists are observing in their daily herd management.
+
+<div class="noncr-images-row">
+  <img src="images/img5.png"  class="noncr-image-two" alt="Native grasses">
+  <img src="images/img6.png"  class="noncr-image-two" alt="Grass recovery site">
+</div>
+
+<p style="text-align:center;">
+  <em>Local community members show native regeneration of grass species in exclosure zones</em>
+</p>
+
+:::
+
+::: {.non-cr-block .white-bg}
+
+## Managing challenges
+Despite visible recovery, communities face persistent challenges that threaten both restored and remaining rangelands:
+
+- Degradation from overgrazing and transhumant pressures;
+- Water scarcity and disputes over borehole management;
+- Termite damage to seedlings and stored feedstock;
+- Flooding following new road construction and altered drainage lines;
+- Bushfires, which continue to threaten restored plots;
+
+Community members consistently emphasised that restoration is not only ecological but social. Effective management of parcelles, boreholes, and grazing routes depends on trust, transparent rules, and inclusive decision-making. 
+:::
+
+
+::: {.non-cr-block}
+## Governance and collective action
+Each pastoral unit is managed by a 10-member committee representing different local sectors. These committees:
+
+- Oversee water infrastructure;
+- Coordinate feedstock management;
+- Organise tree-protection patrols;
+- Mediate disputes over exclosure access and transhumance routes;
+- Convene general assemblies for coordinated decision-making.
+
+Through these structures, restoration becomes a process of collective action, where ecological recovery is underpinned by shared responsibilities and negotiated access.
+
+<div class="noncr-images-row">
+  <img src="images/img3.png"  class="noncr-image-two" alt="Native grasses">
+  <img src="images/img8.png"  class="noncr-image-two" alt="Grass recovery site">
+</div>
+
+<p style="text-align:center;">
+  <em>Local governance and social dynamics are key to ecological restoration in rangeland systems </em>
+</p>
+
+:::
+
+::: {.non-cr-block .white-bg}
+
+## Linking community insight to land health monitoring
+
+Community members emphasised that restoration is not only about tree planting or grass recovery, but also about fair management, trust, and inclusive participation. By pairing these perspectives with multiscalar spatial data and wider remote sensing indicators of land health, we can:
+
+- Ensure that local priorities and observations inform national restoration planning
+- Ground spatial analyses of degradation and recovery in lived realities
+- Support adaptive management across pastoral units
+
+In this way, community narratives from Younofere and Tiafaly help shape how restoration across the Great Green Wall is designed, monitored, and governed, aligning scientific assessments with the knowledge and priorities of those who depend most on the land.
+
+**For further information on these activities, contact us: a.hawkins@cifor-icraf.org**
+:::

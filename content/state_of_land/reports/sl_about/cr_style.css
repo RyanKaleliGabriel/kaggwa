@@ -1,0 +1,33 @@
+.navbar {
+    background-color: #f8efe8;
+    font-size: 1.2em;
+}
+
+.navbar-title {
+    font-family: Menlo, 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    -webkit-text-fill-color: #333;
+}
+
+.nav-link {
+    -webkit-text-fill-color: #333;
+}
+
+.nav-link:hover {
+    color: #333;
+}
+
+#quarto-content {
+    background-color: #f8efe8;
+    color: #111;
+    counter-reset: sidenote-counter;
+}
+
+#quarto-document-content>div>div.narrative-col {
+    background-color: #f8efe8;
+    color: #111;
+}
+
+#quarto-document-content>div>div.sticky-col>div {
+    background-color: #f8efe8;
+    color: #111;
+}

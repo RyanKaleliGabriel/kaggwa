@@ -1,0 +1,21 @@
+apt-get update -y && apt-get install -y \
+    libudunits2-dev \
+    libgdal-dev \
+    libgeos-dev \
+    libproj-dev \
+    vim \
+    cmake \
+    libfontconfig-dev \
+    libharfbuzz-dev \
+    libfribidi-dev \
+    curl \
+    libmbedtls-dev \
+    libnng-dev \
+    xz-utils
+
+    - gdal-bin     [required by sf, terra]
+- libnode-dev  [required by V8]
+- libx11-dev   [required by clipr]
+- pandoc       [required by knitr, rmarkdown]
+
+ Rscript -e "install.packages(c('sf', 'leaflet', 'data.table', 'leaflet.extras',  'plotly', 'lwgeom', 'forcats', 'rmapshaper', 'utils'), repos='https://cran.rstudio.com')"

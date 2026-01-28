@@ -1,0 +1,81 @@
+---
+pagetitle: "K4GGWA - Regreening Niger"
+date: "2024-10-25"
+author: "CIFOR-ICRAF"
+subtitle: "Citizen science and FMNR in Niger"
+description: "Niger has been a key focus country for the Regreening App under Regreening Africa, with thousands of lead farmers and implementing partners using the app to document Farmer Managed Natural Regeneration (FMNR) activities across the country."
+page-layout: full
+toc: true
+image: images/niger_carts.jpg
+categories: ["restoration", "citizen-science", "FMNR"]
+format: html
+---
+
+## Regreening Niger
+
+![](images/niger_carts.jpg)
+
+The Regreening App is a mobile application that is used to document the location of trees under Farmer Managed Natural Regeneration (FMNR) in Niger. The app was developed by the World Agroforestry Centre (ICRAF) and the World Vision Niger team. It is used by lead farmers and implementing partners to collect data on the location of trees, the species of trees, and the number of trees planted.
+
+As shown in the map below (@fig-fmnr_map), the app has been used to document the location of FMNR sites across the country. The data collected through the app is used to monitor the progress of regreening activities and to assess the impact of these interventions on the environment and local communities.
+
+
+```{r}
+#| include: false
+
+library(data.table)
+library(plotly)
+library(leaflet)
+library(leaflet.extras)
+library(duckdb)
+library(stringr)
+
+con <- dbConnect(duckdb())
+
+# Load data
+query.fmnr <- "
+  SELECT *
+  FROM 'data/fmnr_proc.parquet'
+  WHERE country LIKE 'Niger' AND survey_name LIKE 'Regreening Africa'
+  "
+
+fmnr_dat <- con |>
+    dbSendQuery(query.fmnr) |>
+    dbFetch() |>
+    data.table()
+
+fmnr_dat <- fmnr_dat[, lon := tree_longitude]
+fmnr_dat <- fmnr_dat[, lat := tree_latitude]
+fmnr_dat <- fmnr_dat[, district_commune_woreda := str_to_title(district_commune_woreda)]
+fmnr_dat <- fmnr_dat[!is.na(district_commune_woreda)]
+fmnr_dat <- fmnr_dat[, country := str_to_title(country)]
+fmnr_dat <- fmnr_dat[, species := scientificName]
+fmnr_dat <- fmnr_dat[, lng := as.numeric(as.character(tree_longitude))]
+fmnr_dat <- fmnr_dat[, lat := as.numeric(as.character(tree_latitude))]
+
+fmnr_niger <- fmnr_dat[lon > 1 & lon < 3]
+```
+
+
+```{r}
+#| echo: false
+#| warning: false
+#| label: fig-fmnr_map
+#| fig-cap: Map showing the location of trees under FMNR in Senegal. The data was collectd by lead farmers and implementing partners using the Regreening App.
+
+fmnr_niger |>
+    leaflet() |>
+    addTiles() |>
+    leaflet.extras::addHeatmap(
+        lng = ~lon,
+        lat = ~lat
+    )
+```
+
+### Why is the Regreening App important?
+
+::: {.callout-tip}
+## Scaling data collection with citizen science
+
+Citizen-science data collection represents an important approach to data collection and monitoring across many different fields or domains. In the context of land restoration, it is a way to scale data collection while at the same time involving communities in the process of monitoring land restoration activities. The Regreening App is an example of a citizen-science tool that is used to collect data on the location of trees, the species of trees, the number of trees planted, and their use. This data is used to monitor the progress of regreening activities and to assess the impact of these interventions on the environment and local communities.
+:::

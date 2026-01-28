@@ -1,0 +1,489 @@
+---
+title: ""
+pagetitle: "K4GGWA"
+page-layout: full
+title-block: false
+toc: false
+body-classes: home-page
+
+
+listing:
+  - id: latest-content
+    contents:
+      - content/restoration-stories
+      - "!restoration_stories.qmd"
+    sort: "date desc"
+    type: grid
+    fields: [image, date, title, subtitle, description, author, reading-time]
+    sort-ui: true
+    filter-ui: false
+    feed: false
+    page-size: 6
+
+  - id: workshops-events
+    contents:
+      - content/events-workshops
+      - "!events_workshops.qmd"
+    sort: "date desc"
+    type: default
+    fields: [image, categories, title, subtitle, description, date]
+    sort-ui: false
+    filter-ui: false
+    max-items: 3
+    feed: true
+    page-size: 3
+---
+
+<!-- Hero and metric cards-->
+```{=html}
+<div class="hero-video">
+  <video class="hero-video-bg" autoplay muted playsinline>
+    <source src="/assets/sahel_imagery2.mp4" type="video/mp4">
+  </video>
+
+  <div class="hero-inner">
+    <div class="hero-text">
+      <h2 class="hero-heading">Welcome to the<br>K4GGWA Platform!</h2>
+      <p class="hero-subtitle">
+        Data, evidence and tools to support Great Green Wall decision-making -
+        from landscape health analytics to citizen science and restoration stories
+        across the Sahel and Horn of Africa.
+      </p>
+      <div class="hero-actions">
+        <a href="#intro" class="btn-pill btn-secondary hero-scroll">Learn more</a>
+      </div>
+    </div>
+  </div>
+
+<!-- We can change these over time - these are just some high level placeholder metrics for now. 
+ Or as Muhammad suggested we make them dynamic so they change to different metrics each time page loads-->
+  <div class="hero-metrics">
+    <div class="hero-metrics-inner">
+
+   <div class="metric-card">
+    <div class="metric-image">
+      <img src="assets/sat_metric.png" alt="NPP">
+    </div>
+    <div class="metric-body">
+      <div class="metric-number">
+        <span class="metric-value" data-target="100">0</span>
+        <span class="metric-suffix">million ha</span>
+      </div>
+      <div class="metric-label">targeted for restoration</div>
+    </div>
+  </div>
+
+  <div class="metric-card">
+    <div class="metric-image">
+      <img src="assets/erosion_metric.png" alt="Severe erosion">
+    </div>
+    <div class="metric-body">
+      <div class="metric-number">
+        <span class="metric-value" data-target="58">0</span>
+        <span class="metric-suffix">%</span>
+      </div>
+      <div class="metric-label">total GGW area severely eroded</div>
+    </div>
+  </div>
+
+  <div class="metric-card">
+    <div class="metric-image">
+      <img src="assets/flood_metric.png" alt="Flood">
+    </div>
+    <div class="metric-body">
+      <div class="metric-number">
+        <span class="metric-value" data-target="928,861">0</span>
+        <span class="metric-suffix">thousand ha </span>
+      </div>
+      <div class="metric-label">land in high-risk flood zones</div>
+    </div>
+  </div>
+
+  <div class="metric-card">
+    <div class="metric-image">
+      <img src="assets/eco_metric.png" alt="ecoregions">
+    </div>
+    <div class="metric-body">
+      <div class="metric-number">
+        <span class="metric-value" data-target="36">0</span>
+      </div>
+      <div class="metric-label">distinct ecoregions</div>
+    </div>
+  </div>
+</div>
+  </div>
+</div>
+
+```
+
+<!-- About section --> 
+```{=html}
+<div id="intro" class="column-screen page-columns page-full section-light">
+  <div class="column-screen-inset">
+
+    <section class="about-section">
+      <div class="about-eyebrow">ABOUT THE PLATFORM</div>
+
+      <div class="about-layout">
+        <div class="about-heading">
+          <h2 class="about-title">
+            About the K4GGWA Knowledge Platform
+          </h2>
+        </div>
+
+        <div class="about-body">
+          <p>
+            Knowledge for Great Green Wall Action (K4GGWA) is a joint initiative of
+            <strong>CIFOR-ICRAF</strong> and the
+            <strong>Food and Agriculture Organization of the United Nations (FAO)</strong>,
+            funded by the <strong>European Union</strong>. The platform brings together
+            stories, data, and tools to support decision-making across the Great Green Wall region.
+          </p>
+
+          <p>
+            Here you can explore data and restoration stories from across the Sahel and Horn of Africa,
+            access state-of-land analyses and reports, and follow key workshops and events.
+            The <strong>K4GGWA Dashboard</strong> provides interactive maps and visualisations
+            to help partners monitor landscape change, assess risks and opportunities,
+            and track progress towards Great Green Wall goals.
+          </p>
+
+          <div class="about-logos">
+            <img src="assets/logo_header.png" alt="K4GGWA Partners">
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+</div>
+```
+
+<!-- Why maps? pull down section-->
+```{=html}
+<div id="why-maps-teaser" class="why-maps-teaser">
+  <button class="why-maps-toggle" type="button">
+    <span class="why-maps-label">Why maps?</span>
+    <span class="why-maps-arrow" aria-hidden="true"></span>
+  </button>
+</div>
+```
+
+```{=html}
+<section id="why-maps" class="why-maps-section is-collapsed">
+
+<div class="why-maps-backgrounds-wrapper">
+  <div class="why-maps-background is-active" data-step="0">
+    <img src="assets/why1.png" alt="">
+  </div>
+  <div class="why-maps-background" data-step="1">
+    <img src="assets/why5.jpg" alt="">
+  </div>
+  <div class="why-maps-background" data-step="2">
+    <img src="assets/why3.png" alt="">
+  </div>
+  <div class="why-maps-background" data-step="3">
+    <img src="assets/why6.png" alt="">
+  </div>
+</div>
+
+  <div class="why-maps-inner">
+
+<div class="why-maps-block why-maps-step step-0 is-active" data-step="0">
+  <div class="img"></div>
+  <div class="container">
+    <div class="step-content">
+      <div class="inner-box">
+        <span class="label">Landscape assessments</span>
+        <h2>Establish a clear, evidence-based understanding of landscape conditions</h2>
+        <p>
+          Use high-resolution indicators on vegetation dynamics, soil conditions, and climate to understand landscape-scale trends, patterns and build a reliable baseline. Spatial data help identify opportunities, risks and data gaps, supporting realistic and cost-effective project appraisal.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="why-maps-block why-maps-step step-1" data-step="1">
+  <div class="img"></div>
+  <div class="container">
+    <div class="step-content">
+      <div class="inner-box">
+        <span class="label">Targeting and prioritisation</span>
+        <h2>Focus resources where restoration is most likely to deliver impact</h2>
+        <p>
+          Combine multiple indicators to identify and prioritise areas with strong ecological potential and favourable implementation conditions. This supports strategic use of limited budgets, reduces project risk, and creates a shared, evidence-based foundation for coordination across partners.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="why-maps-block why-maps-step step-2" data-step="2">
+  <div class="img"></div>
+  <div class="container">
+    <div class="step-content">
+      <div class="inner-box">
+        <span class="label">Intervention design</span>
+        <h2>Match restoration practices to local conditions for better performance</h2>
+        <p>
+          Spatial evidence provides critical information on site-level constraints from soil fertility, water availability, climate exposure, and land use, helping teams design and select interventions that are technically viable and affordable. Optimise project design, scope project trade-offs, and minimise surprises during implementation.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="why-maps-block why-maps-step step-3" data-step="3">
+  <div class="img"></div>
+  <div class="container">
+    <div class="step-content">
+      <div class="inner-box">
+        <span class="label">Monitoring, evaluation and learning</span>
+        <h2>Quantify progress, adapt strategies, and demonstrate results</h2>
+        <p>
+          Track landscape change with consistent and timely spatial metrics to understand where interventions are effective and where adjustments are needed. Quantified evidence strengthens accountability, supports adaptive management, and improves confidence among funders, partners, and local stakeholders.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+
+
+  <span class="why-line line-colored">
+    <span class="why-line-filler"></span>
+  </span>
+
+  <span class="why-line line-track">
+    <div class="why-next-step">
+      <span class="why-icon-chevron"></span>
+    </div>
+  </span>
+
+</section>
+```
+
+<!-- Guidance and resources section --> 
+```{=html}
+<div class="column-screen page-columns page-full section-cream">
+  <div class="column-screen-inset">
+    <h2 id="guidance-key-resources">Guidance &amp; key resources</h2>
+
+<div class="resource-carousel resources-carousel" id="guides-carousel">
+  <button class="carousel-arrow left" aria-label="Previous">&#10094;</button>
+
+  <div class="carousel-window">
+    <div class="carousel-track">
+      <a class="resource-card-rotating" href="https://ldsf.thegrit.earth" target="_blank">
+        <img src="assets/ldsf_manual.png" alt="LDSF Manual"
+             class="resource-cover-rotating">
+        <div class="resource-meta">
+          <p class="resource-title">The LDSF Field Manual</p>
+          <p class="resource-desc">Soil &amp; land health assessment methodology.</p>
+        </div>
+      </a>
+
+      <a class="resource-card-rotating" href="https://www.cifor-icraf.org/publications/pdf/guide/CRS_CIFOR-ICRAF_Restoration-Monitoring-Guide.pdf" target="_blank">
+        <img src="assets/restoration_guide.png" alt="Restoration Monitoring Guide"
+             class="resource-cover-rotating">
+        <div class="resource-meta">
+          <p class="resource-title">Restoration Monitoring Guide</p>
+          <p class="resource-desc">Technical guide to monitoring restoration</p>
+        </div>
+      </a>
+
+      <a class="resource-card-rotating" href="https://www.cifor-icraf.org/publications/pdf/project-briefs/UNDecade-Evidence-Brief.pdf" target="_blank">
+        <img src="assets/evidence_guide.png" alt="Evidence Guide"
+             class="resource-cover-rotating">
+        <div class="resource-meta">
+          <p class="resource-title">Evidence in Ecosystem Restoration</p>
+          <p class="resource-desc">Insights, evidence, recommendations</p>
+        </div>
+      </a>
+
+      <a class="resource-card-rotating" href="https://radrs.icraf.org/uploaded/media/docs/Regreening-App-user-guide.pdf" target="_blank">
+        <img src="assets/RA_guide.png" alt="Regreening App User Guide"
+             class="resource-cover-rotating">
+        <div class="resource-meta">
+          <p class="resource-title">Regreening App Guide</p>
+          <p class="resource-desc">
+            Guidance on use of citizen science Regreening App for participatory restoration monitoring
+          </p>
+        </div>
+      </a>
+
+      <a class="resource-card-rotating" href="https://dashboards.cifor-icraf.org/" target="_blank">
+        <img src="assets/dashboards.png" alt="K4GGWA dashboards"
+             class="resource-cover-rotating">
+        <div class="resource-meta">
+          <p class="resource-title">K4GGWA Dashboards</p>
+          <p class="resource-desc">Interactive GGW landscape analytics</p>
+        </div>
+      </a>
+
+      <a class="resource-card-rotating" href="https://landscapeportal.thegrit.earth/#/" target="_blank">
+        <img src="assets/landscape_portal.png" alt="Landscape Portal"
+             class="resource-cover-rotating">
+        <div class="resource-meta">
+          <p class="resource-title">Landscape Portal</p>
+          <p class="resource-desc">Explore regional datasets online</p>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <button class="carousel-arrow right" aria-label="Next">&#10095;</button>
+</div>
+
+<div class="carousel-dots" id="guides-dots"></div>
+  </div>
+</div>
+```
+
+<!-- SoL section -->
+```{=html}
+<div class="column-screen page-columns page-full sol-section">
+  <div class="column-screen-inset sol-hero-inner">
+
+  <div class="sol-hero-text">
+    <p class="eyebrow">STATE OF THE LAND</p>
+    <h2>State of the Land Report 2025</h2>
+    <p>
+      An interactive, long-form assessment of land health, climate risk,
+      vegetation dynamics and restoration opportunities across the Great
+      Green Wall region. Explore maps, charts and stories that connect
+      regional patterns to local realities.
+    </p>
+    <p class="sol-hero-meta">
+      40 min • SPACIAL • Updated Sep 25, 2025
+    </p>
+  </div>
+
+  <a
+    class="sol-hero-card"
+    href="/content/state_of_land/reports/State_of_the_Land_Report/State_of_the_Land_Report.html"
+  >
+    <div class="sol-hero-thumb">
+      <img src="assets/sol_rep1.png"
+          alt="State of the Land map preview">
+    </div>
+
+    <div class="sol-hero-card-body">
+      <span class="sol-hero-cta">
+        Read the report
+        <i class="bi bi-arrow-right"></i>
+      </span>
+    </div>
+  </a>
+  </div>
+</div>
+```
+
+<!-- Stories section -->
+```{=html}
+<div class="column-screen page-columns page-full section-light">
+  <div class="column-screen-inset">
+
+    <h2 class="stories-heading">Restoration Stories</h2>
+
+    <div id="latest-content"></div>
+
+    <div class="resource-carousel stories-carousel">
+      <button class="carousel-arrow left" aria-label="Previous stories">&#10094;</button>
+      <div class="carousel-window">
+        <div class="carousel-track" id="stories-track"></div>
+      </div>
+      <button class="carousel-arrow right" aria-label="Next stories">&#10095;</button>
+    </div>
+
+    <div class="carousel-dots stories-dots"></div>
+
+  </div>
+</div>
+```
+
+<!-- Dashboards section -->
+```{=html}
+<div class="column-screen section-cream dashboards-panel">
+  <div class="column-screen-inset dashboards-layout">
+
+<div class="dashboards-text">
+  <div class="dashboards-eyebrow">DASHBOARDS</div>
+  <h2 class="dashboards-title">
+    Explore landscape health dashboards for the Great Green Wall
+  </h2>
+
+  <p>
+    Interactive dashboards bring together satellite data, field surveys
+    and project information to help partners understand land health,
+    climate risks and restoration opportunities across the Great Green
+    Wall region.
+  </p>
+
+  <p>
+    Filter by country and administrative unit, explore indicators like
+    soil organic carbon, erosion and tree cover, and download summary
+    statistics to support planning and reporting.
+  </p>
+
+  <div class="dashboards-actions">
+    <a href="https://dashboards.cifor-icraf.org/app/k4ggwa"
+       class="btn-pill btn-secondary" target="_blank" rel="noopener">
+      Open K4GGWA dashboards
+    </a>
+
+    <a href="https://landscapeportal.thegrit.earth/#/"
+       class="btn-pill btn-secondary" target="_blank" rel="noopener">
+      Explore Landscape Portal
+    </a>
+  </div>
+</div>
+
+<div class="dashboards-card">
+  <div class="dashboards-thumb">
+    <video class="dashboards-video"
+           autoplay
+           muted
+           loop
+           playsinline
+           controls>
+      <source src="assets/demo_dash.mp4" type="video/mp4">
+    </video>
+  </div>
+  <p class="dashboards-caption">
+    Demo of the K4GGWA dashboard showing land health indicators across
+    Great Green Wall countries.
+  </p>
+</div>
+  </div>
+</div>
+```
+
+<!-- Workshops section -->
+```{=html}
+<div class="column-screen page-columns page-full section-light events-panel">
+  <div class="column-screen-inset events-section">
+<div class="events-header">
+  <h2>Workshops and Events</h2>
+  <a href="/content/events-workshops/index.html" class="events-view-all">
+    View all events <span>&rarr;</span>
+  </a>
+</div>
+
+<div class="resource-carousel events-carousel">
+  <button class="carousel-arrow left events-arrow" aria-label="Previous event">&#10094;</button>
+
+  <div class="carousel-window">
+    <div id="workshops-events"></div>
+  </div>
+
+  <button class="carousel-arrow right events-arrow" aria-label="Next event">&#10095;</button>
+</div>
+
+<div class="carousel-dots events-dots"></div>
+
+  </div>
+</div>
+```

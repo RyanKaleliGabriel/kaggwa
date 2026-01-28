@@ -1,0 +1,74 @@
+---
+title: "Regreening Ethiopia"
+pagetitle: "K4GGWA - Regreening Ethiopia" 
+date: "2024-10-25" 
+image: images/ethiopia_landscape.jpg
+author: "CIFOR-ICRAF"
+subtitle: "Citizen science and FMNR in Ethiopia"
+description: "In phase I of Regreening Africa, the Regreening App was used by thousands of lead farmers and implementing partners to document Farmer Managed Natural Regeneration (FMNR) activities across Ethiopia."
+page-layout: full
+toc: true
+categories: ["restoration", "citizen-science", "FMNR", "tree-planting"]
+format: html
+---
+
+## Regreening Ethiopia
+
+![](images/ethiopia_landscape.jpg)
+
+In Ethiopia, Farmer Managed Natural Regeneration (FMNR). The app was developed by the World Agroforestry Centre (ICRAF) and the World Vision Ethiopia team. It is used by lead farmers and implementing partners to collect data on the location of trees, the species of trees, and the number of trees planted.
+
+As shown in the map below (@fig-fmnr_map), the app has been used to document the location of FMNR sites across the country. The data collected through the app is used to monitor the progress of regreening activities and to assess the impact of these interventions on the environment and local communities.
+
+
+```{r}
+#| include: false
+
+library(data.table)
+library(plotly)
+library(leaflet)
+library(leaflet.extras)
+library(duckdb)
+library(stringr)
+
+con <- dbConnect(duckdb())
+
+# Load data
+query.fmnr <- "
+  SELECT *
+  FROM 'data/fmnr_proc.parquet'
+  WHERE country LIKE 'Ethiopia' AND survey_name LIKE 'Regreening Africa'
+  "
+
+fmnr_dat <- con |>
+    dbSendQuery(query.fmnr) |>
+    dbFetch() |>
+    data.table()
+
+fmnr_dat <- fmnr_dat[, lon := tree_longitude]
+fmnr_dat <- fmnr_dat[, lat := tree_latitude]
+fmnr_dat <- fmnr_dat[, district_commune_woreda := str_to_title(district_commune_woreda)]
+fmnr_dat <- fmnr_dat[!is.na(district_commune_woreda)]
+fmnr_dat <- fmnr_dat[, country := str_to_title(country)]
+fmnr_dat <- fmnr_dat[, species := scientificName]
+fmnr_dat <- fmnr_dat[, lng := as.numeric(as.character(tree_longitude))]
+fmnr_dat <- fmnr_dat[, lat := as.numeric(as.character(tree_latitude))]
+
+fmnr_ethiopia <- fmnr_dat[!is.na(lon) & !is.na(lat)]
+```
+
+
+```{r}
+#| echo: false
+#| warning: false
+#| label: fig-fmnr_map
+#| fig-cap: Map showing the location of trees under FMNR in Ethiopia. The data was collectd by lead farmers and implementing partners using the Regreening App. The colors in the heatmap represent the density of observations in the area.
+
+fmnr_ethiopia |>
+    leaflet() |>
+    addTiles() |>
+    leaflet.extras::addHeatmap(
+        lng = ~lon,
+        lat = ~lat
+    )
+```
