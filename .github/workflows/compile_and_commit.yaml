@@ -32,7 +32,7 @@ jobs:
             - name: Push staging to main
               run: |
                 git checkout -B main origin/staging
-                git push origin main                 
+                git push origin main --force                
 
 
             
