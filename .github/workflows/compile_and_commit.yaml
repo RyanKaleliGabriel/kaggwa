@@ -28,7 +28,7 @@ jobs:
 
             - name: Merge staging into main and push
               run: |
-                git checkout main
+                git checkout origin/main
                 git merge origin/staging --allow-unrelated-histories --no-ff -m "Auto-merge staging to main"
                 git push origin main
 
