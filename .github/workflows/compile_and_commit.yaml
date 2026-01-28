@@ -26,11 +26,10 @@ jobs:
                 git config user.name "RyanKaleliGabriel"
                 git config user.email "ryang9241@gmail.com"
 
-            - name: Merge staging into main and push
+            - name: Push staging to main
               run: |
-                git checkout origin/main
-                git merge origin/staging --allow-unrelated-histories --no-ff -m "Auto-merge staging to main"
-                git push origin main
+                git checkout -B main origin/staging
+                git push origin main --force                
 
 
             
