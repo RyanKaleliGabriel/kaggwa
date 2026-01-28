@@ -37,6 +37,10 @@ jobs:
             #     git checkout -B main origin/staging
             #     git push origin main --force                
 
+            - name: Temporarily remove _site from gitignore
+              run: |
+                sed -i '/_site/d' .gitignore
+
             - name: Commit and push rendered site to main
               run: |
                 git add -f _site  # Force add the _site folder (usually gitignored)
