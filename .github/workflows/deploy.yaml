@@ -63,8 +63,8 @@ jobs:
             #   run: quarto render
 
             - name: Deploy with SCP
-            uses: appleboy/scp-action@v0.1.7
-            with:
+              uses: appleboy/scp-action@v0.1.7
+              with:
                 host: ${{ secrets.SERVER_HOST }}
                 username: ${{ secrets.SERVER_USER }}
                 key: ${{ secrets.SERVER_SSH_KEY }}
