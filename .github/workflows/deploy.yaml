@@ -1,0 +1,72 @@
+name: Deployment for kaggwa platform
+on: 
+    push:
+        branches: ["main"]
+
+jobs: 
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v4
+              with:
+                lfs: true
+            
+            - name: Install system packages and R binary
+              run: apt-get update && apt-get install -y \
+                    r-base \
+                    wget \
+                    gdebi-core \
+                    libcurl4-openssl-dev \
+                    libssl-dev \
+                    libxml2-dev \
+                    git \
+                    libudunits2-dev \ 
+                    libgdal-dev \     
+                    libgeos-dev \     
+                    libproj-dev \     
+                    vim \     
+                    cmake \     
+                    libfontconfig-dev \     
+                    libharfbuzz-dev \     
+                    libfribidi-dev \     
+                    curl \    
+                    libmbedtls-dev  \   
+                    libnng-dev \     
+                    xz-utils \     
+                    lbzip2 \     
+                    libcloudproviders0 \
+                    && rm -rf /var/lib/apt/lists/*
+
+            - name: Set up Quarto
+              uses: quarto-dev/quarto-actions/setup@v2
+              with:
+                version: 1.8.27
+
+            - name: Set up python
+              uses: actions/setup-python@v5
+              with:
+                python-version: "3.12"
+
+            - name: Run package check
+              run: python3 deployment/prebuild_check
+
+            - name: Download R archived packages
+              run: wget https://cran.r-project.org/src/contrib/Archive/leaflet.extras/leaflet.extras_2.0.1.tar.gz
+              
+            - name: Install R packages
+              run: Rscript deployment/packages.R
+
+
+            - name: Compile the platform
+              run: quarto render
+
+            - name: Deploy _site folder
+              run: |
+                mkdir -p ~/.ssh
+                echo "${{ secrets.SERVER_SSH_KEY }}" > ~/.ssh/id_rsa
+                chmod 600 ~/.ssh/id_rsa
+
+                ssh-keyscan -H ${{ secrets.SERVER_HOST }} >> ~/.ssh/known_hosts
+                scp -r _site/* ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }}:/var/www/k4ggwa/
+            

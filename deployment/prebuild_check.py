@@ -89,13 +89,13 @@ def check_packages(source_code_packages, pakages_r_list):
 
     if missing:
         raise ValueError(f"Missing in packages.R: {', '.join(sorted(missing))}")
+    # Send a badge to the repo -> passed or failed.
 
     print("All packages have been included in packages.R")
 
 
 source_code_files = get_renv_excluded_files()
 source_code_packages = get_packages(source_code_files)
-print(source_code_packages)
 packages_r = get_r_packages("deployment/packages.R")
 
 check_packages(source_code_packages, packages_r)
