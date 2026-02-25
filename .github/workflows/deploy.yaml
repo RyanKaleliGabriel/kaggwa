@@ -13,8 +13,9 @@ jobs:
                 lfs: true
             
             - name: Install system packages and R binary
-              run:  sudo apt-get update \
-                    sudo apt-get install -y \
+              run: |
+                sudo apt-get update
+                sudo apt-get install -y \
                     r-base \
                     wget \
                     gdebi-core \
@@ -22,21 +23,21 @@ jobs:
                     libssl-dev \
                     libxml2-dev \
                     git \
-                    libudunits2-dev \ 
-                    libgdal-dev \     
-                    libgeos-dev \     
-                    libproj-dev \     
-                    vim \     
-                    cmake \     
-                    libfontconfig-dev \     
-                    libharfbuzz-dev \     
-                    libfribidi-dev \     
-                    curl \    
-                    libmbedtls-dev  \   
-                    libnng-dev \     
-                    xz-utils \     
-                    lbzip2 \     
-                    libcloudproviders0 
+                    libudunits2-dev \
+                    libgdal-dev \
+                    libgeos-dev \
+                    libproj-dev \
+                    vim \
+                    cmake \
+                    libfontconfig-dev \
+                    libharfbuzz-dev \
+                    libfribidi-dev \
+                    curl \
+                    libmbedtls-dev \
+                    libnng-dev \
+                    xz-utils \
+                    lbzip2 \
+                    libcloudproviders0
 
             - name: Set up Quarto
               uses: quarto-dev/quarto-actions/setup@v2
