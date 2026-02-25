@@ -36,7 +36,6 @@ jobs:
                     xz-utils \     
                     lbzip2 \     
                     libcloudproviders0 \
-                    && rm -rf /var/lib/apt/lists/*
 
             - name: Set up Quarto
               uses: quarto-dev/quarto-actions/setup@v2
