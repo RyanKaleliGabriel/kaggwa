@@ -69,5 +69,5 @@ jobs:
                 chmod 600 ~/.ssh/id_rsa
 
                 ssh-keyscan -H ${{ secrets.SERVER_HOST }} >> ~/.ssh/known_hosts
-                scp -r index.qmd ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }}:/var/www/k4ggwa/
+                scp -P ${{ secrets.SERVER_SSH_PORT }} -r index.qmd ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }}:/var/www/k4ggwa/
             
