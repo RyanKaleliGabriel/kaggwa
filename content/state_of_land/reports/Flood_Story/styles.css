@@ -1,0 +1,257 @@
+body {
+  font-family:"Montserrat", sans-serif;
+  line-height: 1.6;
+  color: #ffffff;
+  background-color: #E1E5F2;
+  object-fit: fill;
+  margin: 0;
+  display: flex;
+  height: 100vh; /* Full height */
+  overflow: hidden; /* Prevent scrolling of the entire page */
+}
+
+/* Description */
+.description {
+  font-size: 14px;
+  color: #ffffff;
+  margin-bottom: 20px;
+  flex-shrink: 0;
+  font-family:"Montserrat", sans-serif;
+  font-size: large;
+  text-align: center;
+  color: #000000;
+}
+
+
+#map {
+  /* width: 100%; */
+  height: 300px;
+   /* min-height: 200px; */
+  margin-bottom: 40px;
+  border: 2px solid #1F7A8C;
+  border-radius: 5px;
+  flex-shrink: 0;
+} 
+
+.view-map-btn {
+  align-items: center;
+  display: block;
+  margin: 0 auto;
+  font-size: medium;
+  text-align: center;
+  color: #ffffff;
+  text-decoration: none;
+  padding: 5px;
+  margin-bottom: 30px;
+  background-color: #1F7A8C;
+  border-radius: 30px;
+
+}
+
+/* Sidebar */
+.sidebar {
+  /* border-style:; */
+  background-color: #022B3A ;
+  width: 45%;
+  padding: 15px;
+  height: 100vh; /* Full height */
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto; /* Enable scrolling */
+}
+
+
+/* Fixed header inside the sidebar */
+.sidebar h2 {
+  display: flex;
+  text-align: center;
+  font-size: 30px;
+  border-radius: 5px;
+  font-family: "Montserrat", sans-serif;
+  color: #ffffff;
+  margin-bottom: 10px;
+  padding: 10px;
+  position: sticky;
+  top: 0;
+  z-index: 10; /* Ensure it's above scrolling content */
+  width: 100%; /* Make sure it spans the full width */
+}
+
+.sidebar {
+  padding-top: 60px; /* Add padding to the top so content doesn't overlap header */
+}
+
+/* Adjust iframe size to account for the fixed header */
+iframe {
+  margin-top: 60px; 
+  width: 100%;
+  height: calc(100% - 60px); 
+}
+
+
+/* Make stories-container */
+.stories-container {
+  flex-grow: 1;
+  overflow-y: auto;
+  padding-right: 5px;
+  scrollbar-width: none;
+}
+
+.stories-container::-webkit-scrollbar {
+  display: none;
+}
+
+/* Stories */
+.story {
+  text-align: justify;
+  font-size: large;
+  color: #ffffff;
+  padding: 10px;
+  margin-bottom: 100px;
+  background: rgba(45, 44, 49, 0.2);
+  cursor: pointer;
+  border-radius: 10px;
+  border: 1px solid #1F7A8C;
+}
+.case-study {
+  text-align: center;
+  font-size: large;
+  color: #ffffff;
+  padding: 10px;
+  margin-bottom: 100px;
+  background: rgba(45, 44, 49, 0.2);
+  cursor: pointer;
+  border-radius: 10px;
+  border: 1px solid #1F7A8C;
+}
+
+
+
+.story:hover {
+   background: rgba(45, 44, 49, 0.4);
+}
+
+/* Highlighted story */
+.highlighted-story {
+  color: #ffffff;
+  transition: background 0.1s ease-in-out, border 0.1s ease-in-out;
+}
+
+/* style links */
+li {
+  padding: 0;
+  text-align: justify;
+}
+
+
+/* Main content */
+.main-content {
+  width: 55%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  overflow: hidden; 
+}
+
+/* Slideshow */
+.container {
+  margin-top: 50px;
+  position: relative;
+  width: 80%;
+  height: 70vh; /* Fixed height */
+}
+
+
+.mySlides {
+  display: none;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.mySlides.show {
+  display: block;
+}
+
+/* Create 5 horizontal strips that will reveal the image bit by bit */
+.image-mask {
+  position: absolute;
+  width: 100%;
+  height: 20%; 
+  background: white;
+  object-fit: cover;
+  animation: reveal 1s forwards ease-in-out;
+}
+
+/* Position the strips at different parts of the image */
+.image-mask:nth-child(1) { top: 0; animation-delay: 0s; }
+.image-mask:nth-child(2) { top: 20%; animation-delay: 0.2s; }
+.image-mask:nth-child(3) { top: 40%; animation-delay: 0.4s; }
+.image-mask:nth-child(4) { top: 60%; animation-delay: 0.6s; }
+.image-mask:nth-child(5) { top: 80%; animation-delay: 0.8s; }
+
+/* Keyframe animation to slide away the masks */
+@keyframes reveal {
+  from { transform: translateX(0); }
+  to { transform: translateX(100%); }
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  object-fit:calc();
+}
+
+/* Navigation */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: auto;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  user-select: none;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.next { right: 0; }
+.prev { left: 0; }
+
+.prev:hover, .next:hover {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+/* Caption */
+.caption-container {
+  text-align: center;
+  background:black;
+  padding: 5px;
+  color: white;
+  font-family:"Montserrat", sans-serif;
+}
+
+/* Thumbnails */
+.thumbnail-container {
+  display: flex;
+  justify-content: center;
+}
+
+.thumbnail-container img {
+  width: 100px;
+  height: 80px;
+  margin-top: 80px;
+  cursor: pointer;
+  opacity: 0.6;
+}
+
+.thumbnail-container img.active,
+.thumbnail-container img:hover {
+  opacity: 1;
+  border: 2px solid #000000;
+}

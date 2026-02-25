@@ -1,0 +1,3 @@
+ignored.packages: ["terra", "s2", "lwgeom"]
+use.cache: TRUE
+

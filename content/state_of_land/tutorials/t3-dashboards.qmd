@@ -1,0 +1,93 @@
+---
+title: "Tutorial 2: How to interpret land health dashboards"
+sidebar: tutorials
+body-classes: tutorials-book
+format:
+  html:
+    toc: true
+    toc-location: right
+---
+
+*Reading indicators, colours, and trends without getting lost.*
+
+## 2.1 The basic layout of a dashboard
+
+- Most land health dashboards follow a similar structure:
+  - **Header / controls**: filters for country, region, time period, and indicator.
+  - **Summary cards**: key numbers for the selected area (e.g., mean SOC, % degraded land).
+  - **Map panels**: spatial distribution of indicators across the region.
+  - **Charts and time series**: how indicators change over time or differ between areas.
+- The K4GGWA dashboards aim to:
+  - Provide a **quick overview** of conditions and trends.
+  - Allow users to **zoom in** from GGW-wide patterns to specific landscapes.
+
+## 2.2 Understanding indicators and units
+
+- Each indicator represents a specific aspect of land health or climate context:
+  - Examples: SOC (Mg C/ha), erosion risk (index or probability), tree cover (%), rainfall (mm), vegetation indices (unitless index).
+- Important points:
+  - Always read the **indicator description** and **units** (often accessible via info icons or documentation).
+  - Values may look similar but mean different things depending on the indicator:
+    - A value of “0.6” in a vegetation index is interpreted differently from “0.6” in a probability of erosion.
+- Good practice:
+  - Check how “low” and “high” values are defined for each indicator.
+  - Note any thresholds used to define categories (e.g., “high erosion risk” above a certain probability).
+
+## 2.3 Reading maps: colours, legends, and scale
+
+- Maps translate numbers into colours so patterns are easier to see:
+  - **Continuous colour scales** show gradual changes (e.g., SOC from low to high).
+  - **Categorical scales** show classes (e.g., land cover types, risk levels).
+- To interpret correctly:
+  - Always look at the **legend** to see what each colour means.
+  - Note the **range** of values (e.g., minimum and maximum) represented on the map.
+  - Identify whether the map shows:
+    - A **snapshot** (one year or period), or  
+    - A **change** (difference between two dates or a trend over time).
+- Scale matters:
+  - Colours may look dramatic at GGW scale but less extreme when zoomed into a smaller region.
+  - Use zoom and different views to avoid misreading small local variations as large-scale trends.
+
+## 2.4 Combining multiple indicators
+
+- Effective decisions often require **more than one indicator**:
+  - Example: combining SOC, erosion risk, and tree cover to identify priority restoration areas.
+  - Example: combining rainfall trends with vegetation indices to understand drought impacts.
+- When viewing multiple layers:
+  - Start by understanding each indicator **individually**.
+  - Then look for areas where several indicators send a similar signal (e.g., low SOC and high erosion risk).
+  - Be cautious about over-interpreting:
+    - A single pixel, or  
+    - Areas where indicators disagree (this may highlight the need for local knowledge or further analysis).
+- Dashboards can help by:
+  - Providing **side-by-side maps** or **linked charts**.
+  - Allowing users to toggle layers on and off.
+
+## 2.5 Spatial and temporal scale: choosing the right view
+
+- Dashboards often allow you to:
+  - Aggregate indicators at different levels (e.g., GGW, country, region, district).
+  - Change the time window (single year vs. multi-year averages vs. trends).
+- Choosing the right scale:
+  - **GGW / regional scale**: good for strategic planning and donor dialogue.
+  - **National / subnational scale**: good for program design and targeting.
+  - **Local scale**: good for site-level interventions and community engagement.
+- Interpreting time:
+  - A single year may show short-term variability (e.g., a drought year).
+  - Multi-year averages highlight **typical conditions**.
+  - Trends or anomalies help identify **change** and **emerging risks**.
+
+## 2.6 Using dashboards as a starting point for discussion
+
+- Dashboards are tools to **support** decision-making, not to replace it:
+  - Use maps and charts to generate questions:
+    - Why is this region consistently low in vegetation recovery?
+    - Why is erosion risk higher in some districts despite similar rainfall?
+  - Bring local knowledge into the interpretation:
+    - Community experiences, land-use history, policy changes, and infrastructure development.
+- In practice:
+  - Use dashboards in workshops, planning meetings, and monitoring sessions.
+  - Capture feedback from local stakeholders about where the maps align or disagree with their experience.
+- The key message:
+  - Dashboards help make complex spatial data **visible and shareable**.
+  - They are most powerful when combined with **local knowledge**, **field verification**, and **transparent discussion**.

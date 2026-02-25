@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>State of Land</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="map.css">
+    <!-- <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"> -->
+    <script src="https://api.mapbox.com/mapbox-gl-js/v3.0.0/mapbox-gl.js"></script>
+    <link href="https://api.mapbox.com/mapbox-gl-js/v3.0.0/mapbox-gl.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+        </style>
+</head>
+<body>
+
+<!-- Sidebar -->
+<div class="sidebar">
+    <h2 >Flood Susceptibility in the Great Green Wall Region</h2>
+  
+    <!-- Stories List -->
+    <div class="stories-container">
+        <div class="story" onclick="changeStory(1)">
+            <b id="top"> What are floods?</b>
+            <p>Floods are natural disasters that occur when water overflows onto normally dry land.
+                They can result from heavy rainfall, river overflow, coastal storms, 
+                or the rapid melting of ice and snow. Floods vary in severity and duration, 
+                ranging from slow-onset floods that develop over days or weeks to flash floods that occur suddenly within hours.
+                Flooding can be classified as either of the following:
+                <ul>
+                    <li>Riverine Flooding: It occurs when rivers exceed their capacity due to prolonged rainfall or upstream water release</li><br>
+                    <li>Flash Flooding: It results when heavy rainfall occurs in a short period of time, it is characterized by raging torrents through rivers or streets 
+                        that sweep everything before them.
+                    </li><br>
+                    <li>Coastal Flooding: It results from storm surges, high tides, or tsunamis pushing seawater inland</li><br>
+                    <li>Urban Flooding: It occurs when heavy rainfall overwhelms the capacity of drainage systems in towns/cities leading to water overflowing onto the surface</li>
+                </ul>
+                The Sahel region faces recurring floods that threaten communities, infrastructure, and livelihoods, especially in low-lying areas.
+                Monitoring flood patterns using remote sensing and GIS helps identify high-risk zones and improve early warning systems. 
+                These efforts support policymakers in developing effective flood mitigation strategies to enhance community resilience.
+            </p>
+
+             <!-- button to show map -->
+             <a href="#map" class="view-map-btn">View Interactive Map</a>
+        </div>
+        <div class="story" onclick="changeStory(2)">
+            <b> Spinning in Space: How Satellites are Helping Map Flood Susceptibility</b>
+            <p>Satellite technologies have improved flood susceptibility mapping by providing real-time, large-scale, and high-resolution data essential for disaster monitoring and response. 
+                These technologies provide products such as Digital Elevation Models (DEMs) and optical imagery to assess flood risks and support mitigation efforts. <br><br/> 
+                <b>DEMs</b>, such as those from the Copernicus DEM (ESA) and SRTM (NASA), offer information on the of the <b>terrain useful in identifying flood-prone</b>  areas by deriving attributes that explain water flow across the landscape.<br><br/>  
+                <b>Optical Imagery</b> from satellites like Landsat (NASA/USGS) and Sentinel-2 (ESA) are used in <b>land use and land cover (LULC) classification, helping to assess how different landscapes influence flooding</b> and 
+                to evaluate post-disaster impacts.<br><br/> 
+                <b>Synthetic Aperture Radar (SAR)</b> is another set of satellite sensors useful for flood extent mapping although they have not been used in this analysis they are worth mentioning.<br><br/> 
+                Some SAR platforms include Sentinel-1 (ESA) and RADARSAT (CSA) they are particularly effective 
+                for flood extent mapping due to their ability to detect water surfaces by analyzing backscatter signals, enabling precise monitoring of flood dynamics even during extreme weather events.  
+                </p>
+        </div>
+        <div class="story" onclick="changeStory(3)">
+            <b>Behind the Map</b>
+            <p>For this analysis we made use of DEM, Land Use Land Cover data, Soil Texture and River Density data and recorded flood events data from the Global Flood Database to train a random forest 
+                model to classify areas based on their susceptibility to floods.
+                <ul>
+                    <li>DEM:  SRTM</li>
+                    <li>LULC: ESA WorldCover</li>
+                    <li>Soil Texture:  OpenLandMap</li>
+                    <li>River Density: WWF Hydrosheds</li>
+                </ul>
+                The DEM was used to derive <b>topographic flood conditioning factors</b> which included TWI, TRI, SPI, STI, Aspect, Elevation, Curvature and Slope, this data was then combined with LULC,
+                Soil Texture and river density to come up with a map showing flood susceptibility at 250m resolution.
+            </p>
+        </div>
+        <div class="story" onclick="changeStory(4)">
+            <b> Look what we found</b>
+            <p>The flood risk model identified several high and very high flood risk areas, aligning with past recorded flood events.<br><br/> 
+                The <b>Lake Chad Basin</b>, spanning across Chad,
+                Cameroon, Nigeria and Niger, 
+                showed severe flood risk.<br><br/> 
+                The <b>Sudd Wetland</b> in South Sudan was also recorded as a high flood risk prone area, the wetland is formed as the 
+                White Volta enters as shallow depresiion as it moves into South Sudan from Uganda. Reports indicate that prolonged flooding in the region has displaced around 1.5 million people.<br><br/> 
+                The <b>Wabi Shebele River Basin</b> spanning from Ethopia into Somalia is another high flood risk prone area, flash floods have repeatedly impacted Beledweyne, displacing 42,600 people in 2024. <br><br/> 
+                The <b>Inner Niger Delta</b> is another region flagged as a high risk area, it is located within Mali.Flooding reports show that Mali experienced severe flooding in 2024, affecting Segou, Timbuktu, Bamako, and Mopti. <br><br/> 
+                Additionally, <b>the West African coast</b>, including Ghana’s Volta and Accra regions as well as Lagos, Nigeria, was classified as high-risk areas, with Lagos reported as facing annual floods from 1968 to 2021 (Ndimele et al., 2024).</p>
+            <!-- button to show map -->
+            <a href="#map" class="view-map-btn">View Interactive Map</a>
+        </div>
+        <div class="case-study">
+            <b>Real World Examples</b>
+            <p>The findings from our analysis show that some flooding that have ocurred in recent years fall within the areas identified as having high flood susceptibility, some examples are provided in the sections below</p>
+        </div>
+        <div class="story" onclick="changeStory(5)">
+            <b>Somalia</b>
+            <p>The flood susceptibility map showed that almost half of Somalia fell under high - very high flood hazard areas with focus on the Wabi Shebele River Basin, the following is an example
+                event that occurred recently in the region.
+            </p>
+            <p>In 2023 after a prolonged drought, <b>heavy Deyr rains triggered catastrophic flooding in Somalia</b>, the floods affected almost half of the country's districts.<br><br/> 
+                It affected 2.5 million people and submerged 1.5 million hectares of farmland, entire towns, like Luuq in Gedo province, were left underwater, displacing hundreds of families.<br><br/> 
+                The back-to-back crises have worsened displacement, with a record 2.9 million people forced to flee their homes in 2023 (UNICEF, 2024)</p>
+        </div>
+        <div class="story" onclick="changeStory(6)">
+            <b>Chad</b>
+            <p>From the flood susceptibility map Central Chad as well as majority of the Southern part of the country was either under moderate, high or very high hazard. <br><br/>
+                The region covered by the 
+                Lake Chad Basin showed very high flood susceptibility, this is in agreement with recently reported flooding.
+            </p>
+            <p><b>Severe flooding in Chad since mid-May 2024 caused widespread devastation, with heavy rainfall and strong winds affecting central and southwestern regions</b>. 
+                By early August, at least 40 people had died, and over 112,000 were affected across 13 provinces.<br><br/>
+                By late August, torrential rains had impacted all 23 provinces, with nearly 1 million people affected, 145 deaths, and 70,000 houses destroyed.<br><br/> 
+                The crisis escalated further in September, with the affected population rising to 1.5 million, 164,000 houses destroyed, and five million hectares inundated, including 259,000 hectares of cropland completely lost (ReliefWeb, 2024).</p>
+        </div>
+        <div class="story" onclick="changeStory(7)">
+            <b>Mali</b>
+            <p>According to the flood susceptibility map Central Chad as well as majority of the Southern part of the country was either under moderate, high or very high hazard.<br><br/>
+                The Inner Niger Delta
+                which is located in Central Mali showed very high flood susceptibility which is in agreement with recently reported flood events.
+            </p>
+            <p><b>Severe flooding in Mali since the start of the 2024 rainy season led to the government of Mali declaring it a national disaster</b>, with 30 deaths and over 47,000 people affected by
+                early September.<br><br/>
+                By mid-September, floods had worsened across all regions, causing 374 incidents of flooding and the collapse of nearly 30,000 buildings.<br><br/>
+                <b>Rising Niger River levels and heavy rains continued into November</b>, affecting almost all 20 regions. The <b>most impacted areas include Timbuktu (37,173 people), Ségou (71,882), 
+                and Bamako (16,234)</b>.<br><br/>
+                Across the country, 110 schools were converted into shelters, and 35 health centers sustained damage (ReliefWeb, 2024).</p>
+        </div>
+     
+          <!-- Map Inset -->
+        <div id="map"></div>
+        <div id="legend">
+            <h4>Map Key</h4>
+            <div>
+                <i style="background: #9d3706; width: 10px; height: 10px; display: inline-block; margin-right: 5px;"></i> 
+                <span>Very High Hazard</span>
+            </div>
+            <div>
+                <i style="background: #f4987a; width: 10px; height: 10px; display: inline-block; margin-right: 5px;"></i> 
+                <span>High Hazard</span>
+            </div>
+            <div>
+                <i style="background: #dbdcde; width: 10px; height: 10px; display: inline-block; margin-right: 5px;"></i> 
+                <span>Moderate Hazard</span>
+            </div>
+            <div>
+                <i style="background: #8db0fe; width: 10px; height: 10px; display: inline-block; margin-right: 5px;"></i> 
+                <span>Low Hazard</span>
+            </div>
+            <div>
+                <i style="background: #3d50c3; width: 10px; height: 10px; display: inline-block; margin-right: 5px;"></i> 
+                <span>Very Low Hazard</span>
+            </div>
+        </div>
+        
+        <p class="description" style="color: #ffffff;">
+            The map above highlights areas across the Sahel that are more prone to flooding
+        </p>
+
+        <!-- button to show map -->
+        <a href="#top" class="view-map-btn">Back To Top</a>
+
+    </div>
+
+  
+   
+</div>
+
+<!-- Main Content -->
+<div class="main-content">
+   
+    <div class="container">
+        <div class="mySlides" data-caption="What are Floods?"><img src="Assets/Floods_ID1.jpg"></div>
+        <div class="mySlides" data-caption="How Satellites are Helping Map Flood Susceptibility"><img src="Assets/nir-sar-pic.png"></div>
+        <div class="mySlides" data-caption="Behind the Map"><img src="Assets/Floods_ID3.png"></div>
+        <div class="mySlides" data-caption="Look What We Found"><img src="Assets/GGW_flood.png"></div>
+        <div class="mySlides" data-caption="Flooding in Somalia"><img src="Assets/Somalia_Map.png"></div>
+        <div class="mySlides" data-caption="Flooding in Chad"><img src="Assets/Chad_Map.png"></div>
+        <div class="mySlides" data-caption="Flooding in Mali"><img src="Assets/Mali_Map.png"></div>
+
+        <a class="prev" onclick="plusSlides(-1)">❮</a>
+        <a class="next" onclick="plusSlides(1)">❯</a>
+
+        <div class="caption-container"><p id="caption"></p></div>
+    </div>
+
+    <div class="thumbnail-container">
+        <img class="demo" src="Assets/Floods_ID1.jpg" onclick="showSlides(1)">
+        <img class="demo" src="Assets/nir-sar-pic.png" onclick="showSlides(2)">
+        <img class="demo" src="Assets/Floods_ID3.png" onclick="showSlides(3)">
+        <img class="demo" src="Assets/GGW_flood.png" onclick="showSlides(4)">
+        <img class="demo" src="Assets/Somalia_Map.png" onclick="showSlides(5)">
+        <img class="demo" src="Assets/Chad_Map.png" onclick="showSlides(6)">
+        <img class="demo" src="Assets/Mali_Map.png" onclick="showSlides(7)">
+
+    </div>
+</div>
+
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script src="config.js"></script>
+<script src="index.js"></script>
+<script src="map.js"></script>
+
+</body>
+</html>

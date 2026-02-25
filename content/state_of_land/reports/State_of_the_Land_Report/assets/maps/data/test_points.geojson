@@ -1,0 +1,10 @@
+{
+"type": "FeatureCollection",
+"name": "test_points",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:EPSG::3857" } },
+"features": [
+{ "type": "Feature", "properties": { "id": 1 }, "geometry": { "type": "Point", "coordinates": [ -1625521.098680222639814, 1561294.840149071300402 ] } },
+{ "type": "Feature", "properties": { "id": 2 }, "geometry": { "type": "Point", "coordinates": [ 1631710.820130760781467, 1305015.171410135924816 ] } },
+{ "type": "Feature", "properties": { "id": 3 }, "geometry": { "type": "Point", "coordinates": [ 3698482.342218947596848, 1652232.787120951339602 ] } }
+]
+}

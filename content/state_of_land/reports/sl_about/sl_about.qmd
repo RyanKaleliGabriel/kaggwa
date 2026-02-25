@@ -1,0 +1,51 @@
+---
+title: Assessing State of Land
+format: 
+    closeread-html:
+      css: cr_style.css
+      cr-style:
+        narrative-text-color-sidebar: black
+        narrative-font-family: 'Lato'
+        narrative-font-size: 1.2rem
+        narrative-sidebar-width: minmax(400px, 1fr)
+        narrative-border-radius: 15px
+        narrative-border-color: black
+        narrative-background-color-overlay: #f8efe8
+        narrative-background-color-sidebar: #f8efe8
+        section-background-color: #f8efe8
+---
+
+As part of K4GGWA, we will be compiling and presenting annual state of land reports, which provide summaries of important trends and events in the course of the year. The primary focus is on land cover, soil and land health, and weather and climate related events and trends. The objective of the monitoring we do as part of K4GGWA is to identify changes and trends that stem from land restoration interventions and climate change, and to provide information that can be used to inform decision-making and planning for the Great Green Wall Initiative.
+
+:::: {.cr-section}
+Annual precipitation across the GGW is very variable with strong seasonal patterns. Using datasets such as the Climate Hazards group Infrared Precipitation with Stations (CHIRPS) one can assess drought risk and explore variations in precipitation over time. @cr-rainfall_1982
+
+::: {#cr-rainfall_1982}
+![](figs/rf/anomalies/rainfall_anomaly_1982.png)
+:::
+
+1983 was very dry year across much of the GGW region, particularly from Senegal to Sudan. @cr-rainfall_1983{pan-to="20%"}
+
+::: {#cr-rainfall_1983}
+![](figs/rf/anomalies/rainfall_anomaly_1983.png)
+:::
+
+In 1984 there were also severe droughts in several GGW countries, particularly in Sudan, Ethiopia, Eritrea, and other parts of eastern Africa. This culminated in major famines, including the one in Ethipia that affected 8 million people, or more. [@cr-rainfall_1984]{pan-to="-20%"}
+
+::: {#cr-rainfall_1984}
+![](figs/rf/anomalies/rainfall_anomaly_1984.png)
+:::
+
+If we fast forward to 1997, we had a strong El Nino year in central and eastern Africa, which resulted in high rainfall and severe flooding for example in Sudan and Somalia. @cr-rainfall_1997 This was followed by series of drier years from 2000 to 2002, which were particularly severe in the Sahel region.
+
+::: {#cr-rainfall_1997}
+![](figs/rf/anomalies/rainfall_anomaly_1997.png)
+:::
+
+::::
+
+::: {.callout-tip}
+## Monitoring change over time
+
+When we design monitoring systems to assess and track changes in land cover and land health over time, it is important to account for the types of variations in weather and climate shown above. This is particularly important when we assess the impacts of land restoration interventions to ensure that we are detecting actual impact from interventions and not just natural variations or trends.
+:::

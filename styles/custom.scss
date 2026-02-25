@@ -1,0 +1,333 @@
+/*-- Importing fa icons --*/
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css");
+
+/*-- scss:defaults --*/
+
+/*-- scss:rules --*/
+
+.badge-container {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.badge {
+    margin: 5px;
+}
+
+.badge-container .badge img {
+    width: 150px;
+    height: auto;
+}
+
+.badge-text {
+    margin: 8px;
+    margin-top: 10px;
+}
+
+#hero-banner .h1,
+#hero-banner .h2 {
+    color: white !important;
+}
+
+#hero-banner details[open] summary {
+    margin-bottom: 20px;
+}
+
+#hero-banner details p+ol {
+    margin-top: 20px;
+}
+
+#hero-banner details p {
+    margin-bottom: 20px;
+    /* Adjust the value as needed */
+}
+
+
+// style background image on posts
+.featured-image {
+    background-size: cover;
+    background-position: center;
+    color: white;
+    box-shadow: inset 0 0 0 1000px rgba(0, 38, 66, 0.75);
+}
+
+
+div.highlight,
+pre {
+    position: relative;
+    margin: 10px 0px;
+}
+
+/* ---- button -----*/
+
+.btn {
+    margin-right: 10px;
+    border-radius: 15px 15px !important;
+}
+
+.btn.btn-primary.btn-lg.active {
+    background-color: #ee6b78 !important;
+    border-color: #dc3545 !important;
+    box-shadow: 0 0 0 .2rem #dc3545 !important;
+}
+
+.btn-primary {
+    background-color: #6b94ee !important;
+    /*  border-color: #507ee0 !important;
+  box-shadow: 0 0 0 .1rem #436eca  !important;
+*/
+}
+
+
+.alert.alert-info,
+.alert.alert-success,
+.alert.alert-danger,
+.alert.alert-warning {
+    /* padding: 1px 0px; */
+    background-color: inherit;
+}
+
+
+/* Space after header */
+.alert-success>.alert-heading,
+.alert-danger>.alert-heading,
+.alert-info>.alert-heading,
+.alert-warning>.alert-heading {
+    margin-bottom: 15px !important;
+}
+
+.alert-success,
+.alert-warning,
+.alert-danger,
+.alert-info {
+    margin-top: 1em;
+    margin-bottom: 1em;
+    margin: 1.5625emauto;
+    padding: 0 .6rem .8rem !important;
+    overflow: hidden;
+    page-break-inside: avoid;
+    /*border-left:.2rem solid #dc3545;*/
+    border-radius: .25rem;
+    box-shadow: 0 .2rem .5rem rgba(0, 0, 0, .05), 0 0 .05rem rgba(0, 0, 0, .1);
+    transition: color .25s, background-color .25s, border-color .25s;
+    border-right: 1px solid #dee2e6;
+    border-top: 1px solid #dee2e6;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.alert-heading {
+    /*background-color:#fdf3f2;*/
+    position: relative;
+    margin: 0 -.6rem !important;
+    padding: 0rem 0rem 0em 1rem;
+    font-weight: 600;
+    font-size: .9rem;
+}
+
+.alert h3 {
+    margin-top: 0rem;
+    font-weight: 600;
+    font-size: 1.1rem;
+    padding-top: .2em;
+    padding-bottom: .2em;
+}
+
+a img {
+    display: inline;
+}
+
+code.has-jax {
+    -webkit-font-smoothing: antialiased;
+    background: inherit !important;
+    border: none !important;
+    font-size: 100%;
+}
+
+
+
+/* copy button */
+
+.copy-code-button {
+    color: #272822;
+    background-color: #FFF;
+    border-color: #272822;
+    border: 2px solid;
+    border-radius: 3px 3px 0px 0px;
+
+    /* right-align */
+    display: block;
+    margin-left: auto;
+    margin-right: 0;
+
+    margin-bottom: -2px;
+    padding: 3px 8px;
+    font-size: 0.8em;
+}
+
+.copy-code-button:hover {
+    cursor: pointer;
+    background-color: #F2F2F2;
+}
+
+.copy-code-button:focus {
+    /* Avoid an ugly focus outline on click in Chrome,
+       but darken the button for accessibility.
+       See https://stackoverflow.com/a/25298082/1481479 */
+    background-color: #E6E6E6;
+    outline: 0;
+}
+
+.copy-code-button:active {
+    background-color: #D9D9D9;
+}
+
+.highlight pre {
+    /* Avoid pushing up the copy buttons. */
+    margin: 0;
+}
+
+
+/*
+custom exercise box
+taken from https://github.com/cambiotraining/quarto-course-template/blob/main/_extensions/courseformat/theme.scss
+*/
+
+// Exercise callout styling
+div.callout-exercise.callout {
+    border-left-color: #9e6790;
+}
+
+div.callout-exercise.callout-style-default>.callout-header {
+    background-color: #fab2e8;
+}
+
+.callout-exercise>.callout-header::before {
+    font-family: "Font Awesome 5 Free";
+    content: "\f303";
+    margin-right: 10px;
+}
+
+// Answer callout styling
+.callout-answer>.callout-header::before {
+    font-family: "Font Awesome 5 Free";
+    content: "\f002 ";
+    margin-right: 10px;
+}
+
+div.callout-answer.callout {
+    border-left-color: #28828A;
+}
+
+div.callout-answer.callout-style-default>.callout-header {
+    background-color: #eaf3f3;
+}
+
+// Hint callout styling
+.callout-hint>.callout-header::before {
+    font-family: "Font Awesome 5 Free";
+    content: "\f12e ";
+    margin-right: 10px;
+}
+
+div.callout-hint.callout {
+    border-left-color: #6c757d;
+}
+
+div.callout-hint.callout-style-default>.callout-header {
+    background-color: #f9f9f8;
+}
+
+
+
+a.button-cta {
+    border-radius: 4px;
+    display: inline-block;
+    font-family: -apple-system, BlinkMacSystemFont, "avenir next", avenir, helvetica, "helvetica neue", ubuntu, roboto, noto, "segoe ui", arial, sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 24px;
+    padding: 8px 32px;
+}
+
+a.button-cta:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, .08);
+    text-decoration: none;
+    transform: translateY(-1px);
+}
+
+
+
+/*
+Cards for the rappel part
+*/
+
+
+/* Container and General Styling */
+
+.listing-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 30px;
+}
+
+.gridcard-item {
+    border-radius: .25rem;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+    position: relative;
+    transition: all .15s ease;
+}
+
+.gridcard-item:hover {
+    transform: translateY(-1px);
+}
+
+.gridcard-body {
+    font-weight: 500;
+    font-size: calc(var(--font-size) * .825);
+    padding: 10px 8px 6px;
+    border-top: 1px solid #e2e5e9;
+    overflow: hidden;
+}
+
+.gridcard-title {
+    display: block;
+    max-width: 100%;
+    line-height: 1.2em;
+    margin-bottom: 10px;
+    /* Increased space below the title */
+    word-wrap: break-word;
+    /* Allow long words to break */
+    font-weight: bold;
+    /* Make the text bold */
+    text-decoration: none;
+    /* Remove the underline */
+}
+
+.gridcard-description {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-height: 4.2em;
+    /* Limit the height to 3 lines */
+    line-height: 1.4em;
+    /* Adjust line height */
+    margin-top: 5px;
+    /* Add more space above the description */
+}
+
+
+.btn-launch {
+    font-weight: 700;
+    color: white;
+    /* White text color */
+    padding: 8px 16px;
+    /* Button padding */
+    border-radius: 4px;
+    /* Rounded corners */
+    text-decoration: none;
+    /* Remove underline */
+    transition: background-color 0.3s ease, color 0.3s ease;
+    /* Smooth transition for hover effect */
+}
