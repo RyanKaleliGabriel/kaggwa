@@ -13,7 +13,7 @@ jobs:
                 lfs: true
             
             - name: Install system packages and R binary
-              run: apt-get update && apt-get install -y \
+              run: apt update && apt install -y \
                     r-base \
                     wget \
                     gdebi-core \
