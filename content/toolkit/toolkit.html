@@ -1,0 +1,1795 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.27">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>toolkit</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-9195fa1a9c736cb8c2994c5df3058328.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-SM02PF52PN"></script>
+
+<script type="text/javascript">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-SM02PF52PN', { 'anonymize_ip': true});
+</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+
+<link rel="stylesheet" href="../../styles/base.css">
+<link rel="stylesheet" href="../../styles/homepage.css">
+<link rel="stylesheet" href="../../styles/subpages.css">
+<link rel="stylesheet" href="../../styles/tutorials.css">
+<link rel="stylesheet" href="../../styles/toolkit.css">
+</head>
+
+<body class="nav-fixed subpage toolkit fullcontent quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../../assets/logo_k4ggwa.png" alt="" class="navbar-logo light-content">
+    <img src="../../assets/logo_k4ggwa.png" alt="" class="navbar-logo dark-content">
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../content/restoration-stories/restoration_stories.html"> <i class="bi bi-person-video" role="img">
+</i> 
+<span class="menu-text">Stories of Restoration</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-state-of-the-land" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+      <i class="bi bi-map" role="img">
+</i> 
+ <span class="menu-text">State of the Land</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-state-of-the-land">    
+        <li>
+    <a class="dropdown-item" href="../../content/state_of_land/state_of_land.html">
+ <span class="dropdown-text">Reports</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/state_of_land/tutorials/intro.html">
+ <span class="dropdown-text">Tutorials</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="../../content/events-workshops/events_workshops.html"> <i class="bi bi-calendar" role="img">
+</i> 
+<span class="menu-text">Events and Workshops</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://dashboards.cifor-icraf.org/app/k4ggwa"> <i class="bi bi-tv" role="img">
+</i> 
+<span class="menu-text">Dashboard</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../content/about_ggw/about_ggw.html"> <i class="bi bi-globe" role="img">
+</i> 
+<span class="menu-text">About K4GGWA</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html"> 
+<span class="menu-text">EN</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../fr/index.html"> 
+<span class="menu-text">FR</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content page-columns page-full" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+
+
+
+
+<div class="sub-hero sub-hero-toolkit">
+  <div class="sub-hero-inner">
+    <div class="sub-hero-eyebrow">K4GGWA</div>
+    <h1 class="sub-hero-title">Restoration Monitoring Toolkit</h1>
+    <p class="sub-hero-subtitle">
+      A decision-support workbench for assessment, targeting, design, monitoring, and reporting, using harmonised indicators and state-of-the-art spatial analytics.
+    </p>
+  </div>
+</div>
+
+<div class="sub-layout toolkit-layout page-columns page-full">
+  <aside class="sub-meta toolkit-meta">
+    <div class="sub-meta-inner">
+
+      <div class="sub-meta-label">Toolkit pathway</div>
+
+      <div class="toolkit-nav-wrap">
+        <div class="toolkit-rail" aria-hidden="true">
+            <span class="toolkit-rail-thumb"></span>
+        </div>
+
+        <div class="toolkit-nav">
+            <a class="toolkit-nav-item" href="#assessment">
+            <span class="toolkit-nav-num">01</span>
+            <span class="toolkit-nav-title">Landscape Assessment</span>
+            </a>
+            <a class="toolkit-nav-item" href="#targeting">
+            <span class="toolkit-nav-num">02</span>
+            <span class="toolkit-nav-title">Targeting &amp; Prioritisation</span>
+            </a>
+            <a class="toolkit-nav-item" href="#design">
+            <span class="toolkit-nav-num">03</span>
+            <span class="toolkit-nav-title">Intervention Design</span>
+            </a>
+            <a class="toolkit-nav-item" href="#monitoring">
+            <span class="toolkit-nav-num">04</span>
+            <span class="toolkit-nav-title">Monitoring &amp; Adaptive Management</span>
+            </a>
+            <a class="toolkit-nav-item" href="#reporting">
+            <span class="toolkit-nav-num">05</span>
+            <span class="toolkit-nav-title">Reporting &amp; Learning</span>
+            </a>
+        </div>
+    </div>
+
+      <hr class="section-divider">
+
+      <div class="sub-meta-label">How to use</div>
+      <p class="sub-meta-text">
+        Start at the pathway that matches your decision point. Each panel contains a curated set of tools and resources, designed to work together across the restoration cycle.
+      </p>
+
+      <div class="sub-meta-badges">
+        <span class="meta-badge">Decision support</span>
+        <span class="meta-badge">Multi-indicator</span>
+      </div>
+
+    </div>
+  </aside>
+
+  <main class="sub-main toolkit-main">
+
+    <div class="toolkit-intro">
+        <div class="toolkit-cycle-graphic">
+        <img src="../../assets/toolkit_graphic_3.png" alt="Restoration decision cycle showing assessment, targeting, design, monitoring and reporting">
+        </div>
+        <hr class="section-divider">
+    </div>
+
+    <!-- 01 -->
+    <section class="toolkit-panel" id="assessment">
+        <button type="button" class="toolkit-panel-toggle toolkit-panel-head" aria-expanded="false" aria-controls="assessment-body">
+            <div class="toolkit-panel-num">01</div>
+            <div class="toolkit-panel-text">
+            <h2 class="toolkit-panel-title anchored">Landscape Assessment</h2>
+            <p class="toolkit-panel-subtitle">
+                Understand baseline land conditions, degradation patterns, and climate stressors using harmonised, spatially explicit indicators.
+            </p>
+            </div>
+        </button>
+
+        <div class="toolkit-panel-body" id="assessment-body">
+
+            <div class="toolkit-section-explainer">
+                <p>
+                Landscape assessment is the foundation of effective restoration planning. It is important to understand current land conditions, degradation processes, and climate stressors before decisions are made about where or how to intervene.
+                </p>
+
+                <p>
+                Rather than relying on a single proxy for land health, assessment integrates many different indicators like soil condition, erosion prevalence, vegetation dynamics, and climate variability, for a good understanding of the different dimensions of ecosystem function and vulnerability.
+                </p>
+
+                <p>
+                This multi-indicator approach supports an understanding of landscape-level trends and patterns over time, distinguishing between long-term degradation and short-term variability, and providing a defensible baseline against which future change can be measured.
+                </p>
+            </div>
+
+            <div class="toolkit-callout toolkit-callout-evidence">
+                <h4 class="toolkit-callout-title anchored">
+                    Why spatial evidence matters at this stage
+                </h4>
+                <div class="toolkit-callout-row">
+                    <div class="toolkit-callout-media">
+                    <img src="../../assets/toolkit/assessment_map.png" alt="Landscape-scale spatial pattern map" loading="lazy">
+                    </div>
+
+                    <div class="toolkit-callout-text">
+                    <p>
+                        Landscape conditions can vary substantially across space. Maps can help identify patterns, gradients, or potential constraints that are otherwise invisible in aggregated statistics or when using only one kind of indicator. Understanding broader landscape patterns and conditions is critical for downstream decision-making with regards to risk management, site targeting and intervention design. 
+                    </p>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="toolkit-stakeholder-benefits">
+                <h4 class="anchored">Who this supports</h4>
+
+                <div class="toolkit-stakeholder-grid">
+
+                    <div class="toolkit-stakeholder">
+                    <div class="toolkit-stakeholder-icon">
+                        <img src="../../assets/toolkit/govt_icon.png" alt="Government stakeholders">
+                    </div>
+                    <div class="toolkit-stakeholder-title">Governments</div>
+                    <div class="toolkit-stakeholder-desc">
+                        Supports defensible planning, cross-sector coordination, and evidence-backed policy decisions.
+                    </div>
+                    </div>
+
+                    <div class="toolkit-stakeholder">
+                    <div class="toolkit-stakeholder-icon">
+                        <img src="../../assets/toolkit/ngo_icon.svg" alt="NGOs and implementers">
+                    </div>
+                    <div class="toolkit-stakeholder-title">NGOs &amp; Implementers</div>
+                    <div class="toolkit-stakeholder-desc">
+                        Reduces risk and improves resource allocation by understanding landscape-scale patterns and trends before interventions begin.
+                    </div>
+                    </div>
+
+                    <div class="toolkit-stakeholder">
+                    <div class="toolkit-stakeholder-icon">
+                        <img src="../../assets/toolkit/donor_icon.svg" alt="Donors and partners">
+                    </div>
+                    <div class="toolkit-stakeholder-title">Donors &amp; Partners</div>
+                    <div class="toolkit-stakeholder-desc">
+                        Establishes a transparent and common reference point for accountable and sane investment decisions.
+                    </div>
+                    </div>
+
+                </div>
+            </div>
+            
+
+            <div class="toolkit-feature">
+                <div class="toolkit-feature-left">
+                <div class="toolkit-feature-kicker">
+                    <span class="toolkit-feature-label">REPORT</span>
+                    <span class="toolkit-feature-pill">Featured</span>
+                </div>
+
+                <h3 class="toolkit-feature-title anchored">State of the Land</h3>
+
+                <p class="toolkit-feature-desc">
+                    Interactive report that steps readers through interpreting different spatial indicators across climate, soil health, vegetation dynamics, and degradation for the GGW region.
+                </p>
+
+                <div class="toolkit-feature-bullets">
+                    <div class="tf-bullet"><span class="tf-dot"></span><span><strong>Multi-indicator</strong> approach to landscape assessment</span></div>
+                    <div class="tf-bullet"><span class="tf-dot"></span><span><strong>Maps + interpretation</strong> to support policy and programme decisions</span></div>
+                    <div class="tf-bullet"><span class="tf-dot"></span><span><strong>Interactive</strong> linking to tools and datasets</span></div>
+                </div>
+
+                <div class="toolkit-feature-ctas">
+                    <a class="toolkit-feature-cta primary" href="https://k4ggwa.thegrit.earth/content/state_of_land/reports/State_of_the_Land_Report/State_of_the_Land_Report.html">Explore the report →</a>
+                </div>
+                </div>
+
+                <div class="toolkit-feature-right">
+                <div class="toolkit-feature-media">
+                    <img src="../../assets/toolkit/sol_rep1.png" alt="State of the Land report cover" loading="lazy">
+                </div>
+                </div>
+            </div>
+
+            <div class="toolkit-cards">
+                <a class="toolkit-card" href="https://dashboards.cifor-icraf.org/app/k4ggwa">
+                    
+                <div class="toolkit-card-thumb">
+                    <img src="../../assets/toolkit/dashboards1.png" alt="K4GGWA dashboards preview">
+                </div>
+
+                <div class="toolkit-card-top">
+                    <div class="toolkit-card-title">K4GGWA Dashboards</div>
+                    <div class="toolkit-card-tag">Dashboard</div>
+                </div>
+                <p class="toolkit-card-desc">
+                    Explore SOC, erosion risk, vegetation dynamics, and climate parametres interactively and across scales.
+                </p>
+                <div class="toolkit-card-tags">
+                    <span class="t-tag">Decision-support tool</span><span class="t-tag">Multi-indicator</span>
+                </div>
+                </a>
+
+                <a class="toolkit-card" href="../../explainers/land-health-indicators/">
+
+                <div class="toolkit-card-thumb">
+                    <img src="../../assets/toolkit/indicator_exp.png" alt="K4GGWA dashboards preview">
+                </div>
+
+                <div class="toolkit-card-top">
+                    <div class="toolkit-card-title">Indicator Explainers</div>
+                    <div class="toolkit-card-tag">Guide</div>
+                </div>
+                <p class="toolkit-card-desc">
+                    What each indicator means, how to interpret it, and important considerations (scale, uncertainty, thresholds).
+                </p>
+                <div class="toolkit-card-tags">
+                    <span class="t-tag">Interpretation</span><span class="t-tag">Uncertainty</span><span class="t-tag">Methods</span>
+                </div>
+                </a>
+
+                <a class="toolkit-card" href="https://k4ggwa.thegrit.earth/content/state_of_land/reports/Flood_Story/flood_story.html">
+
+                <div class="toolkit-card-thumb">
+                    <img src="../../assets/toolkit/clim_risk.png" alt="K4GGWA dashboards preview">
+                </div>
+
+                <div class="toolkit-card-top">
+                    <div class="toolkit-card-title">Climate risk across the GGW</div>
+                    <div class="toolkit-card-tag">Deep-dive</div>
+                </div>
+                <p class="toolkit-card-desc">
+                    Explore fine-scale flood and drought risk maps across the GGW region.
+                </p>
+                <div class="toolkit-card-tags">
+                    <span class="t-tag">Maps</span><span class="t-tag">Climate risk</span><span class="t-tag">Case-study</span>
+                </div>
+                </a>
+
+            </div>
+
+            
+            <div class="toolkit-tutorial-link">
+                <div class="toolkit-tutorial-icon">
+                    <img src="../../assets/toolkit/tutorial_icon1.png" alt="Tutorial notebook icon" loading="lazy">
+                </div>
+
+                <div class="toolkit-tutorial-text">
+                    <a href="../../tutorials/landscape-assessment/">
+                    <b>Tutorial:</b> Coming soon!
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- 02 -->
+    
+    <section class="toolkit-panel" id="targeting">
+
+          <button type="button" class="toolkit-panel-toggle toolkit-panel-head" aria-expanded="false" aria-controls="targeting-body">
+            <div class="toolkit-panel-num">02</div>
+            <div class="toolkit-panel-text">
+            <h2 class="toolkit-panel-title anchored">Targeting &amp; Prioritisation</h2>
+            <p class="toolkit-panel-subtitle">
+                Identify where restoration interventions are most feasible, impactful, and aligned with defined objectives.
+            </p>
+            </div>
+        </button>
+
+        <div class="toolkit-panel-body" id="targeting-body">
+
+            <div class="toolkit-section-explainer">
+                <p>
+                Targeting turns landscape assessment into actionable decisions about where restoration efforts are most likely to succeed and be most impactful.
+                </p>
+
+                <p>
+                Prioritisation means selecting locations where degradation processes, biophysical potential and/or socio-economic context align with specific restoration objectives and where optimal returns can be expected.
+                </p>
+
+                <p>
+                By integrating spatial indicators and thresholds, targeting helps identify areas where intervention leverage is high from those where risks, costs or uncertainties might outweigh the potential benefits. Maps can help ground and even quantify these decisions.
+                </p>
+            </div>
+
+            <div class="toolkit-callout toolkit-callout-evidence">
+                <h4 class="toolkit-callout-title anchored">
+                    Why spatial evidence matters at this stage
+                </h4>
+                <div class="toolkit-callout-row">
+                    <div class="toolkit-callout-media">
+                    <img src="../../assets/toolkit/target_map.png" alt="Landscape-scale spatial pattern map" loading="lazy">
+                    </div>
+
+                    <div class="toolkit-callout-text">
+                    <p>
+                    Targeting and prioritisation require translating project goals into spatial criteria to see where interventions are most likely to succeed. For example, if project goals are to reduce soil erosion and improve soil fertility and water-holding capacity, hotspot maps enable visualisation and quantification of where erosion is high, and soil fertility and water-holding capacity is low. Decision-makers can weigh multiple considerations at once - feasibility, risks, returns, and trade-offs - while remaining transparent about assumptions and uncertainties.
+                    </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="toolkit-stakeholder-benefits">
+                <h4 class="anchored">Who this supports</h4>
+
+                <div class="toolkit-stakeholder-grid">
+
+                    <div class="toolkit-stakeholder">
+                    <div class="toolkit-stakeholder-icon">
+                        <img src="../../assets/toolkit/govt_icon.png" alt="Government stakeholders">
+                    </div>
+                    <div class="toolkit-stakeholder-title">Governments</div>
+                    <div class="toolkit-stakeholder-desc">
+                        Transparent prioritisation across regions by combining need, feasibility, and risk, supporting defensible resource allocation and coordination across ministries and other agencies.
+                    </div>
+                    </div>
+
+                    <div class="toolkit-stakeholder">
+                    <div class="toolkit-stakeholder-icon">
+                        <img src="../../assets/toolkit/ngo_icon.svg" alt="NGOs and implementers">
+                    </div>
+                    <div class="toolkit-stakeholder-title">NGOs &amp; Implementers</div>
+                    <div class="toolkit-stakeholder-desc">
+                        Identify feasible intervention areas and avoid high-risk sites by screening potential constraints early so field efforts focus where actions are most likely to succeed.
+                    </div>
+                    </div>
+
+                    <div class="toolkit-stakeholder">
+                    <div class="toolkit-stakeholder-icon">
+                        <img src="../../assets/toolkit/donor_icon.svg" alt="Donors and partners">
+                    </div>
+                    <div class="toolkit-stakeholder-title">Donors &amp; Partners</div>
+                    <div class="toolkit-stakeholder-desc">
+                        Clear, comparable evidence for why sites were prioritised, supporting investment decisions, due diligence, and outcome frameworks tied to measurable baselines.
+                    </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+            <div class="toolkit-feature">
+                <div class="toolkit-feature-left">
+                <div class="toolkit-feature-kicker">
+                    <span class="toolkit-feature-label">DECISION-SUPPORT TOOL</span>
+                    <span class="toolkit-feature-pill">Featured</span>
+                </div>
+
+                <h3 class="toolkit-feature-title anchored">K4GGWA Dashboards</h3>
+
+                <p class="toolkit-feature-desc">
+                    Landscape analytics for the GGW region across climate risk, land health, vegetation dynamics and biodiversity.
+                </p>
+
+                <div class="toolkit-feature-bullets">
+                    <div class="tf-bullet">
+                    <span class="tf-dot"></span>
+                    <span><strong>Composite indicators</strong> to visualise multiple land health variables at once</span>
+                    </div>
+                    <div class="tf-bullet">
+                    <span class="tf-dot"></span>
+                    <span><strong>Explicit thresholds</strong> to filter to areas of interest</span>
+                    </div>
+                    <div class="tf-bullet">
+                    <span class="tf-dot"></span>
+                    <span><strong>Exportable data</strong> for quantifying land health variables and performing further analyses</span>
+                    </div>
+                </div>
+
+                <div class="toolkit-feature-ctas">
+                    <a class="toolkit-feature-cta primary" href="https://dashboards.cifor-icraf.org/app/k4ggwa">
+                    Explore the dashboards →
+                    </a>
+                </div>
+                </div>
+
+                <div class="toolkit-feature-right">
+                <div class="toolkit-feature-media">
+                    <img src="../../assets/toolkit/dashboards1.png" alt="Example of spatial targeting and prioritisation outputs" loading="lazy">
+                </div>
+                </div>
+            </div>
+
+            <div class="toolkit-cards">
+                <a class="toolkit-card" href="https://www.cifor-icraf.org/knowledge/video/v=MnMujVJdDUY/">
+
+                <div class="toolkit-card-thumb">
+                    <img src="../../assets/toolkit/maps_video.png" alt="K4GGWA dashboards preview">
+                </div>
+
+                <div class="toolkit-card-top">
+                    <div class="toolkit-card-title">Maps for Land Restoration</div>
+                    <div class="toolkit-card-tag">Explainer</div>
+                </div>
+                <p class="toolkit-card-desc">
+                    Explainer video on how to use maps and other spatial data to inform restoration planning.
+                </p>
+                <div class="toolkit-card-tags">
+                    <span class="t-tag">Planning</span>
+                    <span class="t-tag">Feasibility</span>
+                    <span class="t-tag">Trade-offs</span>
+                </div>
+                </a>
+
+                <a class="toolkit-card" href="https://africa-knowledge-platform.ec.europa.eu/">
+
+                <div class="toolkit-card-thumb">
+                    <img src="../../assets/toolkit/akp.png" alt="K4GGWA dashboards preview">
+                </div>
+
+                <div class="toolkit-card-top">
+                    <div class="toolkit-card-title">EU Science Hub: AFRICA Knowledge Platform</div>
+                    <div class="toolkit-card-tag">Data platform</div>
+                </div>
+                <p class="toolkit-card-desc">
+                    Explore thematic datasets and tools across continental Africa.
+                </p>
+                <div class="toolkit-card-tags">
+                    <span class="t-tag">Maps</span>
+                    <span class="t-tag">Datasets</span>
+                    <span class="t-tag">Tools</span>
+                </div>
+                </a>
+
+                <a class="toolkit-card" href="https://www.worldagroforestry.org/output/decision-dashboards-0">
+
+                <div class="toolkit-card-thumb">
+                    <img src="../../assets/toolkit/dd.png" alt="K4GGWA dashboards preview">
+                </div>
+
+                <div class="toolkit-card-top">
+                    <div class="toolkit-card-title">Decision Dashboards</div>
+                    <div class="toolkit-card-tag">Guide</div>
+                </div>
+                <p class="toolkit-card-desc">
+                    An information note to describe what decision dashboards are and how they can be used to assist in evidence based decision making and planning.
+                </p>
+                <div class="toolkit-card-tags">
+                    <span class="t-tag">Decision-support tools</span>
+                    <span class="t-tag">Evidence</span>
+                    <span class="t-tag">Planning</span>
+                </div>
+                </a>
+            </div>
+
+            <div class="toolkit-tutorial-link">
+                <div class="toolkit-tutorial-icon">
+                    <img src="../../assets/toolkit/tutorial_icon1.png" alt="Tutorial notebook icon" loading="lazy">
+                </div>
+
+                <div class="toolkit-tutorial-text">
+                    <a href="../../tutorials/landscape-assessment/">
+                    <b>Tutorial:</b> Coming soon!
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- 03 -->
+    <section class="toolkit-panel" id="design">
+
+        <button type="button" class="toolkit-panel-toggle toolkit-panel-head" aria-expanded="false" aria-controls="design-body">
+            <div class="toolkit-panel-num">03</div>
+            <div class="toolkit-panel-text">
+            <h2 class="toolkit-panel-title anchored">Intervention Design</h2>
+            <p class="toolkit-panel-subtitle">
+                Define appropriate restoration actions by matching interventions to ecological context, constraints, and objectives.
+            </p>
+            </div>
+        </button>
+
+        <div class="toolkit-panel-body" id="design-body">
+
+            <div class="toolkit-section-explainer">
+                <p>
+                Intervention design focuses on deciding what restoration actions are appropriate for a given location once priority areas have been identified.
+                </p>
+
+                <p>
+                Effective design recognises that restoration is context-dependent. Climate, soils, land use, degradation processes, and local management practices all shape which interventions are feasible, sustainable, and likely to deliver positive outcomes.
+                </p>
+
+                <p>
+                Linking spatial evidence to practical design choices helps avoid mismatches between ambition and context; supports realistic planning and; reduces the risk of failure during implementation.
+                </p>
+            </div>
+
+            <div class="toolkit-callout toolkit-callout-evidence">
+                <h4 class="toolkit-callout-title anchored">
+                    Why spatial evidence matters at this stage
+                </h4>
+
+                <div class="toolkit-callout-row">
+
+                    <div class="toolkit-callout-media">
+                    <img src="../../assets/toolkit/intervention_map.jpg" alt="Spatial constraints and feasibility patterns across the landscape" loading="lazy">
+                    </div>
+
+                    <div class="toolkit-callout-text">
+                    <p>
+                        Maps help identify where different restoration practices and species are ecologically appropriate. For example, guiding tree planting toward areas with sufficient rainfall and suitable soils; informing species selection using distribution and suitability maps; or indicating where farmer-managed natural regeneration and soil–water conservation practices are more appropriate than planting. By making constraints, risks and opportunities explicit, spatial data can help design projects that are feasible, optimised returns on investment, and transparent about assumptions and different trade-offs. 
+                    </p>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="toolkit-stakeholder-benefits">
+                <h4 class="anchored">Who this supports</h4>
+
+                <div class="toolkit-stakeholder-grid">
+
+                    <div class="toolkit-stakeholder">
+                    <div class="toolkit-stakeholder-icon">
+                        <img src="../../assets/toolkit/govt_icon.png" alt="Government stakeholders">
+                    </div>
+                    <div class="toolkit-stakeholder-title">Governments</div>
+                    <div class="toolkit-stakeholder-desc">
+                        Evidence-based design to ensure restoration actions meet local needs and constraints, safeguarding public spend, and enabling clear technical specifications for procurement and delivery.
+                    </div>
+                    </div>
+
+                    <div class="toolkit-stakeholder">
+                    <div class="toolkit-stakeholder-icon">
+                        <img src="../../assets/toolkit/ngo_icon.svg" alt="NGOs and implementers">
+                    </div>
+                    <div class="toolkit-stakeholder-title">NGOs &amp; Implementers</div>
+                    <div class="toolkit-stakeholder-desc">
+                        Improves feasibility and effectiveness by matching intervention types to site conditions, helping teams choose appropriate methods (FMNR, planting, soil-water conservation) and plan logistics, costs, and monitoring. 
+                    </div>
+                    </div>
+
+                    <div class="toolkit-stakeholder">
+                    <div class="toolkit-stakeholder-icon">
+                        <img src="../../assets/toolkit/donor_icon.svg" alt="Donors and partners">
+                    </div>
+                    <div class="toolkit-stakeholder-title">Donors &amp; Partners</div>
+                    <div class="toolkit-stakeholder-desc">
+                        Strengthens investment cases by demonstrating that interventions are designed for context and risk. This supports due diligence, realistic budgeting, and credible theories of change tied to measurable indicators.
+                    </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="toolkit-feature">
+                <div class="toolkit-feature-left">
+                <div class="toolkit-feature-kicker">
+                    <span class="toolkit-feature-label">APPLICATION</span>
+                    <span class="toolkit-feature-pill">Featured</span>
+                </div>
+
+                <h3 class="toolkit-feature-title anchored">Africa Tree Finder Application</h3>
+
+                <p class="toolkit-feature-desc">
+                    Easy-to-use app shows you data on the distribution of indigenous tree species in different natural vegetation types, combined with information on the products and services that the tree species can provide. It arms practitioners with the information needed to select the best tree species for your landscape restoration or agroforestry efforts.
+                </p>
+
+                <div class="toolkit-feature-bullets">
+                    <div class="tf-bullet">
+                    <span class="tf-dot"></span>
+                    <span><strong>Coverage across</strong> Burundi, Ethiopia, Kenya, Malawi, Rwanda, Tanzania, Uganda &amp; Zambia. Whole-of-Africa coverage version released soon.</span>
+                    </div>
+                    <div class="tf-bullet">
+                    <span class="tf-dot"></span>
+                    <span><strong>Decision support</strong> for selecting appropriate species and filter by preferred use-case</span>
+                    </div>
+                    <div class="tf-bullet">
+                    <span class="tf-dot"></span>
+                    <span><strong>COMING SOON:</strong> Africa-wide tree species' suitability and functional properties dashboard</span>
+                    </div>
+                </div>
+
+                <div class="toolkit-feature-ctas">
+                    <a class="toolkit-feature-cta primary" href="https://play.google.com/store/apps/details?id=com.icraf.gsl.africatreefinder&amp;hl=en">
+                    Download Africa Tree Finder →
+                    </a>
+                </div>
+                </div>
+
+                <div class="toolkit-feature-right">
+                <div class="toolkit-feature-media">
+                    <img src="../../assets/toolkit/atf_app1.png" alt="Tree suitability surface" loading="lazy">
+                </div>
+                </div>
+            </div>
+
+            <div class="toolkit-cards">
+                <a class="toolkit-card" href="https://patspo.shinyapps.io/UsefulTreeSpecies4Africa/">
+
+                <div class="toolkit-card-thumb">
+                    <img src="../../assets/toolkit/utsa_app.png" alt="K4GGWA dashboards preview">
+                </div>
+
+                <div class="toolkit-card-top">
+                    <div class="toolkit-card-title">Useful Tree Species for Africa App</div>
+                    <div class="toolkit-card-tag">Suitability tool</div>
+                </div>
+                <p class="toolkit-card-desc">
+                    Web app species selection tool to filter suitable tree species for tree-based restoration projects.
+                </p>
+                <div class="toolkit-card-tags">
+                    <span class="t-tag">Suitability</span>
+                    <span class="t-tag">Useful trees</span>
+                    <span class="t-tag">Planning</span>
+                </div>
+                </a>
+
+                <a class="toolkit-card" href="https://campus.globallandscapesforum.org/GlobUNT">
+
+                <div class="toolkit-card-thumb">
+                    <img src="../../assets/toolkit/globunt_app.png" alt="K4GGWA dashboards preview">
+                </div>
+
+                <div class="toolkit-card-top">
+                    <div class="toolkit-card-title">GlobUNT tool</div>
+                    <div class="toolkit-card-tag">Suitability tool</div>
+                </div>
+                <p class="toolkit-card-desc">
+                    Tutorial for selecting tree species based on desired use and suitability to local ecological context.
+                </p>
+                <div class="toolkit-card-tags">
+                    <span class="t-tag">Species</span>
+                    <span class="t-tag">Native species</span>
+                    <span class="t-tag">Biodiversity</span>
+                </div>
+                </a>
+
+                <a class="toolkit-card" href="https://dashboards.cifor-icraf.org/app/k4ggwa">
+
+                <div class="toolkit-card-thumb">
+                    <img src="../../assets/toolkit/dashboards1.png" alt="K4GGWA dashboards preview">
+                </div>
+
+                <div class="toolkit-card-top">
+                    <div class="toolkit-card-title">K4GGWA Dashboard</div>
+                    <div class="toolkit-card-tag">Dashboard</div>
+                </div>
+                <p class="toolkit-card-desc">
+                    Explore SOC, erosion risk, vegetation dynamics, and climate parameters interactively and across scales.
+                </p>
+                <div class="toolkit-card-tags">
+                    <span class="t-tag">Decision-support</span>
+                    <span class="t-tag">Evidence</span>
+                    <span class="t-tag">De-risk</span>
+                </div>
+                </a>
+            </div>
+
+            <div class="toolkit-tutorial-link">
+                <div class="toolkit-tutorial-icon">
+                    <img src="../../assets/toolkit/tutorial_icon1.png" alt="Tutorial notebook icon" loading="lazy">
+                </div>
+
+                <div class="toolkit-tutorial-text">
+                    <a href="../../tutorials/landscape-assessment/">
+                    <b>Tutorial:</b> Coming soon!
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+
+    <!-- 04 -->
+    <section class="toolkit-panel" id="monitoring">
+
+        <button type="button" class="toolkit-panel-toggle toolkit-panel-head" aria-expanded="false" aria-controls="monitoring-body">
+            <div class="toolkit-panel-num">04</div>
+            <div class="toolkit-panel-text">
+            <h2 class="toolkit-panel-title anchored">Monitoring &amp; Adaptive Management</h2>
+            <p class="toolkit-panel-subtitle">
+                Track change through time, evaluate outcomes, and adjust interventions using consistent indicators.
+            </p>
+            </div>
+        </button>
+
+        <div class="toolkit-panel-body" id="monitoring-body">
+
+            <div class="toolkit-section-explainer">
+                <p>
+                Monitoring focuses on understanding how landscapes are changing following restoration interventions, and whether observed trends align with expectations and objectives.
+                </p>
+
+                <p>
+                Rather than relying on one-off measurements, effective monitoring uses time-series analysis to distinguish real change from seasonal variability, climate-driven fluctuations, short-term noise and other confounding factors.
+                </p>
+
+                <p>
+                By integrating monitoring results into adaptive management, practitioners can refine interventions and respond to emerging risks, improving outcomes over time. 
+                </p>
+            </div>
+
+            <div class="toolkit-callout toolkit-callout-evidence">
+                <h4 class="toolkit-callout-title anchored">
+                    Why spatial evidence matters at this stage
+                </h4>
+
+                <div class="toolkit-callout-row">
+
+                    <div class="toolkit-callout-media">
+                    <img src="../../assets/toolkit/monitoring_map.png" alt="Spatial constraints and feasibility patterns across the landscape" loading="lazy">
+                    </div>
+
+                    <div class="toolkit-callout-text">
+                    <p>
+                        Monitoring and adaptive management depend on understanding change through time. Spatially explicit indicators allow trends to be tracked consistently across landscapes, compared to pre-intervention baselines and interpreted in the context of climate variability and other potential confounding factors. This makes it possible to distinguish real signals of recovery or decline from short-term noise. They also make it possible to adjust actions as the project progresses, correcting or adapting where necessary.
+                    </p>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="toolkit-stakeholder-benefits">
+                <h4 class="anchored">Who this supports</h4>
+
+                <div class="toolkit-stakeholder-grid">
+
+                    <div class="toolkit-stakeholder">
+                    <div class="toolkit-stakeholder-icon">
+                        <img src="../../assets/toolkit/govt_icon.png" alt="Government stakeholders">
+                    </div>
+                    <div class="toolkit-stakeholder-title">Governments</div>
+                    <div class="toolkit-stakeholder-desc">
+                        Systematic tracking of restoration outcomes across programmes and regions for performance oversight, adaptive policy adjustments, and alignment with national reporting frameworks.
+                    </div>
+                    </div>
+
+                    <div class="toolkit-stakeholder">
+                    <div class="toolkit-stakeholder-icon">
+                        <img src="../../assets/toolkit/ngo_icon.svg" alt="NGOs and implementers">
+                    </div>
+                    <div class="toolkit-stakeholder-title">NGOs &amp; Implementers</div>
+                    <div class="toolkit-stakeholder-desc">
+                        Learn-by-doing by identifying where interventions are working, where constraints persist, and where design or management approaches need to be adapted in response to observed outcomes. 
+                    </div>
+                    </div>
+
+                    <div class="toolkit-stakeholder">
+                    <div class="toolkit-stakeholder-icon">
+                        <img src="../../assets/toolkit/donor_icon.svg" alt="Donors and partners">
+                    </div>
+                    <div class="toolkit-stakeholder-title">Donors &amp; Partners</div>
+                    <div class="toolkit-stakeholder-desc">
+                        Credible, comparable evidence of progress and change over time for results-based financing, adaptive portfolio management, and learning-oriented accountability rather than just box-ticking compliance.
+                    </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+            <div class="toolkit-feature">
+                <div class="toolkit-feature-left">
+                <div class="toolkit-feature-kicker">
+                    <span class="toolkit-feature-label">MONITORING</span>
+                    <span class="toolkit-feature-pill">Featured</span>
+                </div>
+
+                <h3 class="toolkit-feature-title anchored">Regreening App</h3>
+
+                <p class="toolkit-feature-desc">
+                    A free mobile-based Android applcation designed for farm-scale citizen science data collection on restoration practices. Modules include tree planting, FMNR, rangeland management, nurseries, and engagement.
+                </p>
+
+                <div class="toolkit-feature-bullets">
+                    <div class="tf-bullet">
+                    <span class="tf-dot"></span>
+                    <span><strong>Citizen-science</strong> tool for inclusive and scalable restoration monitoring</span>
+                    </div>
+                    <div class="tf-bullet">
+                    <span class="tf-dot"></span>
+                    <span><strong>Geolocated</strong> restoration intervention data for accurate and transparent project monitoring</span>
+                    </div>
+                    <div class="tf-bullet">
+                    <span class="tf-dot"></span>
+                    <span><strong>Offline</strong> use capabilities, for users in under-serviced or low-bandwidth areas</span>
+                    </div>
+                </div>
+
+                <div class="toolkit-feature-ctas">
+                    <a class="toolkit-feature-cta primary" href="https://play.google.com/store/apps/details?id=com.icraf.gsl.regreeningafrica&amp;hl=en">
+                    Download Regreening App →
+                    </a>
+                    <a class="toolkit-feature-cta secondary" href="https://radrs.icraf.org/">
+                    Data Reporting System (DRS)
+                    </a>
+                </div>
+                </div>
+
+                <div class="toolkit-feature-right">
+                <div class="toolkit-feature-media">
+                    <img src="../../assets/toolkit/ra_app.png" alt="Regreening App" loading="lazy">
+                </div>
+                </div>
+            </div>
+
+            <div class="toolkit-cards">
+                <a class="toolkit-card" href="https://dashboards.cifor-icraf.org/app/restoration_app">
+
+                <div class="toolkit-card-thumb">
+                    <img src="../../assets/toolkit/monitoring_app.png" alt="K4GGWA dashboards preview">
+                </div>
+
+                <div class="toolkit-card-top">
+                    <div class="toolkit-card-title">Restoration Monitoring App</div>
+                    <div class="toolkit-card-tag">Dashboard</div>
+                </div>
+                <p class="toolkit-card-desc">
+                    A restoration monitoring tool that enables users to visualise anomalous greening trends in their intervention sites. 
+                </p>
+                <div class="toolkit-card-tags">
+                    <span class="t-tag">Trends</span>
+                    <span class="t-tag">Anomalies</span>
+                    <span class="t-tag">Evidence</span>
+                </div>
+                </a>
+
+                <a class="toolkit-card" href="https://dashboards.cifor-icraf.org/app/k4ggwa">
+                
+                <div class="toolkit-card-thumb">
+                    <img src="../../assets/toolkit/dashboards1.png" alt="K4GGWA dashboards preview">
+                </div>
+
+                <div class="toolkit-card-top">
+                    <div class="toolkit-card-title">K4GGWA Dashboard</div>
+                    <div class="toolkit-card-tag">Dashboard</div>
+                </div>
+                <p class="toolkit-card-desc">
+                    Explore SOC, erosion risk, vegetation dynamics, and climate parameters interactively and across scales.
+                </p>
+                <div class="toolkit-card-tags">
+                    <span class="t-tag">Time-series</span>
+                    <span class="t-tag">Trend-analysis</span>
+                    <span class="t-tag">Land health</span>
+                </div>
+                </a>
+
+                <a class="toolkit-card" href="https://www.cifor-icraf.org/publications/pdf/guide/CRS_CIFOR-ICRAF_Restoration-Monitoring-Guide.pdf">
+
+                <div class="toolkit-card-thumb">
+                    <img src="../../assets/toolkit/monitoring_guide.png" alt="K4GGWA dashboards preview">
+                </div>
+
+                <div class="toolkit-card-top">
+                    <div class="toolkit-card-title">Restoration Monitoring Guide</div>
+                    <div class="toolkit-card-tag">Guide</div>
+                </div>
+                <p class="toolkit-card-desc">
+                    A field technicians' manual for monitoring restoration across watersheds
+                </p>
+                <div class="toolkit-card-tags">
+                    <span class="t-tag">Data-driven monitoring</span>
+                    <span class="t-tag">Ground-truthing</span>
+                    <span class="t-tag">LDSF</span>
+                </div>
+                </a>
+            </div>
+
+            <div class="toolkit-tutorial-link">
+                <div class="toolkit-tutorial-icon">
+                    <img src="../../assets/toolkit/tutorial_icon1.png" alt="Tutorial notebook icon" loading="lazy">
+                </div>
+
+                <div class="toolkit-tutorial-text">
+                    <a href="../../tutorials/landscape-assessment/">
+                    <b>Tutorial:</b> Coming soon!
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- 05 -->
+    <section class="toolkit-panel" id="reporting">
+
+        <button type="button" class="toolkit-panel-toggle toolkit-panel-head" aria-expanded="false" aria-controls="reporting-body">
+            <div class="toolkit-panel-num">05</div>
+
+            <div class="toolkit-panel-text">
+            <h2 class="toolkit-panel-title anchored">Reporting &amp; Learning</h2>
+            <p class="toolkit-panel-subtitle">
+                Use spatial evidence for project accountability, credibility, and learning.
+            </p>
+            </div>
+        </button>
+
+        <div class="toolkit-panel-body" id="reporting-body">
+
+            <div class="toolkit-section-explainer">
+            <p>
+                Reporting focuses on turning monitoring evidence into clear and credible outputs that support accountability to funders, governments, and stakeholders.
+            </p>
+
+            <p>
+                Effective reporting synthesises multiple lines of evidence into coherent narratives that explain what changed, where, and why it matters.
+            </p>
+
+            <p>
+                When combined with structured learning, reporting also supports continuous improvement, helping organisations refine strategies, compare approaches, and scale what works across landscapes and programmes.
+            </p>
+            </div>
+
+            <div class="toolkit-callout toolkit-callout-evidence">
+                <h4 class="toolkit-callout-title anchored">
+                    Why spatial evidence matters at this stage
+                </h4>
+
+                <div class="toolkit-callout-row">
+
+                    <div class="toolkit-callout-media">
+                    <img src="../../assets/toolkit/reporting_map.png" alt="Spatial constraints and feasibility patterns across the landscape" loading="lazy">
+                    </div>
+
+                    <div class="toolkit-callout-text">
+                    <p>
+                    Reporting is where evidence is consolidated, communicated, and made accountable. Spatially explicit indicators enable consistent aggregation across projects and regions, tied to agreed baselines and interpreted with appropriate uncertainties. 
+                    <br>
+                    This allows outcomes and progress to be reported transparently, quantitatively, and aligned with national, regional, and donor reporting frameworks.
+                    </p>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="toolkit-stakeholder-benefits">
+                <h4 class="anchored">Who this supports</h4>
+
+                <div class="toolkit-stakeholder-grid">
+
+                    <div class="toolkit-stakeholder">
+                    <div class="toolkit-stakeholder-icon">
+                        <img src="../../assets/toolkit/govt_icon.png" alt="Government stakeholders">
+                    </div>
+                    <div class="toolkit-stakeholder-title">Governments</div>
+                    <div class="toolkit-stakeholder-desc">
+                        Transparent, standardised reporting of restoration outcomes across programmes and regions, supporting national accountability, policy review, and alignment with frameworks such as LDN, NDCs, and GGW reporting.
+                    </div>
+                    </div>
+
+                    <div class="toolkit-stakeholder">
+                    <div class="toolkit-stakeholder-icon">
+                        <img src="../../assets/toolkit/ngo_icon.svg" alt="NGOs and implementers">
+                    </div>
+                    <div class="toolkit-stakeholder-title">NGOs &amp; Implementers</div>
+                    <div class="toolkit-stakeholder-desc">
+                        Clear communication of results and learning to partners and communities helping organisations demonstrate outcomes, explain variability, and reflect on what worked and why.
+                    </div>
+                    </div>
+
+                    <div class="toolkit-stakeholder">
+                    <div class="toolkit-stakeholder-icon">
+                        <img src="../../assets/toolkit/donor_icon.svg" alt="Donors and partners">
+                    </div>
+                    <div class="toolkit-stakeholder-title">Donors &amp; Partners</div>
+                    <div class="toolkit-stakeholder-desc">
+                        Comparable evidence for results-based reporting and portfolio review - supporting accountability, learning, and strategic allocation of future funding.
+                    </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="toolkit-feature">
+                <div class="toolkit-feature-left">
+                <div class="toolkit-feature-kicker">
+                    <span class="toolkit-feature-label">DECISION-SUPPORT TOOL</span>
+                    <span class="toolkit-feature-pill">Featured</span>
+                </div>
+
+                <h3 class="toolkit-feature-title anchored">K4GGWA Dashboards</h3>
+
+                <p class="toolkit-feature-desc">
+                    Landscape analytics for the GGW region across climate risk, land health, vegetation dynamics and biodiversity.
+                </p>
+
+                <div class="toolkit-feature-bullets">
+                    <div class="tf-bullet">
+                    <span class="tf-dot"></span>
+                    <span><strong>Visualise and export</strong> map data from the platform to evidence restoration claims</span>
+                    </div>
+                    <div class="tf-bullet">
+                    <span class="tf-dot"></span>
+                    <span><strong>Multi-indicator</strong> landscape analytics that can map to different reporting frameworks</span>
+                    </div>
+                    <div class="tf-bullet">
+                    <span class="tf-dot"></span>
+                    <span><strong>COMING SOON:</strong> LLM-driven quantitative land-health summaries</span>
+                    </div>
+                </div>
+
+                <div class="toolkit-feature-ctas">
+                    <a class="toolkit-feature-cta primary" href="https://dashboards.cifor-icraf.org/app/k4ggwa">
+                    Explore the dashboards →
+                    </a>
+                </div>
+                </div>
+
+                <div class="toolkit-feature-right">
+                <div class="toolkit-feature-media">
+                    <img src="../../assets/toolkit/dashboards1.png" alt="Export dashboard maps as pngs, csvs or tif files" loading="lazy">
+                </div>
+                </div>
+            </div>
+
+            <div class="toolkit-cards">
+                <a class="toolkit-card" href="https://thegreatgreenwall.org/harmonised">
+
+                <div class="toolkit-card-thumb">
+                    <img src="../../assets/toolkit/ggw_o.png" alt="K4GGWA dashboards preview">
+                </div>
+
+                <div class="toolkit-card-top">
+                    <div class="toolkit-card-title">GGW Observatory</div>
+                    <div class="toolkit-card-tag">Platform</div>
+                </div>
+                <p class="toolkit-card-desc">
+                    This multipurpose platform is dedicated to reporting funding and results towards the targets of the Great Green Wall Initiatives of the Sahara and the Sahel
+                </p>
+                <div class="toolkit-card-tags">
+                    <span class="t-tag">Reporting framework</span>
+                    <span class="t-tag">Guidance</span>
+                    <span class="t-tag">GGW-Accelerator</span>
+                </div>
+                </a>
+
+                <a class="toolkit-card" href="https://www.unccd.int/resources/prais4-reporting-platform">
+
+                <div class="toolkit-card-thumb">
+                    <img src="../../assets/toolkit/prais.png" alt="K4GGWA dashboards preview">
+                </div>
+
+                    
+                <div class="toolkit-card-top">
+                    <div class="toolkit-card-title">UNCCD PRAIS4 Reporting Platform</div>
+                    <div class="toolkit-card-tag">Platform</div>
+                </div>
+                <p class="toolkit-card-desc">
+                    The UNCCD's national reporting system platform.
+                </p>
+                <div class="toolkit-card-tags">
+                    <span class="t-tag">UNCCD</span>
+                    <span class="t-tag">Land degradation neutrality</span>
+                    <span class="t-tag">Reporting</span>
+                </div>
+                </a>
+
+                <a class="toolkit-card" href="https://k4ggwa.thegrit.earth/content/restoration-stories/restoration_stories.html">
+
+                <div class="toolkit-card-thumb">
+                    <img src="../../assets/toolkit/sor.png" alt="K4GGWA dashboards preview">
+                </div>
+
+                <div class="toolkit-card-top">
+                    <div class="toolkit-card-title">Stories of Restoration</div>
+                    <div class="toolkit-card-tag">Stories</div>
+                </div>
+                <p class="toolkit-card-desc">
+                    Real-world examples that connect evidence to outcomes, lessons, and lived realities. 
+                </p>
+                <div class="toolkit-card-tags">
+                    <span class="t-tag">Learning</span>
+                    <span class="t-tag">Impact</span>
+                    <span class="t-tag">Stories</span>
+                </div>
+                </a>
+            </div>
+
+            <div class="toolkit-tutorial-link">
+                <div class="toolkit-tutorial-icon">
+                    <img src="../../assets/toolkit/tutorial_icon1.png" alt="Tutorial notebook icon" loading="lazy">
+                </div>
+
+                <div class="toolkit-tutorial-text">
+                    <a href="https://k4ggwa.thegrit.earth/content/state_of_land/tutorials/intro.html">
+                    <b>Tutorial:</b> Coming soon!
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <section class="toolkit-cred">
+      <h2 class="toolkit-h3 anchored">Learn more</h2>
+            <div class="toolkit-cards">
+                <a class="toolkit-card" href="https://k4ggwa.thegrit.earth/content/restoration-stories/posts/28-10-2024/restoration-predictive.html">
+
+                <div class="toolkit-card-thumb">
+                    <img src="../../assets/toolkit/pred_mod.png" alt="K4GGWA dashboards preview">
+                </div>
+
+                <div class="toolkit-card-top">
+                    <div class="toolkit-card-title">Predictive Modeling for Restoration</div>
+                    <div class="toolkit-card-tag">Guide</div>
+                </div>
+                <p class="toolkit-card-desc">
+                    Explore how predictive maps are generated, from raw data collection in the field, to analytics and outputs. 
+                </p>
+            
+                </a>
+
+                <a class="toolkit-card" href="https://k4ggwa.thegrit.earth/content/restoration-stories/posts/27-10-2024/regreening_app.html">
+
+                <div class="toolkit-card-thumb">
+                    <img src="../../assets/toolkit/ra_app1.png" alt="K4GGWA dashboards preview">
+                </div>
+
+                    
+                <div class="toolkit-card-top">
+                    <div class="toolkit-card-title">Regreening App</div>
+                    <div class="toolkit-card-tag">Mobile Application</div>
+                </div>
+                <p class="toolkit-card-desc">
+                    Learn more about the features of this citizen-science data-collection tool for restoration project monitoring. 
+                </p>
+                </a>
+
+                <a class="toolkit-card" href="https://ldsf.thegrit.earth/">
+
+                <div class="toolkit-card-thumb">
+                    <img src="../../assets/toolkit/ldsf.png" alt="K4GGWA dashboards preview">
+                </div>
+
+                <div class="toolkit-card-top">
+                    <div class="toolkit-card-title">Land Degradation Surveillance Framework (LDSF)</div>
+                    <div class="toolkit-card-tag">Data sampling</div>
+                </div>
+                <p class="toolkit-card-desc">
+                    Learn more about the Land Degradation Surveillance Framework - the sampling protocol behind the world's largest systematic, georeferenced library of soil infrared spectra.
+                </p>
+                </a>
+            </div>
+    </section>
+
+  </main>
+</div>
+
+
+
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
+<footer class="k4ggwa-footer">
+  <div class="footer-inner">
+
+    <div class="footer-left">
+      <h4>Contact</h4>
+      <p>Email: <a href="mailto:t.vagen@cifor-icraf.org">t.vagen@cifor-icraf.org</a></p>
+
+      <div class="footer-spacial">
+        <img src="../../assets/logo_spacial.png" alt="SPACIAL Lab" class="footer-spacial-logo">
+      </div>
+
+      <a class="footer-pill" href="https://www.cifor-icraf.org/k4ggwa/" target="_blank" rel="noopener">
+        Visit K4GGWA Website →
+      </a>
+    </div>
+
+    <div class="footer-mid">
+
+      <div class="footer-links-col">
+        <div class="footer-label">Learn more</div>
+        <a href="../../content/restoration-stories/restoration_stories.html">Stories of Restoration</a>
+        <a href="../../content/state_of_land/state_of_land.html">State of the Land</a>
+        <a href="../../content/state_of_land/tutorials/intro.html">Tutorials</a>
+        <a href="../../content/events-workshops/events_workshops.html">Events &amp; Workshops</a>
+      </div>
+
+      <div class="footer-links-col">
+        <div class="footer-label">Tools &amp; resources</div>
+        <a href="https://ldsf.thegrit.earth/" target="_blank" rel="noopener">LDSF</a>
+        <a href="https://dashboards.cifor-icraf.org/app/k4ggwa" target="_blank" rel="noopener">Dashboards</a>
+        <a href="https://landscapeportal.thegrit.earth/#/">Landscape Portal</a>
+        <a href="https://play.google.com/store/apps/details?id=com.icraf.gsl.regreeningafrica" target="_blank" rel="noopener">Regreening App</a>
+      </div>
+
+    </div>
+
+    <div class="footer-right">
+      <div class="footer-block">
+        <div class="footer-label">Funded by</div>
+        <img src="../../assets/logo_eu.png" alt="EU Flag" class="footer-logo-single">
+      </div>
+
+      <div class="footer-right-divider"></div>
+
+      <div class="footer-block">
+        <div class="footer-label">Implemented by</div>
+        <div class="footer-logos">
+          <img src="../../assets/logo_icraf.png" alt="ICRAF">
+          <img src="../../assets/logo_fao.png" alt="FAO">
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    <div class="footer-bottom-inner">
+      <p class="footer-copy">© 2025 Knowledge for Great Green Wall Action</p>
+    </div>
+  </div>
+
+</footer>
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/k4ggwa\.thegrit\.earth");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<script src="../../build/carousels.js"></script>
+<script src="../../build/metrics.js"></script>
+<script src="../../build/whymap.js"></script>
+<script src="../../build/sidebar.js"></script>
+<script src="../../build/navbar-fr.js"></script>
+<script src="../../build/toolkit.js"></script>
+<script src="../../build/toolkit-homepage.js"></script>
+
+
+
+
+</body></html>

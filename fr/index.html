@@ -1,0 +1,1497 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.27">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>CAGMV</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-listing/list.min.js"></script>
+<script src="../site_libs/quarto-listing/quarto-listing.js"></script>
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-9195fa1a9c736cb8c2994c5df3058328.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script>
+
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-latest-content .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-image','listing-date','listing-title','listing-subtitle','listing-author','listing-reading-time',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      page: 6,
+    pagination: { item: "<li class='page-item'><a class='page page-link' href='#'></a></li>" },
+      searchColumns: ["listing-title","listing-author","listing-date","listing-image","listing-description"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-latest-content'] = new List('listing-latest-content', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  
+
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-workshops-events .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-image','listing-categories','listing-title','listing-subtitle','listing-description','listing-date',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      page: 3,
+    pagination: { item: "<li class='page-item'><a class='page page-link' href='#'></a></li>" },
+      searchColumns: ["listing-date","listing-title","listing-author","listing-subtitle","listing-image","listing-description"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-workshops-events'] = new List('listing-workshops-events', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  </script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-SM02PF52PN"></script>
+
+<script type="text/javascript">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-SM02PF52PN', { 'anonymize_ip': true});
+</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../styles/base.css">
+<link rel="stylesheet" href="../styles/homepage.css">
+<link rel="stylesheet" href="../styles/subpages.css">
+<link rel="stylesheet" href="../styles/tutorials.css">
+<link rel="stylesheet" href="../styles/toolkit.css">
+</head>
+
+<body class="nav-fixed home-page quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../assets/logo_k4ggwa.png" alt="" class="navbar-logo light-content">
+    <img src="../assets/logo_k4ggwa.png" alt="" class="navbar-logo dark-content">
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../content/restoration-stories/restoration_stories.html"> <i class="bi bi-person-video" role="img">
+</i> 
+<span class="menu-text">Stories of Restoration</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-state-of-the-land" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+      <i class="bi bi-map" role="img">
+</i> 
+ <span class="menu-text">State of the Land</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-state-of-the-land">    
+        <li>
+    <a class="dropdown-item" href="../content/state_of_land/state_of_land.html">
+ <span class="dropdown-text">Reports</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../content/state_of_land/tutorials/intro.html">
+ <span class="dropdown-text">Tutorials</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="../content/events-workshops/events_workshops.html"> <i class="bi bi-calendar" role="img">
+</i> 
+<span class="menu-text">Events and Workshops</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://dashboards.cifor-icraf.org/app/k4ggwa"> <i class="bi bi-tv" role="img">
+</i> 
+<span class="menu-text">Dashboard</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../content/about_ggw/about_ggw.html"> <i class="bi bi-globe" role="img">
+</i> 
+<span class="menu-text">About K4GGWA</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">EN</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="../fr/index.html" aria-current="page"> 
+<span class="menu-text">FR</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content page-columns page-full column-body" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+
+
+
+
+<!-- Hero and metric cards-->
+<div class="hero-video">
+  <video class="hero-video-bg" autoplay="" muted="" playsinline="">
+    <source src="../assets/sahel_imagery2.mp4" type="video/mp4">
+  </video>
+
+  <div class="hero-inner">
+    <div class="hero-text">
+      <h2 class="hero-heading anchored">Bienvenue sur<br>la plateforme K4GGWA!</h2>
+      <p class="hero-subtitle">
+        Histoires, données et outils pour soutenir la prise de décision dans le cadre de la Grande Muraille Verte – 
+        des analyses de santé des paysages aux sciences citoyennes et aux récits de restauration 
+        à travers le Sahel et la Corne de l’Afrique.
+      </p>
+      <div class="hero-actions">
+        <a href="#intro" class="btn-pill btn-secondary hero-scroll">En savoir plus</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-metrics">
+    <div class="hero-metrics-inner">
+
+      <div class="metric-card">
+        <div class="metric-image">
+          <img src="../assets/sat_metric.png" alt="NPP">
+        </div>
+        <div class="metric-body">
+          <div class="metric-number">
+            <span class="metric-value" data-target="100">0</span>
+            <span class="metric-suffix">million ha</span>
+          </div>
+          <div class="metric-label">ciblés pour la restauration</div>
+        </div>
+      </div>
+
+      <div class="metric-card">
+        <div class="metric-image">
+          <img src="../assets/erosion_metric.png" alt="Severe erosion">
+        </div>
+        <div class="metric-body">
+          <div class="metric-number">
+            <span class="metric-value" data-target="58">0</span>
+            <span class="metric-suffix">%</span>
+          </div>
+          <div class="metric-label">surface totale fortement érodée dans la GMV</div>
+        </div>
+      </div>
+
+      <div class="metric-card">
+        <div class="metric-image">
+          <img src="../assets/flood_metric.png" alt="Flood">
+        </div>
+        <div class="metric-body">
+          <div class="metric-number">
+            <span class="metric-value" data-target="928,861">0</span>
+            <span class="metric-suffix">milliers ha </span>
+          </div>
+          <div class="metric-label">zones exposées à un risque élevé d’inondation</div>
+        </div>
+      </div>
+
+      <div class="metric-card">
+        <div class="metric-image">
+          <img src="../assets/eco_metric.png" alt="ecoregions">
+        </div>
+        <div class="metric-body">
+          <div class="metric-number">
+            <span class="metric-value" data-target="36">0</span>
+          </div>
+          <div class="metric-label">écorégions distinctes</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+<div id="intro" class="column-screen page-columns page-full section-light">
+  <div class="column-screen-inset">
+
+    <section class="about-section">
+      <div class="about-eyebrow">À PROPOS DE LA PLATEFORME</div>
+
+      <div class="about-layout">
+        <div class="about-heading">
+          <h2 class="about-title anchored">
+          À propos de la plateforme CAGMV
+          </h2>
+        </div>
+
+        <div class="about-body">
+          <p>
+          Connaissance pour l’Action – Grande Muraille Verte (CAGMV) est une initiative conjointe du
+          <strong>CIFOR-ICRAF</strong> et de
+          <strong>l’Organisation des Nations Unies pour l’alimentation et l’agriculture (FAO)</strong>,
+          financée par l’<strong>Union européenne</strong>. La plateforme rassemble
+          des récits, des données et des outils pour soutenir la prise de décision dans la région de la Grande Muraille Verte.
+        </p>
+
+          <p>
+          Vous pouvez explorer ici les données et récits de restauration à travers le Sahel et la Corne de l’Afrique,
+          accéder aux analyses et rapports sur l’état des terres, et suivre les principaux ateliers et événements.
+          Les <strong>tableaux de bord CAGMV</strong> propose des cartes et visualisations interactives
+          pour aider les partenaires à suivre l’évolution des paysages, évaluer les risques et opportunités,
+          et suivre les progrès vers les objectifs de la Grande Muraille Verte.
+        </p>
+
+          <div class="about-logos">
+            <img src="../assets/logo_header.png" alt="K4GGWA Partners">
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+</div>
+<div id="why-maps-teaser" class="why-maps-teaser">
+  <button class="why-maps-toggle" aria-expanded="false">
+    <span class="why-maps-labelwrap">
+      <span class="why-maps-label">POURQUOI DES CARTES ?</span>
+      <span class="why-maps-hline" aria-hidden="true"></span>
+    </span>
+  </button>
+</div>
+<section id="why-maps" class="why-maps-section is-collapsed">
+
+<div class="why-maps-backgrounds-wrapper">
+  <div class="why-maps-background is-active" data-step="0">
+    <img src="../assets/why1.png" alt="">
+  </div>
+  <div class="why-maps-background" data-step="1">
+    <img src="../assets/why5.jpg" alt="">
+  </div>
+  <div class="why-maps-background" data-step="2">
+    <img src="../assets/why3.png" alt="">
+  </div>
+  <div class="why-maps-background" data-step="3">
+    <img src="../assets/why6.png" alt="">
+  </div>
+</div>
+
+  <div class="why-maps-inner">
+
+<div class="why-maps-block why-maps-step step-0 is-active" data-step="0">
+  <div class="img"></div>
+  <div class="container">
+    <div class="step-content">
+      <div class="inner-box">
+        <span class="label">Évaluations du paysage</span>
+        <h2 class="anchored">Établir une compréhension claire et fondée sur des preuves des conditions du paysage</h2>
+        <p>
+          Utilisez des indicateurs haute résolution concernant la dynamique de la végétation, l’état des sols et le climat
+          pour comprendre les tendances et motifs à l’échelle du paysage et établir une base de référence fiable.
+          Les données spatiales permettent d’identifier les opportunités, les risques et les lacunes
+          pour soutenir une planification réaliste et rentable.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="why-maps-block why-maps-step step-1" data-step="1">
+  <div class="img"></div>
+  <div class="container">
+    <div class="step-content">
+      <div class="inner-box">
+        <span class="label">Ciblage et priorisation</span>
+        <h2 class="anchored">Concentrer les ressources là où la restauration a le plus de chances de produire un impact</h2>
+        <p>
+          Combinez plusieurs indicateurs pour identifier et prioriser les zones présentant un fort potentiel écologique
+          et des conditions favorables à la mise en œuvre. Cela soutient une utilisation stratégique des budgets limités,
+          réduit les risques des projets et crée une base commune, fondée sur des preuves, pour coordonner les partenaires.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="why-maps-block why-maps-step step-2" data-step="2">
+  <div class="img"></div>
+  <div class="container">
+    <div class="step-content">
+      <div class="inner-box">
+        <span class="label">Conception des interventions</span>
+        <h2 class="anchored">Ajuster les pratiques de restauration aux conditions locales pour de meilleures performances</h2>
+        <p>
+          Les données spatiales fournissent des informations essentielles sur les contraintes locales liées à la fertilité des sols,
+          la disponibilité en eau, l’exposition climatique et l’utilisation des terres, aidant les équipes à concevoir des
+          interventions techniquement viables et abordables. Optimisez la conception des projets, identifiez les compromis
+          et minimisez les surprises lors de la mise en œuvre.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="why-maps-block why-maps-step step-3" data-step="3">
+  <div class="img"></div>
+  <div class="container">
+    <div class="step-content">
+      <div class="inner-box">
+        <span class="label">Suivi, évaluation et apprentissage</span>
+        <h2 class="anchored">Quantifier les progrès, adapter les stratégies et démontrer les résultats</h2>
+        <p>
+          Suivez l’évolution des paysages avec des indicateurs spatiaux cohérents et réguliers pour comprendre
+          où les interventions sont efficaces et où des ajustements sont nécessaires. Des preuves quantifiées renforcent
+          la redevabilité, soutiennent la gestion adaptative et améliorent la confiance des bailleurs, partenaires
+          et communautés locales.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+
+  <span class="why-line line-colored">
+    <span class="why-line-filler"></span>
+  </span>
+
+  <span class="why-line line-track">
+    <div class="why-next-step">
+      <span class="why-icon-chevron"></span>
+    </div>
+  </span>
+
+</section>
+<div class="column-screen page-columns page-full section-light guidance-band" id="guidance-band">
+  <div class="column-screen-inset">
+    <div class="guidance-hero">
+      <div class="guidance-graphic guidance-graphic--big">
+        <div class="guidance-image">
+          <img src="../assets/toolkit_graphic_fr.png" alt="Boîte à outils de suivi de la restauration">
+        </div>
+
+        <svg class="guidance-overlay" viewbox="0 0 1300 600" preserveaspectratio="xMinYMid meet" aria-hidden="true">
+
+          <g transform="translate(0 -135)">
+            <g transform="translate(14 34)">
+              <g class="fan-wrap" transform="translate(-80 25)">
+                <g class="fan">
+
+                  <path class="g-line d1" d="M 905 290 C 1010 80, 1100 55, 1190 40"></path>
+                  <path class="g-line d2" d="M 905 290 C 1010 115, 1140 120, 1190 130"></path>
+                  <path class="g-line d3" d="M 905 290 C 1010 150, 1140 180, 1180 210"></path>
+                  <path class="g-line d4" d="M 905 290 C 1000 205, 1105 310, 1170 310"></path>
+
+                  <circle class="g-node d1" cx="1190" cy="40" r="10"></circle>
+                  <circle class="g-node d2" cx="1190" cy="130" r="10"></circle>
+                  <circle class="g-node d3" cx="1180" cy="210" r="10"></circle>
+                  <circle class="g-node d4" cx="1170" cy="310" r="10"></circle>
+
+
+                  <g class="g-label d1" transform="translate(1190 40)">
+                    <g class="g-label-inner">
+                      <rect class="g-label-bg" x="14" y="-28" rx="22" ry="22" width="360" height="58"></rect>
+                      <text class="g-label-text" x="194" y="6" dominant-baseline="middle">Diagnostic paysager</text>
+                    </g>
+                  </g>
+
+                  <g class="g-label d2" transform="translate(1190 130)">
+                    <g class="g-label-inner">
+                      <rect class="g-label-bg" x="14" y="-28" rx="22" ry="22" width="300" height="58"></rect>
+                      <text class="g-label-text" x="164" y="6" dominant-baseline="middle">Ciblage des sites</text>
+                    </g>
+                  </g>
+
+                  <g class="g-label d3" transform="translate(1180 210)">
+                    <g class="g-label-inner">
+                      <rect class="g-label-bg" x="14" y="-28" rx="22" ry="22" width="520" height="58"></rect>
+                      <text class="g-label-text" x="274" y="6" dominant-baseline="middle">Suivi, évaluation et apprentissage</text>
+                    </g>
+                  </g>
+
+                  <g class="g-label d4" transform="translate(1170 310)">
+                    <g class="g-label-inner">
+                      <rect class="g-label-bg" x="14" y="-28" rx="22" ry="22" width="420" height="48"></rect>
+                      <text class="g-label-text" x="224" y="6" dominant-baseline="middle">Conception des interventions</text>
+                    </g>
+                  </g>
+
+                </g>
+              </g>
+            </g>
+          </g>
+        </svg>
+
+        <div class="guidance-cta">
+          <h3 class="guidance-cta-title anchored">Explorer la boîte à outils de suivi de la restauration</h3>
+          <p class="guidance-cta-text">Une collection d’outils et de ressources pour soutenir un diagnostic paysager fondé sur des données, le ciblage des sites, la conception des interventions, le suivi et le reporting.</p>
+          <a class="btn-pill btn-secondary" href="../fr/content/toolkit/toolkit.html">LANCER LA BOÎTE À OUTILS</a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+<div class="column-screen page-columns page-full sol-section">
+  <div class="column-screen-inset sol-hero-inner">
+
+  <div class="sol-hero-text">
+    <p class="eyebrow">ÉTAT DES TERRES</p>
+    <h2 class="anchored">Rapport sur l’état des terres 2025</h2>
+    <p>
+      Une évaluation interactive et détaillée de la santé des terres, du risque climatique,
+      de la dynamique de la végétation et des opportunités de restauration à travers 
+      la région de la Grande Muraille Verte. Explorez des cartes, graphiques et récits 
+      reliant les tendances régionales aux réalités locales.
+    </p>
+    <p class="sol-hero-meta">
+      40 min • SPACIAL • Mis à jour le 25 sept. 2025
+    </p>
+
+    <span class="sol-hero-cta">
+      Lire le rapport
+    </span>
+  </div>
+
+  <a class="sol-hero-card" href="https://k4ggwa.thegrit.earth/content/state_of_land/reports/State_of_the_Land_Report/State_of_the_Land_Report_FR.html">
+    <div class="sol-hero-thumb">
+      <img src="../assets/sol_rep1.png" alt="State of the Land map preview">
+    </div>
+
+    <div class="sol-hero-card-body">
+      <span class="sol-hero-cta">
+        Lire le rapport
+        <i class="bi bi-arrow-right"></i>
+      </span>
+    </div>
+  </a>
+  </div>
+</div>
+<div class="column-screen page-columns page-full section-light">
+  <div class="column-screen-inset">
+
+    <h2 class="stories-heading anchored">Récits de restauration</h2>
+
+    <div id="listing-latest-content" class="quarto-listing quarto-listing-container-grid">
+<div class="listing-actions-group">
+   <div class="input-group input-group-sm quarto-listing-sort">
+    <span class="input-group-text"><i class="bi bi-sort-down"></i></span>
+    <select id="listing-latest-content-sort" class="form-select" aria-label="Order By" onchange="window['quarto-listings']['listing-latest-content'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
+      <option value="" disabled="" selected="" hidden="">Order By</option>
+      <option value="index" data-direction="asc">Default</option>
+      <option value="listing-title" data-direction="asc">
+        Title
+      </option>
+      <option value="listing-date-sort" data-direction="asc">
+        Date - Oldest
+      </option>
+      <option value="listing-date-sort" data-direction="desc">
+        Date - Newest
+      </option>
+      <option value="listing-author" data-direction="asc">
+        Author
+      </option>
+    </select>
+  </div>
+</div>
+<div class="list grid quarto-listing-cols-3">
+<div class="g-col-1" data-index="0" data-categories="cmVzdG9yYXRpb24lMkNiaW9kaXZlcnNpdHk=" data-listing-date-sort="1741996800000" data-listing-file-modified-sort="1772086784069" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="10">
+<a href="../content/restoration-stories/posts/15-03-2025/biodiv_story.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img loading="lazy" src="../content/restoration-stories/posts/15-03-2025/assets/thumbnail.png" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Biodiversity &amp; FMNR: An Interactive Story
+</h5>
+<div class="card-subtitle listing-subtitle">
+Learn about how FMNR practices shape dryland tree species diversity across the GGW
+</div>
+<div class="listing-reading-time card-text text-muted">1 min</div>
+<div class="card-attribution card-text-small justify">
+<div class="listing-author">
+SPACIAL | CIFOR-ICRAF
+</div>
+<div class="listing-date">
+Mar 15, 2025
+</div>
+</div>
+</div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="1" data-categories="cmVzdG9yYXRpb24lMkNjaXRpemVuLXNjaWVuY2UlMkNGTU5SJTJDdHJlZS1wbGFudGluZw==" data-listing-date-sort="1729814400000" data-listing-file-modified-sort="1772086784243" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="267">
+<a href="../content/restoration-stories/posts/26-10-2024/regreening_app_ethiopia.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img loading="lazy" src="../content/restoration-stories/posts/26-10-2024/images/ethiopia_landscape.jpg" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Regreening Ethiopia
+</h5>
+<div class="card-subtitle listing-subtitle">
+Citizen science and FMNR in Ethiopia
+</div>
+<div class="listing-reading-time card-text text-muted">2 min</div>
+<div class="card-attribution card-text-small justify">
+<div class="listing-author">
+CIFOR-ICRAF
+</div>
+<div class="listing-date">
+Oct 25, 2024
+</div>
+</div>
+</div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="2" data-categories="cmVzdG9yYXRpb24lMkNjaXRpemVuLXNjaWVuY2UlMkNGTU5S" data-listing-date-sort="1729814400000" data-listing-file-modified-sort="1772086784243" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="392">
+<a href="../content/restoration-stories/posts/26-10-2024/regreening_app_niger.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img loading="lazy" src="../content/restoration-stories/posts/26-10-2024/images/niger_carts.jpg" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Regreening Niger
+</h5>
+<div class="card-subtitle listing-subtitle">
+Citizen science and FMNR in Niger
+</div>
+<div class="listing-reading-time card-text text-muted">2 min</div>
+<div class="card-attribution card-text-small justify">
+<div class="listing-author">
+CIFOR-ICRAF
+</div>
+<div class="listing-date">
+Oct 25, 2024
+</div>
+</div>
+</div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="3" data-categories="cmVzdG9yYXRpb24lMkNjaXRpemVuLXNjaWVuY2UlMkNGTU5S" data-listing-date-sort="1729814400000" data-listing-file-modified-sort="1772086784243" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="256">
+<a href="../content/restoration-stories/posts/26-10-2024/regreening_app_senegal.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img loading="lazy" src="../content/restoration-stories/posts/26-10-2024/images/drs_banner_senegal.jpg" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Regreening Senegal
+</h5>
+<div class="card-subtitle listing-subtitle">
+Citizen science and FMNR in Senegal
+</div>
+<div class="listing-reading-time card-text text-muted">2 min</div>
+<div class="card-attribution card-text-small justify">
+<div class="listing-author">
+CIFOR-ICRAF
+</div>
+<div class="listing-date">
+Oct 25, 2024
+</div>
+</div>
+</div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="4" data-categories="cmVzdG9yYXRpb24lMkNjaXRpemVuLXNjaWVuY2UlMkNGTU5S" data-listing-date-sort="1729814400000" data-listing-file-modified-sort="1772086784244" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="279">
+<a href="../content/restoration-stories/posts/27-10-2024/regreening_app.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img loading="lazy" src="../content/restoration-stories/posts/27-10-2024/images/ra_app_1_new.jpg" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+The Regreening App
+</h5>
+<div class="card-subtitle listing-subtitle">
+Citizen science for scaling of restoration monitoring!
+</div>
+<div class="listing-reading-time card-text text-muted">2 min</div>
+<div class="card-attribution card-text-small justify">
+<div class="listing-author">
+CIFOR-ICRAF
+</div>
+<div class="listing-date">
+Oct 25, 2024
+</div>
+</div>
+</div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="5" data-categories="cmVzdG9yYXRpb24lMkNtYWNoaW5lLWxlYXJuaW5nJTJDbW9uaXRvcmluZw==" data-listing-date-sort="1729814400000" data-listing-file-modified-sort="1772086784246" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="314">
+<a href="../content/restoration-stories/posts/28-10-2024/restoration-predictive.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img loading="lazy" src="../content/restoration-stories/posts/28-10-2024/figs/LDSF_flow.jpg" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Predictive Modeling in Restoration
+</h5>
+<div class="card-subtitle listing-subtitle">
+What is predictive modelling for landscape restoration?
+</div>
+<div class="listing-reading-time card-text text-muted">2 min</div>
+<div class="card-attribution card-text-small justify">
+<div class="listing-author">
+CIFOR-ICRAF
+</div>
+<div class="listing-date">
+Oct 25, 2024
+</div>
+</div>
+</div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="6" data-categories="cmVzdG9yYXRpb24lMkNmbW5y" data-listing-date-sort="1728518400000" data-listing-file-modified-sort="1772086784132" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="119">
+<a href="../content/restoration-stories/posts/25-10-2024/fmnr.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img loading="lazy" data-src="../content/restoration-stories/posts/25-10-2024/images/ethiopia_acacia.jpg" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Farmer Managed Natural Regeneration (FMNR)
+</h5>
+<div class="card-subtitle listing-subtitle">
+What is Farmer Managed Natural Regeneration?
+</div>
+<div class="listing-reading-time card-text text-muted">1 min</div>
+<div class="card-attribution card-text-small justify">
+<div class="listing-author">
+CIFOR-ICRAF
+</div>
+<div class="listing-date">
+Oct 10, 2024
+</div>
+</div>
+</div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="7" data-listing-date-sort="1724630400000" data-listing-file-modified-sort="1772086784132" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1325">
+<a href="../content/restoration-stories/posts/20-03-2025/biodiv_bite3.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img loading="lazy" data-src="../content/restoration-stories/posts/20-03-2025/assets/thumbnail.png" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Biodiversity in the Hands of Communities
+</h5>
+<div class="listing-reading-time card-text text-muted">7 min</div>
+<div class="card-attribution card-text-small justify">
+<div class="listing-author">
+SPACIAL | CIFOR-ICRAF
+</div>
+<div class="listing-date">
+Aug 26, 2024
+</div>
+</div>
+</div>
+</div></a>
+</div>
+</div>
+<div class="listing-no-matching d-none">No matching items</div>
+<nav id="latest-content-pagination" class="listing-pagination" aria-label="Page Navigation">
+  <ul class="pagination"></ul>
+</nav>
+</div>
+
+    <div class="resource-carousel stories-carousel">
+      <button class="carousel-arrow left" aria-label="Previous stories">❮</button>
+      <div class="carousel-window">
+        <div class="carousel-track" id="stories-track"></div>
+      </div>
+      <button class="carousel-arrow right" aria-label="Next stories">❯</button>
+    </div>
+
+    <div class="carousel-dots stories-dots"></div>
+
+  </div>
+</div>
+<div class="column-screen section-cream dashboards-panel page-columns page-full">
+  <div class="column-screen-inset dashboards-layout">
+
+<div class="dashboards-text">
+  <div class="dashboards-eyebrow">TABLEAUX DE BORD</div>
+  <h2 class="dashboards-title anchored">
+    Explorer les tableaux de bord sur la santé des paysages de la Grande Muraille Verte
+  </h2>
+
+  <p>
+    Les tableaux de bord interactifs rassemblent données satellitaires, enquêtes de terrain
+    et informations sur les projets pour aider les partenaires à comprendre la santé des terres,
+    les risques climatiques et les opportunités de restauration dans la région de la GMV.
+  </p>
+
+  <p>
+    Filtrez par pays et unité administrative, explorez des indicateurs tels que
+    le carbone organique du sol, l’érosion et la couverture arborée, 
+    et téléchargez des statistiques pour soutenir la planification et le reporting.
+  </p>
+
+  <div class="dashboards-actions">
+    <a href="https://dashboards.cifor-icraf.org/" class="btn-pill btn-secondary" target="_blank" rel="noopener">
+      Ouvrir les tableaux de bord CAGMV
+    </a>
+
+    <a href="https://landscapeportal.thegrit.earth/#/" class="btn-pill btn-secondary" target="_blank" rel="noopener">
+      Explorer le Landscape Portal
+    </a>
+  </div>
+</div>
+
+<div class="dashboards-card">
+  <div class="dashboards-thumb">
+    <video class="dashboards-video" autoplay="" muted="" loop="" playsinline="" controls="">
+      <source src="../assets/demo_dash.mp4" type="video/mp4">
+    </video>
+  </div>
+  <p class="dashboards-caption">
+    Demo des tableaux de bord montrant les indicateurs de santé de terres à travers la GMV. 
+  </p>
+</div>
+  </div>
+</div>
+<div class="column-screen page-columns page-full section-light events-panel">
+  <div class="column-screen-inset events-section">
+<div class="events-header">
+  <h2 class="anchored">Ateliers et Événements</h2>
+  <a href="../content/events-workshops/events_workshops.html" class="events-view-all">
+    Voir tous les événements <span>→</span>
+  </a>
+</div>
+
+<div class="resource-carousel events-carousel">
+  <button class="carousel-arrow left events-arrow" aria-label="Previous event">❮</button>
+
+  <div class="carousel-window">
+    <div id="listing-workshops-events" class="quarto-listing quarto-listing-container-default">
+<div class="list quarto-listing-default">
+<div class="quarto-post image-right" data-index="0" data-categories="c2VuZWdhbCUyQ3JhbmdlbGFuZHMlMkNtb25pdG9yaW5nJTJDY29tbXVuaXR5" data-listing-date-sort="1759017600000" data-listing-file-modified-sort="1772086783500" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="9" data-listing-word-count-sort="1686">
+<div class="thumbnail"><a href="../content/events-workshops/workshops/ferlo-community-visit-aug25/comm-visit-ferlo-aug2025.html" class="no-external">
+
+<img loading="lazy" src="../content/events-workshops/workshops/ferlo-community-visit-aug25/images/img2.png" class="thumbnail-image">
+
+</a></div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../content/events-workshops/workshops/ferlo-community-visit-aug25/comm-visit-ferlo-aug2025.html" class="no-external">Community Perspectives on Restoration in the Louga Region</a>
+</h3>
+<div class="listing-subtitle">
+<a href="../content/events-workshops/workshops/ferlo-community-visit-aug25/comm-visit-ferlo-aug2025.html" class="no-external">Local Knowledge and Grassland Recovery in Younofere &amp; Tiafaly (Aug 2025)</a>
+</div>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('c2VuZWdhbA=='); return false;">senegal</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('cmFuZ2VsYW5kcw=='); return false;">rangelands</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('bW9uaXRvcmluZw=='); return false;">monitoring</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Y29tbXVuaXR5'); return false;">community</div>
+
+</div>
+<div class="delink listing-description"><a href="../content/events-workshops/workshops/ferlo-community-visit-aug25/comm-visit-ferlo-aug2025.html" class="no-external">
+<p>Community-led restoration practices and governance structures in Younofere and Tiafaly, documenting grassland recovery, collective management, and challenges in pastoral systems.</p>
+</a></div>
+</div>
+<div class="metadata">
+<a href="../content/events-workshops/workshops/ferlo-community-visit-aug25/comm-visit-ferlo-aug2025.html" class="no-external">
+<div class="listing-date">
+Sep 28, 2025
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="1" data-categories="c2VuZWdhbCUyQ2xkc2YlMkNkYXRhJTIwY29sbGVjdGlvbiUyQ2xhbmQlMjBoZWFsdGg=" data-listing-date-sort="1758499200000" data-listing-file-modified-sort="1772086783668" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="12" data-listing-word-count-sort="2358">
+<div class="thumbnail"><a href="../content/events-workshops/workshops/ldsf-survey-sept25/ldsf-survey-sept2025.html" class="no-external">
+
+<img loading="lazy" src="../content/events-workshops/workshops/ldsf-survey-sept25/images/ldsfsurv.jpg" class="thumbnail-image">
+
+</a></div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../content/events-workshops/workshops/ldsf-survey-sept25/ldsf-survey-sept2025.html" class="no-external">LDSF: Mapping Land Health in the Ferlo Region</a>
+</h3>
+<div class="listing-subtitle">
+<a href="../content/events-workshops/workshops/ldsf-survey-sept25/ldsf-survey-sept2025.html" class="no-external">LDSF and Regreening App Training - Linguère, Senegal (Aug 2025)</a>
+</div>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('c2VuZWdhbA=='); return false;">senegal</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('bGRzZg=='); return false;">ldsf</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('ZGF0YSUyMGNvbGxlY3Rpb24='); return false;">data collection</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('bGFuZCUyMGhlYWx0aA=='); return false;">land health</div>
+
+</div>
+<div class="delink listing-description"><a href="../content/events-workshops/workshops/ldsf-survey-sept25/ldsf-survey-sept2025.html" class="no-external">
+<p>Field deployment of the Land Degradation Surveillance Framework (LDSF) in the Ferlo region of Senegal, piloting the new Rangeland Module to track forage, grazing pressure, and recovery.</p>
+</a></div>
+</div>
+<div class="metadata">
+<a href="../content/events-workshops/workshops/ldsf-survey-sept25/ldsf-survey-sept2025.html" class="no-external">
+<div class="listing-date">
+Sep 22, 2025
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="2" data-categories="Y2FwYWNpdHklMjBidWlsZGluZyUyQ2RhdGElMjBjb2xsZWN0aW9uJTJDY2l0aXplbi1zY2llbmNlJTJDbGFuZCUyMGhlYWx0aA==" data-listing-date-sort="1758499200000" data-listing-file-modified-sort="1772086783693" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="11" data-listing-word-count-sort="2116">
+<div class="thumbnail"><a href="../content/events-workshops/workshops/senegal-wkshp-aug25/senegal-wkshp-aug25.html" class="no-external">
+
+<img loading="lazy" src="../content/events-workshops/workshops/senegal-wkshp-aug25/images/thumbnail_sngl.png" class="thumbnail-image">
+
+</a></div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../content/events-workshops/workshops/senegal-wkshp-aug25/senegal-wkshp-aug25.html" class="no-external">Building Capacity for Restoration Monitoring</a>
+</h3>
+<div class="listing-subtitle">
+<a href="../content/events-workshops/workshops/senegal-wkshp-aug25/senegal-wkshp-aug25.html" class="no-external">LDSF and Regreening App Training - Linguère, Senegal (Aug 2025)</a>
+</div>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('Y2FwYWNpdHklMjBidWlsZGluZw=='); return false;">capacity building</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('ZGF0YSUyMGNvbGxlY3Rpb24='); return false;">data collection</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Y2l0aXplbi1zY2llbmNl'); return false;">citizen-science</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('bGFuZCUyMGhlYWx0aA=='); return false;">land health</div>
+
+</div>
+<div class="delink listing-description"><a href="../content/events-workshops/workshops/senegal-wkshp-aug25/senegal-wkshp-aug25.html" class="no-external">
+<p>Training in LDSF field methods and the Regreening App to strengthen evidence-based restoration monitoring across the Great Green Wall.</p>
+</a></div>
+</div>
+<div class="metadata">
+<a href="../content/events-workshops/workshops/senegal-wkshp-aug25/senegal-wkshp-aug25.html" class="no-external">
+<div class="listing-date">
+Sep 22, 2025
+</div>
+</a>
+</div>
+</div>
+</div>
+<div class="listing-no-matching d-none">No matching items</div>
+</div>
+  </div>
+
+  <button class="carousel-arrow right events-arrow" aria-label="Next event">❯</button>
+</div>
+
+<div class="carousel-dots events-dots"></div>
+
+  </div>
+</div>
+
+
+
+
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
+<footer class="k4ggwa-footer">
+  <div class="footer-inner">
+
+    <div class="footer-left">
+      <h4>Contact</h4>
+      <p>Email: <a href="mailto:t.vagen@cifor-icraf.org">t.vagen@cifor-icraf.org</a></p>
+
+      <div class="footer-spacial">
+        <img src="../assets/logo_spacial.png" alt="SPACIAL Lab" class="footer-spacial-logo">
+      </div>
+
+      <a class="footer-pill" href="https://www.cifor-icraf.org/k4ggwa/" target="_blank" rel="noopener">
+        Visit K4GGWA Website →
+      </a>
+    </div>
+
+    <div class="footer-mid">
+
+      <div class="footer-links-col">
+        <div class="footer-label">Learn more</div>
+        <a href="../content/restoration-stories/restoration_stories.html">Stories of Restoration</a>
+        <a href="../content/state_of_land/state_of_land.html">State of the Land</a>
+        <a href="../content/state_of_land/tutorials/intro.html">Tutorials</a>
+        <a href="../content/events-workshops/events_workshops.html">Events &amp; Workshops</a>
+      </div>
+
+      <div class="footer-links-col">
+        <div class="footer-label">Tools &amp; resources</div>
+        <a href="https://ldsf.thegrit.earth/" target="_blank" rel="noopener">LDSF</a>
+        <a href="https://dashboards.cifor-icraf.org/app/k4ggwa" target="_blank" rel="noopener">Dashboards</a>
+        <a href="https://landscapeportal.thegrit.earth/#/">Landscape Portal</a>
+        <a href="https://play.google.com/store/apps/details?id=com.icraf.gsl.regreeningafrica" target="_blank" rel="noopener">Regreening App</a>
+      </div>
+
+    </div>
+
+    <div class="footer-right">
+      <div class="footer-block">
+        <div class="footer-label">Funded by</div>
+        <img src="../assets/logo_eu.png" alt="EU Flag" class="footer-logo-single">
+      </div>
+
+      <div class="footer-right-divider"></div>
+
+      <div class="footer-block">
+        <div class="footer-label">Implemented by</div>
+        <div class="footer-logos">
+          <img src="../assets/logo_icraf.png" alt="ICRAF">
+          <img src="../assets/logo_fao.png" alt="FAO">
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    <div class="footer-bottom-inner">
+      <p class="footer-copy">© 2025 Knowledge for Great Green Wall Action</p>
+    </div>
+  </div>
+
+</footer>
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/k4ggwa\.thegrit\.earth");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<script src="../build/carousels.js"></script>
+<script src="../build/metrics.js"></script>
+<script src="../build/whymap.js"></script>
+<script src="../build/sidebar.js"></script>
+<script src="../build/navbar-fr.js"></script>
+<script src="../build/toolkit.js"></script>
+<script src="../build/toolkit-homepage.js"></script>
+
+
+
+
+</body></html>
