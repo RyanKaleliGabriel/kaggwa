@@ -1,0 +1,73 @@
+---
+pagetitle: "K4GGWA - Regreening Senegal"
+date: "2024-10-25"
+author: "CIFOR-ICRAF"
+subtitle: "Citizen science and FMNR in Senegal"
+description: "In Senegal, the Regreening App was widely adopted to document Farmer Managed Natural Regeneration (FMNR) activities, helping to monitor and assess the impact of regreening interventions, particularly in Fatick, Kaffrine, and Kaolak regions."
+page-layout: full
+toc: true
+image: images/drs_banner_senegal.jpg
+categories: ["restoration", "citizen-science", "FMNR"]
+format: html
+---
+
+## Regreening Senegal
+
+![](images/drs_banner_senegal.jpg)
+
+The Regrenning App was developed to help farmers, extension agents, NGOs, and other stakeholders to track land restoration interventions. In Senegal, the app is primarily used to assess and monitor Farmer Managed Natural Regeneration (FMNR) and other regreening activities.
+
+As shown in the map below (@fig-fmnr_map), the app has been used to document the location of FMNR sites across the country. The data collected through the app is used to monitor the progress of regreening activities and to assess the impact of these interventions on the environment and local communities.
+
+
+```{r}
+#| include: false
+
+library(data.table)
+library(plotly)
+library(leaflet)
+library(leaflet.extras)
+library(duckdb)
+library(stringr)
+
+con <- dbConnect(duckdb())
+
+# Load data
+query.fmnr <- "
+  SELECT *
+  FROM 'data/fmnr_proc.parquet'
+  WHERE country LIKE 'Senegal' AND survey_name LIKE 'Regreening Africa'
+  "
+
+fmnr_dat <- con |>
+    dbSendQuery(query.fmnr) |>
+    dbFetch() |>
+    data.table()
+
+fmnr_dat <- fmnr_dat[, lon := tree_longitude]
+fmnr_dat <- fmnr_dat[, lat := tree_latitude]
+fmnr_dat <- fmnr_dat[, district_commune_woreda := str_to_title(district_commune_woreda)]
+fmnr_dat <- fmnr_dat[!is.na(district_commune_woreda)]
+fmnr_dat <- fmnr_dat[, country := str_to_title(country)]
+fmnr_dat <- fmnr_dat[, species := scientificName]
+fmnr_dat <- fmnr_dat[, lng := as.numeric(as.character(tree_longitude))]
+fmnr_dat <- fmnr_dat[, lat := as.numeric(as.character(tree_latitude))]
+
+fmnr_ethiopia <- fmnr_dat[!is.na(lon) & !is.na(lat)]
+```
+
+
+```{r}
+#| echo: false
+#| warning: false
+#| label: fig-fmnr_map
+#| fig-cap: Map showing the location of trees under FMNR in Senegal. The data was collectd by lead farmers and implementing partners using the Regreening App. The colors in the heatmap represent the density of observations in the area.
+
+fmnr_ethiopia |>
+    leaflet() |>
+    addTiles() |>
+    leaflet.extras::addHeatmap(
+        lng = ~lon,
+        lat = ~lat
+    )
+```

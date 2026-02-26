@@ -1,0 +1,19 @@
+/_site/
+/_freeze/
+/site_libs/
+.quarto/
+
+/assets/*.tif
+/.quarto/
+
+# renv
+renv/library/
+renv/local/
+renv/cellar/
+renv/lock/
+renv/python/
+renv/sandbox/
+renv/staging/
+.Rhistory
+.RData
+.Rproj.user

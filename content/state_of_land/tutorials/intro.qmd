@@ -1,0 +1,29 @@
+---
+title: "Tutorials"
+subtitle: "Foundations for understanding spatial data and land health indicators"
+
+sidebar: tutorials
+
+body-classes: tutorials-book
+
+format:
+  html:
+    toc: true
+    toc-location: right
+
+---
+
+
+## Welcome!
+
+The K4GGWA Tutorials hub explains, in plain language, how spatial data underpins
+K4GGWA’s work on land health and restoration across the Great Green Wall.
+
+This first module focuses on spatial data **foundations**. It is designed for decision-makers,
+practitioners, and analysts who want to understand what the maps show and how to
+use them effectively.
+
+Later modules will provide **hands-on workflows** in R, Python, and Google Earth Engine,
+linked to example notebooks and datasets.
+
+Let's get started!

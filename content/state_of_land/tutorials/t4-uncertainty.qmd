@@ -1,0 +1,88 @@
+---
+title: "Tutorial 3: Map uncertainty 101"
+sidebar: tutorials
+body-classes: tutorials-book
+format:
+  html:
+    toc: true
+    toc-location: right
+---
+
+*Why no map is ever “the whole truth,” and how to use spatial evidence responsibly.*
+
+## 3.1 Where uncertainty comes from
+
+- **Measurement error**:
+  - Field measurements (e.g., soil samples, tree counts) have natural variability and possible errors.
+  - Satellite sensors have limitations in resolution, cloud cover, sensor noise, and retrieval algorithms.
+- **Model uncertainty**:
+  - Different modelling choices (type of model, predictors used, parameter settings) can lead to different predictions.
+  - Models may fit some environments better than others (e.g., data-rich vs. data-poor regions).
+- **Data gaps and coverage**:
+  - Some areas have more field data or higher-quality satellite observations than others.
+  - In data-scarce regions, models are forced to “guess” based on patterns learned elsewhere.
+- **Temporal mismatch**:
+  - Field data and satellite data may come from slightly different years or seasons.
+  - Land use may have changed since the data were collected.
+
+## 3.2 How uncertainty can be expressed
+
+- Uncertainty can be represented in several ways:
+  - **Error statistics**:
+    - A summary of how far predictions tend to be from observed values (e.g., root mean square error).
+  - **Confidence intervals or ranges**:
+    - For each location, a range of likely values instead of a single number.
+  - **Uncertainty classes or masks**:
+    - Simple categories (e.g., low / medium / high uncertainty) mapped across the region.
+    - Masks showing areas where predictions should be treated with extra caution (e.g., outside data domain).
+- For users, the most practical representations are:
+  - Additional **uncertainty layers** alongside main indicators.
+  - Clear **legends and descriptions** explaining what the uncertainty values mean.
+
+## 3.3 How to read uncertainty on K4GGWA maps and dashboards
+
+- When uncertainty information is available:
+  - Look for **map layers or views** labelled as uncertainty, confidence, or data density.
+  - Compare these maps with the main indicator maps to see:
+    - Where the indicator is **both high (or low) and confident**.
+    - Where the indicator is **uncertain**, even if the values look extreme.
+- Questions to ask:
+  - Are the areas I am interested in mainly **high-confidence** or **low-confidence** zones?
+  - Does the level of uncertainty change between countries or regions?
+  - Are there patterns in uncertainty (e.g., highest in remote or under-sampled areas)?
+- Interpretation:
+  - High uncertainty does *not* mean the indicator is wrong; it means we should be more cautious.
+  - In high-uncertainty zones, it may be especially important to:
+    - Use local knowledge.
+    - Prioritise field verification.
+    - Avoid making decisions based solely on the map.
+
+## 3.4 Using maps responsibly in decision-making
+
+- Good practice when using uncertain maps:
+  - **Combine multiple sources of evidence**:
+    - Maps, local knowledge, field observations, existing reports, and monitoring data.
+  - **Communicate uncertainty openly**:
+    - When presenting maps, explain which areas and indicators are more or less reliable.
+    - Use language such as “likely”, “approximate”, or “indicative” where appropriate.
+  - **Avoid over-precision**:
+    - Do not treat pixel-level differences as exact.
+    - Focus on **patterns and gradients**, not single-pixel values.
+- Example applications:
+  - Use high-confidence areas to **prioritise** interventions and demonstrate impact.
+  - Use uncertain areas to **target further assessment**, field surveys, or pilot projects.
+- The key message:
+  - Uncertainty is an essential part of honest, evidence-based decision-making.
+  - Maps remain valuable even when uncertain, as long as their limits are understood and respected.
+
+## 3.5 Linking uncertainty back to learning
+
+- Uncertainty can guide **where to improve data and models**:
+  - Highlight regions where additional field data would most improve predictions.
+  - Inform planning of new surveys, monitoring campaigns, or partnerships.
+- Over time:
+  - As more data and better models become available, uncertainty can be reduced.
+  - Tracking uncertainty across versions of a map shows **progress in knowledge**, not just changes on the ground.
+- For K4GGWA:
+  - Treating uncertainty transparently is part of building **trust** with partners and stakeholders.
+  - It supports a culture of **learning**, where evidence is continuously refined rather than treated as fixed.

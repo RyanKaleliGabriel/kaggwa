@@ -1,0 +1,366 @@
+/* Subpages - keeps some quarto overrides to prevent issues with quarto default gridding */
+
+/* Hero layout */
+
+body.subpage .sub-hero,
+.sub-hero {
+  position: relative;
+  width: 100%;
+  margin: 0;
+  transform: none;
+  padding: 5rem 0 6rem;
+  color: #ffffff;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: #0b2f38;
+}
+
+body.subpage main#quarto-document-content.page-columns > .sub-hero,
+main#quarto-document-content.page-columns > .sub-hero {
+  grid-column: 1 / -1;
+}
+
+body.subpage .sub-hero::before,
+.sub-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0,0,0,0.72) 0%,
+    rgba(0,0,0,0.62) 35%,
+    rgba(0,0,0,0.35) 75%,
+    rgba(0,0,0,0.25) 100%
+  );
+  z-index: 0;
+}
+
+body.subpage .sub-hero-inner,
+.sub-hero-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+body.subpage .sub-hero-eyebrow,
+.sub-hero-eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-size: 0.85rem;
+  opacity: 0.85;
+  margin-bottom: 0.8rem;
+}
+
+body.subpage .sub-hero-title,
+.sub-hero-title {
+  margin: 0 0 1rem;
+  font-size: clamp(2rem, 3vw, 3rem);
+  font-weight: 700;
+}
+
+body.subpage .sub-hero-subtitle,
+.sub-hero-subtitle {
+  margin: 0;
+  font-size: 1.2rem;
+  max-width: 60ch;
+  opacity: 0.9;
+}
+
+/* offset gap fix*/
+body.subpage.nav-fixed {
+  padding-top: 0 !important; 
+}
+
+body.subpage header#quarto-header.fixed-top {
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 1030;
+}
+
+body.subpage header#quarto-header.headroom {
+  transform: none !important;
+}
+
+
+/* Page layout */
+
+body.subpage .sub-layout,
+.sub-layout {
+  display: grid;
+  grid-template-columns: 280px minmax(0, 1fr);
+  column-gap: 5rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  align-items: flex-start;
+  padding: 3rem 2rem 4rem !important;
+}
+
+/* left column fixed */
+body.subpage .sub-meta,
+.sub-meta {
+  grid-column: 1;
+  position: sticky;
+  top: 120px;
+  align-self: flex-start;
+}
+
+body.subpage .sub-meta-inner,
+.sub-meta-inner {
+  border-left: 4px solid #94a3b8;
+  padding-left: 1rem;
+}
+
+/* right column scrolls */
+body.subpage .sub-main,
+.sub-main {
+  grid-column: 2;
+  min-width: 0;
+  max-width: 800px;
+  background: #ffffff;
+  padding: 2.5rem 3rem;
+  border-radius: 8px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+}
+
+body.subpage .sub-meta-label,
+.sub-meta-label {
+  text-transform: uppercase;
+  color: #ffffff;
+  font-size: 0.8rem;
+  letter-spacing: 0.15em;
+  opacity: 1;
+  margin-bottom: 1rem;
+}
+
+body.subpage .meta-badge,
+.meta-badge {
+  display: inline-block;
+  padding: 0.25rem 0.9rem;
+  border-radius: 999px;
+  background: #E4F0FF;
+  color: #0f172a;
+  font-size: 0.8rem;
+  font-weight: 500;
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+body.subpage .sub-meta-text,
+.sub-meta-text {
+  margin-top: 1.2rem;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: #4b5563;
+}
+
+/* quarto overrides*/
+body.subpage .sub-layout,
+.subpage .sub-layout {
+  display: grid !important;
+  grid-template-columns: 280px minmax(0, 1fr) !important;
+  column-gap: 4rem;
+  max-width: 1400px;
+  margin: 2.5rem auto 4rem;
+  padding: 0 2rem;
+  align-items: flex-start;
+}
+
+body.subpage .sub-layout > .sub-meta,
+.subpage .sub-layout > .sub-meta {
+  grid-column: 1 !important;
+}
+
+body.subpage .sub-layout > .sub-main,
+.subpage .sub-layout > .sub-main {
+  grid-column: 2 !important;
+  min-width: 0;
+}
+
+
+body.subpage #quarto-document-content.content.page-columns.page-full,
+.subpage #quarto-document-content.content.page-columns.page-full {
+  background: #ffffff !important;
+  width: 100vw !important;
+  max-width: 100vw !important;
+  margin-left: 50% !important;
+  transform: translateX(-50%) !important;
+  padding: 0 !important;
+}
+
+.sub-main,
+.sub-main .cell,
+body.subpage .sub-main,
+body.subpage .sub-main .cell {
+  background: none !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+
+body.home-page header.quarto-title-block,
+body.subpage header.quarto-title-block {
+  display: none;
+  margin: 0;
+  padding: 0;
+  border: none;
+  min-height: 0;
+}
+
+.section-divider {
+  border: 0;
+  height: 1px;
+  width: 100%;
+  margin: 2.5rem 0;
+  background: rgba(0, 0, 0, 0.32);
+}
+
+main#quarto-document-content.page-columns > .sub-hero,
+main#quarto-document-content.page-columns > .k4ggwa-footer {
+  grid-column: 1 / -1;
+}
+
+/* Variant */
+
+body.subpage.insight .sub-main,
+body.insight .sub-main {
+  max-width: 880px;
+  padding: 2.75rem 3.2rem;
+  border-radius: 14px;
+  background: rgba(255,255,255,0.92);
+  border: 1px solid rgba(15,23,42,0.08);
+  box-shadow: 0 16px 50px rgba(2,8,23,0.08);
+}
+
+body.subpage.insight .sub-layout,
+body.insight .sub-layout {
+  margin-top: -4.5rem;
+  position: relative;
+  z-index: 2;
+}
+
+body.subpage.insight .sub-hero,
+body.insight .sub-hero {
+  padding-bottom: 7.5rem;
+}
+
+body.subpage.insight .insight-lede,
+body.insight .insight-lede {
+  font-size: 1.12rem;
+  line-height: 1.7;
+  color: #0f172a;
+  padding: 1rem 1.1rem;
+  border-left: 7px solid #d1bcbc;
+  background: #fdf4ef;
+  border-radius: 12px;
+}
+
+body.subpage.insight .insight-takeaways,
+body.insight .insight-takeaways {
+  margin-top: 1.25rem;
+  padding: 1.1rem 1.2rem;
+  border-radius: 14px;
+  background: #0b2f38;
+  color: #f8fafc;
+  box-shadow: 0 14px 38px rgba(2,8,23,0.14);
+}
+
+body.subpage.insight .insight-takeaways h3,
+body.insight .insight-takeaways h3 {
+  margin: 0 0 .55rem;
+  font-size: 1.5rem;
+  font-weight: 900;
+}
+
+body.subpage.insight .insight-takeaways ul,
+body.insight .insight-takeaways ul {
+  margin: 0;
+  padding-left: 1.1rem;
+  line-height: 1.6;
+}
+
+body.subpage.insight .insight-mini,
+body.insight .insight-mini {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0,1fr));
+  gap: .8rem;
+  margin-top: .7rem;
+}
+
+body.subpage.insight .insight-mini > div,
+body.insight .insight-mini > div {
+  background: rgba(255,255,255,0.65);
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 12px;
+  padding: .7rem .75rem;
+}
+
+body.subpage.insight .insight-mini strong,
+body.insight .insight-mini strong {
+  display:block;
+  font-size: 1.05rem;
+}
+
+body.subpage.insight .insight-mini span,
+body.insight .insight-mini span {
+  display:block;
+  font-size: .85rem;
+  color: #4b5563;
+  margin-top: .15rem;
+}
+
+body.subpage.insight .insight-img-row,
+body.insight .insight-img-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin: 1.25rem 0;
+}
+
+body.subpage.insight .insight-img-row img,
+body.insight .insight-img-row img {
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
+  box-shadow: 0 10px 26px rgba(2,8,23,0.10);
+}
+
+body.subpage.insight figure,
+body.insight figure {
+  margin: 1.6rem 0;
+}
+
+body.subpage.insight figure img,
+body.insight figure img {
+  border-radius: 18px;
+  box-shadow: 0 12px 30px rgba(2,8,23,0.10);
+}
+
+/* Responsive */
+
+@media (max-width: 900px){
+  body.subpage.insight .sub-layout,
+  body.insight .sub-layout{
+    grid-template-columns: 1fr;
+    row-gap: 1.5rem;
+  }
+
+  body.subpage.insight .sub-meta,
+  body.insight .sub-meta{
+    position: static;
+    top: auto;
+  }
+
+  body.subpage.insight .insight-img-row,
+  body.insight .insight-img-row{
+    grid-template-columns: 1fr;
+  }
+
+  body.subpage.insight .sub-main,
+  body.insight .sub-main{
+    padding: 2rem 1.4rem;
+  }
+}

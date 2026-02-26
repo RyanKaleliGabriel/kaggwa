@@ -1,0 +1,17 @@
+---
+pagetitle: "Farmer Managed Natural Regeneration (FMNR) - What is it?"
+date: "2024-10-10"
+author: "CIFOR-ICRAF"
+subtitle: "What is Farmer Managed Natural Regeneration?"
+description: "Low-input restoration practices for dryland landscapes"
+page-layout: full
+toc: true
+image: images/ethiopia_acacia.jpg
+categories: ["restoration", "fmnr"]
+format: html
+---
+## Farmer Managed Natural Regeneration (FMNR)
+
+![](images/ethiopia_acacia.jpg)
+
+Farmer Managed Natural Regeneration (FMNR) has been practiced in many parts of the world for a very long time. In the Sahel, for example, research suggests that these types of practices have been around for centuries. In the 1980s, Tony Rinaudo, an Australian agronomist, began promoting FMNR in Niger as a way to restore degraded land and improve agricultural productivity. Since then, FMNR has been adopted in many countries across Africa and beyond. It is a low-cost, sustainable land restoration technique that involves the systematic regrowth and management of trees and shrubs from living stumps, roots, and seeds. Hence, FMNR is often considered a simple and effective way to restore degraded land, improve soil fertility, and increase agricultural productivity.

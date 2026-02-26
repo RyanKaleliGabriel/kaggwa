@@ -1,0 +1,1241 @@
+---
+format:
+  html:
+    toc: false
+body-classes: subpage toolkit
+---
+
+```{=html}
+<div class="sub-hero sub-hero-toolkit">
+  <div class="sub-hero-inner">
+    <div class="sub-hero-eyebrow">K4GGWA</div>
+    <h1 class="sub-hero-title">Boîte à outils de suivi de la restauration</h1>
+    <p class="sub-hero-subtitle">
+      Un établi d’aide à la décision pour le diagnostic, le ciblage, la conception, le suivi et le reporting, fondé sur des indicateurs harmonisés et des analyses spatiales de pointe.
+    </p>
+  </div>
+</div>
+
+<div class="sub-layout toolkit-layout">
+  <aside class="sub-meta toolkit-meta">
+    <div class="sub-meta-inner">
+
+      <div class="sub-meta-label">Parcours de la boîte à outils</div>
+
+      <div class="toolkit-nav-wrap">
+        <div class="toolkit-rail" aria-hidden="true">
+            <span class="toolkit-rail-thumb"></span>
+        </div>
+
+        <div class="toolkit-nav">
+            <a class="toolkit-nav-item" href="#assessment">
+            <span class="toolkit-nav-num">01</span>
+            <span class="toolkit-nav-title">Diagnostic paysager</span>
+            </a>
+            <a class="toolkit-nav-item" href="#targeting">
+            <span class="toolkit-nav-num">02</span>
+            <span class="toolkit-nav-title">Ciblage et priorisation</span>
+            </a>
+            <a class="toolkit-nav-item" href="#design">
+            <span class="toolkit-nav-num">03</span>
+            <span class="toolkit-nav-title">Conception des interventions</span>
+            </a>
+            <a class="toolkit-nav-item" href="#monitoring">
+            <span class="toolkit-nav-num">04</span>
+            <span class="toolkit-nav-title">Suivi et gestion adaptative</span>
+            </a>
+            <a class="toolkit-nav-item" href="#reporting">
+            <span class="toolkit-nav-num">05</span>
+            <span class="toolkit-nav-title">Reporting et apprentissage</span>
+            </a>
+        </div>
+    </div>
+
+      <hr class="section-divider" />
+
+      <div class="sub-meta-label">Mode d’emploi</div>
+      <p class="sub-meta-text">
+        Commencez par l’étape qui correspond à votre décision. Chaque panneau contient une sélection d’outils et de ressources, conçus pour fonctionner ensemble tout au long du cycle de restauration.
+      </p>
+
+      <div class="sub-meta-badges">
+        <span class="meta-badge">Aide à la décision</span>
+        <span class="meta-badge">Multi-indicateurs</span>
+      </div>
+
+    </div>
+  </aside>
+
+  <main class="sub-main toolkit-main">
+
+    <div class="toolkit-intro">
+        <div class="toolkit-cycle-graphic">
+        <img
+            src="/assets/toolkit_graphic_fr.png"
+            alt="Cycle de décision en restauration : diagnostic, ciblage, conception, suivi et reporting"
+        />
+        </div>
+        <hr class="section-divider" />
+    </div>
+
+    <!-- 01 -->
+    <section class="toolkit-panel" id="assessment">
+        <button
+            type="button"
+            class="toolkit-panel-toggle toolkit-panel-head"
+            aria-expanded="false"
+            aria-controls="assessment-body"
+        >
+            <div class="toolkit-panel-num">01</div>
+            <div class="toolkit-panel-text">
+            <h2 class="toolkit-panel-title">Diagnostic paysager</h2>
+            <p class="toolkit-panel-subtitle">
+                Comprendre les conditions initiales des terres, les motifs de dégradation et les facteurs de stress climatiques à l’aide d’indicateurs harmonisés et spatialement explicites.
+            </p>
+            </div>
+        </button>
+
+        <div class="toolkit-panel-body" id="assessment-body">
+
+            <div class="toolkit-section-explainer">
+                <p>
+                Le diagnostic paysager est la base d’une planification de la restauration efficace. Il est essentiel de comprendre l’état actuel des terres, les processus de dégradation et les facteurs de stress climatiques avant de décider où et comment intervenir.
+                </p>
+
+                <p>
+                Plutôt que de s’appuyer sur un seul indicateur proxy de la santé des terres, le diagnostic intègre plusieurs indicateurs (état des sols, prévalence de l’érosion, dynamique de la végétation, variabilité climatique, etc.) afin de mieux saisir les différentes dimensions du fonctionnement des écosystèmes et de leur vulnérabilité.
+                </p>
+
+                <p>
+                Cette approche multi-indicateurs permet d’analyser les tendances et motifs à l’échelle du paysage au fil du temps, de distinguer la dégradation de long terme de la variabilité de court terme, et d’établir une ligne de base défendable à partir de laquelle mesurer les changements futurs.
+                </p>
+            </div>
+
+            <div class="toolkit-callout toolkit-callout-evidence">
+                <h4 class="toolkit-callout-title">
+                    Pourquoi les preuves spatiales comptent à cette étape
+                </h4>
+                <div class="toolkit-callout-row">
+                    <div class="toolkit-callout-media">
+                    <img
+                        src="/assets/toolkit/assessment_map.png"
+                        alt="Carte de motifs spatiaux à l’échelle du paysage"
+                        loading="lazy"
+                    >
+                    </div>
+
+                    <div class="toolkit-callout-text">
+                    <p>
+                        Les conditions du paysage peuvent varier fortement dans l’espace. Les cartes permettent d’identifier des motifs, gradients ou contraintes potentielles qui restent invisibles dans des statistiques agrégées ou lorsqu’on n’utilise qu’un seul type d’indicateur. Comprendre les motifs et conditions à l’échelle du paysage est crucial pour les décisions en aval en matière de gestion des risques, de ciblage des sites et de conception des interventions.
+                    </p>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="toolkit-stakeholder-benefits">
+                <h4>À qui cela sert</h4>
+
+                <div class="toolkit-stakeholder-grid">
+
+                    <div class="toolkit-stakeholder">
+                    <div class="toolkit-stakeholder-icon">
+                        <img src="/assets/toolkit/govt_icon.png" alt="Acteurs gouvernementaux">
+                    </div>
+                    <div class="toolkit-stakeholder-title">Gouvernements</div>
+                    <div class="toolkit-stakeholder-desc">
+                        Appuie une planification défendable, la coordination intersectorielle et des décisions de politique publique fondées sur des preuves.
+                    </div>
+                    </div>
+
+                    <div class="toolkit-stakeholder">
+                    <div class="toolkit-stakeholder-icon">
+                        <img src="/assets/toolkit/ngo_icon.svg" alt="ONG et acteurs de mise en œuvre">
+                    </div>
+                    <div class="toolkit-stakeholder-title">ONG et acteurs de mise en œuvre</div>
+                    <div class="toolkit-stakeholder-desc">
+                        Réduit les risques et améliore l’allocation des ressources en comprenant les motifs et tendances à l’échelle du paysage avant le démarrage des interventions.
+                    </div>
+                    </div>
+
+                    <div class="toolkit-stakeholder">
+                    <div class="toolkit-stakeholder-icon">
+                        <img src="/assets/toolkit/donor_icon.svg" alt="Bailleurs et partenaires">
+                    </div>
+                    <div class="toolkit-stakeholder-title">Bailleurs et partenaires</div>
+                    <div class="toolkit-stakeholder-desc">
+                        Établit un point de référence commun, transparent et robuste pour des décisions d’investissement responsables.
+                    </div>
+                    </div>
+
+                </div>
+            </div>
+            
+
+            <div class="toolkit-feature">
+                <div class="toolkit-feature-left">
+                <div class="toolkit-feature-kicker">
+                    <span class="toolkit-feature-label">RAPPORT</span>
+                    <span class="toolkit-feature-pill">À la une</span>
+                </div>
+
+                <h3 class="toolkit-feature-title">État des Terres</h3>
+
+                <p class="toolkit-feature-desc">
+                    Rapport interactif guidant le lecteur dans l’interprétation de différents indicateurs spatiaux (climat, santé des sols, dynamique de la végétation et dégradation) pour la région de la GMV.
+                </p>
+
+                <div class="toolkit-feature-bullets">
+                    <div class="tf-bullet"><span class="tf-dot"></span><span>Approche <strong>multi-indicateurs</strong> pour le diagnostic paysager</span></div>
+                    <div class="tf-bullet"><span class="tf-dot"></span><span><strong>Cartes + interprétation</strong> pour appuyer les décisions de politique et de programme</span></div>
+                    <div class="tf-bullet"><span class="tf-dot"></span><span><strong>Interactif</strong>, avec des liens vers des outils et des jeux de données</span></div>
+                </div>
+
+                <div class="toolkit-feature-ctas">
+                    <a class="toolkit-feature-cta primary" href="https://k4ggwa.thegrit.earth/content/state_of_land/reports/State_of_the_Land_Report/State_of_the_Land_Report.html">Explorer le rapport →</a>
+                </div>
+                </div>
+
+                <div class="toolkit-feature-right">
+                <div class="toolkit-feature-media">
+                    <img
+                    src="/assets/toolkit/sol_rep1.png"
+                    alt="Couverture du rapport « État des Terres »"
+                    loading="lazy"
+                    />
+                </div>
+                </div>
+            </div>
+
+            <div class="toolkit-cards">
+                <a class="toolkit-card" href="https://dashboards.cifor-icraf.org/app/k4ggwa">
+                    
+                <div class="toolkit-card-thumb">
+                    <img src="/assets/toolkit/dashboards1.png" alt="Aperçu des tableaux de bord K4GGWA">
+                </div>
+
+                <div class="toolkit-card-top">
+                    <div class="toolkit-card-title">Tableaux de bord K4GGWA</div>
+                    <div class="toolkit-card-tag">Tableau de bord</div>
+                </div>
+                <p class="toolkit-card-desc">
+                    Explorer interactivement et à différentes échelles le COS, le risque d’érosion, la dynamique de la végétation et les paramètres climatiques.
+                </p>
+                <div class="toolkit-card-tags">
+                    <span class="t-tag">Aide à la décision</span><span class="t-tag">Multi-indicateurs</span>
+                </div>
+                </a>
+
+                <a class="toolkit-card" href="/explainers/land-health-indicators/">
+
+                <div class="toolkit-card-thumb">
+                    <img src="/assets/toolkit/indicator_exp.png" alt="Aperçu des tableaux de bord K4GGWA">
+                </div>
+
+                <div class="toolkit-card-top">
+                    <div class="toolkit-card-title">Fiches explicatives des indicateurs</div>
+                    <div class="toolkit-card-tag">Guide</div>
+                </div>
+                <p class="toolkit-card-desc">
+                    Ce que signifie chaque indicateur, comment l’interpréter et les points d’attention (échelle, incertitude, seuils).
+                </p>
+                <div class="toolkit-card-tags">
+                    <span class="t-tag">Interprétation</span><span class="t-tag">Incertitude</span><span class="t-tag">Méthodes</span>
+                </div>
+                </a>
+
+                <a class="toolkit-card" href="https://k4ggwa.thegrit.earth/content/state_of_land/reports/Flood_Story/flood_story.html">
+
+                <div class="toolkit-card-thumb">
+                    <img src="/assets/toolkit/clim_risk.png" alt="Aperçu des tableaux de bord K4GGWA">
+                </div>
+
+                <div class="toolkit-card-top">
+                    <div class="toolkit-card-title">Risque climatique dans la région de la GMV</div>
+                    <div class="toolkit-card-tag">Analyse approfondie</div>
+                </div>
+                <p class="toolkit-card-desc">
+                    Explorer des cartes fines des risques d’inondation et de sécheresse dans la région de la GMV.
+                </p>
+                <div class="toolkit-card-tags">
+                    <span class="t-tag">Cartes</span><span class="t-tag">Risque climatique</span><span class="t-tag">Étude de cas</span>
+                </div>
+                </a>
+
+            </div>
+
+            
+            <div class="toolkit-tutorial-link">
+                <div class="toolkit-tutorial-icon">
+                    <img
+                    src="/assets/toolkit/tutorial_icon1.png"
+                    alt="Icône de notebook de tutoriel"
+                    loading="lazy"
+                    >
+                </div>
+
+                <div class="toolkit-tutorial-text">
+                    <a href="/tutorials/landscape-assessment/">
+                    <b>Tutoriel&nbsp;:</b> Bientôt disponible&nbsp;!
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- 02 -->
+    
+    <section class="toolkit-panel" id="targeting">
+
+          <button
+            type="button"
+            class="toolkit-panel-toggle toolkit-panel-head"
+            aria-expanded="false"
+            aria-controls="targeting-body"
+        >
+            <div class="toolkit-panel-num">02</div>
+            <div class="toolkit-panel-text">
+            <h2 class="toolkit-panel-title">Ciblage et priorisation</h2>
+            <p class="toolkit-panel-subtitle">
+                Identifier où les interventions de restauration sont les plus faisables, les plus impactantes et les mieux alignées avec les objectifs définis.
+            </p>
+            </div>
+        </button>
+
+        <div class="toolkit-panel-body" id="targeting-body">
+
+            <div class="toolkit-section-explainer">
+                <p>
+                Le ciblage transforme le diagnostic paysager en décisions actionnables sur les lieux où les efforts de restauration ont le plus de chances de réussir et d’avoir un impact.
+                </p>
+
+                <p>
+                La priorisation consiste à sélectionner des emplacements où les processus de dégradation, le potentiel biophysique et/ou le contexte socio-économique s’alignent avec des objectifs de restauration précis et où l’on peut attendre des retours optimaux.
+                </p>
+
+                <p>
+                En combinant indicateurs spatiaux et seuils, le ciblage permet d’identifier les zones où le levier d’intervention est élevé, par rapport à celles où les risques, coûts ou incertitudes peuvent dépasser les bénéfices attendus. Les cartes aident à ancrer — et parfois à quantifier — ces décisions.
+                </p>
+            </div>
+
+            <div class="toolkit-callout toolkit-callout-evidence">
+                <h4 class="toolkit-callout-title">
+                    Pourquoi les preuves spatiales comptent à cette étape
+                </h4>
+                <div class="toolkit-callout-row">
+                    <div class="toolkit-callout-media">
+                    <img
+                        src="/assets/toolkit/target_map.png"
+                        alt="Carte de motifs spatiaux à l’échelle du paysage"
+                        loading="lazy"
+                    >
+                    </div>
+
+                    <div class="toolkit-callout-text">
+                    <p>
+                    Le ciblage et la priorisation nécessitent de traduire les objectifs du projet en critères spatiaux afin d’identifier les zones où les interventions ont le plus de chances de réussir. Par exemple, si l’objectif est de réduire l’érosion des sols et d’améliorer la fertilité et la capacité de rétention d’eau, des cartes de « hotspots » permettent de visualiser et de quantifier où l’érosion est élevée et où la fertilité/rétention d’eau sont faibles. Les décideurs peuvent ainsi mettre en balance plusieurs considérations — faisabilité, risques, retours et compromis — tout en restant transparents sur les hypothèses et les incertitudes.
+                    </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="toolkit-stakeholder-benefits">
+                <h4>À qui cela sert</h4>
+
+                <div class="toolkit-stakeholder-grid">
+
+                    <div class="toolkit-stakeholder">
+                    <div class="toolkit-stakeholder-icon">
+                        <img src="/assets/toolkit/govt_icon.png" alt="Acteurs gouvernementaux">
+                    </div>
+                    <div class="toolkit-stakeholder-title">Gouvernements</div>
+                    <div class="toolkit-stakeholder-desc">
+                        Priorisation transparente entre régions en combinant besoins, faisabilité et risques, pour une allocation défendable des ressources et une coordination entre ministères et agences.
+                    </div>
+                    </div>
+
+                    <div class="toolkit-stakeholder">
+                    <div class="toolkit-stakeholder-icon">
+                        <img src="/assets/toolkit/ngo_icon.svg" alt="ONG et acteurs de mise en œuvre">
+                    </div>
+                    <div class="toolkit-stakeholder-title">ONG et acteurs de mise en œuvre</div>
+                    <div class="toolkit-stakeholder-desc">
+                        Identifier des zones d’intervention faisables et éviter les sites à haut risque en détectant tôt les contraintes potentielles, afin de concentrer les efforts là où l’action a le plus de chances de réussir.
+                    </div>
+                    </div>
+
+                    <div class="toolkit-stakeholder">
+                    <div class="toolkit-stakeholder-icon">
+                        <img src="/assets/toolkit/donor_icon.svg" alt="Bailleurs et partenaires">
+                    </div>
+                    <div class="toolkit-stakeholder-title">Bailleurs et partenaires</div>
+                    <div class="toolkit-stakeholder-desc">
+                        Des preuves claires et comparables expliquant pourquoi les sites ont été priorisés, soutenant les décisions d’investissement, la diligence raisonnable et des cadres de résultats fondés sur des lignes de base mesurables.
+                    </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+            <div class="toolkit-feature">
+                <div class="toolkit-feature-left">
+                <div class="toolkit-feature-kicker">
+                    <span class="toolkit-feature-label">OUTIL D’AIDE À LA DÉCISION</span>
+                    <span class="toolkit-feature-pill">À la une</span>
+                </div>
+
+                <h3 class="toolkit-feature-title">Tableaux de bord K4GGWA</h3>
+
+                <p class="toolkit-feature-desc">
+                    Analyses paysagères pour la région de la GMV couvrant le risque climatique, la santé des terres, la dynamique de la végétation et la biodiversité.
+                </p>
+
+                <div class="toolkit-feature-bullets">
+                    <div class="tf-bullet">
+                    <span class="tf-dot"></span>
+                    <span><strong>Indicateurs composites</strong> pour visualiser plusieurs variables de santé des terres à la fois</span>
+                    </div>
+                    <div class="tf-bullet">
+                    <span class="tf-dot"></span>
+                    <span><strong>Seuils explicites</strong> pour filtrer les zones d’intérêt</span>
+                    </div>
+                    <div class="tf-bullet">
+                    <span class="tf-dot"></span>
+                    <span><strong>Données exportables</strong> pour quantifier les variables et conduire des analyses complémentaires</span>
+                    </div>
+                </div>
+
+                <div class="toolkit-feature-ctas">
+                    <a class="toolkit-feature-cta primary" href="https://dashboards.cifor-icraf.org/app/k4ggwa">
+                    Explorer les tableaux de bord →
+                    </a>
+                </div>
+                </div>
+
+                <div class="toolkit-feature-right">
+                <div class="toolkit-feature-media">
+                    <img
+                    src="/assets/toolkit/dashboards1.png"
+                    alt="Exemple de résultats de ciblage et priorisation spatiale"
+                    loading="lazy"
+                    />
+                </div>
+                </div>
+            </div>
+
+            <div class="toolkit-cards">
+                <a class="toolkit-card" href="https://www.cifor-icraf.org/knowledge/video/v=MnMujVJdDUY/">
+
+                <div class="toolkit-card-thumb">
+                    <img src="/assets/toolkit/maps_video.png" alt="Aperçu des tableaux de bord K4GGWA">
+                </div>
+
+                <div class="toolkit-card-top">
+                    <div class="toolkit-card-title">Des cartes pour la restauration des terres</div>
+                    <div class="toolkit-card-tag">Explicatif</div>
+                </div>
+                <p class="toolkit-card-desc">
+                    Vidéo explicative sur l’utilisation des cartes et des données spatiales pour éclairer la planification de la restauration.
+                </p>
+                <div class="toolkit-card-tags">
+                    <span class="t-tag">Planification</span>
+                    <span class="t-tag">Faisabilité</span>
+                    <span class="t-tag">Compromis</span>
+                </div>
+                </a>
+
+                <a class="toolkit-card" href="https://africa-knowledge-platform.ec.europa.eu/">
+
+                <div class="toolkit-card-thumb">
+                    <img src="/assets/toolkit/akp.png" alt="Aperçu des tableaux de bord K4GGWA">
+                </div>
+
+                <div class="toolkit-card-top">
+                    <div class="toolkit-card-title">EU Science Hub : AFRICA Knowledge Platform</div>
+                    <div class="toolkit-card-tag">Plateforme de données</div>
+                </div>
+                <p class="toolkit-card-desc">
+                    Explorer des jeux de données et des outils thématiques à l’échelle du continent africain.
+                </p>
+                <div class="toolkit-card-tags">
+                    <span class="t-tag">Cartes</span>
+                    <span class="t-tag">Jeux de données</span>
+                    <span class="t-tag">Outils</span>
+                </div>
+                </a>
+
+                <a class="toolkit-card" href="https://www.worldagroforestry.org/output/decision-dashboards-0">
+
+                <div class="toolkit-card-thumb">
+                    <img src="/assets/toolkit/dd.png" alt="Aperçu des tableaux de bord K4GGWA">
+                </div>
+
+                <div class="toolkit-card-top">
+                    <div class="toolkit-card-title">Decision Dashboards</div>
+                    <div class="toolkit-card-tag">Guide</div>
+                </div>
+                <p class="toolkit-card-desc">
+                    Note d’information décrivant ce que sont les « decision dashboards » et comment ils peuvent soutenir la prise de décision et la planification fondées sur des preuves.
+                </p>
+                <div class="toolkit-card-tags">
+                    <span class="t-tag">Outils d’aide à la décision</span>
+                    <span class="t-tag">Preuves</span>
+                    <span class="t-tag">Planification</span>
+                </div>
+                </a>
+            </div>
+
+            <div class="toolkit-tutorial-link">
+                <div class="toolkit-tutorial-icon">
+                    <img
+                    src="/assets/toolkit/tutorial_icon1.png"
+                    alt="Icône de notebook de tutoriel"
+                    loading="lazy"
+                    >
+                </div>
+
+                <div class="toolkit-tutorial-text">
+                    <a href="/tutorials/landscape-assessment/">
+                    <b>Tutoriel&nbsp;:</b> Bientôt disponible&nbsp;!
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- 03 -->
+    <section class="toolkit-panel" id="design">
+
+        <button
+            type="button"
+            class="toolkit-panel-toggle toolkit-panel-head"
+            aria-expanded="false"
+            aria-controls="design-body"
+        >
+            <div class="toolkit-panel-num">03</div>
+            <div class="toolkit-panel-text">
+            <h2 class="toolkit-panel-title">Conception des interventions</h2>
+            <p class="toolkit-panel-subtitle">
+                Définir des actions de restauration appropriées en adaptant les interventions au contexte écologique, aux contraintes et aux objectifs.
+            </p>
+            </div>
+        </button>
+
+        <div class="toolkit-panel-body" id="design-body">
+
+            <div class="toolkit-section-explainer">
+                <p>
+                La conception des interventions consiste à décider quelles actions de restauration sont adaptées à un lieu donné, une fois les zones prioritaires identifiées.
+                </p>
+
+                <p>
+                Une conception efficace reconnaît que la restauration dépend du contexte. Le climat, les sols, l’occupation des terres, les processus de dégradation et les pratiques locales de gestion influencent les interventions faisables, durables et susceptibles de produire des résultats positifs.
+                </p>
+
+                <p>
+                Relier les preuves spatiales à des choix de conception concrets permet d’éviter les décalages entre ambition et contexte, de soutenir une planification réaliste et de réduire le risque d’échec pendant la mise en œuvre.
+                </p>
+            </div>
+
+            <div class="toolkit-callout toolkit-callout-evidence">
+                <h4 class="toolkit-callout-title">
+                    Pourquoi les preuves spatiales comptent à cette étape
+                </h4>
+
+                <div class="toolkit-callout-row">
+
+                    <div class="toolkit-callout-media">
+                    <img
+                        src="/assets/toolkit/intervention_map.jpg"
+                        alt="Contraintes spatiales et faisabilité à l’échelle du paysage"
+                        loading="lazy"
+                    >
+                    </div>
+
+                    <div class="toolkit-callout-text">
+                    <p>
+                        Les cartes aident à déterminer où différentes pratiques de restauration et espèces sont écologiquement adaptées. Par exemple : orienter la plantation d’arbres vers des zones aux pluies suffisantes et aux sols appropriés ; informer le choix d’espèces via des cartes de distribution et d’aptitude ; ou indiquer où la régénération naturelle assistée par les paysans (FMNR) et les pratiques de conservation des eaux et des sols sont plus adaptées que la plantation. En rendant explicites contraintes, risques et opportunités, les données spatiales aident à concevoir des projets faisables, optimisant les retours sur investissement, et transparents sur les hypothèses et les compromis.
+                    </p>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="toolkit-stakeholder-benefits">
+                <h4>À qui cela sert</h4>
+
+                <div class="toolkit-stakeholder-grid">
+
+                    <div class="toolkit-stakeholder">
+                    <div class="toolkit-stakeholder-icon">
+                        <img src="/assets/toolkit/govt_icon.png" alt="Acteurs gouvernementaux">
+                    </div>
+                    <div class="toolkit-stakeholder-title">Gouvernements</div>
+                    <div class="toolkit-stakeholder-desc">
+                        Conception fondée sur des preuves pour s’assurer que les actions de restauration répondent aux besoins et contraintes locales, protégeant les dépenses publiques et permettant des spécifications techniques claires pour l’achat et la mise en œuvre.
+                    </div>
+                    </div>
+
+                    <div class="toolkit-stakeholder">
+                    <div class="toolkit-stakeholder-icon">
+                        <img src="/assets/toolkit/ngo_icon.svg" alt="ONG et acteurs de mise en œuvre">
+                    </div>
+                    <div class="toolkit-stakeholder-title">ONG et acteurs de mise en œuvre</div>
+                    <div class="toolkit-stakeholder-desc">
+                        Améliore la faisabilité et l’efficacité en adaptant les types d’intervention aux conditions du site, aidant les équipes à choisir des méthodes appropriées (FMNR, plantation, conservation sol-eau) et à planifier la logistique, les coûts et le suivi.
+                    </div>
+                    </div>
+
+                    <div class="toolkit-stakeholder">
+                    <div class="toolkit-stakeholder-icon">
+                        <img src="/assets/toolkit/donor_icon.svg" alt="Bailleurs et partenaires">
+                    </div>
+                    <div class="toolkit-stakeholder-title">Bailleurs et partenaires</div>
+                    <div class="toolkit-stakeholder-desc">
+                        Renforce les dossiers d’investissement en montrant que les interventions sont conçues pour le contexte et le risque. Cela soutient la diligence raisonnable, des budgets réalistes et des théories du changement crédibles liées à des indicateurs mesurables.
+                    </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="toolkit-feature">
+                <div class="toolkit-feature-left">
+                <div class="toolkit-feature-kicker">
+                    <span class="toolkit-feature-label">APPLICATION</span>
+                    <span class="toolkit-feature-pill">À la une</span>
+                </div>
+
+                <h3 class="toolkit-feature-title">Application Africa Tree Finder</h3>
+
+                <p class="toolkit-feature-desc">
+                    Application simple d’utilisation présentant la distribution d’espèces d’arbres indigènes dans différents types de végétation naturelle, avec des informations sur les produits et services qu’elles peuvent fournir. Elle aide les praticiens à sélectionner les espèces les plus adaptées pour leurs efforts de restauration des paysages et d’agroforesterie.
+                </p>
+
+                <div class="toolkit-feature-bullets">
+                    <div class="tf-bullet">
+                    <span class="tf-dot"></span>
+                    <span><strong>Couverture</strong> : Burundi, Éthiopie, Kenya, Malawi, Rwanda, Tanzanie, Ouganda et Zambie. Version couvrant toute l’Afrique bientôt disponible.</span>
+                    </div>
+                    <div class="tf-bullet">
+                    <span class="tf-dot"></span>
+                    <span><strong>Aide à la décision</strong> pour sélectionner des espèces appropriées et filtrer selon l’usage souhaité</span>
+                    </div>
+                    <div class="tf-bullet">
+                    <span class="tf-dot"></span>
+                    <span><strong>BIENTÔT :</strong> tableau de bord panafricain sur l’aptitude et les propriétés fonctionnelles des espèces d’arbres</span>
+                    </div>
+                </div>
+
+                <div class="toolkit-feature-ctas">
+                    <a class="toolkit-feature-cta primary" href="https://play.google.com/store/apps/details?id=com.icraf.gsl.africatreefinder&hl=en">
+                    Télécharger Africa Tree Finder →
+                    </a>
+                </div>
+                </div>
+
+                <div class="toolkit-feature-right">
+                <div class="toolkit-feature-media">
+                    <img
+                    src="/assets/toolkit/atf_app1.png"
+                    alt="Surface d’aptitude des arbres"
+                    loading="lazy"
+                    />
+                </div>
+                </div>
+            </div>
+
+            <div class="toolkit-cards">
+                <a class="toolkit-card" href="https://patspo.shinyapps.io/UsefulTreeSpecies4Africa/">
+
+                <div class="toolkit-card-thumb">
+                    <img src="/assets/toolkit/utsa_app.png" alt="Aperçu des tableaux de bord K4GGWA">
+                </div>
+
+                <div class="toolkit-card-top">
+                    <div class="toolkit-card-title">Useful Tree Species for Africa App</div>
+                    <div class="toolkit-card-tag">Outil d’aptitude</div>
+                </div>
+                <p class="toolkit-card-desc">
+                    Application web de sélection d’espèces pour filtrer les espèces d’arbres adaptées aux projets de restauration basés sur l’arbre.
+                </p>
+                <div class="toolkit-card-tags">
+                    <span class="t-tag">Aptitude</span>
+                    <span class="t-tag">Arbres utiles</span>
+                    <span class="t-tag">Planification</span>
+                </div>
+                </a>
+
+                <a class="toolkit-card" href="https://campus.globallandscapesforum.org/GlobUNT">
+
+                <div class="toolkit-card-thumb">
+                    <img src="/assets/toolkit/globunt_app.png" alt="Aperçu des tableaux de bord K4GGWA">
+                </div>
+
+                <div class="toolkit-card-top">
+                    <div class="toolkit-card-title">Outil GlobUNT</div>
+                    <div class="toolkit-card-tag">Outil d’aptitude</div>
+                </div>
+                <p class="toolkit-card-desc">
+                    Tutoriel pour sélectionner des espèces d’arbres selon l’usage souhaité et l’aptitude au contexte écologique local.
+                </p>
+                <div class="toolkit-card-tags">
+                    <span class="t-tag">Espèces</span>
+                    <span class="t-tag">Espèces natives</span>
+                    <span class="t-tag">Biodiversité</span>
+                </div>
+                </a>
+
+                <a class="toolkit-card" href="https://dashboards.cifor-icraf.org/app/k4ggwa">
+
+                <div class="toolkit-card-thumb">
+                    <img src="/assets/toolkit/dashboards1.png" alt="Aperçu des tableaux de bord K4GGWA">
+                </div>
+
+                <div class="toolkit-card-top">
+                    <div class="toolkit-card-title">Tableau de bord K4GGWA</div>
+                    <div class="toolkit-card-tag">Tableau de bord</div>
+                </div>
+                <p class="toolkit-card-desc">
+                    Explorer interactivement et à différentes échelles le COS, le risque d’érosion, la dynamique de la végétation et les paramètres climatiques.
+                </p>
+                <div class="toolkit-card-tags">
+                    <span class="t-tag">Aide à la décision</span>
+                    <span class="t-tag">Preuves</span>
+                    <span class="t-tag">Réduction des risques</span>
+                </div>
+                </a>
+            </div>
+
+            <div class="toolkit-tutorial-link">
+                <div class="toolkit-tutorial-icon">
+                    <img
+                    src="/assets/toolkit/tutorial_icon1.png"
+                    alt="Icône de notebook de tutoriel"
+                    loading="lazy"
+                    >
+                </div>
+
+                <div class="toolkit-tutorial-text">
+                    <a href="/tutorials/landscape-assessment/">
+                    <b>Tutoriel&nbsp;:</b> Bientôt disponible&nbsp;!
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+
+    <!-- 04 -->
+    <section class="toolkit-panel" id="monitoring">
+
+        <button
+            type="button"
+            class="toolkit-panel-toggle toolkit-panel-head"
+            aria-expanded="false"
+            aria-controls="monitoring-body"
+        >
+            <div class="toolkit-panel-num">04</div>
+            <div class="toolkit-panel-text">
+            <h2 class="toolkit-panel-title">Suivi et gestion adaptative</h2>
+            <p class="toolkit-panel-subtitle">
+                Suivre les changements dans le temps, évaluer les résultats et ajuster les interventions à l’aide d’indicateurs cohérents.
+            </p>
+            </div>
+        </button>
+
+        <div class="toolkit-panel-body" id="monitoring-body">
+
+            <div class="toolkit-section-explainer">
+                <p>
+                Le suivi vise à comprendre comment les paysages évoluent après les interventions de restauration et si les tendances observées correspondent aux attentes et aux objectifs.
+                </p>
+
+                <p>
+                Plutôt que de s’appuyer sur des mesures ponctuelles, un suivi efficace utilise des analyses de séries temporelles pour distinguer un changement réel de la variabilité saisonnière, des fluctuations liées au climat, du bruit à court terme et d’autres facteurs de confusion.
+                </p>
+
+                <p>
+                En intégrant les résultats du suivi dans une gestion adaptative, les praticiens peuvent affiner les interventions et répondre aux risques émergents, améliorant les résultats au fil du temps.
+                </p>
+            </div>
+
+            <div class="toolkit-callout toolkit-callout-evidence">
+                <h4 class="toolkit-callout-title">
+                    Pourquoi les preuves spatiales comptent à cette étape
+                </h4>
+
+                <div class="toolkit-callout-row">
+
+                    <div class="toolkit-callout-media">
+                    <img
+                        src="/assets/toolkit/monitoring_map.png"
+                        alt="Motifs de changement spatial dans le temps"
+                        loading="lazy"
+                    >
+                    </div>
+
+                    <div class="toolkit-callout-text">
+                    <p>
+                        Le suivi et la gestion adaptative reposent sur la compréhension des changements au fil du temps. Des indicateurs spatialement explicites permettent de suivre des tendances de manière cohérente à l’échelle des paysages, de les comparer aux lignes de base pré-intervention, et de les interpréter dans le contexte de la variabilité climatique et d’autres facteurs de confusion. Cela permet de distinguer des signaux réels de rétablissement ou de déclin du bruit de court terme, et d’ajuster les actions au fur et à mesure de l’avancement du projet.
+                    </p>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="toolkit-stakeholder-benefits">
+                <h4>À qui cela sert</h4>
+
+                <div class="toolkit-stakeholder-grid">
+
+                    <div class="toolkit-stakeholder">
+                    <div class="toolkit-stakeholder-icon">
+                        <img src="/assets/toolkit/govt_icon.png" alt="Acteurs gouvernementaux">
+                    </div>
+                    <div class="toolkit-stakeholder-title">Gouvernements</div>
+                    <div class="toolkit-stakeholder-desc">
+                        Suivi systématique des résultats de restauration à travers programmes et régions pour le pilotage de la performance, des ajustements de politiques adaptatives, et l’alignement avec les cadres nationaux de reporting.
+                    </div>
+                    </div>
+
+                    <div class="toolkit-stakeholder">
+                    <div class="toolkit-stakeholder-icon">
+                        <img src="/assets/toolkit/ngo_icon.svg" alt="ONG et acteurs de mise en œuvre">
+                    </div>
+                    <div class="toolkit-stakeholder-title">ONG et acteurs de mise en œuvre</div>
+                    <div class="toolkit-stakeholder-desc">
+                        Apprendre par l’action en identifiant où les interventions fonctionnent, où les contraintes persistent et où la conception ou la gestion doit être adaptée en réponse aux résultats observés.
+                    </div>
+                    </div>
+
+                    <div class="toolkit-stakeholder">
+                    <div class="toolkit-stakeholder-icon">
+                        <img src="/assets/toolkit/donor_icon.svg" alt="Bailleurs et partenaires">
+                    </div>
+                    <div class="toolkit-stakeholder-title">Bailleurs et partenaires</div>
+                    <div class="toolkit-stakeholder-desc">
+                        Des preuves crédibles et comparables des progrès dans le temps pour le financement basé sur les résultats, une gestion adaptative de portefeuille et une redevabilité orientée apprentissage — au-delà d’une simple conformité.
+                    </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+            <div class="toolkit-feature">
+                <div class="toolkit-feature-left">
+                <div class="toolkit-feature-kicker">
+                    <span class="toolkit-feature-label">SUIVI</span>
+                    <span class="toolkit-feature-pill">À la une</span>
+                </div>
+
+                <h3 class="toolkit-feature-title">Regreening App</h3>
+
+                <p class="toolkit-feature-desc">
+                    Application Android gratuite, conçue pour la collecte de données de science citoyenne à l’échelle de la ferme sur les pratiques de restauration. Les modules couvrent la plantation d’arbres, la FMNR, la gestion des parcours, les pépinières et l’engagement.
+                </p>
+
+                <div class="toolkit-feature-bullets">
+                    <div class="tf-bullet">
+                    <span class="tf-dot"></span>
+                    <span>Outil de <strong>science citoyenne</strong> pour un suivi inclusif et évolutif de la restauration</span>
+                    </div>
+                    <div class="tf-bullet">
+                    <span class="tf-dot"></span>
+                    <span>Données d’intervention de restauration <strong>géolocalisées</strong> pour un suivi précis et transparent</span>
+                    </div>
+                    <div class="tf-bullet">
+                    <span class="tf-dot"></span>
+                    <span>Fonctionnement <strong>hors ligne</strong> pour les zones peu desservies ou à faible connectivité</span>
+                    </div>
+                </div>
+
+                <div class="toolkit-feature-ctas">
+                    <a class="toolkit-feature-cta primary" href="https://play.google.com/store/apps/details?id=com.icraf.gsl.regreeningafrica&hl=en">
+                    Télécharger Regreening App →
+                    </a>
+                    <a class="toolkit-feature-cta secondary" href="https://radrs.icraf.org/">
+                    Data Reporting System (DRS)
+                    </a>
+                </div>
+                </div>
+
+                <div class="toolkit-feature-right">
+                <div class="toolkit-feature-media">
+                    <img
+                    src="/assets/ra_app.png"
+                    alt="Regreening App"
+                    loading="lazy"
+                    />
+                </div>
+                </div>
+            </div>
+
+            <div class="toolkit-cards">
+                <a class="toolkit-card" href="https://dashboards.cifor-icraf.org/app/restoration_app">
+
+                <div class="toolkit-card-thumb">
+                    <img src="/assets/toolkit/monitoring_app.png" alt="Aperçu des tableaux de bord K4GGWA">
+                </div>
+
+                <div class="toolkit-card-top">
+                    <div class="toolkit-card-title">Application de suivi de la restauration</div>
+                    <div class="toolkit-card-tag">Tableau de bord</div>
+                </div>
+                <p class="toolkit-card-desc">
+                    Outil de suivi qui permet de visualiser des tendances de verdissement anormales dans les sites d’intervention.
+                </p>
+                <div class="toolkit-card-tags">
+                    <span class="t-tag">Tendances</span>
+                    <span class="t-tag">Anomalies</span>
+                    <span class="t-tag">Preuves</span>
+                </div>
+                </a>
+
+                <a class="toolkit-card" href="https://dashboards.cifor-icraf.org/app/k4ggwa">
+                
+                <div class="toolkit-card-thumb">
+                    <img src="/assets/toolkit/dashboards1.png" alt="Aperçu des tableaux de bord K4GGWA">
+                </div>
+
+                <div class="toolkit-card-top">
+                    <div class="toolkit-card-title">Tableau de bord K4GGWA</div>
+                    <div class="toolkit-card-tag">Tableau de bord</div>
+                </div>
+                <p class="toolkit-card-desc">
+                    Explorer interactivement et à différentes échelles le COS, le risque d’érosion, la dynamique de la végétation et les paramètres climatiques.
+                </p>
+                <div class="toolkit-card-tags">
+                    <span class="t-tag">Séries temporelles</span>
+                    <span class="t-tag">Analyse de tendances</span>
+                    <span class="t-tag">Santé des terres</span>
+                </div>
+                </a>
+
+                <a class="toolkit-card" href="https://www.cifor-icraf.org/publications/pdf/guide/CRS_CIFOR-ICRAF_Restoration-Monitoring-Guide.pdf">
+
+                <div class="toolkit-card-thumb">
+                    <img src="/assets/toolkit/monitoring_guide.png" alt="Aperçu des tableaux de bord K4GGWA">
+                </div>
+
+                <div class="toolkit-card-top">
+                    <div class="toolkit-card-title">Guide de suivi de la restauration</div>
+                    <div class="toolkit-card-tag">Guide</div>
+                </div>
+                <p class="toolkit-card-desc">
+                    Manuel de terrain pour techniciens sur le suivi de la restauration à l’échelle des bassins versants
+                </p>
+                <div class="toolkit-card-tags">
+                    <span class="t-tag">Suivi fondé sur des données</span>
+                    <span class="t-tag">Vérification terrain</span>
+                    <span class="t-tag">LDSF</span>
+                </div>
+                </a>
+            </div>
+
+            <div class="toolkit-tutorial-link">
+                <div class="toolkit-tutorial-icon">
+                    <img
+                    src="/assets/toolkit/tutorial_icon1.png"
+                    alt="Icône de notebook de tutoriel"
+                    loading="lazy"
+                    >
+                </div>
+
+                <div class="toolkit-tutorial-text">
+                    <a href="/tutorials/landscape-assessment/">
+                    <b>Tutoriel&nbsp;:</b> Bientôt disponible&nbsp;!
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- 05 -->
+    <section class="toolkit-panel" id="reporting">
+
+        <button
+            type="button"
+            class="toolkit-panel-toggle toolkit-panel-head"
+            aria-expanded="false"
+            aria-controls="reporting-body"
+        >
+            <div class="toolkit-panel-num">05</div>
+
+            <div class="toolkit-panel-text">
+            <h2 class="toolkit-panel-title">Reporting et apprentissage</h2>
+            <p class="toolkit-panel-subtitle">
+                Utiliser des preuves spatiales pour la redevabilité, la crédibilité et l’apprentissage des projets.
+            </p>
+            </div>
+        </button>
+
+        <div class="toolkit-panel-body" id="reporting-body">
+
+            <div class="toolkit-section-explainer">
+            <p>
+                Le reporting vise à transformer les preuves issues du suivi en livrables clairs et crédibles, afin d’assurer la redevabilité envers les bailleurs, les gouvernements et les parties prenantes.
+            </p>
+
+            <p>
+                Un reporting efficace synthétise plusieurs lignes de preuves en récits cohérents qui expliquent ce qui a changé, où, et pourquoi cela compte.
+            </p>
+
+            <p>
+                Combiné à un apprentissage structuré, le reporting soutient aussi l’amélioration continue : il aide les organisations à affiner leurs stratégies, comparer les approches et amplifier ce qui fonctionne à travers les paysages et les programmes.
+            </p>
+            </div>
+
+            <div class="toolkit-callout toolkit-callout-evidence">
+                <h4 class="toolkit-callout-title">
+                    Pourquoi les preuves spatiales comptent à cette étape
+                </h4>
+
+                <div class="toolkit-callout-row">
+
+                    <div class="toolkit-callout-media">
+                    <img
+                        src="/assets/toolkit/reporting_map.png"
+                        alt="Agrégation spatiale et cohérence des indicateurs"
+                        loading="lazy"
+                    >
+                    </div>
+
+                    <div class="toolkit-callout-text">
+                    <p>
+                    Le reporting est l’étape où les preuves sont consolidées, communiquées et rendues redevables. Des indicateurs spatialement explicites permettent une agrégation cohérente entre projets et régions, liée à des lignes de base convenues et interprétée avec des incertitudes appropriées.
+                    <br>
+                    Cela permet de rapporter les résultats et les progrès de manière transparente, quantitative et alignée avec les cadres de reporting nationaux, régionaux et des bailleurs.
+                    </p>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="toolkit-stakeholder-benefits">
+                <h4>À qui cela sert</h4>
+
+                <div class="toolkit-stakeholder-grid">
+
+                    <div class="toolkit-stakeholder">
+                    <div class="toolkit-stakeholder-icon">
+                        <img src="/assets/toolkit/govt_icon.png" alt="Acteurs gouvernementaux">
+                    </div>
+                    <div class="toolkit-stakeholder-title">Gouvernements</div>
+                    <div class="toolkit-stakeholder-desc">
+                        Reporting transparent et standardisé des résultats de restauration entre programmes et régions, soutenant la redevabilité nationale, la révision des politiques et l’alignement avec des cadres tels que LDN, les CDN (NDCs) et le reporting GMV.
+                    </div>
+                    </div>
+
+                    <div class="toolkit-stakeholder">
+                    <div class="toolkit-stakeholder-icon">
+                        <img src="/assets/toolkit/ngo_icon.svg" alt="ONG et acteurs de mise en œuvre">
+                    </div>
+                    <div class="toolkit-stakeholder-title">ONG et acteurs de mise en œuvre</div>
+                    <div class="toolkit-stakeholder-desc">
+                        Communication claire des résultats et des apprentissages aux partenaires et aux communautés, aidant les organisations à démontrer les effets, expliquer la variabilité et réfléchir à ce qui a fonctionné — et pourquoi.
+                    </div>
+                    </div>
+
+                    <div class="toolkit-stakeholder">
+                    <div class="toolkit-stakeholder-icon">
+                        <img src="/assets/toolkit/donor_icon.svg" alt="Bailleurs et partenaires">
+                    </div>
+                    <div class="toolkit-stakeholder-title">Bailleurs et partenaires</div>
+                    <div class="toolkit-stakeholder-desc">
+                        Des preuves comparables pour le reporting basé sur les résultats et la revue de portefeuille — soutenant la redevabilité, l’apprentissage et l’allocation stratégique de financements futurs.
+                    </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="toolkit-feature">
+                <div class="toolkit-feature-left">
+                <div class="toolkit-feature-kicker">
+                    <span class="toolkit-feature-label">OUTIL D’AIDE À LA DÉCISION</span>
+                    <span class="toolkit-feature-pill">À la une</span>
+                </div>
+
+                <h3 class="toolkit-feature-title">Tableaux de bord K4GGWA</h3>
+
+                <p class="toolkit-feature-desc">
+                    Analyses paysagères pour la région de la GMV couvrant le risque climatique, la santé des terres, la dynamique de la végétation et la biodiversité.
+                </p>
+
+                <div class="toolkit-feature-bullets">
+                    <div class="tf-bullet">
+                    <span class="tf-dot"></span>
+                    <span><strong>Visualiser et exporter</strong> des données cartographiques pour étayer des allégations de restauration</span>
+                    </div>
+                    <div class="tf-bullet">
+                    <span class="tf-dot"></span>
+                    <span>Analyses <strong>multi-indicateurs</strong> pouvant s’aligner sur différents cadres de reporting</span>
+                    </div>
+                    <div class="tf-bullet">
+                    <span class="tf-dot"></span>
+                    <span><strong>BIENTÔT :</strong> résumés quantitatifs de santé des terres pilotés par LLM</span>
+                    </div>
+                </div>
+
+                <div class="toolkit-feature-ctas">
+                    <a class="toolkit-feature-cta primary" href="https://dashboards.cifor-icraf.org/app/k4ggwa">
+                    Explorer les tableaux de bord →
+                    </a>
+                </div>
+                </div>
+
+                <div class="toolkit-feature-right">
+                <div class="toolkit-feature-media">
+                    <img
+                    src="/assets/toolkit/dashboards1.png"
+                    alt="Exporter des cartes du tableau de bord en PNG, CSV ou TIF"
+                    loading="lazy"
+                    />
+                </div>
+                </div>
+            </div>
+
+            <div class="toolkit-cards">
+                <a class="toolkit-card" href="https://thegreatgreenwall.org/harmonised">
+
+                <div class="toolkit-card-thumb">
+                    <img src="/assets/toolkit/ggw_o.png" alt="Aperçu des tableaux de bord K4GGWA">
+                </div>
+
+                <div class="toolkit-card-top">
+                    <div class="toolkit-card-title">Observatoire de la GMV</div>
+                    <div class="toolkit-card-tag">Plateforme</div>
+                </div>
+                <p class="toolkit-card-desc">
+                    Plateforme polyvalente dédiée au reporting des financements et des résultats vers les objectifs de l’Initiative Grande Muraille Verte du Sahara et du Sahel.
+                </p>
+                <div class="toolkit-card-tags">
+                    <span class="t-tag">Cadre de reporting</span>
+                    <span class="t-tag">Orientation</span>
+                    <span class="t-tag">GGW-Accelerator</span>
+                </div>
+                </a>
+
+                <a class="toolkit-card" href="https://www.unccd.int/resources/prais4-reporting-platform">
+
+                <div class="toolkit-card-thumb">
+                    <img src="/assets/toolkit/prais.png" alt="Aperçu des tableaux de bord K4GGWA">
+                </div>
+
+                    
+                <div class="toolkit-card-top">
+                    <div class="toolkit-card-title">Plateforme de reporting UNCCD PRAIS4</div>
+                    <div class="toolkit-card-tag">Plateforme</div>
+                </div>
+                <p class="toolkit-card-desc">
+                    Plateforme du système national de reporting de l’UNCCD.
+                </p>
+                <div class="toolkit-card-tags">
+                    <span class="t-tag">UNCCD</span>
+                    <span class="t-tag">Neutralité en matière de dégradation des terres</span>
+                    <span class="t-tag">Reporting</span>
+                </div>
+                </a>
+
+                <a class="toolkit-card" href="https://k4ggwa.thegrit.earth/content/restoration-stories/restoration_stories.html">
+
+                <div class="toolkit-card-thumb">
+                    <img src="/assets/toolkit/sor.png" alt="Aperçu des tableaux de bord K4GGWA">
+                </div>
+
+                <div class="toolkit-card-top">
+                    <div class="toolkit-card-title">Récits de restauration</div>
+                    <div class="toolkit-card-tag">Récits</div>
+                </div>
+                <p class="toolkit-card-desc">
+                    Des exemples concrets reliant les preuves aux résultats, aux leçons apprises et aux réalités vécues.
+                </p>
+                <div class="toolkit-card-tags">
+                    <span class="t-tag">Apprentissage</span>
+                    <span class="t-tag">Impact</span>
+                    <span class="t-tag">Récits</span>
+                </div>
+                </a>
+            </div>
+
+            <div class="toolkit-tutorial-link">
+                <div class="toolkit-tutorial-icon">
+                    <img
+                    src="/assets/toolkit/tutorial_icon1.png"
+                    alt="Icône de notebook de tutoriel"
+                    loading="lazy"
+                    >
+                </div>
+
+                <div class="toolkit-tutorial-text">
+                    <a href="https://k4ggwa.thegrit.earth/content/state_of_land/tutorials/intro.html">
+                    <b>Tutoriel&nbsp;:</b> Bientôt disponible&nbsp;!
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <hr class="section-divider" />
+
+    <section class="toolkit-cred">
+      <h2 class="toolkit-h3">En savoir plus</h2>
+            <div class="toolkit-cards">
+                <a class="toolkit-card" href="https://k4ggwa.thegrit.earth/content/restoration-stories/posts/28-10-2024/restoration-predictive.html">
+
+                <div class="toolkit-card-thumb">
+                    <img src="/assets/toolkit/pred_mod.png" alt="Aperçu des tableaux de bord K4GGWA">
+                </div>
+
+                <div class="toolkit-card-top">
+                    <div class="toolkit-card-title">Modélisation prédictive pour la restauration</div>
+                    <div class="toolkit-card-tag">Guide</div>
+                </div>
+                <p class="toolkit-card-desc">
+                    Découvrir comment les cartes prédictives sont produites, de la collecte de données brutes sur le terrain jusqu’aux analyses et aux résultats.
+                </p>
+            
+                </a>
+
+                <a class="toolkit-card" href="https://k4ggwa.thegrit.earth/content/restoration-stories/posts/27-10-2024/regreening_app.html">
+
+                <div class="toolkit-card-thumb">
+                    <img src="/assets/toolkit/ra_app1.png" alt="Aperçu des tableaux de bord K4GGWA">
+                </div>
+
+                    
+                <div class="toolkit-card-top">
+                    <div class="toolkit-card-title">Regreening App</div>
+                    <div class="toolkit-card-tag">Application mobile</div>
+                </div>
+                <p class="toolkit-card-desc">
+                    En savoir plus sur les fonctionnalités de cet outil de collecte de données de science citoyenne pour le suivi des projets de restauration.
+                </p>
+                </a>
+
+                <a class="toolkit-card" href="https://ldsf.thegrit.earth/">
+
+                <div class="toolkit-card-thumb">
+                    <img src="/assets/toolkit/ldsf.png" alt="Aperçu des tableaux de bord K4GGWA">
+                </div>
+
+                <div class="toolkit-card-top">
+                    <div class="toolkit-card-title">Land Degradation Surveillance Framework (LDSF)</div>
+                    <div class="toolkit-card-tag">Échantillonnage de données</div>
+                </div>
+                <p class="toolkit-card-desc">
+                    En savoir plus sur le Land Degradation Surveillance Framework — le protocole d’échantillonnage à l’origine de la plus grande bibliothèque systématique et géoréférencée au monde de spectres infrarouges de sols.
+                </p>
+                </a>
+            </div>
+    </section>
+
+  </main>
+</div>
+```

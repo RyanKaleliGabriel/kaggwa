@@ -1,0 +1,18 @@
+# ~ Team script storage ~
+
+Purpose: centralised storage for scripts used to produce web maps throughout the report, for reusability etc
+
+# How to add:
+
+1. Create a folder under a section:
+   `analysis/climate/precipitation/`
+
+2. Add your scripts and a `notes.md` with:
+   - What script does
+   - Inputs - links/paths (STAC url or other)
+   - Outputs - files written to `assets/maps/data/`
+   - How to run: commands/env
+
+# other notes:
+    - One folder per analysis, author initials + year.
+    - Keep outputs web-ready (GeoJSON/TopoJSON/COG).

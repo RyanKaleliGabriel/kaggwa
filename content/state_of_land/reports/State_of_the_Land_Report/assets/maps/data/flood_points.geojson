@@ -1,0 +1,10 @@
+{
+"type": "FeatureCollection",
+"name": "flood_points",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "id": 1, "title": "2024 Lake Chad Basin Floods", "caption": "Lake Chad: a transboundary inland lake whose receding shoreline and floodplains\n     illustrate how changing rainfall and water management shape flood risk.<a href='https://news.mongabay.com/short-article/2024/09/heavy-rains-in-lake-chad-basin-leave-hundreds-dead-across-countries/#:~:text=At%20least%20621%20people%20have%20been%20killed%20and,experienced%20some%20of%20their%20heaviest%20rains%20in%20decades.' target='_blank'>For example, the July 2024 floods resulted in more than 621 dead, and 1.2 million displaced. </a>", "img": "assets/images/flood_img.png" }, "geometry": { "type": "Point", "coordinates": [ 14.5, 13.1 ] } },
+{ "type": "Feature", "properties": { "id": 2, "title": "2024 Sudan Northern Region Floods", "caption": "Northern Sudan: flash flood–prone wadis and ephemeral rivers crossing drylands highlight the interaction between intense rainfall and fragile soils.<a href='https://www.unocha.org/publications/report/sudan/sudan-humanitarian-impact-heavy-rains-and-flooding-flash-update-no-04-5-september-2024' target='_blank'>The June-August 2024 floods demonstrate the vulnerability of communities in this area.</a>", "img": "assets/images/flood_img2.png" }, "geometry": { "type": "Point", "coordinates": [ 30.5, 18.5 ] } },
+{ "type": "Feature", "properties": { "id": 3, "title": "2024 Dakar, Senegal Floods", "caption": "Dakar, Senegal: a rapidly urbanising coastal city where intense rainfall,impermeable surfaces and drainage constraints <a href='https://www.wacaprogram.org/article/floods-senegal-are-retention-basins-part-solution#:~:text=For%20more%20than%20twenty%20years,plague%20struggle%20to%20give%20results.' target='_blank'>combine to create destructive floods</a>", "img": "assets/images/flood_img1.png" }, "geometry": { "type": "Point", "coordinates": [ -17.45, 14.7 ] } }
+]
+}
