@@ -59,7 +59,7 @@ jobs:
               run: wget https://cran.r-project.org/src/contrib/Archive/leaflet.extras/leaflet.extras_2.0.1.tar.gz
               
             - name: Install R packages
-              run: Rscript deployment/packages.R
+              run: sudo Rscript deployment/packages.R
 
 
             - name: Compile the platform
