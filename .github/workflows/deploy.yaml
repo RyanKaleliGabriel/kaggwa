@@ -15,60 +15,60 @@ jobs:
               with:
                 lfs: true
             
-            # - name: Install system packages and R binary
-            #   run: |
-            #     sudo apt-get update
-            #     sudo apt-get install -y \
-            #         r-base \
-            #         wget \
-            #         gdebi-core \
-            #         libcurl4-openssl-dev \
-            #         libssl-dev \
-            #         libxml2-dev \
-            #         git \
-            #         libudunits2-dev \
-            #         libgdal-dev \
-            #         libgeos-dev \
-            #         libproj-dev \
-            #         vim \
-            #         cmake \
-            #         libfontconfig-dev \
-            #         libharfbuzz-dev \
-            #         libfribidi-dev \
-            #         curl \
-            #         libmbedtls-dev \
-            #         libnng-dev \
-            #         xz-utils \
-            #         lbzip2 \
-            #         libcloudproviders0
+            - name: Install system packages and R binary
+              run: |
+                sudo apt-get update
+                sudo apt-get install -y \
+                    r-base \
+                    wget \
+                    gdebi-core \
+                    libcurl4-openssl-dev \
+                    libssl-dev \
+                    libxml2-dev \
+                    git \
+                    libudunits2-dev \
+                    libgdal-dev \
+                    libgeos-dev \
+                    libproj-dev \
+                    vim \
+                    cmake \
+                    libfontconfig-dev \
+                    libharfbuzz-dev \
+                    libfribidi-dev \
+                    curl \
+                    libmbedtls-dev \
+                    libnng-dev \
+                    xz-utils \
+                    lbzip2 \
+                    libcloudproviders0
 
-            # - name: Set up Quarto
-            #   uses: quarto-dev/quarto-actions/setup@v2
-            #   with:
-            #     version: 1.8.27
+            - name: Set up Quarto
+              uses: quarto-dev/quarto-actions/setup@v2
+              with:
+                version: 1.8.27
 
-            # - name: Set up python
-            #   uses: actions/setup-python@v5
-            #   with:
-            #     python-version: "3.12"
+            - name: Set up python
+              uses: actions/setup-python@v5
+              with:
+                python-version: "3.12"
 
-            # - name: Run package check
-            #   run: python3 deployment/prebuild_check.py
+            - name: Run package check
+              run: python3 deployment/prebuild_check.py
 
-            # - name: Download R archived packages
-            #   run: wget https://cran.r-project.org/src/contrib/Archive/leaflet.extras/leaflet.extras_2.0.1.tar.gz
+            - name: Download R archived packages
+              run: wget https://cran.r-project.org/src/contrib/Archive/leaflet.extras/leaflet.extras_2.0.1.tar.gz
               
-            # - name: Install R packages
-            #   run: Rscript deployment/packages.R
+            - name: Install R packages
+              run: Rscript deployment/packages.R
 
 
-            # - name: Compile the platform
-            #   run: quarto render
+            - name: Compile the platform
+              run: quarto render
 
             - name: Deploy to deploy branch
               uses: peaceiris/actions-gh-pages@v3
               with:
                   github_token: ${{ secrets.GITHUB_TOKEN }}
-                  publish_dir: .
+                  publish_dir: ./_site
                   publish_branch: deploy
 
