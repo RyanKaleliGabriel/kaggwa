@@ -1,3 +1,6 @@
+![Deployment](https://github.com/RyanKaleliGabriel/kaggwa/actions/workflows/deploy.yaml/badge.svg)
+
+
 # The K4GGWA knowledge platform
 
 This repository contains the code for the K4GGWA knowledge platform, built with Quarto. The K4GGWA dashboard is developed separately using Julia Genie and deployed on a separate repository.
