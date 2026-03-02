@@ -1,6 +1,5 @@
 ![Deployment](https://github.com/RyanKaleliGabriel/kaggwa/actions/workflows/deploy.yaml/badge.svg)
-![Live Deployment](https://img.shields.io/webiste?url=https://dashboards.cifor-icraf.org/k4ggwa/)
-![Live Deployment](https://img.shields.io/website?url=https://dashboards.cifor-icraf.org/)
+![Live Deployment](https://img.shields.io/website?url=https://speclim-dev.cifor-icraf.org/)
 
 # The K4GGWA knowledge platform
 
