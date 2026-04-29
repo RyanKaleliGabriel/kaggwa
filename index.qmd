@@ -42,7 +42,7 @@ listing:
 
   <div class="hero-inner">
     <div class="hero-text">
-      <h2 class="hero-heading">Welcome to the<br>K4GGWA Platform!</h2>
+      <h2 class="hero-heading">Welcome to the<br>K4GGWAAAAAA Platform!</h2>
       <p class="hero-subtitle">
         Data, evidence and tools to support Great Green Wall decision-making -
         from landscape health analytics to citizen science and restoration stories
