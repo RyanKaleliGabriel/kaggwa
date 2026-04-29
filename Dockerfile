@@ -39,7 +39,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 # WORKDIR /app
 
 # Copy project filesrm 
-COPY . .
+# COPY . .
 
 # Install R packages from your packages.R
 RUN Rscript deployment/packages.R
