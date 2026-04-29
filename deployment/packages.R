@@ -20,7 +20,8 @@ required_packages <- c(
     'lwgeom',
     'plotly',
     'leaflet',
-    'rmapshaper'
+    'rmapshaper',
+    'rmarkdown'
 )
 
 archived_packages <- c(
